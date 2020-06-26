@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Too Many Colours!</title>
+    <style>
+    
+    .top {
+        font-family: sans-serif;
+        text-align: Center;
+        background-color: rgb(181, 181, 181);
+    }
+    
+    .top:hover {
+        background-color: Grey;
+    }
+    
+    body {
+        font-family: sans-serif;
+        text-align: Center;
+    }
+    
+    .r:hover {
+        color: White;
+        background-color: Red;
+    }
+    
+    .g:hover {
+        color: White;
+        background-color: Green;
+    }
+    
+    .b:hover {
+        color: White;
+        background-color: Blue;
+    }
+    
+    .c:hover {
+        color: White;
+        background-color: Cyan;
+    }
+    
+    .y:hover {
+        color: White;
+        background-color: Yellow;
+    }
+    
+    .m:hover {
+        color: White;
+        background-color: Magenta;
+    }
+    
+    .k:hover {
+        color: White;
+        background-color: Black;
+    }
+    
+    .w:hover {
+        background: White;
+        color: White;
+    }
+    
+    .n:hover {
+        color: White;
+        background: Brown;
+    }
+    
+    .a:hover {
+        color: White;
+        background-color: Grey;
+    }
+    
+    .pu:hover {
+        color: White;
+        background: Purple;
+    }
+    
+    .pi:hover {
+        color: White;
+        background: Pink;
+    }
+    
+    .s:hover {
+        color: White;
+        background: Salmon;
+    }
+    
+    </style>
+    </head>
+    <body>
+    
+    <h1 class="top">Too Many Colours!</h1>
+    
+    <p>Hover over the words to see what colour they are!<br><br></p>
+    
+    <h2 class="r">Red</h2>
+    <h2 class="g">Green</h2>
+    <h2 class="b">Blue</h2>
+    <h2 class="c">Cyan</h2>
+    <h2 class="y">Yellow</h2>
+    <h2 class="m">Magenta</h2>
+    <h2 class="k">Black</h2>
+    <h2 class="w">White</h2>
+    <h2 class="n">Brown</h2>
+    <h2 class="a">Grey</h2>
+    <h2 class="pu">Purple</h2>
+    <h2 class="pi">Pink</h2>
+    <h2 class="s">Salmon</h2>
+    
+    <h1><br></h1>
+    <h3 class="top">Was that a lot of colours!??</h3>
+    </body>
+</html>
