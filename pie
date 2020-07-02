@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>How to eat pie</title>
+    </head>
+    <style>
+        body {
+            background: LightGrey;
+        }
+        
+        #INTO {
+            color: rgb(21, 173, 7);
+            font-family: sans-serif;
+        }
+        
+    </style>
+    <body>
+        
+        <h1 style=" color: Blue;  text-decoration: Underline; font-family: sans-serif; text-align: Center;">How to eat pie</h1>
+        
+        <div id="INTO">
+        <h3>See theese instructions on how to eat pie:</h3>
+        
+    <ol>
+        
+        <li>Take the pie</li>
+        <li>Put it in your mouth</li>
+        <li>Bite into it</li>
+        <li>Repeat 1-3 untill no more pie left</li>
+        <li>Congrats! You just ate pie!</li>
+        
+    </ol>
+        </div>
+        
+        <img src="https://images-gmi-pmc.edge-generalmills.com/94323808-18ab-4d37-a1ef-d6e1ff5fc7ae.jpg" alt="Pie" style=" text-align: Center;">
+        
+    </body>
+</html>
