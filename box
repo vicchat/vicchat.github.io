@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Boxes</title>
+    </head>
+    <style>
+        
+        body{
+            font-family: sans-serif;
+            background: Black;
+            color: White;
+        }
+        
+        .title{
+            text-decoration: underline;
+        }
+        
+        .title:hover{
+            color:black;
+            background: White;
+            text-decoration: none;
+            margin: -8px;
+            padding: 30px;
+        }
+        
+        .img{
+            border: 35px ridge brown;
+        }
+        
+        a{
+            text-decoration: None;
+            color: White;
+        }
+        
+        a:hover{
+            color: Black;
+        }
+        
+    </style>
+    <body>
+        
+        <h1 class="title">Boxes</h1>
+        <br>
+        <p>Here are some boxes!:</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRitDeUKOzNFXHW8Ds5eLiWCTejcJnMFF_w6g&usqp=CAU" alt="Cardboard box" class="img">
+        <br><br>
+        <img src="https://images.uline.com/is/image/content/dam/images/S/S4500/S-4307.jpg?$Mobile_SI$&iccEmbed=1&icc=AdobeRGB" alt="Other cardboard box" class="img">
+        <br><br>
+        <img src="https://www.ikea.com/ca/en/images/products/tjena-storage-box-with-lid-black__0711014_PE727895_S5.JPG" alt="Black box" class="img">
+        <br><br>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71YpspDLmtL._AC_SY355_.jpg" alt="Pile of small cardboard boxes" class="img">
+        <br><br>
+        <img src="https://s7d2.scene7.com/is/image/homedepotcanada/p_1000138864.jpg" alt="Outdoor deck box" class="img">
+        <br><br>
+        <h4 class="title"><a href="https://vicchat.github.io">&lt;Back</a></h4>
+    </body>
+</html>
