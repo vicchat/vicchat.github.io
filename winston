@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Using the event properties</title>
+        <style>
+        .beard {
+              	background: black;
+         		width: 5px;
+         		height: 5px;
+         		position: absolute;
+         		border-radius: 2px;
+         		top: 80px;
+         		left: 15px;
+         	}
+        </style>
+    </head>
+    <body>
+    
+    <img id="face" src="https://www.kasandbox.org/programming-images/creatures/Winston.png">
+    <div id="message"></div>
+    
+    <script>
+    
+    var face = document.getElementById("face");
+    
+    var onMouseMove = function(event) {
+        console.log(event);
+        document.getElementById("message").textContent += "mooove ";         var beard = document.createElement("div");
+        beard.className = "beard";
+        document.body.appendChild(beard);
+        beard.style.top = event.clientY + "px";
+        beard.style.left = event.clientX + "px";
+        
+    };
+    
+    face.addEventListener("mousemove", onMouseMove);
+    </script>
+    </body>
+</html>
