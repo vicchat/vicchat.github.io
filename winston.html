@@ -16,7 +16,8 @@
         </style>
     </head>
     <body>
-    
+        <button id="print" style=" text-align: Right;">Print this lovley picture!</button>
+        
         <img id="face" src="https://www.kasandbox.org/programming-images/creatures/Winston.png">
         <br>
         <h4>Winston (NOT an emoji:<a href="https://www.kasandbox.org/programming-images/creatures/Winston.png">https://www.kasandbox.org/programming-images/creatures/Winston.png</a>.)</h4>
@@ -24,6 +25,8 @@
     
     <script>
     
+    var print = document.getElementById("print");    
+        
     var face = document.getElementById("face");
     
     var onMouseMove = function(event) {
@@ -36,7 +39,13 @@
         
     };
     
+    var clicked = function() {
+        print()
+    }
+        
     face.addEventListener("mousemove", onMouseMove);
+    print.addEventListener("click", clicked);    
+        
     </script>
     </body>
 </html>
