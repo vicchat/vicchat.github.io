@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>4 x 2(+) Table</title>
+        <style>
+            
+            body {
+                text-align: Center;
+                background-color: darkGrey;
+            }
+            
+            #i {
+                background: red;
+                color: white;
+            }
+            
+            #h1 {
+                background: Red;
+                color: white/*Blue*/;
+            }
+            
+            .h {
+                color: White;
+            }
+            
+            .i {
+                color: Blue;
+            }
+            
+            .j {
+                color: Red;
+            }
+            
+        </style>
+    </head>
+    <body>
+    <h1><input id="h1"><br></h1>
+        <input class="h"><input class="i"><input class="i"><input class="i"><br><input class="j"><input><input><input><br><div id="d"></div><br>
+        
+        <button id="i">+</button>
+    </body>
+    <script>
+        
+        var i = document.getElementById("i");
+        
+        
+        var ic = function() {
+            
+            document.getElementById("d").innerHTML += "<input class='j'><input><input><input><br>";
+            
+        };
+        
+        
+        i.addEventListener("click", ic);
+        
+    </script>
+</html>
