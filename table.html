@@ -10,7 +10,7 @@
                 background-color: darkGrey;
             }
             
-            .b {
+            #i {
                 background: red;
                 color: white;
             }
@@ -35,15 +35,14 @@
         </style>
     </head>
     <body>
-    <h1><input id="h1" placeholder="Title Here"><br></h1>
-        <input class="h"><input class="i"><input class="i"><input class="i"><div class="e"></div><button class="b" id="j">+</button><br><input class="j"><input><input><input><div class="e"></div><br><div id="d"></div><br>
+    <h1><input id="h1"><br></h1>
+        <input class="h"><input class="i"><input class="i"><input class="i"><br><input class="j"><input><input><input><br><div id="d"></div><br>
         
-        <button class="b" id="j">+</button>
+        <button id="i">+</button>
     </body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
         
-        /*var i = document.getElementById("i");
+        var i = document.getElementById("i");
         
         
         var ic = function() {
@@ -53,22 +52,7 @@
         };
         
         
-        i.addEventListener("click", ic);*/
-        
-        
-        
-        $("#i").on("click", function(event){
-            
-            var newR = $("<div>")
-                .html("<input class='j'><input><input><input><div class='e'></div><br>")
-                .appendTo("#d");
-        });
-        
-        $("#j").on("click", function(event){
-            var newC = $("<div>")
-                .html("<input>")
-                .appendTo(".e");
-        });
+        i.addEventListener("click", ic);
         
     </script>
 </html>
