@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>How to type áçšëñţš on a computer!</title>
+    </head>
+    <style>
+        
+    h1 {
+        text-align: center;
+        font-family: sans-serif;
+        text-decoration: Underline;
+        border: solid 1px lightGrey;
+        margin: -9px;
+        padding: 20px;
+        background-color: darkRed;
+        color: White;
+        position: fixed;
+        text-align: justify;
+        width: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000px;
+        /*padding: auto;*/
+    }
+    
+    h1:hover {
+        color: darkRed;
+        background-color: White;
+    }
+    
+    h3 {
+        font-family: sans-serif;
+    }
+    
+    #device {
+        height: 200px;
+        font-size: 120px;
+        border: solid 1px grey;
+    }
+    
+    [c = n] {
+        color: darkRed;
+    }
+    
+    [c = a] {
+        background-color: darkRed;
+        color: white;
+    }
+    
+    #button {
+        border: solid 2px grey;
+        width: 400px;
+        height: 200px;
+        font-size: 175px;
+    }
+    
+    #button:active {
+        border-width: 1px;
+    }
+    
+    </style>
+    <body>
+        <h1>How to type áçšëñţš on a computer!</h1><br><br><br><br>
+        
+        <h3 c="n">Which device are you on?</h3>
+        <select id="device" c="a">
+            <option value="0">Yet to be selected (please select)</option>
+            <option value="1">Mac</option>
+            <option value="2">PC</option>
+            <option value="3">Tablet or smartphone</option>
+        </select><br><br>
+        
+        <button id="button" c="a">Go!</button><br>
+        
+        <div c="n" id="go"></div>
+        
+    </body>
+    <script>
+        
+        var button = document.getElementById("button");
+        
+        var onButtonClick = function() {
+            //document.getElementById("go").textContent = "test... okay, It WORKED!!!";
+            
+            var device = document.getElementById("device").value;
+            
+            var info;
+            if(device === "1") {
+                info = "Hold down the key you want to type an acsent on!";
+            } else if (device === 3) {
+                info = "Hold down the key you want to type an acsent on!";
+            } else {
+                info = "Go to your notifacation menu, turn ON tablet mode, click the on-screen keyboard button, then click and hold on the letter you want to type!";
+            }
+            
+            document.getElementById("go").textContent = info;
+        };
+        
+        button.addEventListener("click", onButtonClick);
+        
+    </script>
+</html>
