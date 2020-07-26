@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charaset="uft-8">
+        <title>OK SIR</title>
+    </head>
+    <body>
+    
+    <h1>OKSIRTYPEINTHEBOGXFORSOMOKSIRNESSZ</h1>
+        <input><button>Click me or press enter!</button><span></span>
+        
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        
+        var texas = $("span");
+        var booton = $("button");
+        var inpoot = $("input");
+        
+        $("body").on("keypress", function(key){
+            if (key.keyCode === 13) {
+                texas.text("OK SIR");
+            }
+        });
+        
+        booton.on("click", function(){
+            texas.text("OK SIR");
+        });
+        
+        inpoot.on("click", function(){
+            texas.html("")
+        });
+        
+    </script>
+</html>
