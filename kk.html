@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>Key Code</title>
+        <meta charaset="uft-8">
+    </head>
+    <style>
+        
+        body {
+            font-family: sans-serif;
+            color: white;
+            background: Black;
+        }
+        
+        h1 {
+            font-family: fantasy;
+        }
+        
+        .note {
+            font-family: serif;
+            background-color: rgb(222, 215, 16);
+            color: black;
+        }
+        
+    </style>
+    <body>
+        
+        <h1>Key Codes</h1>
+        
+        <p><strong>Key Codes</strong> are codes for computer keys, and they are there for programing websites using <em>JavaScript</em> and <em>proccessingJS</em>.</p>
+        
+        <p>Try it out! <span class="note"><em>(NOTE: keys like SHIFT, ALT, CTRL(CMD), and arrow keys use the code of there name.</em></span></p>
+        
+        <canvas id="canvas"></canvas>
+        
+    </body>
+    
+  <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+    
+    <script>
+    var programCode = function(processingInstance) {
+        with (processingInstance) {
+            size(400, 400); 
+            frameRate(30);
+            
+            background(255, 255, 255)
+            var keyPressed = function() {
+        
+            background(255, 255, 255);
+            textSize(40);
+            fill(255, 0, 0);
+            // Display current key
+            text(key, 100, 100);
+            text(key.code, 200, 100);
+            
+            // Conditionally display based on string value 
+            if (key.toString() === '!') {
+            text("I'm excited too!!", 100, 150);
+            }
+            // Or based on the numeric code - type * key to see
+            if (key.code === 42) {
+            text("You're a star!", 100, 150);
+            }
+        };
+
+      
+    }};
+    
+    var canvas = document.getElementById("canvas"); 
+    
+    var processingInstance = new Processing(canvas, programCode); 
+  </script>
+</html>
