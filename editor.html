@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HTML code editor simulator</title>
+    </head>
+    <style> /* The style of the webpage (duh) */
+        
+        textarea {
+            resize: none;
+            position: absolute;
+            font-family: monospace;
+            width: 400px;
+            height: 300px;
+            font-size: 14px;
+            top: 150px;
+            left: 50px;
+        }
+        
+        #div {
+            border: solid 1px grey;
+            position: absolute;
+            left: 455px;
+            top: 150px;
+            width: 400px;
+            height: 304px;
+        }
+        
+        #run {
+            position: absolute;
+            top: 460px;
+            left: 460px;
+            z-index: 2;
+        }
+        
+        .button {
+            border: dotted 3px red;
+            border-radius: 100px;
+            background-color: lightGreen;
+            color: black;
+            width: 100px;
+            height: 50px;
+            font-size: 30px;
+            
+        }
+        
+        .button:hover {
+            border-color: darkRed;
+        }
+        
+        .button:active {
+            background-color: rgb(28, 186, 131);
+            border-color: red;
+        }
+        
+        #toolbar {
+            position: absolute;
+            width: 807px;
+            height: 60px;
+            background-color: blue;
+            top: 456px;
+            left: 50px;
+        }
+        
+        #title {
+            border: none;
+            text-align: center;
+            height: 55px;
+            width: 500px;
+            font-size: 45px;
+            overflow: auto;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+    </style>
+    <body id="bod">
+        
+        <h1 class="center"><input id="title" placeholder="Title"></h1>
+        <p class="center" style="font-family: sans-serif; color: grey;">(Click to edit title)</p>
+        
+        <!-- html -->
+        <textarea id="input">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charaset="uft-8">
+    </head>
+    <body>
+        
+        
+        
+    </body>
+</html></textarea>
+        <!-- STOP html -->
+        
+        <div id="div">Loading...<!-- Shows Before JS Runs (if you have a VERY slow computer) --></div>
+        
+        <div id="toolbar"></div>
+        
+        <button id="run" class="button">Run</button>
+        
+    </body>
+    <script>
+        
+        /**
+        
+        • Get Elements
+        • Define event function (for "run" button)
+        • Add event Listener
+        
+        */
+        
+        // Get Elements
+        var output = document.getElementById("div"); // The div that shows the code
+        var runButton = document.getElementById("run"); // "Run" Button
+        var titled = document.getElementById("title").value = "New Webpage"; // Sets the deafult text for the title as "New Wwbpage"
+        
+        output.textContent = 'Click "Run" to run code.'; // Shows that the JS has loaded
+        
+        // Define event function
+        var runCode = function() {
+            var input = document.getElementById("input").value; // Code Box
+            
+            output.innerHTML = input; // sets the innerHTML of the "output" div to the input
+        }
+        
+        // Add event listener
+        runButton.addEventListener("click", runCode);
+        
+    </script>
+</html>
