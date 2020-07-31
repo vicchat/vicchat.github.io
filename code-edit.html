@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HTML/CSS code editor</title>
+    </head>
+    <style>/* The style of the webpage (duh) */
+        
+        #input {
+            resize: none;
+            position: absolute;
+            border: solid 1px grey;
+            border-radius: none;
+            width: 400px;
+            height: 300px;
+            overflow: auto;
+            font-size: 14px;
+            font-family: monospace;
+            top: 100px;
+            left: 30px;
+            z-index: 3;
+            overflow: auto;
+        }
+        
+        #output {
+            position: absolute;
+            border: solid 1px grey;
+            border-radius: none;
+            width: 404px;
+            height: 304px;
+            top: 100px;
+            left: 435px;
+            overflow: auto;
+            z-index: 2;
+        }
+        
+        #title {
+            text-align: center;
+            width: 500px;
+            height: 50px;
+            font-size: 42px;
+            border: none; /* Click on the title to edit it */
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        #option {
+            background-color: red;
+            position: absolute;
+            top: 406px;
+            left: 30px;
+            width: 811px;
+            height: 40px;
+        }
+        
+        .button {
+            position: absolute;
+            height: 30px;
+            top: 5px;
+            border: solid 2px grey;
+            background-color: black;
+            color: grey;
+            border-radius: 10px;
+        }
+        
+        .button:hover {
+            border-color: white;
+            color: white;
+        }
+        
+        .button:active {
+            background-color: grey;
+            border-color: black;
+            color: black;
+        }
+        
+        #reload {
+            /* don't need to determine absolute positioning */
+            left: 410px;
+        }
+        
+        #about {
+            left: 5px;
+        }
+        
+        #info {
+            position: absolute;
+            background-color: beige;
+            border: solid 1px black;
+            z-index: 4;
+            padding: 10px;
+            text-align: center;
+            top: 280px;
+            left: 35px;
+        }
+        
+        #about-editor {
+            margin: 5px;
+        }
+        
+        .info-button {
+            background-color: beige;
+            border: solid 1px grey;
+            position: absolute;
+            color: grey;
+        }
+        
+        .info-button:hover {
+            color: black;
+            border-color: black;
+        }
+        
+        .info-button:active {
+            background-color: rgb(180, 181, 143);
+        }
+        
+        #close {
+            border-color: black;
+            top: -3px;
+            left: 193px;
+        }
+        
+        #close:hover {
+            background-color: red;
+        }
+        
+        #close:active {
+            background-color: darkRed;
+        }
+        
+        #bad-tags {
+            left: 62px;
+        }
+        
+        #open {
+            left: 84px;
+        }
+        
+        #margin {
+            height: 5px;
+        }
+        
+        #cannot-use {
+            position: absolute;
+            background-color: beige;
+            z-index: 5;
+            border: solid 1px black;
+            height: 175px;
+            padding: 15px;
+            top: 195px;
+            left: 35px;
+        }
+        
+        .OK {
+            margin: auto;
+        }
+        
+        .OKAY {
+            text-align: center;
+        }
+        
+        #information {
+            position: absolute;
+            background-color: beige;
+            z-index: 5;
+            border: solid 1px black;
+            height: 240px;
+            padding: 15px;
+            top: 130px;
+            left: 35px;
+        }
+        
+    </style>
+    <body>
+        
+        <!-- title -->
+        <div class="center">
+        <input id="title" placeholder="Title">
+        </div>
+        
+        <!-- START input code textarea -->
+        <textarea id="input" placeholder='Oh noes! Please start your webpage with                 "<!DOCTYPE html>".'>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charaset="uft-8">
+    </head>
+    <body>
+        
+        
+        
+    </body>
+</html></textarea>
+        <!-- STOP input code textarea -->
+        
+        <!-- output div -->  <!-- If js is not available -->
+        <div id="output">JavaScript unavailable</div>
+        
+        <!-- START option bar -->
+        <div id="option">
+            
+            <!-- buttons on the option bar -->
+            <button id="reload" class="button">Reload</button>
+            <button id="about" class="button">About</button>
+            
+            
+        </div>
+        <!-- STOP option bar -->
+        
+        <!-- START info div -->
+        <div id="info">
+            <button id="close" class="info-button">X</button>
+            <h3 id="about-editor">About this code editor:</h3>
+            <ul>
+                <li><button id="bad-tags" class="info-button">Tags you cannot use</button></li><div id="margin"></div>
+                <li><button id="open" class="info-button">Information</button></li>
+            </ul>
+        </div>
+        <!-- STOP info div -->
+        
+        <!-- START cannot-use div -->
+        <div id="cannot-use">
+            <h3 class="div-heading">Tags this code editor doesn't support:</h3>
+            <p>You can use many tags in this editor, but not all of then are supportted:</p>
+            <ul>
+                <li><code>&lt;title></code> tags do nothing. To change the title, click on it.</li>
+                <li><code>&lt;script></code> tags <em>also</em> do nothing. This editor supports HTML and CSS only.</li>
+            </ul>
+            <div class="OKAY">
+            <button id="Ok-on-cannot-use" class="info-button" class="OK">Ok</button></div>
+        </div>
+        <!-- STOP cannot-use div -->
+        
+        <!-- START information div -->
+        <div id="information">
+            <h3 class="div-heading">Information on this code etitor:</h3>
+            <p>This is a HTML/CSS code editor programed by HTML!<br>This editor works with HTML like mormal, but it<br>doen't work with JavaScript and the tab key doesen't do anything.</p>
+            <div class="OKAY">
+            <button id="Ok-on-information" class="info-button" class="OK">Close</button>
+            </div>
+            
+        </div>
+        <!-- STOP information div -->
+        
+    </body>
+    <script>
+        
+        /**
+        
+        To make this work:
+            • Get the output div and reload button in a variable
+            • Make the event function (click the reload button)
+            • Add event listener to reload button
+        
+        */
+        
+        // Get the output div and reload button in a variable
+        var reload = document.getElementById("reload");
+        var output = document.getElementById("output");
+        
+        // Let the user know that js is available
+        output.textContent = 'Click "reload" to see the output.'
+        
+        // Set the title to "New Webpage"
+        document.getElementById("title").value = "New Webpage";
+        
+        // Make the event function
+        var reloadProgram = function() {
+            // Get the input textarea
+            var input = document.getElementById("input").value;
+            
+            // Set the output div's innerHTML to the input textarea
+            output.innerHTML = input;
+        }
+        
+        // Add event listener to reload button
+        reload.addEventListener("click", reloadProgram);
+        
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> // jQuery </script>
+    <script>
+        
+        /**
+        
+        info div:
+            • When the page loads, hide the info div
+            • When "about" button clicked, fade in
+            • When "x" button on div clicked, fade out
+        
+        */
+        
+        // When the page loads, hide the info div
+        $("#info").hide();
+        
+        // When "about" button clicked, fade in
+        $("#about").on("click", function(){
+            $("#info").fadeIn();
+        });
+        
+        // When "x" button clicked, fade out
+        $("#close").on("click", function(){
+            $("#info").fadeOut();
+        });
+        
+    </script>
+    <script>
+        
+        /**
+        
+        cannot-use div and information div:
+            • Hide and show on button clicks
+        
+        */
+        
+        // Hide on page load
+        $("#cannot-use").hide();
+        $("#information").hide();
+        
+        // Show when button clicked
+        $("#bad-tags").on("click", function(){
+            $("#cannot-use").fadeIn();
+        });
+        $("#open").on("click", function(){
+            $("#information").fadeIn();
+        });
+        
+        // Hide when "ok" buttons are clicked
+        $("#Ok-on-cannot-use").on("click", function(){
+            $("#cannot-use").fadeOut();
+        });
+        $("#Ok-on-information").on("click", function(){
+            $("#information").fadeOut();
+        });
+        
+    </script>
+</html>
+<!-- Wow, all that code makes a HTML/CSS code editor! -->
