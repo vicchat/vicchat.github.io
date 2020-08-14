@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Conputer Simulator</title>
+    </head>
+    <style>
+        
+        body {
+            font-family: sans-serif;
+        }
+        
+        #background {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 3000em;
+            z-index: 1;
+        }
+        
+        .ontop {
+            position: absolute;
+            z-index: 2;
+        }
+        
+        #bar {
+            z-index: 0;
+            position: fixed;
+            top: 60px;
+            left: 60px;
+            border: solid 1px grey;
+            background-color: white;
+            padding: 5px;
+        }
+        
+        #closeBrowser{
+            background-color: white;
+            border: solid 1px lightGrey;
+            border-radius: 6px;
+        }
+        
+        #closeBrowser:active {
+            background-color: red;
+            color: white;
+        }
+        
+        #Go {
+            background-color: white;
+            border: solid 1px lightGrey;
+            border-radius: 6px;
+        }
+        
+        #Go:active {
+            color: white;
+            background-color: blue;
+        }
+        
+        #url {
+            height: 18px;
+            font-size: 15px;
+        }
+        
+        #btext {
+            color: white;
+        }
+        
+        #browser {
+            background-image: url(https://www.kasandbox.org/programming-images/landscapes/lotus-garden.png);
+            height: 175px;
+            width: 200px;
+            font-size: 33px;
+            font-family: fantasy;
+            border: solid 3px black;
+        }
+        
+        #browser:hover {
+            border-color: blue;
+        }
+        
+        #browser:active {
+            border-color: red;
+        }
+        
+        #google {
+            position: absolute;
+            top: auto;
+            left: 230px;
+            width: 200px;
+            height: 175px;
+            border: solid 3px black;
+            background-image: url(https://www.kasandbox.org/programming-images/landscapes/mountains-in-hawaii.png);
+            color: rgb(11, 186, 75);
+            font-size: 37px;
+        }
+        
+        #google:hover {
+            border-color: blue;
+        }
+        
+        #google:active {
+            border-color: red;
+        }
+        
+        #word {
+            position: absolute;
+            width: 200px;
+            height: 175px;
+            top: auto;
+            left: 454px;
+            border: solid 3px black;
+            background-image: url(https://www.kasandbox.org/programming-images/animals/shark.png);
+            color: white;
+            font-family: setif;
+            font-size: 45px;
+        }
+        
+        #word:hover {
+            border-color: blue;
+        }
+        
+        #word:active {
+            border-color: red;
+        }
+        
+        #point {
+            position: absolute;
+            width: 200px;
+            height: 175px;
+            top: auto;
+            left: 911px;
+            border: solid 3px black;
+            background-image: url(https://www.kasandbox.org/programming-images/landscapes/mountains-sunset.png);
+            color: white;
+            font-family: serif;
+            font-size: 38px;
+        }
+        
+        #point:hover {
+            border-color: blue;
+        }
+        
+        #point:active {
+            border-color: red;
+        }
+        
+        #excel {
+            position: absolute;
+            width: 200px;
+            height: 175px;
+            top: auto;
+            left: 681px;
+            border: solid 3px black;
+            background-image: url(https://www.kasandbox.org/programming-images/food/brussels-sprouts.png);
+            color: white;
+            font-family: serif;
+            font-size: 45px;
+        }
+        
+        #excel:hover {
+            border-color: blue;
+        }
+        
+        #excel:active {
+            border-color: red;
+        }
+        
+        #vtt {
+            position: absolute;
+            width: 200px;
+            height: 175px;
+            top: auto;
+            left: 1145px;
+            border: solid 3px black;
+            font-family: cursive;
+            font-size: 27px;
+            background-image: url(https://www.kasandbox.org/programming-images/animals/rabbit.png);
+            color: rgb(217, 31, 31);
+        }
+        
+        #vtt:hover {
+            border-color: blue;
+        }
+        
+        #vtt:active {
+            border-color: red;
+        }
+        
+        #new {
+            position: absolute;
+            width: 200px;
+            height: 175px;
+            top: auto;
+            left: 1380px;
+            font-family: sans-serif;
+            font-size: 42px;
+            border: solid 3px black;
+            background-image: url(https://www.kasandbox.org/programming-images/animals/butterfly.png);
+            color: white;
+        }
+        
+        #new:hover {
+            border-color: blue;
+        }
+        
+        #new:active {
+            border-color: red;
+        }
+        
+        #create {
+            position: fixed;
+            padding: 15px;
+            z-index: 0;
+            background-color: White;
+            border: solid 1px black;
+            top: 200px;
+            left: 200px;
+            text-align: center;
+        }
+        
+        [cssid = tab]:active, [cssid = window]:active {
+            background-color: blue;
+            color: white;
+        }
+        
+        #noc:active {
+            background-color: red;
+            color: white;
+        }
+        
+        .onc {
+            border-radius: 6px;
+            border: solid 1px lightGrey;
+            background-color: white;
+        }
+        
+        #gtv {
+            position: absolute;
+            width: 200px;
+            height: 175px;
+            top: auto;
+            left: 1616px;
+            border: solid 3px black;
+            background-image: url(https://www.kasandbox.org/programming-images/landscapes/beach-in-hawaii.png);
+            color: cyan;
+            font-family: cursive;
+            font-size: 26px;
+        }
+        
+        #gtv:hover {
+            border-color: blue;
+        }
+        
+        #gtv:active {
+            border-color: red;
+        }
+        
+        /* <img src="https://www.kasandbox.org/programming-images/landscapes/beach-in-hawaii.png"> */
+        
+    </style>
+    <body>
+        
+        <img src="https://www.kasandbox.org/programming-images/food/berries.png" id="background">
+        
+        <button id="browser" class="ontop"><span id="btext">Browse The<br>Web</span></button>
+        
+        <span id="bar">https://<input id="url" placeholder="Enter a url"> <button id="Go">Go</button> <button id="closeBrowser">Cancel</button></span>
+        
+        <button id="google" class="ontop">Search On<br>Google</button>
+        
+        <button id="word" class="ontop">Microsoft<br>Word</button>
+        
+        <button id="point" class="ontop">Microsoft<br>PowerPoint</button>
+        
+        <button id="excel" class="ontop">Microsoft<br>Excel</button>
+        
+        <button id="vtt" class="ontop">vicchat.github.io<br>Table Tool</button>
+        
+        <button id="new" class="ontop">Create<br>New...</button>
+        
+        <button id="gtv" class="ontop">Open<br>vicchat.github.io</button>
+        
+        <div id="create">
+            Create New:<br>
+            <button id="tab+" cssid="tab" class="onc">Tab</button><br>
+            <button id="window+" cssid="window" class="onc">Window</button><br>
+            <button id="noc" class="onc">Cancel</button>
+        </div>
+        
+    </body>
+    <script>
+        
+        var browser = document.getElementById("browser");
+        var bar = document.getElementById("bar");
+        var closeBrowser = document.getElementById("closeBrowser");
+        var Go = document.getElementById("Go");
+        var google = document.getElementById("google");
+        var word = document.getElementById("word");
+        var excel = document.getElementById("excel");
+        var point = document.getElementById("point");
+        var vtt = document.getElementById("vtt");
+        var newStuff = document.getElementById("new");
+        var create = document.getElementById("create");
+        var newTab = document.getElementById("tab+");
+        var newWindow = document.getElementById("window+");
+        var noc = document.getElementById("noc");
+        var gtv = document.getElementById("gtv");
+        
+        var openBrowser = function() {
+            bar.style.zIndex = 3;
+        }
+        var exitBrowser = function() {
+            bar.style.zIndex = 0;
+        }
+        var go = function() {
+            var url = document.getElementById("url").value;
+            popup = window.open("https://" + url, "popup", "left=200,top=100,width=1000,height=500");
+        }
+        var googleSearch = function() {
+            popup = window.open("https://google.ca", "popup", "left=200,top=100,width=1000,height=500");
+        }
+        var useWord = function() {
+            popup = window.open("https://office.live.com/start/Word.aspx", "popup", "left=200,top=100,width=1000,height=500");
+        }
+        var usePowerPoint = function() {
+            popup = window.open("https://office.live.com/start/PowerPoint.aspx", "popup", "left=200,top=100,width=1000,height=500");
+        }
+        var useExcel = function() {
+            popup = window.open("https://office.live.com/start/Excel.aspx", "popup", "left=200,top=100,width=1000,height=500");
+        }
+        var openTable = function() {
+            popup = window.open("https://vicchat.github.io/table", "popup", "left=200,top=100,width=1000,height=500");
+        }
+        var createNew = function() {
+            create.style.zIndex = 3;
+        }
+        var dontCreateNew = function() {
+            create.style.zIndex = 0;
+        }
+        var createNewTab = function() {
+            window.open("https://vicchat.githb.io/cs");
+        }
+        var createNewWindow = function() {
+            popup = window.open("https://vicchat.github.io/cs", "popup", "+")
+        }
+        var openSite = function() {
+            popup = window.open("https://vicchat.github.io", "popup", "left=200,top=100,width=1000,height=500");
+        }
+        
+        browser.addEventListener("click", openBrowser);
+        closeBrowser.addEventListener("click", exitBrowser);
+        Go.addEventListener("click", go);
+        google.addEventListener("click", googleSearch);
+        word.addEventListener("click", useWord);
+        point.addEventListener("click", usePowerPoint);
+        excel.addEventListener("click", useExcel);
+        vtt.addEventListener("click", openTable);
+        newStuff.addEventListener("click", createNew);
+        noc.addEventListener("click", dontCreateNew);
+        newTab.addEventListener("click", createNewTab);
+        newWindow.addEventListener("click", createNewWindow);
+        gtv.addEventListener("click", openSite);
+        
+    </script>
+</html>
