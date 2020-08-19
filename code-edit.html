@@ -172,6 +172,16 @@
             left: 35px;
         }
         
+        #color-picket {
+            font-family: sans-serif;
+            position: absolute;
+            top: 450px;
+            left: 30px;
+            background-color: lightGrey;
+            border: solid 1px black;
+            padding: 3px;
+        }
+        
     </style>
     <body>
         
@@ -179,6 +189,10 @@
         <div class="center">
         <input id="title" placeholder="Title">
         </div>
+        
+        <!-- to help with colors (hex) -->
+        <!-- Using hex in css: type the result after clicking reload! ex: color: #ff456a; -->
+        <span id="color-picket">Color Picket: <input type="color" id="color"> result: <span id="color-result"></span></span>
         
         <!-- START input code textarea -->
         <textarea id="input" placeholder='Oh noes! Please start your webpage with                 "<!DOCTYPE html>".'>
@@ -236,7 +250,7 @@
         <!-- START information div -->
         <div id="information">
             <h3 class="div-heading">Information on this code etitor:</h3>
-            <p>This is a HTML/CSS code editor programed by HTML!<br>This editor works with HTML like mormal, but it<br>doen't work with JavaScript and the tab key doesen't do anything.</p>
+            <p>This is a HTML/CSS code editor programed by HTML!<br>This editor works the same way the one here in Khan Academy<br>does except it can't do JavaScript and the tab key doesen't<br>work.</p>
             <div class="OKAY">
             <button id="Ok-on-information" class="info-button" class="OK">Close</button>
             </div>
@@ -270,6 +284,11 @@
         var reloadProgram = function() {
             // Get the input textarea
             var input = document.getElementById("input").value;
+            
+            // Get the color picket's value and show the result
+            var color = document.getElementById("color").value;
+            var colorResult = document.getElementById("color-result");
+            colorResult.innerHTML = color;
             
             // Set the output div's innerHTML to the input textarea
             output.innerHTML = input;
