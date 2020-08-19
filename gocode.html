@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charaset="uft-8">
+        <title>HTML/CSS Document Editor</title>
+    </head>
+    <style>
+        
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+        
+        a {
+            color: red;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: darkRed;
+        }
+        
+        a:active {
+            color: red;
+        }
+        
+    </style>
+    <body>
+        
+        <h1 id="title">HTML/CSS Document Editor</h1>
+        <a href="#" onclick="createDocument();">Create Document</a>
+        
+    </body>
+    <script>
+        
+        var createDocument = function() {
+            popup = window.open("https://vicchat.github.io/code-edit", "popup", "left=600,top=150,width=870,height=500");
+        }
+        
+    </script>
+</html>
