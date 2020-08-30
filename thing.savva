@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charaset="uft-8">
+        <title>html for app</title>
+    </head>
+    <style>
+        
+        #code {
+            font-size: 14px;
+            font-family: monospace;
+        }
+        
+        [color = blue] {
+            color: blue;
+        }
+        
+        [color = pink] {
+            color: magenta;
+        }
+        
+        [color = red] {
+            color: red;
+        }
+        
+        [color = red-button] {
+            color: red;
+        }
+        
+        [color = red-button]:hover {
+            color: darkred;
+        }
+        
+        [color = red-button]:active {
+            color: red;
+        }
+        
+        [color = bright-green] {
+            color: rgb(11, 214, 11);
+        }
+        
+        [color = green] {
+            color: green;
+        }
+        
+        [color = cyan] {
+            color: darkcyan;
+        }
+        
+        [color = orange] {
+            color: orange;
+        }
+        
+        [color = grey] {
+            color: grey;
+        }
+        
+        [color = light-blue] {
+            color: rgb(0, 204, 222);
+        }
+        
+    </style>
+    <body>
+        
+        <div id="code">
+            
+            <span color="pink">for</span>(<span color="red-button">[+]</span>)<br>
+            <span color="pink">title</span>(<span color="green">"New App"</span>, <span color="green">"Awsome New App"</span>, <span color="bright-green">NewApp.olx</span>)<br>
+            <span color="pink">icon</span>(<span color="pink">getImgSrc</span>(<span color="cyan">https://www.kasandbox.org/programming-images/avatars/aqualin e-seed.png</span>))<br><br>
+            <span color="orange">/( /() = comment, /(comment) )</span><br><br>
+            <span color="pink">page</span>(<span color="bright-green">Home_Page</span>) <span color="grey">=</span> <span color="light-blue">html</span>{<br>
+            <!-- copy here -->
+            <br>
+                <span color="grey">&lt;DOCTYPE html></span><br>
+                <span color="blue">&lt;html></span><br>
+                    <span color="blue">&lt;head></span><br>
+                        <span color="blue">&lt;meta </span><span color="cyan">charaset</span>=<span color="green">"uft-8"</span><span color="blue">></span><br>
+                        <span color="orange">&lt;!-- &lt;title> tags do nothing --></span>
+                    <br>
+                    <span color="blue">&lt;/head></span><br>
+                    <span color="blue">&lt;body></span><br>
+                    <br>
+                    <span color="blue">&lt;h1></span>Welcome<span color="blue">&lt;/h1></span><br>
+                    <span color="blue">&lt;a </span><span color="cyan">href</span>=<span color="green">"/Log_In"</span><span color="blue">></span>Log In<span color="blue">&lt;/a></span>
+                    <br><br>
+                    <span color="blue">&lt;/body></span>
+                <br>
+                <span color="blue">&lt;/html></span>
+            <br>
+            <br>}<br><br>
+            
+            <span color="pink">page</span>(<span color="bright-green">Log_In</span>) <span color="grey">=</span> <span color="light-blue">html</span>{<br>
+            <br>
+                <span color="grey">&lt;DOCTYPE html></span><br>
+                <span color="blue">&lt;html></span><br>
+                    <span color="blue">&lt;head></span><br>
+                        <span color="blue">&lt;meta </span><span color="cyan">charaset</span>=<span color="green">"uft-8"</span><span color="blue">></span><br>
+                        <span color="orange">&lt;!-- &lt;title> tags do nothing --></span>
+                    <br>
+                    <span color="blue">&lt;/head></span><br>
+                    <span color="blue">&lt;body></span><br>
+                    <br>
+                    <span color="blue">&lt;h1></span>Log In<span color="blue">&lt;/h1></span><br>
+                    <span color="blue">&lt;a </span><span color="cyan">href</span>=<span color="green">"/Home_Page"</span><span color="blue">></span>Back<span color="blue">&lt;/a></span>
+                    <br><br>
+                    <span color="blue">&lt;/body></span>
+                <br>
+                <span color="blue">&lt;/html></span>
+            <br>
+            <br>}<br><br>
+            
+        </div>
+        
+    </body>
+</html>
