@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pin</title>
+    </head>
+    <style>
+        
+        [c = b] {
+            outline: -webkit-focus-ring-color auto 1px;
+            background-color: grey;
+            cursor: pointer;
+        }
+        
+        [c = b]:focus {
+            outline: -webkit-focus-ring-color auto 1px;
+            background-color: yellow;
+        }
+        
+        [c = b]:hover {
+            outline: -webkit-focus-ring-color auto 1px;
+            background-color: red;
+        }
+        
+        [c = b]:active {
+            outline: -webkit-focus-ring-color auto 1px;
+            background-color: blue;
+        }
+        
+        .h {
+            border: white;
+            color: white;
+            background-color: white;
+            cursor: pointer;
+        }
+        
+        .h:focus {
+            outline: none;
+        }
+        
+        #pin {
+            width: 75px;
+            background-color: lightGrey;
+            outline: -webkit-focus-ring-color auto 1px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        #pad {
+            text-align: center;
+            cursor: pointer;
+            outline: solid 1px black;
+            position: absolute;
+            padding: 11px;
+        }
+        
+        #result {
+            color: white;
+            background-color: red;
+            padding-left: 10px;
+            font-family: monospace;
+            cursor: default;
+        }
+        
+        #result:hover {
+            background-color: darkRed;
+            color: grey;
+        }
+        
+        #result:active {
+            background-color: red;
+            color: white;
+        }
+        
+    </style>
+    <body>
+        <div id="result"></div>
+        <span id="pad">
+            <input id="pin" type="password"><br><br>
+            <button id="1" c="b">1</button>
+            <button id="2" c="b">2</button>
+            <button id="3" c="b">3</button><br>
+            <button id="4" c="b">4</button>
+            <button id="5" c="b">5</button>
+            <button id="6" c="b">6</button><br>
+            <button id="7" c="b">7</button>
+            <button id="8" c="b">8</button>
+            <button id="9" c="b">9</button><br>
+            <button class="h">...</button>
+            <button id="0" c="b">0</button>
+            <button id="go" c="b">></button>
+        </span>
+    </body>
+    <script>
+        
+        var b1 = document.getElementById("1");
+        var b2 = document.getElementById("2");
+        var b3 = document.getElementById("3");
+        var b4 = document.getElementById("4");
+        var b5 = document.getElementById("5");
+        var b6 = document.getElementById("6");
+        var b7 = document.getElementById("7");
+        var b8 = document.getElementById("8");
+        var b9 = document.getElementById("9");
+        var b0 = document.getElementById("0");
+        var bgo = document.getElementById("go");
+        var pin = document.getElementById("pin");
+        var result = document.getElementById("result");
+        
+        var a1 = function() {
+            pin.value += "1";
+        }
+        var a2 = function() {
+            pin.value += "2";
+        }
+        var a3 = function() {
+            pin.value += "3";
+        }
+        var a4 = function() {
+            pin.value += "4";
+        }
+        var a5 = function() {
+            pin.value += "5";
+        }
+        var a6 = function() {
+            pin.value += "6";
+        }
+        var a7 = function() {
+            pin.value += "7";
+        }
+        var a8 = function() {
+            pin.value += "8";
+        }
+        var a9 = function() {
+            pin.value += "9";
+        }
+        var a0 = function() {
+            pin.value += "0";
+        }
+        var ago = function() {
+            pin = pin.value;
+            result.textContent = "(Click To Close)Your pin is " + pin + ".";
+        }
+        var hres = function() {
+            result.innerHTML = "";
+            pin.value = "";
+        }
+        
+        b1.addEventListener("click", a1);
+        b2.addEventListener("click", a2);
+        b3.addEventListener("click", a3);
+        b4.addEventListener("click", a4);
+        b5.addEventListener("click", a5);
+        b6.addEventListener("click", a6);
+        b7.addEventListener("click", a7);
+        b8.addEventListener("click", a8);
+        b9.addEventListener("click", a9);
+        b0.addEventListener("click", a0);
+        bgo.addEventListener("click", ago);
+        result.addEventListener("click", hres);
+        
+    </script>
+</html>
