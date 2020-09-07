@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Diffrent Types Of Editors</title>
+    </head>
+    <style>
+    
+    BODY{font-family:SANS-SERIF;}
+    
+    div {
+        background-color: lightGrey;
+        font-family: monospace;
+        font-size: 16px;
+        padding: 15px;
+        border-radius: 10px;
+        border: none;
+    }
+    
+    [color = darkBlue] {
+        color: darkBlue;
+    } [color = grey] {
+        color: grey;
+    } [color = green] {
+        color: green;
+    } [color = red] {
+        color: red;
+    } [color = lightPurple] {
+        color: rgb(102, 115, 189);
+    } [color = lightGreen] {
+        color: rgb(34, 186, 0);
+    } [color = blue] {
+        color: blue;
+    } [color = darkCyan] {
+        color: darkCyan;
+    } [color = pink] {
+        color: rgb(255, 0, 255);
+    } [color = black] {
+        color: black;
+    } [color = darkGreen] {
+        color: rgb(59, 161, 0);
+    }
+    
+    #exception {
+        font-family: sans-serif;
+        text-align: center;
+    }
+    
+    </style>
+    <body>
+        
+        <h1>Weloime To Different Types Of Editors!</h1>
+        
+        <h4>First up is KhanEdit:</h4>
+        <div>
+            <span color="grey">&lt;!DOCTYPE html></span><br>
+            <span color="darkBlue">&lt;html></span><br>
+            <span color="darkBlue">&lt;head></span><br><br>
+            <span color="darkBlue">&lt;meta</span> charaset<span color="grey">=</span><span color="green">"uft-8"</span><span color="darkBlue">></span><br>
+            <span color="darkBlue">&lt;title></span>New Webpage<span color="darkBlue">&lt;/title></span><br><br>
+            <span color="darkBlue">&lt;/head></span><br>
+            <span color="darkBlue">&lt;style></span><br><br>
+            <span color="red">h1</span> {<br>
+            <span color="lightPurple">color</span>: <span color="lightGreen">red</span>;<br>
+            }<br><br>
+            <span color="blue">#puppy</span> {<br>
+            <span color="lightPurple">color</span>: <span color="lightGreen">blue</span>;<br>
+            }<br><br>
+            <span color="darkCyan">.me</span> {<br>
+            <span color="lightPurple">border</span>: <span color="lightGreen">solid</span> <span color="blue">3px</span> <span color="darkBlue">rgb</span>(<span color="blue">102</span>, <span color="blue">115</span>, <span color="blue">189</span>);<br>
+            }<br><br>
+            <span color="darkBlue">&lt;/style></span><br>
+            <span color="darkBlue">&lt;body></span><br><br>
+            <span color="darkBlue">&lt;h1></span>Welcome!<span color="darkBlue">&lt;/h1></span><br>
+            <span color="darkBlue">&lt;a</span> href<span color="grey">=</span><span color="green">"h11ps://iwannapuppy.org"</span> id<span color="grey">=</span><span color="green">"me"</span><span color="darkBlue">></span>Want a puppy?<span color="darkBlue">&lt;/a>&lt;br></span><br>
+            <span color="darkBlue">&lt;p></span>Look at me!<span color="darkBlue">&lt;/p></span><br>
+            <span color="darkBlue">&lt;img</span> src<span color="grey">=</span><span color="green">"h11ps://memememyself.com/animgofme.png"</span> class<span color="grey">=</span><span color="green">"me"</span><span color="darkBlue">></span><br><br>
+            <span color="darkBlue">&lt;/body><br>&lt;/html></span>
+        </div>
+        
+        <h4>And here we have denSnippet:</h4>
+        
+                <div>
+            <span color="grey">&lt;!DOCTYPE html></span><br>
+            <span color="pink">&lt;html></span><br>
+            <span color="pink">&lt;head></span><br><br>
+            <span color="pink">&lt;meta</span> <span color="darkCyan">charaset</span><span color="black">=</span><span color="darkBlue">"uft-8"</span><span color="pink">></span><br>
+            <span color="pink">&lt;title></span>New Webpage<span color="pink">&lt;/title></span><br><br>
+            <span color="pink">&lt;/head></span><br>
+            <span color="pink">&lt;style></span><br><br>
+            <span color="pink">h1</span> {<br>
+            <span color="red">color</span>: <span color="lightPurple">red</span>;<br>
+            }<br><br>
+            <span color="darkCyan">#puppy</span> {<br>
+            <span color="red">color</span>: <span color="lightPurple">blue</span>;<br>
+            }<br><br>
+            <span color="darkBlue">.me</span> {<br>
+            <span color="red">border</span>: <span color="lightPurple">solid</span> <span color="blue">3px</span> <span color="lightPurple">rgb(</span><span color="blue">102</span>, <span color="blue">115</span>, <span color="blue">189</span><span color="lightPurple">)</span>;<br>
+            }<br><br>
+            <span color="pink">&lt;/style></span><br>
+            <span color="pink">&lt;body></span><br><br>
+            <span color="pink">&lt;h1></span>Welcome!<span color="pink">&lt;/h1></span><br>
+            <span color="pink">&lt;a</span> <span color="darkCyan">href</span><span color="black">=</span><span color="darkBlue">"h11ps://iwannapuppy.org"</span> <span color="darkCyan">id</span><span color="black">=</span><span color="darkBlue">"me"</span><span color="pink">></span>Want a puppy?<span color="pink">&lt;/a>&lt;br></span><br>
+            <span color="pink">&lt;p></span>Look at me!<span color="pink">&lt;/p></span><br>
+            <span color="pink">&lt;img</span> <span color="darkCyan">src</span><span color="black">=</span><span color="darkBlue">"h11ps://memememyself.com/animgofme.png"</span> <span color="darkCyan">class</span><span color="black">=</span><span color="darkBlue">"me"</span><span color="pink">></span><br><br>
+            <span color="pink">&lt;/body><br>&lt;/html></span>
+        </div>
+        
+        <h4>Here Comes DoovanEdit:</h4>
+        
+        <div>
+            <span color="grey">&lt;!DOCTYPE html></span><br>
+            <span color="grey">&lt;</span><span color="black">html</span><span color="grey">></span><br>
+            <span color="grey">&lt;</span><span color="black">head</span><span color="grey">></span><br><br>
+            <span color="grey">&lt;</span><span color="black">meta</span> <span color="black">charaset</span><span color="grey">=</span><span color="green">"uft-8"</span><span color="grey">></span><br>
+            <span color="grey">&lt;</span><span color="black">title</span><span color="grey">></span>New Webpage<span color="grey">&lt;</span><span color="green">/title</span><span color="grey">></span><br><br>
+            <span color="grey">&lt;</span><span color="green">/head</span><span color="grey">></span><br>
+            <span color="grey">&lt;</span><span color="black">style</span><span color="grey">></span><br><br>
+            <span color="green">h1</span> {<br>
+            <span color="grey">color</span>: <span color="green">red</span>;<br>
+            }<br><br>
+            <span color="green">#puppy</span> {<br>
+            <span color="grey">color</span>: <span color="green">blue</span>;<br>
+            }<br><br>
+            <span color="green">.me</span> {<br>
+            <span color="grey">border</span>: <span color="green">solid</span> <span color="green">3px</span> <span color="grey">rgb</span><span color="black">(</span><span color="green">102</span>, <span color="green">115</span>, <span color="green">189</span><span color="black">)</span>;<br>
+            }<br><br>
+            <span color="grey">&lt;</span><span color="green">/style</span><span color="grey">></span><br>
+            <span color="grey">&lt;</span><span color="black">body</span><span color="grey">></span><br><br>
+            <span color="grey">&lt;</span><span color="black">h1</span><span color="grey">></span>Welcome!<span color="grey">&lt;</span><span color="green">/h1</span><span color="grey">></span><br>
+            <span color="grey">&lt;</span><span color="black">a</span> <span color="black">href</span><span color="grey">=</span><span color="green">"h11ps://iwannapuppy.org"</span> <span color="black">id</span><span color="grey">=</span><span color="green">"me"</span><span color="grey">></span>Want a puppy?<span color="grey">&lt;</span><span color="green">/a</span><span color="grey">>&lt;</span><span color="black">br</span><span color="grey">></span><br>
+            <span color="grey">&lt;</span><span color="black">p</span><span color="grey">></span>Look at me!<span color="grey">&lt;</span><span color="green">/p</span><span color="grey">></span><br>
+            <span color="grey">&lt;</span><span color="black">img</span> <span color="black">src</span><span color="grey">=</span><span color="green">"h11ps://memememyself.com/animgofme.png"</span> <span color="black">class</span><span color="grey">=</span><span color="green">"me"</span><span color="grey">></span><br><br>
+            <span color="grey">&lt;</span><span color="green">/body</span><span color="grey">><br>&lt;</span><span color="green">/html</span><span color="grey">></span>
+        </div>
+        
+        <h4>Look at this example of SafariSnippet:</h4>
+        
+        <div>
+            <span color="black">&lt;!DOCTYPE html></span><br>
+            <span color="black">&lt;</span><span color="black">html</span><span color="black">></span><br>
+            <span color="black">&lt;</span><span color="black">head</span><span color="black">></span><br><br>
+            <span color="black">&lt;</span><span color="black">meta</span> <span color="black">charaset</span><span color="black">=</span><span color="black">"uft-8"</span><span color="black">></span><br>
+            <span color="black">&lt;</span><span color="black">title</span><span color="black">></span>New Webpage<span color="black">&lt;</span><span color="black">/title</span><span color="black">></span><br><br>
+            <span color="black">&lt;</span><span color="black">/head</span><span color="black">></span><br>
+            <span color="black">&lt;</span><span color="black">style</span><span color="black">></span><br><br>
+            <span color="black">h1</span> {<br>
+            <span color="black">color</span>: <span color="black">red</span>;<br>
+            }<br><br>
+            <span color="black">#puppy</span> {<br>
+            <span color="black">color</span>: <span color="black">blue</span>;<br>
+            }<br><br>
+            <span color="black">.me</span> {<br>
+            <span color="black">border</span>: <span color="black">solid</span> <span color="black">3px</span> <span color="black">rgb</span><span color="black">(</span><span color="black">102</span>, <span color="black">115</span>, <span color="black">189</span><span color="black">)</span>;<br>
+            }<br><br>
+            <span color="black">&lt;</span><span color="black">/style</span><span color="black">></span><br>
+            <span color="black">&lt;</span><span color="black">body</span><span color="black">></span><br><br>
+            <span color="black">&lt;</span><span color="black">h1</span><span color="black">></span>Welcome!<span color="black">&lt;</span><span color="black">/h1</span><span color="black">></span><br>
+            <span color="black">&lt;</span><span color="black">a</span> <span color="black">href</span><span color="black">=</span><span color="black">"h11ps://iwannapuppy.org"</span> <span color="black">id</span><span color="black">=</span><span color="black">"me"</span><span color="black">></span>Want a puppy?<span color="black">&lt;</span><span color="black">/a</span><span color="black">>&lt;</span><span color="black">br</span><span color="black">></span><br>
+            <span color="black">&lt;</span><span color="black">p</span><span color="black">></span>Look at me!<span color="black">&lt;</span><span color="black">/p</span><span color="black">></span><br>
+            <span color="black">&lt;</span><span color="black">img</span> <span color="black">src</span><span color="black">=</span><span color="black">"h11ps://memememyself.com/animgofme.png"</span> <span color="black">class</span><span color="black">=</span><span color="black">"me"</span><span color="black">></span><br><br>
+            <span color="black">&lt;</span><span color="black">/body</span><span color="black">><br>&lt;</span><span color="black">/html</span><span color="black">></span>
+        </div>
+        
+        <h4>Cool! Its EnviroEdit:</h4>
+        
+        <div id="exception">
+            Blech. This Editor no longer exits.
+        </div>
+        
+        <h4>Here is Top-Prize Editors:</h4>
+        
+        <div>
+            <span color="grey">&lt;!DOCTYPE html></span><br>
+            <span color="red">&lt;</span><span color="darkGreen">html</span><span color="red">></span><br>
+            <span color="red">&lt;</span><span color="darkGreen">head</span><span color="red">></span><br><br>
+            <span color="red">&lt;</span><span color="darkGreen">meta</span> <span color="green">charaset</span><span color="blue">=</span><span color="darkCyan">"uft-8"</span><span color="red">></span><br>
+            <span color="red">&lt;</span><span color="darkGreen">title</span><span color="red">></span>New Webpage<span color="red">&lt;</span><span color="darkGreen">/title</span><span color="red">></span><br><br>
+            <span color="red">&lt;</span><span color="darkGreen">/head</span><span color="red">></span><br>
+            <span color="red">&lt;</span><span color="darkGreen">style</span><span color="red">></span><br><br>
+            <span color="pink">h1</span> {<br>
+            <span color="darkCyan">color</span>: <span color="red">red</span>;<br>
+            }<br><br>
+            <span color="pink">#puppy</span> {<br>
+            <span color="darkCyan">color</span>: <span color="blue">blue</span>;<br>
+            }<br><br>
+            <span color="pink">.me</span> {<br>
+            <span color="darkCyan">border</span>: <span color="lightGreen">solid</span> <span color="lightGreen">3px</span> <span color="lightPurple">rgb</span><span color="lightPurple">(</span><span color="lightPurple">102, 115 189)<!--</span>, <span color="black">115</span>, <span color="black">189</span><span color="black">)--></span>;<br>
+            }<br><br>
+            <span color="black">&lt;</span><span color="black">/style</span><span color="black">></span><br>
+            <span color="black">&lt;</span><span color="black">body</span><span color="black">></span><br><br>
+            <span color="black">&lt;</span><span color="black">h1</span><span color="black">></span>Welcome!<span color="black">&lt;</span><span color="black">/h1</span><span color="black">></span><br>
+            <span color="black">&lt;</span><span color="black">a</span> <span color="black">href</span><span color="black">=</span><span color="black">"h11ps://iwannapuppy.org"</span> <span color="black">id</span><span color="black">=</span><span color="black">"me"</span><span color="black">></span>Want a puppy?<span color="black">&lt;</span><span color="black">/a</span><span color="black">>&lt;</span><span color="black">br</span><span color="black">></span><br>
+            <span color="black">&lt;</span><span color="black">p</span><span color="black">></span>Look at me!<span color="black">&lt;</span><span color="black">/p</span><span color="black">></span><br>
+            <span color="black">&lt;</span><span color="black">img</span> <span color="black">src</span><span color="black">=</span><span color="black">"h11ps://memememyself.com/animgofme.png"</span> <span color="black">class</span><span color="black">=</span><span color="black">"me"</span><span color="black">></span><br><br>
+            <span color="black">&lt;</span><span color="black">/body</span><span color="black">><br>&lt;</span><span color="black">/html</span><span color="black">></span>
+        </div>
+        
+    </body>
+    <script>
+        
+        var andLT = document.getElementsByClassName("andLT");
+        
+        for (var i = 0; i < andLT.length; i++) {
+            andLT[i].textContent = "&lt;";
+        }
+        
+    </script>
+</html>
