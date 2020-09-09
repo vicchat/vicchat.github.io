@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Not A Game</title>
+    </head>
+    <style>
+    /* <img src="https://www.kasandbox.org/programming-images/landscapes/beach-in-hawaii.png"> */
+        
+        #body {
+            background-image: url(https://www.kasandbox.org/programming-images/landscapes/beach-in-hawaii.png);
+        }
+        
+        #wallpaper {
+            color: white;
+            font-family: sans-serif;
+        }
+        
+        #background-image {
+            
+        }
+        
+        #set-wallpaper {
+            background-color: black;
+            position: absolute;
+            padding-bottom: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+            opacity: 0%;
+            z-index: 3;
+        }
+        
+        #set-wallpaper:hover {
+            opacity: 100%;
+        }
+        
+        #dsyw {
+            color: white;
+            background-color: black;
+            opacity: 25%;
+            font-family: sans-serif;
+            position: absolute;
+            z-index: 2;
+            padding: 3px;
+        }
+        
+        .ws {
+            color: white;
+            font-family: sans-serif;
+        }
+        
+        #hi {
+            position: absolute;
+            background-color: red;
+            bottom: 12px;
+            right: 12px;
+            padding: 12px;
+            width: 120px;
+            height: 36px;
+            border: solid 1px white;
+            border-radius: 10px;
+            outline: -webkit-focus-ring-color auto 1px;
+            opacity: 0%;
+        }
+        
+        #Hi {
+            position: absolute;
+            right: 12px;
+            background-color: red;
+            border: solid 1px white;
+            color: white;
+            cursor: pointer;
+        }
+        
+        #Hi:active {
+            background-color: darkRed;
+            color: grey;
+            border-color: grey;
+        }
+        
+        #say-hi {
+            position: fixed;
+            top: 8px;
+            right: 8px;
+            background: none;
+            border: solid 1px white;
+            outline: solid 1px black;
+            color: white;
+            cursor: pointer;
+            opacity: 100%;
+        }
+        
+        #say-hi:active {
+            outline-color: white;
+            border-color: black;
+            background: lightGrey;
+            color: black;
+        }
+        
+        #alert {
+            background-color: red;
+            color: white;
+            font-family: monospace;
+            padding-left: 5px;
+            padding-right: 5px;
+            overflow: scroll;
+            cursor: pointer;
+        }
+        
+        #alert:hover {
+            background-color: darkRed;
+            color: grey;
+        }
+        
+        #alert:active {
+            background-color: red;
+            color: white;
+        }
+        
+        .button:focus {
+            outline: none;
+        }
+        
+        #name {
+            position: fixed;
+            right: 12px;
+            bottom: 12px;
+            background-color: red;
+            padding: 12px;
+            text-align: center;
+            border-radius: 10px;
+            outline: -webkit-focus-ring-color auto 1px;
+        }
+        
+        #user {
+            background: none;
+            color: white;
+            outline: none;
+        }
+        
+        #user:focus-within {
+            border-color: lightGrey;
+        }
+        
+    </style>
+    <body id="body">
+        
+        <div id="alert"></div>
+        
+        <p id="dsyw">Change Wallpaper</p>
+        
+        <div id="set-wallpaper">
+            <h3 id="wallpaper">Wallpaper</h3>
+            
+            <select id="background-image">
+                <option value="https://www.kasandbox.org/programming-images/landscapes/beach-in-hawaii.png">Beach In Hawaii (default)</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/beach-sunset.png">Beach At Sunset</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/beach-waves-at-sunset.png">Beach With Waves At Sunset</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/beach-waves-daytime.png">Beach With Waves At Daytime</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/beach-with-palm-trees.png">Beach With Palm Trees</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/beach.png">Beach</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/clouds-from-plane.png">Clouds From A Plane</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/fields-of-grain.png">Fields Of Grain</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/lake.png">Lake</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/lava.png">Lava</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/mountain_matterhorn.png">Snowy Mountain</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/mountains-and-lake.png">Mountains And Lakes</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/mountains-in-hawaii.png">Mountains In Hawaii</option>
+                <option value="https://www.kasandbox.org/programming-images/landscapes/waterfall_niagara-falls.png">Niagara Falls</option>
+            </select> <button id="set">Set</button>
+        </div>
+        
+        <button id="say-hi" class="button">Welcome! Click Here To Start</button>
+        
+        <div id="hi" class="ws">Hello!<br><button id="Hi" class="button">Hi!</button></div>
+        
+        <div id="name" class="ws">Please enter your name:<br><input id="user"><br><button class="button" id="submit-name">Ok</button></div>
+        
+    </body>
+    <script>
+        
+        // notify() code {
+        
+            var alertThing = document.getElementById("alert");
+            
+            var notify = function(notification) {
+                alertThing.textContent = "(Click to close)" + notification;
+            }
+            var closeThatAlert = function() {
+                alertThing.innerHTML = "";
+            }
+            
+            alertThing.addEventListener("click", closeThatAlert);
+        //}
+        
+        // Change Wallpaper Code {
+            var setW = document.getElementById("set");
+            var body = document.getElementById("body");
+            
+            var setImage = function() {
+                var backgroundImage = document.getElementById("background-image").value;
+                body.style.backgroundImage = "url(" + backgroundImage + ")";
+            }
+            
+            setW.addEventListener("click", setImage);
+        //}
+        
+        // Welcome Code {
+            
+            var sayHi = document.getElementById("say-hi");
+            var hi = document.getElementById("hi");
+            var Hi = document.getElementById("Hi");
+            
+            var showThing = function() {
+                sayHi.style.opacity = "0%";
+                hi.style.opacity = "100%";
+            }
+            var setName = function() {
+                
+                hi.style.opacity = "0%";
+                notify("Welcome, " + username + "!");
+            }
+            
+            sayHi.addEventListener("click", showThing);
+            Hi.addEventListener("click", setName);
+            Hi.addEventListener("click", doSomthingWithThatName);
+        //}
+        
+    </script>
+</html>
