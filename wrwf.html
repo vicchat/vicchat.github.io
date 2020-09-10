@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Rabbits and Food</title>
+    </head>
+    <style>
+        /* <img src="https://www.kasandbox.org/programming-images/food/berries.png"> */
+        
+        body {
+            overflow: scroll;
+            background-image: url(https://www.kasandbox.org/programming-images/landscapes/mountains-sunset.png);
+            font-family: sans-serif;
+            color: white;
+        }
+        
+        #rabbit {
+            color: orange;
+            background-image: url(https://www.kasandbox.org/programming-images/animals/rabbit.png);
+            overflow: scroll;
+            font-size: 50px;
+            height: 345px;
+            cursor: ew-resize;
+        }
+        
+        #food {
+            color: white;
+            background-image: url(https://www.kasandbox.org/programming-images/food/berries.png);
+            overflow: scroll;
+            font-size: 50px;
+            height: 345px;
+            cursor: ew-resize;
+        }
+        
+        .wButton {
+            background: none;
+            color: white;
+            border: solid 1px white;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 4px;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        
+        .wButton:active {
+            background: rgb(25, 99, 204);
+        }
+        
+        .wButton:focus {
+            outline: none;
+        }
+        
+    </style>
+    <body>
+        
+        <h2>This Is A Rabbit:</h2>
+        
+        <div id="rabbit">Raaaaaaaaaaaaaaaaaaaaaaaaaabit,<br>Raaaaaaaaaaaaaaaaaaaaaaaaaabit,<br>This_is_a_Raaaaaaaaaaaaaaaaaaaaaaaaaabit<br>Raaaaaaaaaaaaaaaaaaaaaaaaaabits_are_cool,<br>And_Raaaaaaaaaaaaaaaaaaaaaaaaaabits_are_amazing,<br>Raaaaaaaaaaaaaaaaaaaaaaaaaabit,<br>Raaaaaaaaaaaaaaaaaaaaaaaaaabit,<br>And_those_are_Raaaaaaaaaaaaaaaaaaaaaaaaaabits!</div>
+        
+        <h2>This Is Some Food:</h2>
+        
+        <div id="food">
+            Fooooooooooooooooooooooooooooooooooooooooood,<br>
+            Fooooooooooooooooooooooooooooooooooooooooood,
+            Theese_are_some_berries_Fooooooooooooooooooooooooooooooooooooooooood,<br>
+            Fooooooooooooooooooooooooooooooooooooooooood_is_also_other_stuff,
+            Fooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooood,<br>
+            Fooooooooooooooooooooooooooooooooooooooooood,<br>
+            Fooooooooooooooooooooooooooooooooooooooooood,<br>
+            I_like_Fooooooooooooooooooooooooooooooooooooooooood,_but_do_you_like_Fooooooooooooooooooooooooooooooooooooooooood?
+        </div>
+        
+        <h2>What do <em>you</em> want?</h2>
+        <a href="#" onclick="wRabbit();" id="wRabbit" class="wButton">I want a Rabbit!</a> <a href="#" onclick="wFood();" id="wFood" class="wButton">I want Food!</a><br>©ThisIsn'tAnActualCopyright😁
+        
+    </body>
+    <script>
+        
+        var wRabbit = function() {
+            popup = window.open("https://www.google.ca/search?q=adopt+a+rabbit+near+me&go=Search&qs=n&form=QBRE&sp=-1&pq=adopt+a+rabbit+near+me&sc=1-22&sk=&cvid=0C39DB55E60F42328D89DA909D717B24", "popup", "left=0,top=0,height=730,width=1280,redirectories=1");
+        }
+        
+        var wFood = function() {
+            popup = window.open("https://www.google.ca/search?q=order+food+near+me&go=Search&qs=n&form=QBRE&sp=-1&pq=order+food+near+me&sc=1-22&sk=&cvid=0C39DB55E60F42328D89DA909D717B24", "popup", "left=0,top=0,height=730,width=1280,redirectories=1");
+        }
+        
+    </script>
+</html>
