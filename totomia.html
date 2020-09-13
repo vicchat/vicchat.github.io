@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>The Building Of Totomia</title>
+    </head>
+    <style>
+        
+        body {
+            background: black;
+        }
+        
+        #background {
+            position: absolute;
+            background-color: skyblue;
+            width: 900px;
+            height: 500px;
+            top: 100px;
+            left: 100px;
+            border: solid 10px green;
+            outline: solid 50px red;
+            cursor: crosshair;
+        }
+        
+        .totomian-brick-grey {
+            position: absolute;
+            background-color: grey;
+            width: 75px;
+            height: 75px;
+            left: 200px;
+            top: 200px;
+            cursor: no-drop;
+        }
+        
+        .totomian-brick-dark-red {
+            position: absolute;
+            background-color: darkred;
+            width: 75px;
+            height: 75px;
+            left: 200px;
+            top: 200px;
+            cursor: no-drop;
+        }
+        
+        .totomian-brick-red {
+            position: absolute;
+            background-color: red;
+            width: 75px;
+            height: 75px;
+            left: 200px;
+            top: 200px;
+            cursor: no-drop;
+        }
+        
+        .totomian-brick-blue {
+            position: absolute;
+            background-color: blue;
+            width: 75px;
+            height: 75px;
+            left: 200px;
+            top: 200px;
+            cursor: no-drop;
+        }
+        
+        #info {
+            position: fixed;
+            right: 8px;
+            background-color: blue;
+            color: white;
+            border: solid 2px white;
+            border-radius: 20px;
+            cursor: help;
+        }
+        
+        #info:active {
+            background-color: darkBlue;
+            color: grey;
+            border-color: grey;
+        }
+        
+        #info:focus {
+            outline: none;
+        }
+        
+        #information {
+            position: fixed;
+            background-color: black;
+            border: solid 2px white;
+            color: white;
+            padding: 1em;
+            font-family: sans-serif;
+            left: 55px;
+            top: 0px;
+            z-index: 2000;
+            height: 57px;
+            overflow: auto;
+            opacity: 0%;
+        }
+        
+        #close {
+            position: fixed;
+            left: 480px;
+            top: 10px;
+            background-color: red;
+            color: white;
+            border: solid 2px white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        
+        #close:active {
+            background-color: darkRed;
+            color: grey;
+            border-color: grey;
+        }
+        
+        #close:focus {
+            outline: none;
+        }
+        
+        #Edits {
+            opacity: 100%;
+        }
+        
+    </style>
+    <body>
+        
+        <div id="Edits">
+            <h1 style="font-family: sans-serif; color: white; text-align: center; position: fixed; margin: auto; text-decoration: underline;">The Building Of Totomia</h1> <button id="info">?</button>
+        
+            <div id="background" title="Click to add a brick"></div>
+            <div id="information">
+                This is the <em>so simple</em> informaiton box!<br><br>
+                <em>To use &quot;The Building Of Totomia&quot;:</em>
+                <ul>
+                    <li>Click on the background to add a brlik</li>
+                    <li>Hold [alt] key down and click to add a dark red brick.</li>
+                    <li>Hold [ctrl] or [cmd] key down and click to add a red brick</li>
+                    <li>Hold both keys down and click to add a blue brick</li>
+                </ul>
+                And that's <em>really</em> it!
+                <button id="close">X</button>
+            </div>
+        </div>
+        
+    </body>
+    <script>
+        
+        var background = document.getElementById("background");
+        
+        var addBricks = function(evt) {
+            
+            if (evt.altKey === false && evt.ctrlKey === false) {
+                var totomianBrick = document.createElement("div");
+                    totomianBrick.className = "totomian-brick-grey";
+                    totomianBrick.style.left = evt.pageX + "px";
+                    totomianBrick.style.top = evt.pageY + "px";
+                document.body.appendChild(totomianBrick);
+            } else if (evt.altKey === true && evt.ctrlKey === false) {
+                var totomianBrick = document.createElement("div");
+                    totomianBrick.className = "totomian-brick-dark-red";
+                    totomianBrick.style.left = evt.pageX + "px";
+                    totomianBrick.style.top = evt.pageY + "px";
+                document.body.appendChild(totomianBrick);
+            } else if (evt.altKey === false && evt.ctrlKey === true) {
+                var totomianBrick = document.createElement("div");
+                    totomianBrick.className = "totomian-brick-red";
+                    totomianBrick.style.left = evt.pageX + "px";
+                    totomianBrick.style.top = evt.pageY + "px";
+                document.body.appendChild(totomianBrick);
+            } else if (evt.altKey === true && evt.ctrlKey === true) {
+                var totomianBrick = document.createElement("div");
+                    totomianBrick.className = "totomian-brick-blue";
+                    totomianBrick.style.left = evt.pageX + "px";
+                    totomianBrick.style.top = evt.pageY + "px";
+                document.body.appendChild(totomianBrick);
+            }
+        };
+        
+        background.addEventListener("click", addBricks);
+        
+    </script>
+    <script>
+        
+        var info = document.getElementById("info");
+        var information = document.getElementById("information");
+        
+        var showInfo = function() {
+            information.style.opacity = "100%";
+        }
+        
+        var hideInfo = function() {
+            console.log("hello");
+            information.style.opacity = "0%";
+        }
+        
+        info.addEventListener("click", showInfo);
+        
+    </script>
+    <script>
+        
+        var goAway = document.getElementById("close");
+        
+        var hideInfo = function() {
+            information.style.opacity = "0%";
+            console.log("It's Working!!!");
+        }
+        
+        goAway.addEventListener("click", hideInfo);
+        
+    </script>
+</html>
