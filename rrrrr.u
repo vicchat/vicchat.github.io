@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+    </head>
+    <style>
+        
+        #textarea {
+            resize: none;
+            width: 560px;
+            height: 395px;
+            font-family: sans-serif;
+            border: solid 2px black;
+            font-size: 30px;
+            text-align: JUSTIFY;
+        }
+        
+        .button {
+            font-size: 15px;
+            height: default;
+            width: 25px;
+            background-image: url(https://www.kasandbox.org/programming-images/landscapes/fields-of-grain.png);
+            color: white;
+            border: solid 2px white;
+            outline: solid 1px black;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        .button:active {
+            border-color: orange;
+            color: orange;
+        }
+        
+        /* <img src="https://www.kasandbox.org/programming-images/landscapes/fields-of-grain.png"> */
+    </style>
+    <body>
+        
+        <div id="toolbar">
+            <button class="button" id="lq">&#147;</button>
+            <button class="button" id="gq">&#148;</button>
+            <button class="button" id="colour">colour</button>
+        </div>
+        
+        <div id="tas" style="text-align:center;"><textarea id="textarea"></textarea></div>
+        
+    </body>
+    <script>
+        
+        var textarea = document.getElementById("textarea");
+        var lq = document.getElementById("lq");
+        var gq = document.getElementById("gq");
+        
+        var appendLQ = function() {
+            textarea.innerHTML += "&#147;"
+        }
+        
+        var appendGQ = function() {
+            textarea.innerHTML += "&#148;"
+        }
+        
+        lq.addEventListener("click", appendLQ);
+        gq.addEventListener("click", appendGQ);
+        
+    </script>
+</html>
