@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Scorekeeper (2 Teams)</title>
+    </head>
+    <style>
+        
+        @keyframes fadeup {
+            from {
+                top: 100px;
+                opacity: 0%;
+            } to {
+                top: 8px;
+                opacity: 100%;
+            }
+        }
+        
+        [cssid = hello_welcome] {
+            position: absolute;
+            font-size: 39px;
+            top: 8px;
+            animation-name: fadeup;
+            animation-duration: 1s;
+            z-index: 1;
+        }
+        
+        .top {
+            position: absolute;
+            z-index: 2;
+        }
+        
+        #body {
+            position: absolute;
+            top: 75px;
+            font-family: sans-serif;
+        }
+        
+        .team-nm {
+            border: solid 5px lightGrey;
+            outline: solid 1px black;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .team-nm:focus-within {
+            outline-width: 2px;
+            cursor: text;
+        }
+        
+        .team-co {
+            border: solid 5px lightGrey;
+            outline: solid 1px black;
+            background-color: black;
+            cursor: pointer;
+        }
+        
+        .go {
+            border: solid 5px lightGrey;
+            outline: solid 1px black;
+            background-color: black;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 3px;
+        }
+        
+        .go:hover {
+            border-color: grey;
+        }
+        
+        .go:active {
+            border-color: lightGrey;
+            outline-width: 2px;
+        }
+        
+        .team-box {
+            border: solid 3px red;
+            border-top: double 15px purple;
+            background-color: rgb(0, 170, 222);
+            padding: 10px;
+        }
+        
+        .output {
+            border: solid 1px black;
+            padding: 20px;
+        }
+        
+    </style>
+    <body>
+        
+        <em id="Hello, Welcome" cssid="hello_welcome">Hello, and welcome to scorekepper!</em>
+        
+        <div id="body" class="top">
+            <div id="team1" class="team-box">
+                <h3>Team 1:</h3>
+                Name:<br>
+                <input id="team1-nm" class="team-nm" placeholder="Team 1 Name"><br><br>
+                Colour:<br>
+                <input id="team1-co" class="team-co" type="color" value="#555555">
+            </div><br>
+            <div id="team2" class="team-box">
+                <h3>Team 2:</h3>
+                Name:<br>
+                <input id="team2-nm" class="team-nm" placeholder="Team 2 Name"><br><br>
+                Colour:<br>
+                <input id="team2-co" class="team-co" type="color" value="#555555">
+            </div><br>
+            <a href="#score" class="go" id="go">I'm ready to start!</a><br><br>
+            
+            <div id="team1-output" class="output">
+                <h3 id="team1-st">Team 1</h3>
+                <button class="scb" id="t1-">–</button> <span id="t1s">0</span> <button class="scb" id="t1+">+</button>
+            </div><br><div id="team2-output" class="output">
+                <h3 id="team2-st">Team 2</h3>
+                <button class="scb" id="t2-">–</button> <span id="t2s">0</span> <button class="scb" id="t2+">+</button>
+            </div>
+            
+            <p id="score"></p>
+        </div>
+        
+    </body>
+    <script>
+        
+        var goButton = document.getElementById("go");
+        var t1st = document.getElementById("team1-st");
+        var t2st = document.getElementById("team2-st");
+        var t1p = document.getElementById("t1+");
+        var t1m = document.getElementById("t1-");
+        var t2p = document.getElementById("t2+");
+        var t2m = document.getElementById("t2-");
+        var t1s = document.getElementById("t1s");
+        var t2s = document.getElementById("t2s");
+        var t1ss = 0;
+        var t2ss = 0;
+        
+        var useScore = function() {
+            var t1nm = document.getElementById("team1-nm").value;
+            var t1co = document.getElementById("team1-co").value;
+            var t2nm = document.getElementById("team2-nm").value;
+            var t2co = document.getElementById("team2-co").value;
+            
+            t1st.textContent = t1nm;
+            t1st.style.color = t1co;
+            
+            t2st.textContent = t2nm;
+            t2st.style.color = t2co;
+        }
+        
+        var addScore1 = function() {
+            t1ss ++;
+            t1s.innerHTML = t1ss;
+        }
+        
+        var noScore1 = function() {
+            t1ss --;
+            t1s.innerHTML = t1ss;
+        }
+        
+        var addScore2 = function() {
+            t2ss ++;
+            t2s.innerHTML = t2ss;
+        }
+        
+        var noScore2 = function() {
+            t2ss --;
+            t2s.innerHTML = t2ss;
+        }
+        
+        goButton.addEventListener("click", useScore);
+        t1p.addEventListener("click", addScore1);
+        t1m.addEventListener("click", noScore1);
+        t2p.addEventListener("click", addScore2);
+        t2m.addEventListener("click", noScore2);
+        
+    </script>
+</html>
