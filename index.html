@@ -2,42 +2,78 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Vicchat</title>
+        <title>vicchat.github.io</title>
         <style>
+            
             body {
                 font-family: sans-serif;
                 text-align: Center;
             }
+            
             a {
                 color: red;
                 text-decoration: none;
             }
+            
             a:hover {
-                color:black
+                color: black;
             }
+            
+            #notify {
+                text-align: left;
+                background-color: red;
+                color: white;
+                font-size: 14px;
+                font-family: monospace;
+                padding-left: 5px;
+                overflow: hidden;
+            }
+            
+            .alert-link {
+                color: white;
+                text-decoration: Underline;
+            }
+            
+            .alert-link:hover {
+                outline: -webkit-focus-ring-color auto 1px;
+                color: /*still*/ white;
+            }
+            
+            .alert-link:active {
+                outline: -webkit-focus-ring-color auto 1px;
+                color: /*still*/ white;
+            }
+            
+            .alert-link:focus {
+                outline: -webkit-focus-ring-color auto 1px;
+                color: /*still*/ white;
+            }
+            
         </style> 
-        
+    </head>
     <body>
+        <div id="notify"></div>
+        
         <h1>Welcome!</h1>
-        <a href=vicchat.github.io/tmc, title="Too many colours">Too many colours </a>
+        <a href="/tmc" title="Too many colours">Too many colours </a>
         |
-        <a href=vicchat.github.io/party, title="Party Invotation"> Party Invotation </a>
+        <a href="/party" title="Party Invotation"> Party Invotation </a>
         |
-        <a href=vicchat.github.io/smalltravel, title="Tiny travel place"> Tiny travel place </a>
+        <a href="/smalltravel" title="Tiny travel place"> Tiny travel place </a>
         |
-        <a href=vicchat.github.io/boxermodel, title="The Boxermodel"> Are Boxers Beautifful? </a>
+        <a href="/boxermodel" title="The Boxermodel"> Are Boxers Beautifful? </a>
         |
-        <a href="vicchat.github.io/search" title="Search The Web"> Search the Web </a>
+        <a href="/search" title="Search The Web"> Search the Web </a>
         |
         <a  targrt="_blank" href="mailto:?Subject=New Message&Body=New body" title="Wrote an email"> Write an email </a>
         |
-        <a href="vicchat.github.io/pie" title="How to eat pie">How to eat pie</a>
+        <a href="/pie" title="How to eat pie">How to eat pie</a>
         |
         <a href="vicchat.github.io" title="Error">Error</a>
         |
-        <a href="vicchat.github.io/box" title="Boxes">Boxes</a>
+        <a href="/box" title="Boxes">Boxes</a>
         |
-        <a href = "vicchat.github.io/winston" title="Draw a beard">Draw a beard</a>
+        <a href = "/winston" title="Draw a beard">Draw a beard</a>
         |
         <a href= "https://vicchat.github.io/symbols" title="Type Symbols">Type Symbols </a>
         |
@@ -64,8 +100,16 @@
         <a href="/scorekeeper" title="Scorekeeper (2 Teams)"> Scorekeeper (2 Teams) </a>
     </body>
     <script>
+        
         var pop = function() {
             popupWindow = window.open("https://vicchat.github.io", "popupWindow", "left=0,top=0,width=2000,height=1000");
-        };
+        }
+        
+        var notify = document.getElementById("notify");
+        
+         if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; Touch; .NET4.0C; .NET4.0E; McAfee; rv:11.0) like Gecko ") {
+            notify.innerHTML = "Attention to Internet Explorer Users: Your may continue to use your browser but it will keep you from doing certain things (colour pickets, opacity). For full acsess, <a href='https://vicchat.github.io/db' class='alert-link'>click here</a>.";
+        }
+        
     </script>
 </html>
