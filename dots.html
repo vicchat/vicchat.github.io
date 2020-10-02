@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dots</title>
+    </head>
+    <style>
+        
+        body {
+            background-color: rgb(0, 217, 0);
+        }
+        
+        #canvas {
+            border: dashed 10px red;
+            position: fixed;
+            height: 83%;
+            width: 94%;
+            background-color: white;
+            bottom: 7px;
+            cursor: cell;
+        }
+        
+        #bar {
+            position: fixed;
+            width: 95.51234564345434213455654323456765432123456543456765676546545454343254354354354354345435435434321234324321233444433299999999999999999999999999999999999999999999999990000044444444449999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999355543223456799889898788769898889899999999999999876587658765767776765543111111112434567898087689999880000099999999999999999999999999999999999999999999999999999999999999999989999999999999999999999999999999999999999999999990%;
+            height: 5%;
+            background-color: rgb(255, 0, 247);
+            padding: 3px;
+            border: solid 2px black;
+        }
+        
+        .dot {
+            position: fixed;
+            height: 10px;
+            width: 10px;
+            background-color: blue;
+            border-radius: 3px;
+        }
+        
+        .barButton {
+            background-color: purple;
+            color: white;
+            border-color: white;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        #info {
+            position: fixed;
+            background-color: darkBlue;
+            color: white;
+            font-family: sans-serif;
+            border: solid 2px white;
+            outline: solid 1px black;
+            padding: 3px;
+            width: 50%;
+            height: 25%;
+            left: 22.5%;
+            z-index: 100;
+            top: 17%;
+            display: none;
+        }
+        
+        .closeButton {
+            position: fixed;
+            right: 27%;
+            border: none;
+            background: none;
+            color: red;
+            font-size: 25px;
+            font-weight: Bold;
+            cursor: pointer;
+        }
+        
+        .closeButton:focus {
+            outline: none;
+        }
+        
+        .closeButton:hover {
+            outline: solid 1px red;
+            background-color: beige;
+        }
+        
+        .closeButton:active {
+            color: darkRed;
+            outline-color: darkRed;
+            background-color: rgb(141, 143, 70);
+        }
+        
+        #prf {
+            font-family: sans-serif;
+            color: black;
+        }
+        
+    </style>
+    <body>
+        
+        <div id="bar">
+            <button class="barButton" id="infoButton">About</button>
+            <button class="barButton" onclick="window.open('https://vicchat.github.io/totomia');">Related: The Building of Totomia</button>
+            <button class="barButton" onclick="printing(); window.print();">Print This Frame</button>
+        </div>
+            <div id="canvas"></div>
+        
+        <div id="info">
+            <button class="closeButton" id="closeInfo">X</button>
+            <br><br>The way this program works is simple:<br>
+            Just click to add a dot!
+        </div>
+        
+    </body>
+    <script>
+        
+        var canvas = document.getElementById("canvas");
+        var closeInfo = document.getElementById("closeInfo");
+        var info = document.getElementById("info");
+        var bar = document.getElementById("bar");
+        var infoButton = document.getElementById("infoButton");
+        
+        var onCanvasClick = function(e) {
+            var dot = document.createElement("div");
+                dot.className = "dot";
+                dot.style.left = e.pageX + "px";
+                dot.style.top = e.pageY + "px";
+            canvas.appendChild(dot);
+        }
+        
+        var infoClose = function() {
+            info.style.display = "none";
+        }
+        
+        var printing = function() {
+            bar.innerHTML = "<span id='prf'>vicchat.github.io/dots</span>";
+        }
+        
+        var onInfoButtonClick = function() {
+            info.style.display = "block";
+        }
+        
+        canvas.addEventListener("click", onCanvasClick);
+        closeInfo.addEventListener("click", infoClose);
+        infoButton.addEventListener("click", onInfoButtonClick);
+        
+    </script>
+</html>
