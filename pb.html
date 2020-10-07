@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>BeaverPos</title>
+    </head>
+    <style>
+        /* <img src="https://www.kasandbox.org/programming-images/landscapes/lake.png"> */
+        
+        body {
+            background-color: black;
+        }
+        
+        #ho {
+            position: fixed;
+            background-image: url("https://www.kasandbox.org/programming-images/landscapes/lake.png");
+            border: groove 15px;
+            border-left-color: blue;
+            border-top-color: lightBlue;
+            border-right-color: lightGreen;
+            border-bottom-color: green;
+            width: 630px;
+            height: 400px;
+            }
+        
+        #h {
+            position: fixed;
+            left: 50px;
+            top: 50px;
+        }
+        
+        #info {
+            position: relative;
+            color: white;
+            border: solid 3px white;
+            background-color: grey;
+            width: 150px;
+            height: 150px;
+            overflow: auto;
+            text-align: center;
+            padding-right: 50px;
+            top: 1000px;
+        }
+        
+    </style>
+    <body>
+        
+        <div id="ho">
+            <img src="https://www.kasandbox.org/programming-images/avatars/Hopper-jumping.gif" id="h">
+        </div>
+        
+        <div style="position:fixed; top:500px; color:white;">Scroll for information.</div>
+
+        <div id="info">
+            <menu>To use &#147;BeaverPos&#148;, press
+                <kbd>[W]</kbd> or <kbd>[8]</kbd> to go up, <kbd>[S]</kbd> or <kbd>[2]</kbd> to go down, <kbd>[A]</kbd> or <kbd>[4]</kbd> to go left, <kbd>[D]</kbd> or <kbd>[6]</kbd> to go right, <kbd>[5]</kbd>, <kbd>[ENTER]</kbd> or <kbd>[SPACE]</kbd> to print, <kbd>[~]</kbd> or <kbd>[&lt;]</kbd> to reset.
+            </menu>
+        </div>
+        
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        
+        var h = $("#h");
+        var up = 50;
+        var side = 50;
+        
+        $("body").on("keypress", function(key){
+            if (key.keyCode === 119) {
+                up -= 10;
+                h.css("top", up + "px");
+            } else if (key.keyCode === 115) {
+                up += 10;
+                h.css("top", up + "px");
+            } else if (key.keyCode === 97) {
+                side -= 10;
+                h.css("left", side + "px");
+            } else if (key.keyCode === 100) {
+                side += 10;
+                h.css("left", side + "px");
+            } else if (key.keyCode === 56) {
+                up -= 10;
+                h.css("top", up + "px");
+            } else if (key.keyCode === 50) {
+                up += 10;
+                h.css("top", up + "px");
+            } else if (key.keyCode === 52) {
+                side -= 10;
+                h.css("left", side + "px");
+            } else if (key.keyCode === 54) {
+                side += 10;
+                h.css("left", side + "px");
+            } else if (key.keyCode === 53) {
+                window.print();
+            } else if (key.keyCode === 13) {
+                window.print();
+            } else if (key.keyCode === 32) {
+                window.print();
+            } else if (key.keyCode === 96) {
+                up = 50;
+                side = 50;
+                h.css("top", "50px");
+                h.css("left", "50px");
+            } else if (key.keyCode === 44) {
+                up = 50;
+                side = 50;
+                h.css("top", "50px");
+                h.css("left", "50px");
+            }
+        });
+        
+    </script>
+</html>
