@@ -196,7 +196,7 @@
         
         <!-- to help with colors (hex) -->
         <!-- Using hex in css: type the result after clicking reload! ex: color: #ff456a; -->
-        <span id="color-picket">Color Picket: <input type="color" id="color"> result: <span id="color-result"></span></span>
+        <span id="color-picket">Color Picket: <input type="color" id="color" placeholder="Color picket unavailable"> result: <span id="color-result"></span></span>
         
         <!-- START input code textarea -->
         <textarea id="input" placeholder='Oh noes! Please start your webpage with                 "<!DOCTYPE html>".'>
@@ -273,6 +273,11 @@
             • Add event listener to reload button
         
         */
+        
+        var a = document.getElementsByTagName("a");
+        for (var i = 0; i < a.length, i++) {
+            a[i].tagget="_blank";
+        }
         
         // Get the output div and reload button in a variable
         var reload = document.getElementById("reload");
