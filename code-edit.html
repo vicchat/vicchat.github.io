@@ -274,11 +274,6 @@
         
         */
         
-        var a = document.getElementsByTagName("a");
-        for (var i = 0; i < a.length, i++) {
-            a[i].tagget="_blank";
-        }
-        
         // Get the output div and reload button in a variable
         var reload = document.getElementById("reload");
         var output = document.getElementById("output");
@@ -301,6 +296,7 @@
             
             // Set the output div's innerHTML to the input textarea
             output.innerHTML = input;
+            
         }
         
         // Add event listener to reload button
