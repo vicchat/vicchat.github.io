@@ -265,6 +265,25 @@
     </body>
     <script>
         
+        var textTab = function(e) {
+            if (e.key == 'Tab') {
+                e.preventDefault();
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+
+                // set textarea value to: text before caret + tab + text after caret
+                this.value = this.value.substring(0, start) +
+                  "\t" + this.value.substring(end);
+
+                // put caret at right position again
+                this.selectionStart =
+                this.selectionEnd = start + 1;
+            }
+        };
+        
+    </script>
+    <script>
+        
         /**
         
         To make this work:
@@ -301,6 +320,12 @@
         
         // Add event listener to reload button
         reload.addEventListener("click", reloadProgram);
+        
+    </script>
+    <script>
+        
+        var in_put = document.getElementById("input");
+        in_put.addEventListener("keydown", textTab);
         
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> // jQuery </script>
