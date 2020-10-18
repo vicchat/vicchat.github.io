@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Key Pressing Thing</title>
+    </head>
+    <body>
+        
+        <i>Press W Please</i><br>
+        <i>O, and do change the volume please.</i><br>
+        <i>O, press F5 too, and the command key or windows logo!</i><br>
+        <i>Press alt!</i><br>
+        <i>Tell me your name by pressing Delete!</i><br>
+        <i>O, and don't press 4.</i><br>
+        <i>But do press control!</i><br>
+        <i>Try pressing CapsLock.</i><br>
+        <i>Insert!</i><br>
+        <i>That's it! O, thank you for doing this! Press esc to exit!</i>
+        
+    </body>
+    <script>
+        
+        var onKeyPress = function(e) {
+            var keyName = e.key;
+            if (keyName === "w" || keyName === "W") {
+                alert("O, thank you!");
+            } else if (keyName === "AudioVolumeUp") {
+                alert("Volume Up!");
+            } else if (keyName === "AudioVolumeDown") {
+                alert("Volume Down!");
+            } else if (keyName === "AudioVolumeMute") {
+                alert("No Volume!");
+            } else if (keyName === "F5") {
+                alert("alertz9(\"You pressed ~F5~!\")'';");
+                alert("You pressed ~F5~!");
+                window.stop();
+            } else if (keyName === "Meta" || keyName === "Win" || keyName === "OS") {
+                var macWin = window.confirm("Are you on a Mac?\n\nClick \"OK\" if you are, or click \"Cancel\" if you are on Windows.");
+                if (macWin === true) {
+                    alert("Then you must have pressed Command!");
+                } else {
+                    alert("Then you must have pressed Windoows Logo!");
+                }
+            } else if (keyName === "Alt") {
+                alert("YAY!");
+            } else if (keyName === "Backspace" || keyName === "Delete") {
+                var me = window.prompt("What is your name?");
+                if (me) {
+                    alert("Hello, " + me + "!")
+                } else {
+                    alert("That's not your name!");
+                }
+            } else if (keyName === "4") {
+                alert("💩 4 U");
+            } else if (keyName === "Control") {
+                alert("You're in control!");
+            } else if (keyName === "CapsLock") {
+                alert("YOU PRESSED CAPS LOCK!");
+            } else if (keyName === "Insert") {
+                window.confirm("Hi,");
+            } else if (keyName === "Escape") {
+                alert("Goodbye!");
+                window.history.back();
+            }
+        }
+        
+        document.body.addEventListener("keydown", onKeyPress);
+        
+    </script>
+</html>
