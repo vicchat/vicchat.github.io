@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Google searching</title>
+    </head>
+    <style>
+        
+        #g-l {
+            position: absolute;
+            z-index: 100000;
+            top: 150px;
+            width: 195px;
+            left: 35px;
+        }
+        
+        #g-h {
+            opacity: 40%;
+            width: 250px;
+            height: 200px;
+        }
+        
+        #g-b {
+            background: black;
+            width: 250px;
+            height: 200px;
+            border: solid 3px rgb(184, 184, 184);
+            border-bottom: solid 3px rgb(45, 112, 227);
+            border-radius: 40px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        #g-b:hover {
+            border-width: 5px;
+            transition: border-width 0.1s linear;
+        }
+        
+        #g-b:active, #g-b:focus {
+            outline: none;
+            border-color: rgb(224, 105, 0);
+            border-bottom-color: rgb(45, 112, 277);
+        }
+        
+        #prompt {
+            position: fixed;
+            border-top: solid 2px blue;
+            border-bottom: solid 2px yellow;
+            border-left: solid 2px green;
+            border-right: solid 2px red;
+            width: 400px !important;
+            height: 200px !important;
+            top: 50%;
+            left: 50%;
+            background: white;
+            z-index: 100000;
+            margin-left: -200px;
+            margin-top: -100px;
+            box-shadow: 0 0 30px black;
+            text-align: center;
+            font-family: sans-serif;
+            display: none;
+        }
+        
+        #sa {
+            width: 300px;
+            height: 30px;
+            border: solid 1px grey;
+            font-size: 20px;
+            padding: 3px;
+            padding-left: 10px;
+            margin-bottom: 45px;
+            border-radius: 30px;
+        }
+        
+        #sa:focus-within {
+            outline: none;
+            border-radius: 10px;
+        }
+        
+        #sa::selection {
+            color: white;
+            background: black;
+        }
+        
+        .ho {
+            background: white;
+            border: solid 1px black;
+            border-radius: 30px;
+            width: 175px;
+            height: 30px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .ho:active {
+            background: lightgrey;
+        }
+        
+        .ho:focus {
+            outline: none;
+            border-radius: 10px;
+        }
+        
+    </style>
+    <body>
+        
+        <h1 style="font-family: sans-serif;">Click &#147;Goolge&#148; to search google.</h1>
+        
+        <div id="g-b" tabindex="1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/250px-Google_2015_logo.svg.png" id="g-l" alt="google">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Googleplex_HQ_%28cropped%29.jpg/250px-Googleplex_HQ_%28cropped%29.jpg" id="g-h">
+        </div>
+        
+        <div id="prompt">
+            <h2>Search Google</h2>
+            <input id="sa" placeholder="Search"><br>
+            <button id="go" class="ho">Search</button> <button id="no" class="ho" onclick="closeit();">Cancel</button>
+        </div>
+        
+    </body>
+    <script>
+        
+        var button = document.getElementById("g-b");
+        var sa = document.getElementById("sa");
+        var go = document.getElementById("go");
+        
+        var onButtonClick = function() {
+            var prompt = document.getElementById("prompt").style.display = "block";
+            var sa = document.getElementById("sa").focus();
+        };
+        
+        var soi = function(e) {
+            var say = document.getElementById("sa").value;
+            if (e.key === "Enter") {
+                var prompt = document.getElementById("prompt").style.display = "none";
+                var popup = window.open("https://google.com/search?q=" + say, "popup", "left=0, top=0, height=10000, width=10000");
+                sa.select();
+            }
+        }
+        
+        var soii = function() {
+            var say = document.getElementById("sa").value;
+                var prompt = document.getElementById("prompt").style.display = "none";
+                var popup = window.open("https://google.com/search?q=" + say, "popup", "left=0, top=0, height=10000, width=10000");
+                sa.select();
+        }
+        
+        var closeit = function() {
+            var prompt = document.getElementById("prompt").style.display = "none";
+        }
+        
+        button.addEventListener("click", onButtonClick);
+        sa.addEventListener("keydown", soi);
+        go.addEventListener("click", soii);
+        
+    </script>
+</html>
