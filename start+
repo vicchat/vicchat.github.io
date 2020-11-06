@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Start Page on vicchat.github.io</title>
+    </head>
+    <style>
+        
+        #search {
+            position: absolute !important;
+            top: 70px;
+            width: 450px;
+            height: 50px;
+            text-align: center;
+            font-size: 40px;
+            left: 50%;
+            margin-left: -225px !important;
+            border: solid 3px grey;
+            border-radius: 50px;
+        }
+        
+        #search:focus-within {
+            border-color: black;
+            outline: none !important;
+            border-radius: 20px;
+        }
+        
+        #search::selection {
+            background: darkred;
+            color: red;
+        }
+        
+        #s-e {
+            position: absolute !important;
+            top: 160px;
+            height: 35px;
+            width: 150px;
+            border: solid 3px grey;
+            border-radius: 50px;
+            padding: 5px;
+            font-size: 16px;
+            left: 50%;
+            margin-left: -160px;
+            cursor: copy;
+        }
+        
+        #s-e:focus {
+            outline: none !important;
+            border-color: black;
+            border-radius: 10px;
+        }
+        
+        #go {
+            position: absolute !important;
+            background-color: white;
+            border: solid 3px grey;
+            border-radius: 50px;
+            width: 150px;
+            height: 35px;
+            text-align: center;
+            font-size: 16px;
+            top: 160px;
+            left: 50%;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+        
+        #contain-s {
+            position: fixed !important;
+            border-bottom: solid 3px white;
+            background: darkred;
+            width: 100% !important;
+            height: 230px;
+            margin: -8px !important;
+            top: 0px !important;
+            z-index: 2;
+        }
+        
+        #wehome {
+            position: absolute !important;
+            color: white;
+            text-decoration: Underline !important;
+            font-family: fantasy;
+            top: 15px;
+            left: 10px;
+            font-size: 30px;
+        }
+        
+        #bgi {
+            margin: -8px;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+    </style>
+    <body>
+        
+        <div id="contain-s">
+            <a href="https://vicchat.github.io" id="wehome">Welcome Back!</a>
+            <input id="search" class="sb" placeholder="Search"> <select id="s-e" class="sb">
+                <option value="google">Google</option>
+                <option value="bing">Bing</option>
+                <option value="duckduckgo">DuckDuckGo</option>
+                <option value="yahoo">Yahoo</option>
+                <option value="yandex">Yandex</option>
+                <option value="ecosia">Ecosia</option>
+            </select> <button id="go" class="sb" onclick="onButtonClick();">Search</button>
+        </div>
+        
+        <img id="bgi" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Starsinthesky.jpg/220px-Starsinthesky.jpg">
+        
+    </body>
+    <script>
+        
+        var go = document.getElementById("go");
+        var search = document.getElementById("search");
+        //search.focus();
+        
+        var onButtonClick = function() {
+            var search = document.getElementById("search").value;
+            var sE = document.getElementById("s-e").value;
+            
+            if (sE === "google" || sE === "bing" || sE === "yahoo") {
+                var popup = window.open("https://" + sE + ".com/search?q=" + search, "popup", "left=0,top=0,width=100000,height=100000");
+            } else if (sE === "duckduckgo" || sE === "yandex") {
+                var popup = window.open("https://" + sE + ".com/?q=" + search, "popup", "left=0,top=0,width=100000,height=100000");
+            } else if (sE === "ecosia") {
+                var popup = window.open("https://" + sE + ".org/search?q=" + search, "popup", "left=0,top=0,width=100000,height=100000");
+            };
+        };
+        
+        var engo = function(e) {
+            if (e.key === "Enter") {
+                var search = document.getElementById("search").value;
+                var sE = document.getElementById("s-e").value;
+                
+                if (sE === "google" || sE === "bing" || sE === "yahoo") {
+                    var popup = window.open("https://" + sE + ".com/search?q=" + search, "popup", "left=0,top=0,width=100000,height=100000");
+                } else if (sE === "duckduckgo" || sE === "yandex") {
+                    var popup = window.open("https://" + sE + ".com/?q=" + search, "popup", "left=0,top=0,width=100000,height=100000");
+                } else if (sE === "ecosia") {
+                    var popup = window.open("https://" + sE + ".org/search?q=" + search, "popup", "left=0,top=0,width=100000,height=100000");
+                };
+            };
+        };
+        
+        search.addEventListener("keydown", engo);
+        
+    </script>
+</html>
