@@ -123,11 +123,11 @@
             var sE = document.getElementById("s-e").value;
             
             if (sE === "google" || sE === "bing" || sE === "yahoo") {
-                var popup = window.open("https://" + sE + ".com/search?q=" + search, "popup", "left=0,top=0,width=100000,height=100000");
+                window.location.href = "https://" + sE + ".com/search?q=" + search;
             } else if (sE === "duckduckgo" || sE === "yandex") {
-                var popup = window.open("https://" + sE + ".com/?q=" + search, "popup", "left=0,top=0,width=100000,height=100000");
+                var popup = window.location.href = "https://" + sE + ".com/?q=" + search;
             } else if (sE === "ecosia") {
-                var popup = window.open("https://" + sE + ".org/search?q=" + search, "popup", "left=0,top=0,width=100000,height=100000");
+                var popup = window.location.href = "https://" + sE + ".org/search?q=" + search;
             };
         };
         
