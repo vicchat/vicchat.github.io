@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>OBigShark</title>
+    </head>
+    <style>
+        
+        body {
+            background: black;
+            font-family: sans-serif;
+            color: white;
+        }
+        
+        #mr-shark {
+            position: fixed !important;
+            margin: -8px;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+        }
+        
+        div i b /*P''*/ {
+            font-size: 50px;
+        }
+        
+        div {
+            text-align: center;
+        }
+        
+        #cen {
+            position: relative;
+            top: 20px;
+            margin: auto;
+            text-align: center;
+        }
+        
+        #ok {
+            background: none;
+            color: white;
+            border: solid 1px white;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        #ok:hover {
+            background: black;
+            padding: 22px;
+            font-size: 30px;
+            outline: ridge 30px red !important;
+        }
+        
+        #ok:active {
+            outline: ridge 30px blue !important;
+            background: green;
+            color: pink;
+            border-color: orange;
+        }
+        
+        #ok:focus {
+            border-width: 2px;
+            outline: none;
+        }
+        
+        #og {
+            position: fixed;
+            z-index: 20;
+            border: solid 3px white;
+            background-color: red;
+            width: 150px;
+            height: 20px;
+            left: 50%;
+            padding: 5px;
+            bottom: 100px;
+            margin-left: -75px;
+        }
+        
+    </style>
+    <body>
+        
+        <img src="https://www.kasandbox.org/programming-images/animals/shark.png" id="mr-shark">
+        
+        <div><i><b>
+            O,<br>
+            look at the shark<br>
+            so big and o so hungry.<br>
+            That's why fish exist,<br>
+            It isn't why humans do,<br>
+            So dude,<br>
+            Take a chill pill,<br>
+            Alright?<br>
+            If to that you said no,<br>
+            Are you really to know,<br>
+            The stuff they really eat<br>
+            Is fish<br>
+            Fish<br>
+            Fish<br>
+            Fish,<br>
+            And with that I'm afraid,<br>
+            That we reach the end<br>
+            So go away!
+        </b></i></div>
+        
+        <div id="cen">
+            <button id="ok" onmouseenter="sog();" onmouseleave="hog();" onclick="window.alert('O, thank you for GOING AWAY!'); window.location.href = 'https://vicchat.github.io'">Okay, okay, I'm going away!</button>
+        </div>
+        
+        <br><br>
+        
+        <div id="og">Yes, plaese click.</div>
+        
+    </body>
+    <script>
+        
+        var og = document.getElementById("og");
+        og.style.display = "none";
+        
+        var sog = function() {
+            og.style.display = "block";
+        }
+        
+        var hog = function() {
+            og.style.display = "none";
+        }
+        
+    </script>
+</html>
