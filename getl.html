@@ -82,11 +82,15 @@
             width: 255px;
         }
         
+        a {
+            color: blue;
+        }
+        
     </style>
     <body>
         
         <div id="center-body-div">
-            <span id="text">Downloading...</span>
+            <span id="text">Preparing Download...</span>
             <a href="javascript:window.close();" id="close">X</a>
             <progress value="0" max="100" id="progress"></progress>
         </div>
@@ -99,12 +103,16 @@
         var progress = document.getElementById("progress");
         var val = 0;
         
+        var ins = function() {
+            var text = document.getElementById("text").innerHTML = "Done Preparing. <a href='https://vicchat.github.io/Click to open'>Download</a>";
+        }
+        
         window.setInterval(function(){
             if (val < 101) {
                 progress.value = val;
                 val ++;
             } else if (val === 101) {
-                window.location.herf = "https://vicchat.github.io/Click to open";
+                ins();
                 val ++;
             }
         }, 200);
