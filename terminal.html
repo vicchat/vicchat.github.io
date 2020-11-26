@@ -62,19 +62,19 @@
     </style>
     <body>
         
-        <textarea id="code" spellcheck="false">Welcome to VGIT (Delete this text if necessary)
-See your js console for details on how to use the experiment</textarea>
+        <textarea id="code" spellcheck="false">Welcome to VGIT (Press Ctrl+A+Delete or F2 to clear)
+See your js console or press F9 for details on how to use the experiment</textarea>
         
     </body>
     <script>
         
         var code = document.getElementById("code");
-        code.focus();
+        //code.focus();
         
-        console.log("List of commands for VGIT:\n\n/alert <method>\n  method values:\n    userPrompt: Type in a string to alert\n    cos: open a blank dialouge box\n/open <method> <location>\n  method values:\n    tab: open a new tab\n    window: open a new window\n  location values:\n    start+: open to the vicchat.github.io start page (https://vicchat.github.io/start+)\n    blank: open to a blank page (about:blank)\n/new <file>\n  file values:\n    html: VGIC html/css editor\n    terminal: open the terminal in a new tab\n    git: add to vicchat.github.io (limited acsess)\n/close <location>\n  location values:\n    window: put this window into focus (for popup windows)\n/{exit}; (exit the terminal)\n\nPress the Pause/Play key on your keyboard to run.");
+        console.log("List of commands for VGIT:\n\n/alert <method>\n  method values:\n    userPrompt: Type in a string to alert\n    cos: open a blank dialouge box\n/open <method> <location>\n  method values:\n    tab: open a new tab\n    window: open a new window\n  location values:\n    start+: open to the vicchat.github.io start page (https://vicchat.github.io/start+)\n    blank: open to a blank page (about:blank)\n/new <file>\n  file values:\n    html: VGIC html/css editor\n    terminal: open the terminal in a new tab\n    git: add to vicchat.github.io (limited acsess)\n/close <location>\n  location values:\n    window: put this window into focus (for popup windows)\n/{exit}; (exit the terminal)\n\nPress the Pause/Play or F4 keys on your keyboard to run.");
         
         var run = function(e) {
-            if (e.key === "MediaPlayPause") {
+            if (e.key === "MediaPlayPause" || e.key === "F4") {
                 var codeval = document.getElementById("code").value;
                 var con_alert = codeval.includes("/alert userPrompt");
                 var con_alert_cos = codeval.includes("/alert cos");
@@ -122,6 +122,10 @@ See your js console for details on how to use the experiment</textarea>
                 if (con_close_this === true) {
                     window.location.href = "https://vicchat.github.io";
                 }
+            } else if (e.key === "F2") {
+                window.alert("List of commands for VGIT:\n\n/alert <method>\n  method values:\n    userPrompt: Type in a string to alert\n    cos: open a blank dialouge box\n/open <method> <location>\n  method values:\n    tab: open a new tab\n    window: open a new window\n  location values:\n    start+: open to the vicchat.github.io start page (https://vicchat.github.io/start+)\n    blank: open to a blank page (about:blank)\n/new <file>\n  file values:\n    html: VGIC html/css editor\n    terminal: open the terminal in a new tab\n    git: add to vicchat.github.io (limited acsess)\n/close <location>\n  location values:\n    window: put this window into focus (for popup windows)\n/{exit}; (exit the terminal)\n\nPress the Pause/Play or F4 keys on your keyboard to run.");
+            } else if (e.key === "F9") {
+                code.value = "";
             }
         }
         
