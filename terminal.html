@@ -69,7 +69,7 @@ See your js console or press F2 for details on how to use the experiment</textar
     <script>
         
         var code = document.getElementById("code");
-        //code.focus();
+        code.focus();
         
         console.log("List of commands for VGIT:\n\n/alert <method>\n  method values:\n    userPrompt: Type in a string to alert\n    cos: open a blank dialouge box\n/open <method> <location>\n  method values:\n    tab: open a new tab\n    window: open a new window\n  location values:\n    start+: open to the vicchat.github.io start page (https://vicchat.github.io/start+)\n    blank: open to a blank page (about:blank)\n/new <file>\n  file values:\n    html: VGIC html/css editor\n    terminal: open the terminal in a new tab\n    git: add to vicchat.github.io (limited acsess)\n/close <location>\n  location values:\n    window: put this window into focus (for popup windows)\n/{exit}; (exit the terminal)\n\nPress the Pause/Play or F4 keys on your keyboard to run.");
         
@@ -82,6 +82,7 @@ See your js console or press F2 for details on how to use the experiment</textar
                 var con_open_winblk = codeval.includes("/open window blank");
                 var con_open_tab = codeval.includes("/open tab start+");
                 var con_open_tabblk = codeval.includes("/open tab blank");
+                var con_open_ter = codeval.includes("/open window treminal");
                 var con_new_html = codeval.includes("/new html");
                 var con_new_git = codeval.includes("/new git");
                 var con_new_term = codeval.includes("/new terminal");
@@ -106,6 +107,9 @@ See your js console or press F2 for details on how to use the experiment</textar
                 }
                 if (con_open_tabblk === true) {
                     window.open("about:blank");
+                }
+                if (con_open_ter === true) {
+                    var popup = window.open(this, "popup", "left=");
                 }
                 if (con_new_html === true) {
                     window.open("https://vicchat.github.io/code-edit");
