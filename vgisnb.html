@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vicchat.github.io search  n' browse</title>
+    </head>
+    <style>
+        
+        body {
+            background: black;
+        }
+        
+        #url {
+            position: fixed;
+            left: -2px;
+            top: -1px;
+            width: 100%;
+            height: 30px;
+            border: solid 3px white;
+            outline: none !important;
+            font-size: 20px;
+        }
+        
+        #url:focus-within {
+            outline: none !important;
+            border-bottom-color: red;
+        }
+        
+        #url::selection {
+            background: rgb(255, 100, 100);
+            color: black;
+        }
+        
+        #instructions {
+            position: relative;
+            background: white;
+            top: 29px;
+            width: 65%;
+            margin: auto;
+            padding: 20px;
+            padding-bottom: 10px;
+            font-family: sans-serif;
+            cursor: default;
+        }
+        
+        #close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            border: solid 1px black;
+            padding: 5px;
+            cursor: pointer;
+        }
+        
+        #close:active {
+            border-width: 2px;
+        }
+        
+    </style>
+    <body onkeydown="url.focus();">
+        
+        <input id="url" placeholder="Start typing to go somewhere!">
+        
+        <div id="instructions" onclick="this.style.display = 'none';">
+            Here's how to use this program:
+            <ol>
+                <li>Type or paste a link (no protocol required)</li>
+                <li>Type &#147;%10&#148; before text you want to search.</li>
+            </ol>
+            <div id="close">X</div>
+        </div>
+        
+    </body>
+    <script>
+        
+        var url = document.getElementById("url");
+        
+        var visit = function(e) {
+            if (e.key === "Enter") {
+                var goto = document.getElementById("url").value;
+                var inhs = goto.includes("https://");
+                var inh = goto.includes("http://");
+                var ins = goto.includes("%10");
+                if (inhs === true || inh === true) {
+                    window.location.href = goto;
+                } else if (ins === true) {
+                    window.location.href = "https://www.google.com/search?q=" + goto;
+                } else {
+                    window.location.href = "https://" + goto;
+                }
+                url.blur();
+            }
+        }
+        
+        url.addEventListener("keydown", visit);
+        
+    </script>
+</html>
