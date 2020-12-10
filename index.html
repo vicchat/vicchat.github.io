@@ -14,6 +14,8 @@
                 color: white;
                 text-align: center;
                 margin: 5px;
+                font-family: "Blackadder Itc", fantasy;
+                font-size: 50px;
             }
             
             #h1 {
@@ -24,6 +26,7 @@
                 top: 0px;
                 background-color: darkRed;
                 padding: 0px;
+                height: 100px;
             }
             
             a {
@@ -87,7 +90,8 @@
             
             #bar4 {
                 background-color: #FF0000;
-                right: -170px;
+                right: -330px;
+                top: 160px;
             }
             
             #link-body {
@@ -111,6 +115,45 @@
                 color: green;
             }
             
+            ::-webkit-scrollbar {
+                width: 17px;
+                height: 17px;
+                background: black;
+            }
+            
+            ::-webkit-scrollbar-track {
+                background: black;
+                border: solid 1px red;
+                border-radius: 100px;
+                box-shadow: inset 0 0 6px red;
+            }
+            
+            ::-webkit-scrollbar-thumb {
+                background: darkred;
+                border: solid 1px red;
+                border-radius: 100px;
+            }
+            
+            ::-webkit-scrollbar-corner {
+                background: black;
+            }
+            
+            ::-webkit-scrollbar-button {
+                background: black;
+                border: solid 1px red;
+                border-radius: 100px;
+                box-shadow: inset 0 0 6px red;
+            }
+            
+            #foot {
+                position: relative;
+                color: red;
+                top: -10px;
+                left: 0px;
+                transform: rotate(0deg);
+                font-weight: bold;
+            }
+            
         </style> 
     </head>
     <body>
@@ -121,8 +164,13 @@
         <div class="bar" id="bar3"></div>
         <div class="bar" id="bar4"></div>
         
-        <div id="h1"><h1>Welcome to vicchat.github.io!</h1></div>
-        <br><br>
+        <div id="h1">
+            <h1>Welcome!</h1>
+            <div id="foot">Turn JavaScript back on!</div>
+        </div>
+        
+        <br><br><br><br><br>
+        
         <div id="link-body">
             <a href="/tmc" title="Too many colours">Too many colours </a><br>
             <a href="/party" title="Party Invotation"> Party Invotation </a><br>
@@ -171,6 +219,21 @@
         var closeit = function() {
             notify.style.display = "none";
         }
+        
+        document.body.addEventListener("keydown", function(e){
+            if (e.key === " ") {
+                window.location.href = "https://lh3.googleusercontent.com/YGJ77qN9KiwctZgfqV8Bf3hNo0rZvcFaPKDTkvtS6kVbtwyCS80Pm6dpXzJCCLZE1Q";
+            }
+        });
+        
+    </script>
+    <script>
+        
+        var foot = document.getElementById("foot");
+        var num = Math.round(Math.random() * 15);
+        var text = ["Welcome!", "Fellow Earthlings!", "Download the New Microsoft Edge!?", "Woooooo!", "to vicchat.github.io, Your Favourite Random Website", "Where's the Wine?", "Got Pie?", "Press [SPACE] to go to Space!", "Oinky Pigs!", "Hoo Arr Yuu?", "1 + 1 = 2!", "vicchat.github.io, Scince 2020", "Made During COVID-19!",  "YEAH!", "Just Kidding. Or Not.", "I'm Running Out of Ideas!"];
+        
+        foot.innerHTML = text[num];
         
     </script>
 </html>
