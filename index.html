@@ -207,6 +207,7 @@
             <a href="/obig" title="OBigShark"> OBigShark </a><br>
             <a href="/laee" title="L+A+E+E"> L+A+E+E </a><br>
             <a href="/lchat" title="lChat"> lChat </a><br>
+            <a href="/bib" title="Browser Within Browser" onclick="bib()"> Browser Within Browser </a><br>
         </div>
         
     </body>
@@ -231,6 +232,10 @@
                 window.location.href = "https://lh3.googleusercontent.com/YGJ77qN9KiwctZgfqV8Bf3hNo0rZvcFaPKDTkvtS6kVbtwyCS80Pm6dpXzJCCLZE1Q";
             }
         });
+        
+        var bib = function() {
+            window.alert("Warning:\n\nBrowser Within Browser will not work unless you install a web extension that blocks X-Frame Headers.\nTo get this type of extension, go to your browser's webstore and search \"Ignore X-Frame Headers\"");
+        }
         
     </script>
     <script>
