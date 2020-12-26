@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Browser Within Browser</title>
+    </head>
+    <style>
+        
+        body {
+            background: white;
+        }
+        
+        #bar {
+            position: fixed;
+            z-index: 2;
+            width: 100%;
+            height: 35px;
+            left: 0px;
+            top: 0px;
+            background: black;
+            border-bottom: solid 5px white;
+        }
+        
+        .button {
+            position: absolute;
+            top: 8px;
+            width: 30px;
+            border: solid 0px black;
+            background: grey;
+            color: black;
+            height: 18px;
+        }
+        
+        .button:hover {
+            background: lightgrey;
+        }
+        
+        .button:focus {
+            outline: solid 2px lightblue;
+        }
+        
+        #back {
+            left: 5px;
+        }
+        
+        #next {
+            left: 40px;
+        }
+        
+        #load {
+            left: 75px;
+        }
+
+        #ext {
+            left: 110px;
+        }
+        
+        #url {
+            position: absolute;
+            top: 8px;
+            background: grey;
+            color: black;
+            border: solid 0px black;
+            height: 16px;
+            width: 70%;
+            right: 40px;
+        }
+
+        #url:hover {
+            background: lightgrey;
+        }
+
+        #url:focus {
+            background: lightgrey;
+            outline: solid 2px lightblue;
+        }
+
+        #url::selection {
+            background: lightblue;
+            color: black;
+        }
+        
+        #go {
+            right: 5px;
+        }
+        
+        #out {
+            position: fixed;
+            z-index: 3;
+            left: 0px;
+            top: 40px;
+            width: 100%;
+            height: 95%;
+            border: none;
+        }
+
+        #more {
+            position: fixed;
+            width: 500px;
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -250px;
+            background: black;
+            border: none;
+            outline: solid 5px white;
+            z-index: 5;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        #no-more {
+            position: absolute;
+            background: red;
+            color: white;
+            font-family: sans-serif;
+            border: solid 1px white;
+            right: 0px;
+            top: 0px;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+        }
+
+        #no-more:focus {
+            outline: solid 2px lightblue;
+        }
+
+        #wrapper {
+            position: relative;
+            left: 10px;
+        }
+
+        .ex-tile {
+            border: none;
+            background: grey;
+            padding: 5px;
+        }
+
+        .ex-tile:hover {
+            background: lightgrey;
+        }
+
+        .ex-tile:focus {
+            outline: solid 2px lightblue;
+        }
+
+        #redground {
+            background: red;
+        }
+
+        #wave {
+            background-image: url(https://earthsky.org/upl/2012/05/color_spectrum_shutterstock-e1492109391352.jpg);
+        }
+
+        #tree {
+            background-image: url(https://st.depositphotos.com/1324256/3391/i/950/depositphotos_33918197-stock-photo-beautiful-bright-forest.jpg);
+        }
+
+        #sea {
+            background-image: url(https://scx2.b-cdn.net/gfx/news/hires/2018/2-ocean.jpg);
+        }
+
+        #clock {
+            background-image: url(https://www.cityofwoodstock.ca/en/resourcesGeneral/banner_01.jpg);
+        }
+
+        #light {
+            background: white;
+        }
+
+        #dark {
+            background: black;
+            color: white;
+        }
+
+        #green {
+            background: green;
+        }
+
+        #ntl {
+            background-image: url(https://arctickingdom.com/wp-content/uploads/2016/08/Igloo-BLL-Under-Aurora.jpg);
+        }
+
+        #sunpalm {
+            background-image: url(https://p0.pikist.com/photos/714/397/sunset-palm-tree-beach-tropical-paradise-seashore-florida-resort.jpg);
+        }
+
+        #sloperoof {
+            background-image: url(https://media.timeout.com/images/105594683/image.jpg);
+        }
+
+        #bores {
+            background: white;
+        }
+
+        #customTheme {
+            position: fixed;
+            width: 300px;
+            height: 400px;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -200px;
+            background: black;
+            outline: solid 5px white;
+            z-index: 10;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        #no-more-custom {
+            position: absolute;
+            background: red;
+            color: white;
+            font-family: sans-serif;
+            border: solid 1px white;
+            right: 0px;
+            top: 0px;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+        }
+
+        #no-more-custom:focus {
+            outline: solid 2px lightblue;
+        }
+
+        #another-wrapper {
+            position: relative;
+            left: 10px;
+        }
+
+        [type = color], select {
+            border: none;
+            background: grey;
+            border-radius: 0px;
+        }
+
+        [type = color]:hover, select:hover {
+            background: lightgrey;
+        }
+
+        [type = color]:focus, select:focus {
+            outline: solid 2px lightblue;
+        }
+
+    </style>
+    <body>
+        
+        <div id="bar">
+            <button class="button" id="back" onclick="window.history.back();" title="Back (Alt+Left Arrow)">&Lt;</button>
+            <button class="button" id="next" onclick="window.history.forward();" title="Forward (Alt+Right Arrow)">&Gt;</button>
+            <button class="button" id="load" onclick="loadgen();">‹⊃</button>
+            <button class="button" id="ext" onclick="ext();" title="Themes (Alt+T)">⁜</button>
+            <input id="url" placeholder="Go to url">
+            <button class="button" id="go" onclick="go();">Go</button>
+        </div>
+        
+        <iframe id="out" src="https://vicchat.github.io/start+" tabindex="100"></iframe>
+
+        <div id="more">
+            <button id="no-more" onclick="extext();">X</button>
+            <div id="wrapper">
+                <h1>Themes</h1>
+                <button class="ex-tile" id="default" onclick="reset();">Default</button>
+                <button class="ex-tile" id="light" onclick="applyTheme(false, 'lightgrey', false, 'white');">Light</button>
+                <button class="ex-tile" id="dark" onclick="applyTheme(false, 'rgb(25,25,25)', true, 'black');">Dark</button>
+                <button class="ex-tile" id="redground" onclick="applyTheme(false, 'red', true, 'darkred');">Redground</button>
+                <button class="ex-tile" id="wave" onclick="applyTheme(true, 'https://earthsky.org/upl/2012/05/color_spectrum_shutterstock-e1492109391352.jpg', false, 'skyblue');">Color Wave</button>
+                <button class="ex-tile" id="tree" onclick="applyTheme(true, 'https://st.depositphotos.com/1324256/3391/i/950/depositphotos_33918197-stock-photo-beautiful-bright-forest.jpg', false, 'lightgreen');">Tree</button>
+                <button class="ex-tile" id="sea" onclick="applyTheme(true, 'https://scx2.b-cdn.net/gfx/news/hires/2018/2-ocean.jpg', true, 'darkblue');">Ocean</button>
+                <button class="ex-tile" id="clock" onclick="applyTheme(true, 'https://www.cityofwoodstock.ca/en/resourcesGeneral/banner_01.jpg', false, 'lightblue');">Clock</button><br><br>
+                <button id="green" class="ex-tile" onclick="applyTheme(false, 'green', false, 'white');">Green & White</button>
+                <button class="ex-tile" id="ntl" onclick="applyTheme(true, 'https://arctickingdom.com/wp-content/uploads/2016/08/Igloo-BLL-Under-Aurora.jpg', true, 'rgb(25,25,25)');">Northern Lights</button>
+                <button class="ex-tile" id="glern" onclick="applyTheme(false, 'lime', false, 'lightgrey');">Glern</button>
+                <button class="ex-tile" id="glen" onclick="applyTheme(false, 'darkblue', false, 'lime');">Glen</button>
+                <button class="ex-tile" id="sunpalm" onclick="applyTheme(true, 'https://p0.pikist.com/photos/714/397/sunset-palm-tree-beach-tropical-paradise-seashore-florida-resort.jpg', false, 'yellow');">SunPalm</button>
+                <button class="ex-tile" id="bores" onclick="applyTheme(false, 'white', false, 'white');">Bores</button><br><br>
+                <button class="ex-tile" id="sloperoof" onclick="applyTheme(true, 'https://media.timeout.com/images/105594683/image.jpg', true, 'rgb(99,34,0)');">Wooden-Sloped Roof</button>
+                <button class="ex-tile" id="custom" onclick="applyCustomTheme();">Custom...</button>
+            </div>
+        </div>
+
+        <div id="customTheme">
+            <button id="no-more-custom" onclick="dact();">X</button>
+            <div id="another-wrapper">
+                <h1>Custom Theme</h1>
+                <input type="color" id="barcolor" placeholder="Color Picket Unsupported">
+                <label for="barcolor">Color of the Browser Bar</label>
+                <br><br><br>
+                <input type="color" id="buttoncolor" placeholder="Color Picket Unsupported">
+                <label for="buttoncolor">Color of the Buttons</label>
+                <br><br><br>
+                <select id="textcolor">
+                    <option value="true">Light</option>
+                    <option value="false">Dark</option>
+                </select>
+                <label for="textcolor">Color of the Text</label>
+                <br><br><br>
+                <button class="ex-tile" id="doththeme" onclick="applyCustomThemeNow();">Apply</button>
+                <button class="ex-tile" onclick="dact();">Close</button>
+            </div>
+        </div>
+        
+    </body>
+    <script>
+        var goto = document.getElementById("url");
+        var out = document.getElementById("out");
+        var more = document.getElementById("more");
+        var customTheme = document.getElementById("customTheme");
+        more.style.display = "none";
+        customTheme.style.display = "none";
+        var go = function() {
+            goto.blur();
+            var url = document.getElementById("url").value;
+            var proto1 = url.includes("http://");
+            var proto2 = url.includes("https://");
+            var search1 = url.includes(".");
+            var search2 = url.includes("/");
+            var search3 = url.includes(":");
+            var startPLUS = url.includes("bib://start+");
+            var search = url.includes("bib://search");
+            var blank = url.includes("bib://blank");
+            var them = url.includes("bib://themes");
+            if (proto1 === true || proto2 === true || search1 === true || search2 === true || search3 === true || startPLUS === true || search === true || blank === true || them === true) {
+                if (search3 === true || search2 === true || search1 === true) {
+                    if (proto1 === true || proto2 === true) {
+                        out.src = url;
+                    } else {
+                        out.src = "https://" + url;
+                    }
+                } else if (startPLUS === true) {
+                    out.src = "https://vicchat.github.io/start+";
+                } else if (search === true) {
+                    out.src = "https://google.com";
+                } else if (blank === true) {
+                    out.src = "about:blank";
+                } else if (them === true) {
+                    ext();
+                }
+            } else {
+                out.src = "https://google.com/search?q=" + url;
+            }
+        }
+        var loadgen = function() {
+            out.src = out.src;
+        }
+        var ext = function() {
+            more.style.display = "block";
+        }
+        var extext = function() {
+            more.style.display = "none";
+        }
+        var reset = function() {
+            applyTheme(false, "black", false, "grey");
+        }
+        var applyTheme = function(imgcol, imgcolval, btnmo, btncol) {
+            var bar = document.getElementById("bar");
+            var button = document.getElementsByClassName("button");
+            for (var i = 0; i < button.length; i++) {
+                button[i].style.background = btncol;
+                if (btnmo === true) {
+                    button[i].style.color = "white";
+                    goto.style.color = "white";
+                } else {
+                    button[i].style.color = "black";
+                    goto.style.color = "black";
+                }
+            }
+            goto.style.background = btncol;
+            if (imgcol === true) {
+                bar.style.backgroundImage = "url(" + imgcolval + ")";
+            } else {
+                bar.style.background = imgcolval;
+            }
+        }
+        var applyCustomTheme = function() {
+            customTheme.style.display = "block";
+        }
+        var dact = function() {
+            customTheme.style.display = "none";
+        }
+        var applyCustomThemeNow = function() {
+            var barcolor = document.getElementById("barcolor").value;
+            var buttoncolor = document.getElementById("buttoncolor").value;
+            var textcolor = document.getElementById("textcolor").value;
+            var typhen;
+            if (textcolor === "true") {
+                typhen = true;
+            } else if (textcolor === false) {
+                typhen = false;
+            }
+            applyTheme(false, barcolor, typhen, buttoncolor);
+        }
+        document.body.addEventListener("keydown", function(e){
+            if (e.key === "Enter") {
+                go();
+            } else if (e.key === "t" && e.altKey === true) {
+                ext();
+            }
+        });
+    </script>
+</html>
