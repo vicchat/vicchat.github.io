@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <titleCustoNoto</title>
+    </head>
+    <style>
+        
+        body {
+            text-align: center;
+            background: black;
+            color: white;
+            font-family: sans-serif;
+        }
+        
+        h1 {
+            background: darkblue;
+        }
+        
+        .box {
+            background: lightgrey;
+            padding: 10px;
+            color: black;
+        }
+        
+        .copy {
+            background: blue;
+            color: white;
+            border: solid 2px white;
+            border-radius: 100px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        
+        .copy:hover {
+            background: darkblue;
+        }
+        
+        .copy:active {
+            color: lightgrey;
+            outline: none !important;
+        }
+        
+        .copy:focus {
+            outline: solid 2px rgb(255, 94, 94);
+        }
+        
+    </style>
+    <body>
+        
+        <h1>CustoNoto</h1>
+        
+        <div class="box">
+            <b>Use:</b> To create alert boxes that aren't made by the browser.<br>
+            <b>Requirements:</b> JavaScript: https://vicchat.github.io/library/noto.js <button class="copy" onclick="copy('https://vicchat.github.io/library/noto.js');">Copy</button><br>
+            <b>How to use (documentation):</b> To open alert box, use <code>notify("<i>Alert Box Text</i>", "<i>Alert Box Title</i>");</code>.
+        </div>
+        
+    </body>
+    <script>
+        
+        var copy = function(text) {
+    var a = document.createElement("textarea");
+        a.value = text;
+    document.body.appendChild(a);
+    a.select();
+    document.execCommand("copy");
+    document.body.removeChild(a);
+};
+        
+    </script>
+</html>
