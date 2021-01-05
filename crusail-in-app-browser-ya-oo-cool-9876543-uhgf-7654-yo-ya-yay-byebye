@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Crusail</title>
+    </head>
+    <style>
+        
+        #forward {
+            font-weight: bold;
+        }
+        
+        .bubar {
+            background: white;
+            border: none;
+            outline: none !important;
+        }
+        
+        .bubar:hover {
+            background: lightgrey;
+        }
+        
+        #bar {
+            position: fixed;
+            width: 100%;
+            left: 0px;
+            top: 0px;
+            background: black;
+            padding: 10px !important;
+        }
+        
+        #url {
+            border: none;
+            width: 85%;
+        }
+        
+        #url:hover {
+            background: lightgrey;
+        }
+        
+        #url:focus {
+            outline: solid 2px lightblue;
+            background: white;
+        }
+        
+        #url::selection {
+            background: lightblue;
+            color: black;
+        }
+        
+        #go {
+            position: absolute;
+            margin: auto;
+            top: 11px;
+            right: 30px;
+            outline: none !important;
+        }
+        
+        #out {
+            position: fixed;
+            left: 0px;
+            width: 100%;
+            bottom: 0px;
+            border: none;
+            height: 94%;
+        }
+
+    </style>
+    <body>
+        
+        <div id="bar">
+            <button class="bubar" id="forward" onclick="window.history.forward();">—></button>
+            <input id="url" placeholder="Search Or Enter Url">
+            <button class="bubar" id="go" onclick="go();">Go</button>
+        </div>
+
+        <iframe id="out" src="https://vicchat.github.io/start+" tabindex="100" sandbox="allow-scripts"></iframe>
+        
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        
+        $(function () {
+    $('iframe a').on('click', function () {
+
+        if ($(this).attr('target') == "_blank") {
+            $(this).attr('target', '_self');
+        }
+
+        $(this).click();
+
+        return false;
+    })
+});
+
+    </script>
+    <script>
+        
+        var out = document.getElementById("out");
+        var goto = document.getElementById("url");
+
+        var go = function() {
+            goto.blur();
+            var url = document.getElementById("url").value;
+            var proto1 = url.includes("http://");
+            var proto2 = url.includes("https://");
+            var search1 = url.includes(".");
+            var search2 = url.includes("/");
+            var search3 = url.includes(":");
+            if (proto1 === true || proto2 === true) {
+                out.src = url;
+            }
+            else if (search3 === true || search2 === true || search1 === true) {
+                out.src = "https://" + url;
+            } else {
+                out.src = "https://google.com/search?q=" + url;
+            }
+        }
+
+        goto.addEventListener("keydown", function(e){
+            if (e.key === "Enter") {
+                go();
+            }
+        });
+
+    </script>
+</html>
