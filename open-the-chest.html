@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Chest</title>
+    </head>
+    <style>
+        
+        body {
+            font-family: sans-serif;
+            color: white;
+            background: grey;
+        }
+        
+    </style>
+    <body>
+        
+        <h1>There's Nothing In This Chest.</h1>
+        
+    </body>
+    <script>
+        
+        document.body.addEventListener("keydown", function(e){
+            if (e.code === "Backslash" || e.code === "Numpad0" || e.key === "Escape") {
+                window.close();
+            }
+        });
+        
+    </script>
+</html>
