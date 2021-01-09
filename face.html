@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>MyFace</title>
+	</head>
+	<style>
+		
+		.vid {
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+		}
+
+		html {
+			background: black;
+		}
+
+	</style>
+	<body>
+
+
+
+	</body>
+	<script>
+		
+		var vid = document.createElement("video");
+			vid.setAttribute("playsinline", "");
+			vid.setAttribute("autoplay", "");
+			vid.setAttribute("muted", "");
+			vid.className += "vid";
+
+		var facemode = "user";
+		var consts = {
+			audio: false,
+			video: {
+				facingMode: facemode
+			}
+		};
+
+		window.navigator.mediaDevices.getUserMedia(consts).then(function success(stream){
+			vid.srcObject = stream;
+		});
+
+		document.body.appendChild(vid);
+
+	</script>
+</html>
