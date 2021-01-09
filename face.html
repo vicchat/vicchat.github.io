@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html oncontextmenu="return false;">
 	<head>
 		<meta charset="utf-8">
-		<title>MyFace</title>
+		<title>MEDIAMEDA</title>
 	</head>
 	<style>
 		
@@ -25,12 +25,25 @@
 
 	</body>
 	<script>
-		
+
+		var putitinfullscreen = function(element) {
+			element.requestFullscreen();
+		}
+
+		var controls = false;
+
 		var vid = document.createElement("video");
 			vid.setAttribute("playsinline", "");
 			vid.setAttribute("autoplay", "");
 			vid.setAttribute("muted", "");
 			vid.className += "vid";
+
+			vid.onclick = function() {
+				putitinfullscreen(document.body);
+			}
+			vid.oncontextmenu = function() {
+				putitinfullscreen(vid);	
+			}
 
 		var facemode = "user";
 		var consts = {
