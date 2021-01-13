@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>New Text Document</title>
+	</head>
+	<style>
+		
+		#background {
+			position: fixed;
+			z-index: 0;
+			background: rgb(12,134,146);
+			filter: blur(8px);
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			box-shadow: inset 0 0 25px white;
+		}
+
+		#text {
+			position: fixed;
+			background: white;
+			top: 0px;
+			height: 100%;
+			width: 600px;
+			left: 50%;
+			margin-left: -300px;
+			overflow: auto;
+			padding: 10px;
+    		box-sizing: border-box;
+    		outline: none !important;
+    		font-family: monospace;
+		}
+
+		::-webkit-scrollbar {
+			width: 10px;
+			height: 10px;
+		}
+
+		::-webkit-scrollbar-track {
+			border: solid 1px lightgrey;
+		}
+
+		::-webkit-scrollbar-thumb {
+			border: none;
+			background: grey;
+		}
+
+	</style>
+	<body>
+
+		<div id="background"></div>
+		<div id="text" contenteditable="true"></div>
+
+	</body>
+	<script>
+		
+		var text = document.getElementById("text");
+
+		document.body.onkeydown = function(e) {
+			if (e.key === "Escape") {
+				window.close();
+			} else if (e.key === "Tab") {
+				return false;
+			}
+		}		
+
+	</script>
+</html>
