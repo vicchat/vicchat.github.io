@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HTML/CSS/JS Editor!</title>
+	</head>
+	<style>
+		
+		body {
+			text-align: center;
+		}
+
+		textarea {
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 50%;
+			height: 100%;
+			overflow-y: auto;
+			overflow-x: auto;
+			margin: auto;
+			display: inline-block;
+			background: lightgrey;
+			outline: none;
+			font-family: monospace;
+			font-size: 14px;
+			/*color: white;*/
+			resize: none;
+		}
+
+		iframe {
+			position: fixed;
+			top: 0px;
+			right: 0px;
+			width: 50%;
+			height: 100%;
+			border: none;
+		}
+
+	</style>
+	<body>
+
+		<textarea id="html">
+&lt;DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charaset="uft-8"&gt;
+		&lt;title&gt;New Webpage&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&#9;
+	&#9;
+	&#9;
+	&lt;/body&gt;
+&lt;/html&gt;</textarea>
+	    <iframe id="code"></iframe>
+
+	</body>
+	<script>
+		
+		function compile() {
+		  var html = document.getElementById("html");
+		  var code = document.getElementById("code").contentWindow.document;
+
+		  document.body.onkeyup = function() {
+		    code.open();
+		    code.writeln(
+		      html.value
+		    );
+		    code.close();
+		  };
+		}
+
+		compile();
+
+		var textTab = function(e) {
+            if (e.key == 'Tab') {
+                e.preventDefault();
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+
+                // set textarea value to: text before caret + tab + text after caret
+                this.value = this.value.substring(0, start) +
+                  "\t" + this.value.substring(end);
+
+                // put caret at right position again
+                this.selectionStart =
+                this.selectionEnd = start + 1;
+            }
+        };
+
+        var html = document.getElementById("html").addEventListener("keydown", textTab);
+
+	</script>
+</html>
