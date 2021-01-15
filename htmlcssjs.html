@@ -15,7 +15,7 @@
 			left: 0px;
 			top: 0px;
 			width: 50%;
-			height: 100%;
+			height: 97%;
 			overflow-y: auto;
 			overflow-x: auto;
 			margin: auto;
@@ -26,57 +26,97 @@
 			font-size: 14px;
 			/*color: white;*/
 			resize: none;
+			border: none;
+			display: block;
 		}
-		
+
 		textarea::selection {
-			color: white;
 			background: grey;
+			color: black;
 		}
 
 		iframe {
 			position: fixed;
 			top: 0px;
 			right: 0px;
-			width: 50%;
-			height: 100%;
+			width: 49%;
+			height: 97.8%;
 			border: none;
+			display: block;
+		}
+
+		#bar {
+			position: fixed;
+			bottom: 0px;
+			left: 0px;
+			width: 100%;
+			height: 2.5%;
+			z-index: 123;
+			background: grey;
+			display: block;
+		}
+
+		#run {
+			float: right;
+			display: block;
+			background: none;
+			color: white;
+			cursor: pointer;
+			border: none;
+			outline: none !important;
+		}
+
+		#run:hover {
+			background: black;
 		}
 
 	</style>
 	<body>
 
-		<textarea id="html">
-&lt;DOCTYPE html&gt;
-&lt;html&gt;
-	&lt;head&gt;
-		&lt;meta charaset="uft-8"&gt;
-		&lt;title&gt;New Webpage&lt;/title&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-	&#9;
-	&#9;
-	&#9;
-	&lt;/body&gt;
-&lt;/html&gt;</textarea>
+		<textarea id="html"></textarea>
 	    <iframe id="code"></iframe>
+	    <div id="bar">
+	    	<button id="run">Reload</button>
+	    </div>
 
 	</body>
 	<script>
 		
-		function compile() {
-		  var html = document.getElementById("html");
-		  var code = document.getElementById("code").contentWindow.document;
+		var startCode = '&lt;DOCTYPE html&gt;\n&lt;html&gt;\n&#9;&lt;head&gt;\n&#9;&#9;&lt;meta charaset="uft-8"&gt;\n&#9;&#9;&lt;title&gt;New Webpage&lt;/title&gt;\n&#9;&lt;/head&gt;\n&#9;&lt;body&gt;\n&#9;&#9;\n&#9;&#9;\n&#9;&#9;\n&#9;&lt;/body&gt;\n&lt;/html&gt;';
 
-		  document.body.onkeyup = function() {
-		    code.open();
-		    code.writeln(
-		      html.value
-		    );
-		    code.close();
-		  };
+		var compile = function() {
+			var run = document.getElementById("run");
+			var html = document.getElementById("html");
+			var code = document.getElementById("code").contentWindow.document;
+
+			document.body.onkeyup = function() {
+				code.open();
+			    code.writeln(html.value);
+			    code.close();
+			}
+			document.body.onload = function() {
+				code.open();
+		    	code.writeln(html.value);
+				code.close();
+			}
+			run.onclick = function() {
+				code.open();
+				code.writeln(html.value);
+				code.close();
+			}
 		}
 
 		compile();
+
+		var html = document.getElementById("html");
+		if (localStorage["code"] === "") {
+			localStorage["code"] = startCode;
+		}
+		html.innerHTML = localStorage["code"] || startCode;
+		window.setInterval(function() {
+			localStorage["code"] = document.getElementById("html").value;
+		}, 1000);
+
 
 		var textTab = function(e) {
             if (e.key == 'Tab') {
@@ -94,7 +134,7 @@
             }
         };
 
-        var html = document.getElementById("html").addEventListener("keydown", textTab);
+        html.addEventListener("keydown", textTab);
 
 	</script>
 </html>
