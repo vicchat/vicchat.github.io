@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>INVERTED PINAPPLE</title>
+	</head>
+	<style>
+		
+		#PINAPPLE {
+			/*filter: invert(100%);*/
+			cursor: none;
+		}
+
+		#puitinfullscreen {
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+		}
+
+		#buttons {
+			position: absolute;
+			text-align: center;
+			left: 15px;
+			bottom: 15px;
+		}
+
+		.button {
+			text-align: center;
+			width: 50px;
+			height: 50px;
+			color: lightgrey;
+			background: grey;
+			border: solid 3px grey;
+			outline: none !important;
+			font-size: 30px;
+		}
+
+		.button:hover {
+			background: black;
+			border-color: black;
+		}
+
+		.button:active {
+			border-color: red;
+		}
+
+		#important-pineapple-stuff {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+		}
+
+		#exit {
+			position: absolute;
+			bottom: 15px;
+			right: 15px;
+		}
+
+		#information {
+			position: fixed;
+			top: 10px;
+			right: 10px;
+			width: 35%;
+			height: 40%;
+			background: beige;
+			border: solid 3px black;
+			box-sizing: border-box;
+			padding: 10px;
+			overflow: auto;
+			font-family: sans-serif;
+		}
+
+	</style>
+	<body>
+
+		<div id="important-pineapple-stuff">
+			<img src="https://post.healthline.com/wp-content/uploads/2019/10/pineapple-fruit-732x549-thumbnail.jpg" height="50%" id="PINAPPLE">
+
+			<div id="buttons">
+				<button class="button" onclick="brighten();">&#8679;</button><br>
+				<button class="button" onclick="grayscale();">&#8678;</button><button class="button" onclick="invert();">&#9670;</button><button class="button" onclick="rotateHue();">&#8680;</button><br>
+				<button class="button" onclick="removeFilter();">&#8681;</button>
+			</div>
+			<button class="button" id="exit">&times;</button>
+		</div>
+
+		<button id="puitinfullscreen" onclick="importantPineappleStuff.requestFullscreen(); whileInFullscreen();">GO FULL SCREEN</button>
+
+		<div id="information">
+			
+			Welcome!<br><br>
+
+			Desktop Information:<br>
+			Press the arrow keys to change the pineapple's filter and press space to invert it. Use enter or click to do something else.<br><br>
+
+			Mobile Information:<br>
+			Tap arrow buttons instead of arrow keys, diamond button instead of space, and tap the pineapple instead of enter.
+
+		</div>
+
+	</body>
+	<script src="https://vicchat.github.io/library/ism.js"></script>
+	<script>
+		
+		var invertedPineapple = document.getElementById("PINAPPLE");
+		var importantPineappleStuff = document.getElementById("important-pineapple-stuff");
+		var exit = document.getElementById("exit");
+		var buttons = document.getElementById("buttons");
+
+		var ism = true;
+
+		exit.style.display = "none";
+
+		if (getPlatform() === "desktop") {
+			ism = false;
+			buttons.style.display = "none";
+			exit.style.display = "none";
+		}
+
+		document.onfullscreenchange = function() {
+			if (ism === true) {
+				exit.style.display = "block";
+			}
+		}
+		exit.onclick = function() {
+			document.exitFullscreen();
+			leaveFullScreen();
+			window.setTimeout(function(){
+				exit.style.display = "none";
+			}, 500);
+		}
+
+		var invert = function() {
+			invertedPineapple.style.filter = "invert(100%)";
+		}
+		var removeFilter = function() {
+			invertedPineapple.style.filter = "none";
+		}
+		var rotateHue = function() {
+			invertedPineapple.style.filter = "hue-rotate(90deg)";
+		}
+		var brighten = function() {
+			invertedPineapple.style.filter = "brightness(200%)";
+		}
+		var grayscale = function() {
+			invertedPineapple.style.filter = "grayscale(100%)";
+		}
+		var saturate = function() {
+			invertedPineapple.style.filter = "saturate(8)";
+		}
+		var whileInFullscreen = function() {
+			invertedPineapple.style.height = "100%";
+			importantPineappleStuff.style.textAlign = "center";
+		}
+		var leaveFullScreen = function() {
+			invertedPineapple.style.height = "300px";
+			importantPineappleStuff.style.textAlign = "left";
+		}
+
+		document.body.onkeydown = function(e) {
+			if (e.key === " ") {
+				invert();
+			} else if (e.key === "ArrowDown") {
+				removeFilter();
+			} else if (e.key === "ArrowRight") {
+				rotateHue();
+			} else if (e.key === "ArrowUp") {
+				brighten();
+			} else if (e.key === "ArrowLeft") {
+				grayscale()
+			} else if (e.key === "Enter") {
+				saturate();
+			} else if (e.key === "Escape") {
+				leaveFullScreen();
+			}
+		}
+
+		invertedPineapple.onclick = function() {
+			saturate();
+		}
+
+	</script>
+</html>
