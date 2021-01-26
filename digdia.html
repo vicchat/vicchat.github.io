@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html onmousedown="return false;" oncontextmenu="return false;">
+	<head>
+		<meta charset="utf-8">
+		<title>Digging For Diamonds</title>
+	</head>
+	<style>
+		
+		#parson {
+			position: absolute;
+			width: 70px;
+			bottom: 75%;
+			left: 50%;
+			margin-left: -35px;
+			z-index: 10;
+		}
+
+		html {
+			background: brown;
+			cursor: crosshair;
+		}
+
+		#grass {
+			position: absolute;
+			left: 0px;
+			bottom: 0px;
+			height: 25%;
+			width: 100%;
+			background: green;
+		}
+
+		#sky {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			height: 75%;
+			width: 100%;
+			background: skyblue;
+		}
+
+		::-webkit-scrollbar {
+			width: 0px;
+			height: 0px;
+		}
+
+		#BLAH {
+			position: absolute;
+			bottom: 25%;
+			left: 50px;
+		}
+
+		.botto-scree {
+			position: fixed;
+			z-index: 1000 !important;
+			color: white !important;
+			background: rgba(0, 0, 0, 0.5);
+			border: ridge 5px grey;
+			width: 300px;
+			height: 50px;
+			cursor: crosshair;
+			top: 20px;
+			left: 50%;
+			margin-left: -150px;
+			font-family: fantasy;
+			text-align: center;
+			font-size: 20px;
+			outline: none !important;
+			color: white;
+		}
+
+		.botto-scree:hover {
+			background: rgb(86,86,86);
+		}
+
+		#count {
+			position: fixed;
+			z-index: 21;
+			right: 0px;
+			top: 0px;
+			width: 100px;
+			height: 100px;
+			background: rgba(0, 0, 0, 0.5);
+			border: none;
+			font-family: fantasy;
+			color: white;
+			box-sizing: border-box;
+			padding: 5px;
+			font-size: 20px;
+			text-align: center;
+		}
+
+		#count:hover {
+			z-index: 10000;
+		}
+
+		#noto {
+			position: fixed;
+			z-index: 500;
+			background: white;
+			color: black;
+			font-family: sans-serif;
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			border-radius: 10px;
+			width: 200px;
+			height: 16px;
+			left: 50%;
+			top: 50%;
+			margin-left: -100px;
+			margin-top: -8px;
+			text-align: center;
+		}
+
+		#pos {
+			position: fixed;
+			z-index: 20;
+			top: 0px;
+			left: 0px;
+			background: rgba(0, 0, 0, 0.5);
+			width: 245px;
+			height: 45px;
+			box-sizing: border-box;
+			padding: 10px;
+			font-family: fantasy;
+			font-size: 20px;
+			color: white;
+		}
+
+		#pos:hover {
+			z-index: 10000;
+		}
+
+		#mctrl {
+			position: fixed;
+			left: 0px;
+			bottom: 115px;
+			width: 100%;
+			box-sizing: border-box;
+			padding: 25px;
+			z-index: 50;
+			height: 100px;
+		}
+
+		.mctrl {
+			width: 75px;
+			height: 75px;
+			text-align: center;
+			border: ridge 10px grey;
+			background: rgba(0, 0, 0, 0.5);
+			cursor: crosshair;
+			font-family: fantasy;
+			color: white;
+			font-size: 30px;
+		}
+
+		.mctrl:hover {
+			background: rgba(86, 86, 86, 1);
+		}
+
+		#howto {
+			position: fixed;
+			z-index: 20000000000000000000;
+			width: 400px;
+			height: 500px;
+			box-sizing: border-box;
+			left: 50%;
+			top: 50%;
+			border: ridge 5px grey;
+			margin-left: -200px;
+			margin-top: -250px;
+			background: rgba(0, 0, 0, 0.5);
+			padding: 10px;
+			overflow-y: auto;
+			overflow-x: hidden;
+			font-family: sans-serif;
+			color: white;
+			font-size: 15px;
+			font-weight: bold;
+			cursor: default;
+		}
+
+		#howto header {
+			font-family: fantasy;
+			text-align: center;
+			font-weight: none;
+			font-size: 35px;
+		}
+
+		@media only screen and (max-height: 520px) {
+			#howto {
+				height: 200px;
+				margin-top: -100px;
+			}
+		}
+
+		.button {
+			color: white !important;
+			background: rgba(0, 0, 0, 0.5);
+			border: ridge 5px grey;
+			font-family: fantasy;
+			text-align: center;
+			font-size: 20px;
+			outline: none !important;
+			color: white;
+		}
+
+		.button:hover {
+			background: rgba(86, 86, 86, 1);
+		}
+
+		#pause {
+			position: fixed;
+			z-index: 20000;
+			width: 300px;
+			height: 200px;
+			box-sizing: border-box;
+			left: 50%;
+			top: 50%;
+			border: ridge 5px grey;
+			margin-left: -150px;
+			margin-top: -100px;
+			background: rgba(0, 0, 0, 0.5);
+			padding: 10px;
+			overflow-y: auto;
+			overflow-x: hidden;
+			font-family: sans-serif;
+			color: white;
+			font-size: 15px;
+			font-weight: bold;
+			cursor: default;
+			text-align: center;
+		}
+
+		#pause header {
+			font-family: fantasy;
+			text-align: center;
+			font-weight: none;
+			font-size: 35px;
+		}
+
+	</style>
+	<body>
+
+		<div id="howto">
+			<header>Wellcome To Digging For Diamonds!</header>
+			<br><br>
+			GOAL: To collect all 5 diamonds
+			<br><br>
+			INSTRUCTIONS: <span id="INSTRUCTIONS"></span> You get 1 &#147;super-dig&#148;. Click the button at the top of your screen to dig further down. When you get a diamond, you will see a button apear at the top of your screen, saying &#147;collect diamond&#148;. Click it to collect the diamond. You will see your count at the top right corner of your screen increase. If you click on the chest at the starting screen, it will also show you how many diamonds you have. The &#147;level from surface&#148; box displays how deep underground you are. Hover over it to put it into focus if your screen is small.
+			<br><br>
+			HELP: Need help later on? Pause and click &#147;help&#148;
+			<br><br>
+			<button class="button" onclick="howto.style.display = 'none';">OK!</button>
+		</div>
+
+		<div id="pause" class="thing">
+			<header>Paused</header>
+			<br><br><br><br>
+			<button class="button" onclick="howto.style.display = 'block';">HELP</button>
+			<button class="button" onclick="pause.style.display = 'none'">RESUME</button>
+		</div>
+
+		<img src="https://www.kasandbox.org/programming-images/cute/CharacterBoy.png" id="parson">
+
+		<div id="grass"></div>
+		<div id="sky"></div>
+
+		<img src="https://www.kasandbox.org/programming-images/cute/ChestClosed.png" id="BLAH" onclick="openChest();">
+
+		<button class="botto-scree" id="super">SUPER DIG x1</button>
+
+		<div id="count">
+			You Have<br><span id="numod">0</span><br>Diamonds.
+		</div>
+
+		<button class="botto-scree" id="diamond">COLLECT DIAMOND</button>
+
+		<div id="noto">You Found A Diamond!</div>
+		<div id="pos">Level From Surface: <span> </span><span id="pos-y"></span></div>
+
+		<div id="mctrl">
+			<button class="mctrl" onclick="pause.style.display = 'block';" style="font-size: 30px;">&#10074;&#10074;</button><br><br>
+			<button class="mctrl" onclick="digUp();">&#8679;</button>
+			<button class="mctrl" style="float: right;" onclick="digDown();">&#8681;</button>
+		</div>
+
+
+	</body>
+	<script src="https://vicchat.github.io/library/ism.js"></script>
+	<script src="https://vicchat.github.io/library/finen.js"></script>
+	<script>
+
+		var dontSupport = function() {
+			var html = document.querySelector("html");
+			html.style.background = "white";
+			html.style.cursor = "default";
+			html.style.fontFamily = "sans-serif";
+			document.body.innerHTML = "Sorry, Digging For Diamonds isn't supported in Internet Explorer, Firefox, or old versions of Microsoft Edge.<br><br>Make sure your using a modern version of Chrome, Safari, Microsoft Edge, or Opera.";
+			console.error("Browser not supported");
+		}
+
+		if (renderingEngine() != "webkit") {
+			dontSupport();
+		}
+
+		var howto = document.getElementById("howto");
+		var pause = document.getElementById("pause");
+
+		var pb = 30;
+		var da = 0;
+		var wd = 0;
+
+		let button = document.querySelector('#parson');
+		document.addEventListener('mousedown', logMouseButton);
+
+		var numod = document.getElementById("numod");
+		var ls = document.getElementById("pos-y");
+
+		var noto = document.getElementById("noto");
+		noto.style.display = "none";
+
+		pause.style.display = "none";
+
+		var diamond = document.getElementById("diamond");
+		diamond.style.display = "none";
+		var getDiamond = function() {
+			diamond.style.display = "block";
+			noto.style.display = "block";
+			window.setTimeout(function(){
+				noto.style.display = "none";
+			}, 1000);
+		}
+		diamond.onclick = function() {
+			this.style.display = "none";
+			da ++;
+			numod.textContent = da;
+		}
+
+		var openChest = function() {
+			var chest = window.open("", "chest", "left=100,top=100,width=500,height=200");
+			chest.document.body.innerHTML = "There are " + da + " diamonds in this chest.<br><a href='javascript:window.close();'>Close</a><div onload='this.focus();' onkeydown='window.close();'></div>";
+		}
+
+		var digDown = function() {
+			if (pb < -1000 && wd === 0) {
+				getDiamond();
+				wd = 1;
+			} else if (pb < -4920 && wd === 1) {
+				getDiamond();
+				wd = 2;
+			} else if (pb < -7290 && wd === 2) {
+				getDiamond();
+				wd = 3;
+			} else if (pb < -10000 && wd === 3) {
+				getDiamond()
+				wd = 4;
+			} else if (pb < -20000 && wd === 4) {
+				getDiamond();
+				wd = 5;
+				pb = 30;
+				button.style.bottom = pb + "px";
+				window.alert("You found all the diamonds!");
+			}
+			pb -= 50;
+			button.style.bottom = pb + "px";
+			ls.innerHTML = pb;
+		}
+
+		var digUp = function() {
+			pb += 50;
+			button.style.bottom = pb + "px";
+			ls.innerHTML = pb;
+		}
+
+		function logMouseButton(e) {
+		 	if (typeof e === 'object') {
+		    	switch (e.button) {
+		      		case 0:
+		      			return "else";
+		        		break;
+		      		case 1:
+		      			digUp();
+		        		break;
+		      		case 2:
+						digDown();
+						break;
+					default:
+						return "NO!";
+		    	}
+		  	}
+		}
+
+		document.body.onkeydown = function(e) {
+			if (e.key === "A" && e.shiftKey === true && e.altKey === true) {
+				digUp();
+			} else if (e.key === "V" && e.shiftKey === true && e.altKey === true) {
+				digDown();
+			} else if (e.key === "e") {
+				openChest();
+			} else if (e.key === "Escape") {
+				pause.style.display = "block";
+			} else if (e.key === "Tab") {
+				console.log(e);
+				e.preventDefault();
+				howto.style.display = "block";
+			}
+		}
+
+		var Super = document.getElementById("super");
+		Super.onclick = function() {
+			pb -= 500;
+			button.style.bottom = pb + "px";
+			Super.style.display = "none";
+			ls.innerHTML = pb;
+		}
+
+		var mctrl = document.getElementById("mctrl");
+		if (getPlatform() === "desktop") {
+			mctrl.style.display = "none";
+		} else {
+			mctrl.style.display = "block";
+		}
+
+		var INSTRUCTIONS = document.getElementById("INSTRUCTIONS");
+		if (getPlatform() === "desktop") {
+			INSTRUCTIONS.innerHTML = "Use right-click top dig down and push in the scrollbar to dig up. Pressing left-click will activate buttons and open the chest. No scrollbar? Use Alt+Shift+ A to dig up and Alt+Shift+V or CONTEXTMENU to dig down. Scroll to change camera angle. Tip: Hold down arrow while digging down so you don't have to keep scrolling while you dig. Press ESCAPE to pause.";
+		} else if (getPlatform() === "mobile") {
+			INSTRUCTIONS.innerHTML = "Tap down arrow to dig down and tap up arrow to dig up. Scroll to change your camera angel.";
+		}
+
+	</script>
+</html>
