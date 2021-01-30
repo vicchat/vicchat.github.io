@@ -312,6 +312,11 @@
 		var da = 0;
 		var wd = 0;
 
+		var dimonzToGo = function() {
+			var togo = 5 - da;
+			return togo;
+		}
+
 		let button = document.querySelector('#parson');
 		document.addEventListener('mousedown', logMouseButton);
 
@@ -374,7 +379,7 @@
 			ls.innerHTML = pb;
 		}
 
-		function logMouseButton(e) {
+		var logMouseButton = function(e) {
 		 	if (typeof e === 'object') {
 		    	switch (e.button) {
 		      		case 0:
@@ -401,10 +406,25 @@
 				openChest();
 			} else if (e.key === "Escape") {
 				pause.style.display = "block";
-			} else if (e.key === "Tab") {
-				console.log(e);
+			} else if (e.key === "Tab" || e.key === "F1") {
 				e.preventDefault();
 				howto.style.display = "block";
+			} else if (e.key === "F3") {
+				e.preventDefault();
+				var stats = window.open("", "stats", "left=600,top=100,width=500,height=200");
+				stats.document.body.innerHTML = "Level From Surface: " + pb + "<br>Dimonds Found: " + da + "<br>Diamonds To Go: " + dimonzToGo() + "<br>Want To Go Now: <a href='javascript:window.close();'>Yess</a>";
+			} else if (e.key === "F2") {
+				e.preventDefault();
+				openChest();
+			} else if (e.key === "F4") {
+				e.preventDefault();
+				pause.style.display = "block";
+			} else if (e.key === "F5") {
+				e.preventDefault();
+				var leave = window.confirm("Are you sure you want to leave? You will lose all your diamonds!");
+				if (leave) {
+					window.location.href = "https://vicchat.github.io";
+				}
 			}
 		}
 
@@ -421,6 +441,13 @@
 			mctrl.style.display = "none";
 		} else {
 			mctrl.style.display = "block";
+		}
+
+		var html = document.querySelector("html");
+		html.oncontextmenu = function(e) {
+			e.preventDefault();
+			digDown();
+			return false;
 		}
 
 		var INSTRUCTIONS = document.getElementById("INSTRUCTIONS");
