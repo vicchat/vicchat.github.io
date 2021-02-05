@@ -317,9 +317,6 @@
 			return togo;
 		}
 
-		let button = document.querySelector('#parson');
-		document.addEventListener('mousedown', logMouseButton);
-
 		var numod = document.getElementById("numod");
 		var ls = document.getElementById("pos-y");
 
@@ -449,6 +446,9 @@
 			digDown();
 			return false;
 		}
+
+		let button = document.querySelector('#parson');
+		document.addEventListener('mousedown', logMouseButton);
 
 		var INSTRUCTIONS = document.getElementById("INSTRUCTIONS");
 		if (getPlatform() === "desktop") {
