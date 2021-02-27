@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html oncontextmenu="return false">
 	<head>
 		<meta charset="utf-8">
 		<title>INVERTED PINAPPLE</title>
@@ -86,7 +86,7 @@
 			<button class="button" id="exit">&times;</button>
 		</div>
 
-		<button id="puitinfullscreen" onclick="importantPineappleStuff.requestFullscreen(); whileInFullscreen();">GO FULL SCREEN</button>
+		<button id="puitinfullscreen">GO FULL SCREEN BY CLICKING HERE OR PRESSING F6</button>
 
 		<div id="information">
 			
@@ -108,8 +108,11 @@
 		var importantPineappleStuff = document.getElementById("important-pineapple-stuff");
 		var exit = document.getElementById("exit");
 		var buttons = document.getElementById("buttons");
+		var puitinfullscreen = document.getElementById("puitinfullscreen");
 
 		var ism = true;
+
+		var inFullScreen = false;
 
 		exit.style.display = "none";
 
@@ -119,14 +122,25 @@
 			exit.style.display = "none";
 		}
 
+		puitinfullscreen.onclick = function() {
+			importantPineappleStuff.requestFullscreen();
+			whileInFullscreen();
+			importantPineappleStuff.requestPointerLock();
+		}
+
 		document.onfullscreenchange = function() {
 			if (ism === true) {
 				exit.style.display = "block";
 			}
+			if (inFullScreen === false) {
+				inFullScreen = true;
+			} else if (inFullScreen === true) {
+				leaveFullScreen();
+				inFullScreen = false;
+			}
 		}
 		exit.onclick = function() {
 			document.exitFullscreen();
-			leaveFullScreen();
 			window.setTimeout(function(){
 				exit.style.display = "none";
 			}, 500);
@@ -143,6 +157,9 @@
 		}
 		var brighten = function() {
 			invertedPineapple.style.filter = "brightness(200%)";
+		}
+		var darken = function() {
+			invertedPineapple.style.filter = "brightness(25%)";
 		}
 		var grayscale = function() {
 			invertedPineapple.style.filter = "grayscale(100%)";
@@ -172,14 +189,46 @@
 				grayscale()
 			} else if (e.key === "Enter") {
 				saturate();
-			} else if (e.key === "Escape") {
-				leaveFullScreen();
+			} else if (e.key === "F6") {
+				e.preventDefault();
+				importantPineappleStuff.requestFullscreen();
+				whileInFullscreen();
+				importantPineappleStuff.requestPointerLock();
+			} else if (e.key === "F10") {
+				e.preventDefault();
+				document.exitFullscreen();
+			} else if (e.key === "q") {
+				invert();
+			} else if (e.key === "s") {
+				removeFilter();
+			} else if (e.key === "w") {
+				brighten();
+			} else if (e.key === "d") {
+				rotateHue();
+			} else if (e.key === "a") {
+				grayscale();
+			} else if (e.key === "e") {
+				saturate();
+			} else if (e.key === "f" || e.key === "/") {
+				darken();
 			}
 		}
 
-		invertedPineapple.onclick = function() {
-			saturate();
+		importantPineappleStuff.onmousedown = function(e) {
+			if (e.button === 0) {
+				saturate();
+			} else if (e.button === 2) {
+				invert();
+			} else if (e.button === 1) {
+				removeFilter();
+			} else if (e.button === 3) {
+				darken();
+			} else if (e.button === 4) {
+				brighten();
+			}
 		}
+
+		//invertedPineapple.onclick = saturate();
 
 	</script>
 </html>
