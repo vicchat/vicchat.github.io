@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html oncontextmenu="return false;">
+	<head>
+		<meta charset="utf-8">
+		<title>Digging For Diamonds</title>
+	</head>
+	<style>
+		
+		#parson {
+			position: absolute;
+			width: 70px;
+			bottom: 75%;
+			left: 50%;
+			margin-left: -35px;
+			z-index: 10;
+		}
+
+		html {
+			background: repeating-linear-gradient(0deg, #5b0000, brown 300px);
+			cursor: default;
+		}
+
+		#grass {
+			position: absolute;
+			left: 0px;
+			bottom: 0px;
+			height: 25%;
+			width: 100%;
+			background: linear-gradient(45deg, black, green);
+		}
+
+		#sky {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			height: 75%;
+			width: 100%;
+			background: linear-gradient(45deg, black, rgb(0, 31, 119));
+		}
+
+		::-webkit-scrollbar {
+			width: 0px;
+			height: 0px;
+		}
+
+		#BLAH {
+			position: absolute;
+			bottom: 25%;
+			left: 50px;
+		}
+
+		#botto-scree {
+			position: fixed;
+			z-index: 1000 !important;
+			color: white !important;
+			background: black;
+			border: solid 3px white;
+			width: 225px;
+			height: 50px;
+			cursor: crosshair;
+			bottom: 10px;
+			left: 10px;
+			box-sizing: border-box;
+			padding: 10px;
+			font-family: fantasy;
+			text-align: center;
+			font-size: 20px;
+			outline: none !important;
+			color: white;
+		}
+
+		#diamond {
+			position: fixed;
+			z-index: 1000 !important;
+			color: white !important;
+			background: black;
+			border: solid 3px white;
+			width: 245px;
+			height: 50px;
+			cursor: crosshair;
+			top: 10px;
+			right: 110px;
+			box-sizing: border-box;
+			padding: 10px;
+			font-family: fantasy;
+			text-align: center;
+			font-size: 20px;
+			outline: none !important;
+			color: white;
+		}
+
+		#count {
+			position: fixed;
+			z-index: 21;
+			right: 0px;
+			top: 0px;
+			width: 100px;
+			height: 100px;
+			background: black;
+			border: none;
+			font-family: fantasy;
+			color: white;
+			box-sizing: border-box;
+			padding: 5px;
+			font-size: 20px;
+			text-align: center;
+			border: solid 3px white;
+		}
+
+		#count:hover {
+			z-index: 10000;
+		}
+
+		#noto {
+			position: fixed;
+			z-index: 500;
+			background: white;
+			color: black;
+			font-family: sans-serif;
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			border-radius: 10px;
+			width: 250px;
+			height: 16px;
+			left: 50%;
+			top: 50%;
+			margin-left: -100px;
+			margin-top: -8px;
+			text-align: center;
+		}
+
+		#pos {
+			position: fixed;
+			z-index: 20;
+			top: 0px;
+			left: 0px;
+			background: black;
+			width: 245px;
+			height: 45px;
+			box-sizing: border-box;
+			padding: 10px;
+			font-family: fantasy;
+			font-size: 20px;
+			color: white;
+			border: solid 3px white;
+		}
+
+		#pos:hover {
+			z-index: 10000;
+		}
+
+		#mctrl {
+			position: fixed;
+			left: 0px;
+			bottom: 115px;
+			width: 100%;
+			box-sizing: border-box;
+			padding: 25px;
+			z-index: 50;
+			height: 100px;
+		}
+
+		.mctrl {
+			width: 75px;
+			height: 75px;
+			text-align: center;
+			border: ridge 10px grey;
+			background: rgba(0, 0, 0, 0.5);
+			cursor: crosshair;
+			font-family: fantasy;
+			color: white;
+			font-size: 30px;
+		}
+
+		.mctrl:hover {
+			background: rgba(86, 86, 86, 1);
+		}
+
+		#howto {
+			position: fixed;
+			z-index: 2000000;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			left: 0%;
+			top: 0%;
+			border: none;
+			background: black;
+			padding: 10px;
+			overflow-y: auto;
+			overflow-x: hidden;
+			font-family: sans-serif;
+			color: white;
+			font-size: 15px;
+			font-weight: bold;
+			cursor: default;
+		}
+
+		#howto header {
+			font-family: fantasy;
+			text-align: center;
+			font-weight: none;
+			font-size: 35px;
+		}
+
+		.button {
+			color: white !important;
+			background: rgba(0, 0, 0, 0.5);
+			border: ridge 5px grey;
+			font-family: fantasy;
+			text-align: center;
+			font-size: 20px;
+			outline: none !important;
+			color: white;
+		}
+
+		.button:hover {
+			background: rgba(86, 86, 86, 1);
+		}
+
+		#pause {
+			position: fixed;
+			z-index: 20000;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			left: 0px;
+			top: 0px;
+			border: none;
+			background: rgba(0, 0, 0, 0.7);
+			padding: 20px;
+			overflow-y: auto;
+			overflow-x: hidden;
+			font-family: sans-serif;
+			color: white;
+			font-size: 15px;
+			font-weight: bold;
+			cursor: default;
+			text-align: center;
+		}
+
+		#pause header {
+			font-family: fantasy;
+			text-align: center;
+			font-weight: none;
+			font-size: 35px;
+		}
+
+		summary {
+			font-family: sans-serif;
+		}
+
+		#load {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			background: white;
+			width: 100%;
+			height: 100%;
+			color: black;
+			font-family: fantasy;
+			text-align: center;
+			z-index: 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
+		}
+
+		#chat {
+			position: fixed;
+			right: 0px;
+			bottom: 0px;
+			width: 300px;
+			height: 200px;
+			background: black;
+			border: none;
+			font-family: sans-serif;
+			box-sizing: border-box;
+			z-index: 20001;
+			padding: 10px;
+			overflow: auto;
+		}
+
+		.chat {
+			background: none;
+			padding: none;
+			border: none;
+			font-family: sans-serif;
+			font-size: 17px;
+			color: white;
+			font-weight: none;
+			margin-bottom: 10px;
+		}
+
+		.system {
+			color: lightgreen;
+		}
+
+		.for {
+			color: lightblue;
+		}
+
+		.from {
+			color: orange;
+		}
+
+		.error {
+			color: red;
+		}
+
+		input {
+			color: white;
+			background: rgba(0, 0, 0, 0.5);
+			border: ridge 5px grey;
+			font-family: fantasy;
+			text-align: center;
+			font-size: 20px;
+			outline: none;
+			color: white;
+		}
+
+		input:hover {
+			background: rgba(86, 86, 86, 1);
+		}
+
+		input:focus {
+			background: white;
+			color: black;
+			font-family: sans-serif;
+			text-align: left;
+			outline: solid 2px lightgrey;
+		}
+
+		[cssid = "chestOstuff"] {
+			position: fixed;
+			z-index: 30000;
+			box-sizing: border-box;
+			width: 500px;
+			height: 300px;
+			background: black;
+			left: 50%;
+			top: 50%;
+			color: white;
+			margin-left: -250px;
+			margin-top: -150px;
+			border: solid 3px white;
+			font-family: fantasy;
+			text-align: center;
+		}
+
+		#stats {
+			position: fixed;
+			z-index: 29999;
+			box-sizing: border-box;
+			width: 500px;
+			height: 300px;
+			background: black;
+			left: 50%;
+			top: 50%;
+			color: white;
+			margin-left: -250px;
+			margin-top: -150px;
+			border: solid 3px white;
+			font-family: fantasy;
+			text-align: center;
+		}
+
+	</style>
+	<body>
+
+		<div id="load">
+			<h1>LOADING...</h1>
+			<h2>PLEASE WAIT...</h2><br>
+			<summary>If you see this screen for long enough to read it through twice, your browser probally isn't supportted. Sorry!</summary>
+		</div>
+
+		<div id="howto">
+			<header>Wellcome To Digging For Diamonds Beta Edition!</header>
+			<br><br>
+			GOAL: To collect all 5 diamonds
+			<br><br>
+			INSTRUCTIONS: Welcome to <i>Digging For Diamonds Beta Edition</i>! Dig using Left SHIFT (Down) and Right SHIFT (Up). You get 1 &#147;super-dig&#148;. Press SPACE to dig further down. When you get a diamond, you will see a box apear at the top of your screen, saying &#147;collect diamond&#148;. Press ENTER to collect your diamond. You will see your count at the top right corner of your screen increase. If you click on the chest at the starting screen, it will also show you how many diamonds you have. The &#147;level from surface&#148; box displays how deep underground you are. You will see a chest when you start. Press F2 to open it and BACKSLASH to close.
+			<br><br>
+			CHAT: Press ESCAPE and send the message by pressing ENTER. To auto-focus chat, press F4.
+			<br><br>
+			HELP: Need help later on? Press ESCAPE and click &#147;help&#148;!
+			<br><br>
+			TIP: Function Keys (F1-F12) not working? Hold FN and try pressing them!
+			<br><br>
+			<button class="button" id="strt">OK!</button>
+		</div>
+
+		<div id="pause" class="thing">
+			<header>Paused</header>
+			<br><br><br><br>
+			<button class="button" onclick="howto.style.display = 'block';">HELP</button>
+			<button class="button" onclick="pause.style.display = 'none'; enterPointerLock();">RESUME</button><br><br>
+			<input id="chatmess" placeholder="Message For Chat" onkeydown="duuit(event);">
+		</div>
+
+		<img src="https://www.kasandbox.org/programming-images/cute/CharacterBoy.png" id="parson">
+
+		<div id="grass"></div>
+		<div id="sky"></div>
+
+		<img src="https://www.kasandbox.org/programming-images/cute/ChestClosed.png" id="BLAH" onclick="openChest();">
+
+		<div id="botto-scree">SUPER DIG x1 (SPACE)</div>
+
+		<div id="count">
+			You Have<br><span id="numod">0</span><br>Diamonds.
+		</div>
+
+		<button id="diamond">COLLECT DIAMOND (ENTER)</button>
+
+		<div id="noto">You Found A Diamond!</div>
+		<div id="pos">Level From Surface: <span> </span><span id="pos-y"></span></div>
+
+		<div id="mctrl">
+			<button class="mctrl" onclick="pause.style.display = 'block';" style="font-size: 30px;">&#10074;&#10074;</button><br><br>
+			<button class="mctrl" onclick="digUp();">&#8679;</button>
+			<button class="mctrl" style="float: right;" onclick="digDown();">&#8681;</button>
+		</div>
+
+		<div id="chat">
+			<div class="chat system">Hello! Welcome to Digging For Diamonds!</div>
+			<div class="chat system">Pause to type in the chat!</div>
+		</div>
+
+		<div id="chest o' stuff" cssid="chestOstuff">
+			<h1>Chest</h1>
+			<summary>There are <span id="o-the-dimonz-to-go"></span> diamonds in this chest.</summary><br><br><br><br>
+			<summary>Press BACKSLASH to close.</summary>
+		</div>
+
+		<div id="stats">
+			<h1>Stats . . .</h1>
+			<summary>
+				<b>Level From Surface</b>: <span id="stats/pos"></span><br>
+				<b>Diamonds Found</b>: <span id="stats/diamonds"></span><br>
+				<b>Diamonds To Go</b>: <span id="stats/dimonz-a-go"></span><br><br><br><br>
+				Press BACKSLASH to close.
+			</summary>
+		</div>
+
+	</body>
+	<script src="https://vicchat.github.io/library/ism.js"></script>
+	<script src="https://vicchat.github.io/library/finen.js"></script>
+	<script>
+
+		if (renderingEngine() === "webkit" && getPlatform() === "desktop") {
+			let button = document.querySelector('#parson');
+			var chat = document.getElementById("chat");
+			var chestOstuff = document.getElementById("chest o' stuff");
+			var stats = document.getElementById("stats");
+
+			var strt = document.getElementById("strt");
+			var pause = document.getElementById("pause");
+			var pausel = function() {
+				pause.style.display = "block";
+			}
+
+			chestOstuff.style.display = "none";
+			stats.style.display = "none";
+
+			var inLock = false;
+			document.addEventListener("pointerlockchange", function() {
+				if (inLock === false) {
+					inLock = true;
+				} else if (inLock === true) {
+					inLock = false;
+					pausel();
+				}
+			});
+
+			var enterPointerLock = function() {
+				if (inLock === false) {
+					document.body.requestPointerLock();
+				}
+			}
+
+			var logChatMessage = function(type, message, sender) {
+				var newmess = document.createElement("div");
+				newmess.classList.add("chat");
+				if (type === "from") {
+					var chatmess = document.getElementById("chatmess").value;
+					newmess.textContent = "YOU> " + chatmess;
+					newmess.classList.add("from");
+				} else if (type === "for") {
+					newmess.innerHTML = sender + "&gt; " + message;
+					newmess.classList.add("for");
+				} else if (type === "system") {
+					newmess.innerHTML = message;
+					newmess.classList.add("system");
+				} else if (type === "error") {
+					newmess.innerHTML = "<b>ERROR:</b> " + message;
+					newmess.classList.add("error");
+				}
+				chat.appendChild(newmess);
+				chat.scrollBy(0, 1000);
+				return newmess.textContent;
+			}
+
+			var y = 0;
+			var x = 50;
+			document.body.addEventListener("mousemove", function(e){
+				if (inLock === true) {
+					y += e.movementY;
+					x += e.movementX;
+					button.style.left = x + "%";
+					if (x < 1) {
+						x = 1;
+					} else if (x > 99) {
+						x = 99;
+					}
+				}
+			});
+
+			var howto = document.getElementById("howto");
+
+			var pb = 30;
+			var da = 0;
+			var wd = 0;
+
+			var dd = true;
+			var gd = false;
+
+			var dimonzToGo = function() {
+				var togo = 5 - da;
+				return togo;
+			}
+
+			var numod = document.getElementById("numod");
+			var ls = document.getElementById("pos-y");
+
+			var noto = document.getElementById("noto");
+			noto.style.display = "none";
+
+			pause.style.display = "none";
+
+			var diamond = document.getElementById("diamond");
+			diamond.style.display = "none";
+			var getDiamond = function() {
+				diamond.style.display = "block";
+				if (da === 4) {
+					logChatMessage("system", "You found ALL the Diamonds!");
+				} else {
+					logChatMessage("system", "You found a Diamond!");
+				}
+				noto.style.display = "block";
+				window.setTimeout(function(){
+					noto.style.display = "none";
+				}, 1000);
+			}
+
+			var openChest = function() {
+				document.querySelector("#o-the-dimonz-to-go").textContent = da;
+				chestOstuff.style.display = "block";
+			}
+
+			var digDown = function() {
+				if (pb < -1000 && wd === 0) {
+					getDiamond();
+					wd = 1;
+				} else if (pb < -4920 && wd === 1) {
+					getDiamond();
+					wd = 2;
+				} else if (pb < -7290 && wd === 2) {
+					getDiamond();
+					wd = 3;
+				} else if (pb < -10000 && wd === 3) {
+					getDiamond()
+					wd = 4;
+				} else if (pb < -20000 && wd === 4) {
+					getDiamond();
+					noto.innerHTML = "You Found <i>ALL</i> The Diamonds!";
+					wd = 5;
+					pb = 80;
+					button.style.bottom = pb + "px";
+				}
+				pb -= 50;
+				button.style.bottom = pb + "px";
+				ls.innerHTML = pb;
+				window.scrollBy(0, 1000);
+			}
+
+			var digUp = function() {
+				if (pb < 130) {
+					pb += 50;
+					button.style.bottom = pb + "px";
+					ls.innerHTML = pb;
+				}
+			}
+
+			strt.onclick = function() {
+				pause.style.display = "none";
+				howto.style.display = 'none';
+				enterPointerLock();
+			}
+
+			document.body.onkeydown = function(e) {
+				if (e.key === "Tab" || e.key === "F1") {
+					e.preventDefault();
+					document.exitPointerLock();
+					howto.style.display = "block";
+					window.setTimeout(function(){
+						pause.style.display = "none";
+					}, 1000);
+				} else if (e.key === "F3" || e.key === "`") {
+					e.preventDefault();
+					document.getElementById("stats/pos").textContent = pb;
+					document.getElementById("stats/diamonds").textContent = da;
+					document.getElementById("stats/dimonz-a-go").textContent = 5 - da;
+					stats.style.display = "block";
+				} else if (e.key === "F2" || e.key === "Alt") {
+					e.preventDefault();
+					openChest();
+				} else if (e.key === "F4") {
+					e.preventDefault();
+					pause.style.display = "block";
+					document.exitPointerLock();
+					document.querySelector("#chatmess").focus();
+				} else if (e.key === "F5") {
+					e.preventDefault();
+					var leave = window.confirm("Are you sure you want to leave? You will lose all your diamonds!");
+					if (leave) {
+						window.location.href = "https://vicchat.github.io";
+					}
+				} else if (e.key === "\\" || e.code === "Numpad0") {
+					chestOstuff.style.display = "none";
+					stats.style.display = "none";
+				}
+				if (inLock === true) { 
+					if (e.key === " ") {
+						e.preventDefault();
+						if (dd === true) {
+							for (var i = 0; i < 11; i++) {
+								digDown();
+								document.querySelector("#botto-scree").style.display = "none";
+							}
+							dd = false;
+						}
+					} else if (e.code === "ShiftLeft") {
+						digUp();
+					} else if (e.code === "ShiftRight") {
+						digDown();
+					} else if (e.key === "Enter") {
+						e.preventDefault();
+						diamond.style.display = "none";
+						da ++;
+						numod.textContent = da;
+					}
+				}
+			}
+
+			document.body.onkeyup = function(e) {
+				if (e.key === "Escape") {
+					if (inLock === false) {
+						pause.style.display = "none";
+						document.body.requestPointerLock();
+					} else {
+						pause.style.display = "block";
+					}
+				}
+			}
+
+			var mctrl = document.getElementById("mctrl");
+			if (getPlatform() === "desktop") {
+				mctrl.style.display = "none";
+			} else {
+				mctrl.style.display = "block";
+			}
+
+			var duuit = function(e) {
+				if (e.key === "Enter") {
+					var possible_command = document.getElementById("chatmess").value;
+					if (possible_command.includes("/") === true) {
+						if (possible_command === "/error") {
+							var vwhatmes = window.prompt("/error {message}");
+							if (vwhatmes) {
+								logChatMessage("error", vwhatmes);
+							}
+						} else if (possible_command === "/anon") {
+							var vwhatper = window.prompt("/anon {name:string} [message]");
+							if (vwhatper) {
+								var vwhatmes = window.prompt("/anon [name] {message:string}");
+								if (vwhatmes) {
+									logChatMessage("for", vwhatmes, vwhatper);
+								}
+							}
+						} else if (possible_command === "/give") {
+							var nummount = parseInt(window.prompt("/give {diamonds:interger}"));
+							if (nummount) {
+								da += nummount;
+								numod.textContent = da;
+								logChatMessage("system", "Gave you " + nummount + " diamonds");
+							}
+
+						} else if (possible_command === "/take") {
+							da = 0;
+							numod.textContent = da;
+							logChatMessage("system", "Took away all your diamonds. Didn't mean to do that? TOO BAD!");
+						} else {
+							logChatMessage("error", "Failed to exicute command. Check to make sure not to use \"/\" in your chat messages.");
+						}
+					} else {
+						logChatMessage("from");
+					}
+					var chatmess = document.getElementById("chatmess");
+					chatmess.value = "";
+					chatmess.blur();
+				}
+			}
+			document.querySelector("#load").style.display = "none";
+		} else {
+			document.querySelector("#load").innerHTML = "<summary>Your browser isn't supportted. Sorry!<br>Digging For Diamonds Beta Edition is only supportted in desktop versions of Chrome, Safari, New Microsoft Edge, and Opera.</summary>"
+		}
+
+	</script>
+</html>
