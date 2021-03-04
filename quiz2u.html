@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Quiz2U</title>
+	</head>
+	<style>
+		
+		::-webkit-scrollbar {
+			width: 10px;
+			height: 10px;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: lightgrey;
+			border-radius: 100px;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+			background: grey;
+		}
+
+		::-webkit-scrollbar-track {
+			background: rgba(0, 0, 0, 0);
+		}
+
+		#yes {
+			position: absolute;
+			background: lime;
+			border: none;
+			border-radius: 30px;
+			outline: none;
+			width: 250px;
+			height: 100px;
+			color: black;
+			font-size: 30px;
+			left: 100px;
+			top: 100px;
+		}
+
+		#yes:hover {
+			background: rgb(11, 76, 11);
+		}
+
+		#yes:active {
+			background: lime !important;
+		}
+
+		#yes:focus {
+			background: rgb(11, 76, 11);
+		}
+
+		#no {
+			position: absolute;
+			background: red;
+			border: none;
+			border-radius: 30px;
+			outline: none;
+			width: 250px;
+			height: 100px;
+			color: black;
+			font-size: 30px;
+			right: 100px;
+			top: 100px;
+		}
+
+		#no:hover {
+			background: rgb(76, 11, 11);
+		}
+
+		#no:active {
+			background: red !important;
+		}
+
+		#no:focus {
+			background: rgb(76, 11, 11);
+		}
+
+		#pose {
+			position: absolute;
+			top: 20px;
+			height: 60px;
+			left: 0px;
+			text-align: center;
+			width: 100%;
+			overflow: auto;
+			font-family: sans-serif;
+			font-size: 30px;
+			box-sizing: border-box;
+			padding-top: 10px;
+		}
+
+		#stat {
+			position: absolute;
+			top: 300px;
+			left: 0px;
+			width: 100%;
+			font-family: sans-serif;
+			font-size: 20px;
+			text-align: center;
+		}
+
+		#start {
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			background: white;
+			z-index: 200;
+			font-family: sans-serif;
+			font-size: 20px;
+			text-align: center;
+			overflow: auto;
+		}
+
+		#start h1 {
+			font-family: sans-serif;
+			font-size: 30px;
+			font-weight: none;
+		}
+
+		#qplu {
+			position: static;
+			width: 200px;
+			border: solid 1px black;
+			box-sizing: border-box;
+			height: 25px;
+		}
+
+		#qplu:focus-within {
+			outline: none;
+			border-color: blue;
+		}
+
+		#qplu::placeholder {
+			color: black;
+			opacity: 1;
+		}
+
+		#qplu::selection {
+			color: black;
+			background: lightblue;
+		}
+
+		.menbu {
+			position: static;
+			height: 25px;
+			width: 75px;
+			outline: none !important;
+			border: none;
+			background: lime;
+			border-radius: 5px;
+		}
+
+		.menbu:hover {
+			background: rgb(11, 76, 11);
+		}
+
+		.menbu:active {
+			background: lime !important;
+		}
+
+		.menbu:focus {
+			background: rgb(11, 76, 11);
+		}
+
+	</style>
+	<body>
+
+		<div id="start">
+			<h1>Welcome to Quiz2U!</h1>
+			Enter the questions for the quiz below:<br><br>
+			<input type="search" id="qplu" placeholder="Question..."> <button id="add" class="menbu">+ Add</button><br><br>
+			Questions in your list:<br><br>
+			<div id="list"></div><br>
+			Use this tool to create a quiz and get the score without any type of account for free. Click &#147;CORRECT&#148; if correct and &#147;INCORRECT&#148; if wrong. Ready to start? Click that start button below:<br><br>
+			<button id="startqu" class="menbu">Start!</button><br><br>
+		</div>
+
+		<div id="pose"></div>
+
+		<button id="yes">&check; CORRECT!</button>
+		<button id="no">&times; INCORRECT!</button>
+
+		<div id="stat">
+			Correct: <span id="cor">0</span><br>
+			Incorect: <span id="incor">0</span>
+		</div>
+
+	</body>
+	<script>
+		
+		var yes = document.getElementById("yes");
+		var no = document.getElementById("no");
+		var pose = document.getElementById("pose");
+		var qplu = document.getElementById("qplu");
+		var cor = document.getElementById("cor");
+		var incor = document.getElementById("incor");
+		var list = document.getElementById("list");
+		var add = document.getElementById("add");
+		var start = document.getElementById("start");
+		var startqu = document.getElementById("startqu");
+		var correct = 0;
+		var incorrect = 0;
+
+		var lisofq = [null];
+		var questionsinlist = -1;
+
+		var addToList = function() {
+			questionsinlist ++;
+			var qpluv = document.getElementById("qplu").value;
+			lisofq[questionsinlist] = qpluv;
+			list.innerHTML += qpluv + "<br>";
+			qplu.value = "";
+		}
+
+		var end = function() {
+			start.innerHTML = "<h1>CONGRADULATIONS!</h1>You scored " + correct + " right anwers and " + incorrect + " wrong ones. You are now finished the quiz!<br><br><button onclick=\"location.reload();\" class=\"menbu\" style=\"width: 200px;\">Do Another Quiz!</button><br><br>";
+			start.style.display = "block";
+		}
+
+		var returnCorrect = function() {
+			if (numbat < lisofq.length - 1) {
+				numbat ++;
+			} else {
+				end();
+			}
+			pose.textContent = lisofq[numbat];
+			correct ++;
+			cor.textContent = correct;
+		}
+
+		var returnIncorrect = function() {
+			if (numbat < lisofq.length - 1) {
+				numbat ++;
+			} else {
+				end();
+			}
+			pose.textContent = lisofq[numbat];
+			incorrect ++;
+			incor.textContent = incorrect;
+		}
+
+		yes.onclick = function() {
+			returnCorrect();
+		}
+
+		no.onclick = function() {
+			returnIncorrect();
+		}
+
+		add.onclick = function() {
+			addToList();
+		}
+
+		var numbat = 0;
+
+		startqu.onclick = function() {
+			start.style.display = "none";
+			pose.textContent = lisofq[numbat];
+		}
+
+		qplu.onkeydown = function(e) {
+			if (e.key === "Enter") {
+				addToList();
+			}
+		}
+
+	</script>
+</html>
