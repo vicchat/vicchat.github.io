@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>The Random Puffy Thingy and the Big Scary Void Hub</title>
+	</head>
+	<style>
+		
+		html {
+			font-family: sans-serif;
+			background: black;
+			text-align: center;
+			color: white;
+		}
 
+		button, input, select {
+			font-family: sans-serif;
+			color: white;
+			background: rgb(60, 60, 60);
+			border: solid 1px rgb(30, 30, 30);
+			font-size: 15px;
+			padding: 5px;
+			border-radius: 3px;
+			width: 200px;
+			height: 30px;
+		}
+
+		input[type = "color"] {
+			width: 50px;
+			height: 25px;
+		}
+
+		input[type = "text"] {
+			height: 25px;
+			padding: 1px;
+			font-size: 20px;
+			font-family: sans-serif;
+		}
+
+		button:hover, input:hover, select:hover {
+			background: rgb(90, 90, 90);
+		}
+
+		button:active, select:active {
+			background: rgb(120, 120, 120);
+			outline: none !important;
+		}
+
+		button:focus, input:focus-within, select:focus {
+			outline: solid 2px white;
+		}
+
+	</style>
+	<body>
+
+		<h1>The Random Puffy Thingy and the Big Scary Void</h1>
+		<b>Welcome to The Random Puffy Thingy and the Big Scary Void! Please choose a version to play from below:</b>
+		<br><br><br><br>
+		<select id="version" aria-label="Choose a Version from Below:">
+			<option value="1.0">1.0 <b>(Latest Release)</b></option>
+			<option value="proto">PROTOTYPE_1 <b>(Prototype)</b></option>
+		</select> <button onclick="play();">Play!</button>
+
+	</body>
+	<script src="https://vicchat.github.io/library/ism.js"></script>
+	<script>
+
+		var play = function() {
+			var ver = document.getElementById("version").value;
+			if (ver === "1.0") {
+				var openwin1_0 = window.open("https://vicchat.github.io/puffyv/v1-0", "openwin1_0", "top=300,left=300,width=500,height=500");
+			} else if (ver === "proto") {
+				var openwinproto_1 = window.open("https://vicchat.github.io/puffyv/proto-1", "openwinproto_1", "top=300,left=300,width=500,height=500");
+			}
+		}
+
+		if (getPlatform() === "mobile") {
+			document.body.innerHTML = "I'm Sorry, But We're Not Supportted In Mobile... Yet.";
+		}
+
+	</script>
+</html>
