@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html oncontextmenu="return false;">
+	<head>
+		<meta charset="utf-8">
+		<title>The Random Puffy Thingy and the Big, Scary Void</title>
+	</head>
+	<style>
+		
+		::-webkit-scrollbar {
+			width: 10px;
+			height: 10px;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: grey;
+			border-radius: 100px;
+		}
+
+		::-webkit-resizer {
+			background: grey;
+		}
+
+		html {
+			cursor: default;
+			background: black;
+			user-select: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+		}
+
+		#plus {
+			position: fixed;
+			width: 24px;
+			height: 24px;
+			left: 50%;
+			top: 50%;
+			margin-left: -12px;
+			margin-top: -12px;
+			z-index: 1000000000000000000000000000;
+			box-sizing: border-box;
+			text-align: center;
+		}
+
+		#plus-x {
+			position: absolute;
+			width: 2px;
+			height: 24px;
+			top: 0px;
+			left: 11px;
+		}
+
+		#plus-y {
+			position: absolute;
+			width: 24px;
+			height: 2px;
+			top: 11px;
+			left: 0px
+		}
+
+		#plus-c {
+			position: absolute;
+			width: 2px;
+			height: 2px;
+			top: 11px;
+			left: 11px;
+		}
+
+		.plus {
+			background: white;
+			backdrop-filter: none;
+		}
+
+		#area {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 1500px;
+			height: 1500px;
+			background: mediumspringgreen;
+			border: ridge 50px brown;
+			background-image: url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=0.68819xw:1xh;center,top&resize=400:*);
+		}
+
+		#puffy-thing {
+			position: absolute;
+			width: 50px;
+			top: 50px;
+			left: 50px;
+			z-index: 357;
+		}
+
+		.tree {
+			position: absolute;
+			width: 150px;
+		}
+
+		#t1 {
+			left: 120px;
+			top: 45px;
+		}
+
+		#t2 {
+			left: 1050px;
+			top: 700px;
+		}
+
+		#t3 {
+			left: 600px;
+			top: 250px;
+		}
+
+		#t4 {
+			left: 150px;
+			bottom: 100px;
+		}
+
+		#t5 {
+			left: 300px;
+			top: 400px;
+		}
+
+		#t6 {
+			left: 800px;
+			top: 1150px;
+		}
+
+		#t7 {
+			right: 100px;
+			top: 100px;
+		}
+
+		#t8 {
+			left: 350px;
+			top: 900px;
+		}
+
+		#t9 {
+			left: 700px;
+			top: 600px;
+		}
+
+		#t10 {
+			left: 1275px;
+			top: 1295px;
+		}
+
+		#pause {
+			position: fixed;
+			z-index: 100000000000000000000000000000000000000000000;
+			background: black;
+			background-image: url(https://www.photos-public-domain.com/wp-content/uploads/2012/05/black-brick-wall-texture.jpg);
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			font-family: "Silkscreen", monospace;
+			color: white;
+			text-align: center;
+		}
+
+		button, input {
+			font-family: "Silkscreen", monospace;
+			color: white;
+			background: rgb(60, 60, 60);
+			border: solid 1px rgb(30, 30, 30);
+			font-size: 15px;
+			padding: 5px;
+			border-radius: 3px;
+			width: 200px;
+			height: 30px;
+		}
+
+		input[type = "color"] {
+			width: 50px;
+			height: 25px;
+		}
+
+		button:hover, input:hover {
+			background: rgb(90, 90, 90);
+		}
+
+		button:active {
+			background: rgb(120, 120, 120);
+			outline: none !important;
+		}
+
+		button:focus, input:focus-within {
+			outline: solid 2px white;
+		}
+
+		#you-died {
+			position: fixed;
+			z-index: 5000000000000000000000000000;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 0, 0, 0.5);
+			text-align: center;
+			color: white;
+			font-family: "Silkscreen", fantasy;
+			box-sizing: border-box;
+			padding-top: 45px;
+		}
+
+		.dot {
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			border-radius: 100px;
+		}
+
+		#settings {
+			position: fixed;
+			z-index: 9999999999999999999999999999999999999999999999999999999999999;
+			width: 80%;
+			height: 350px;
+			left: 50%;
+			top: 50%;
+			margin-left: -40%;
+			margin-top: -175px;
+			background: rgba(0, 0, 0, 0.7);
+			backdrop-filter: blur(1.5rem);
+			box-sizing: border-box;
+			border: solid 3px white;
+			color: white;
+			font-family: "Silkscreen", monospace;
+			text-align: center;
+			padding: 25px;
+			overflow: auto;
+		}
+
+		#close {
+			position: sticky;
+			-webkit-position: sticky;
+			top: 0px;
+		}
+
+		#colcng {
+			position: fixed;
+			z-index: 999999999999999999999999999999999999999999999999999999999999;
+			width: 80%;
+			height: 350px;
+			left: 50%;
+			top: 50%;
+			margin-left: -40%;
+			margin-top: -175px;
+			background: rgba(0, 0, 0, 0.7);
+			backdrop-filter: blur(1.5rem);
+			box-sizing: border-box;
+			border: solid 3px white;
+			color: white;
+			font-family: "Silkscreen", monospace;
+			text-align: center;
+			padding: 25px;
+			overflow: auto;
+		}
+
+		#coord {
+			position: fixed;
+			background: rgba(0, 0, 0, 0.5);
+			color: white;
+			font-family: "Silkscreen", monospace;
+			left: 0px;
+			top: 15%;
+			z-index: 1000;
+			padding: 12px;
+			width: 250px;
+			text-align: center;
+		}
+
+		#help {
+			position: fixed;
+			z-index: 9999999999999999999999999999999999999999999999999999999999099999999999999999999999999999999999999999999999;
+			width: 80%;
+			height: 350px;
+			left: 50%;
+			top: 50%;
+			margin-left: -40%;
+			margin-top: -175px;
+			background: rgba(0, 0, 0, 0.7);
+			backdrop-filter: blur(1.5rem);
+			box-sizing: border-box;
+			border: solid 3px white;
+			color: white;
+			font-family: "Silkscreen", monospace;
+			text-align: center;
+			padding: 25px;
+			overflow: auto;
+		}
+
+		#load {
+			position: fixed;
+			z-index: 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			background: white;
+			font-size: 50px;
+			text-align: center;
+			color: black;
+			font-family: "Silkscreen", monospace;
+		}
+
+		#volcano {
+			left: 950px;
+			top: 300px;
+		}
+
+		#paint {
+			width: 100px;
+			left: 300px;
+			top: 0px;
+		}
+
+		#setgear {
+			width: 100px;
+			left: 450px;
+			top: 0px;
+		}
+
+		#tor {
+			left: 500px;
+			top: 1200px;
+		}
+
+		#death {
+			position: fixed;
+			z-index: 99999999999999999999999999999999;
+			background: red;
+			border-bottom-right-radius: 100px;
+			border-bottom: solid 3px white;
+			border-right: solid 3px white;
+			left: 0px;
+			top: 0px;
+			font-family: "Silkscreen", monospace;
+			font-size: 30px;
+			padding: 20px;
+			color: white;
+			padding-right: 30px;
+		}
+
+		#portal {
+			position: absolute;
+			background: black;
+			width: 100px;
+			height: 150px;
+			left: 1350px;
+			top: 1000px;
+		}
+
+		#portal-portal {
+			position: absolute;
+			width: 50px;
+			height: 75px;
+			background: purple;
+			left: 25px;
+			top: 35px;
+		}
+
+		#terr {
+			position: fixed;
+			z-index: 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			background: black;
+			background-image: url(https://www.photos-public-domain.com/wp-content/uploads/2012/05/black-brick-wall-texture.jpg);
+			font-size: 20px;
+			text-align: center;
+			color: white;
+			font-family: "Silkscreen", monospace;
+			padding-top: 75px;
+		}
+
+	</style>
+	<body>
+
+		<div id="plus">
+			<div id="plus-x" class="plus"></div>
+			<div id="plus-y" class="plus"></div>
+			<div id="plus-c" class="plus"></div>
+		</div>
+
+		<div id="area">
+			<img src="https://webstockreview.net/images/pillow-clipart-puffy-3.png" id="puffy-thing">
+			<img src="http://www.clker.com/cliparts/Z/Q/1/5/y/e/green-tree-md.png" class="tree trees" id="t1">
+			<img src="http://www.clker.com/cliparts/Z/Q/1/5/y/e/green-tree-md.png" class="tree trees" id="t2">
+			<img src="http://www.clker.com/cliparts/Z/Q/1/5/y/e/green-tree-md.png" class="tree trees" id="t3">
+			<img src="http://www.clker.com/cliparts/Z/Q/1/5/y/e/green-tree-md.png" class="tree trees" id="t4">
+			<img src="http://www.clker.com/cliparts/Z/Q/1/5/y/e/green-tree-md.png" class="tree trees" id="t5">
+			<img src="http://www.clker.com/cliparts/Z/Q/1/5/y/e/green-tree-md.png" class="tree trees" id="t6">
+			<img src="http://www.clker.com/cliparts/Z/Q/1/5/y/e/green-tree-md.png" class="tree trees" id="t7">
+			<img src="http://www.clker.com/cliparts/Z/Q/1/5/y/e/green-tree-md.png" class="tree trees" id="t8">
+			<img src="http://www.clker.com/cliparts/Z/Q/1/5/y/e/green-tree-md.png" class="tree trees" id="t9">
+			<img src="http://www.clker.com/cliparts/Z/Q/1/5/y/e/green-tree-md.png" class="tree trees" id="t10">
+			<img src="https://www.jing.fm/clipimg/full/33-339689_volcano-freetoedit-cartoon-volcanic-eruption-gif.png" class="tree" id="volcano">
+			<img src="http://www.clker.com/cliparts/d/7/9/5/11949839901494849191palette_juliane_krug_01.svg.thumb.png" class="tree" id="paint">
+			<img src="http://www.clker.com/cliparts/b/2/7/a/1194985065197517879ruota_dentata_architetto_01.svg.med.png" class="tree" id="setgear">
+			<img src="http://www.clker.com/cliparts/7/8/3/m/P/v/tornado-md.png" class="tree" id="tor">
+			<div id="portal">
+				<div id="portal-portal"></div>
+			</div>
+		</div>
+
+		<div id="death">YOU DIED!</div>
+
+		<div id="coord">POSITION: L; <span id='lcoord'>50</span> T; <span id="tcoord">50</span></div>
+
+		<div id="you-died">
+			<h1 id="dth">YOU DIED!</h1>
+			<span id="how-you-died"></span>
+			<br><br><br><br>
+			<button onclick="respawn(); exitDi();">RESPAWN</button>
+			<br><br>
+			<button onclick="respawn(); exitDi(); document.exitPointerLock(); youDIED.style.display = 'none'; pause.style.display = 'block'; window.setTimeout(function(){ document.exitPointerLock(); }, 2100);">MAIN MENU</button>
+		</div>
+
+		<div id="pause">
+			<h1>PAUSED.</h1>
+			<h3>The Random Puffy Thingy and the Big, Scary Void</h3>
+			PROTOTYPE VERSION<br><br>
+			<button onclick="resume();">RESUME</button><br><br>
+			<button onclick="settings.style.display = 'block';">SETTINGS</button><br><br>
+			<button onclick="colcng.style.display = 'block';">EDIT DOT COLOUR</button><br><br>
+			<button onclick="help.style.display = 'block';">HELP</button><br><br>
+			<button onclick="window.close('Puffy');">CLOSE</button>
+		</div>
+
+		<div id="settings">
+			<h1>SETTINGS</h1>
+			<button onclick="settings.style.display = 'none'; if (setgm === true) { area.requestPointerLock(); setgm = false; }" id="close">CLOSE</button>
+			<br><br><br>
+			CROSSHAIR:<br>
+			<button onclick="edit_plus_settings(1);">White</button>
+			<button onclick="edit_plus_settings(2);">Inverted</button>
+			<button onclick="edit_plus_settings(3);">Hidden</button>
+			<br><br><br>
+			DEATH MENU TEXT EDITIONS:<br>
+			<button onclick="clear_ditions();">NONE</button>
+			<button onclick="clear_ditions(); bdaymode = true;">BIRTHDAY</button>
+			<button onclick="clear_ditions(); smode = true;">ST. PATTY'S DAY</button>
+			<button onclick="clear_ditions(); bird = true;">BIRD</button>
+			<button onclick="clear_ditions(); villmode = true;">VILLAGER</button>
+			<button onclick="clear_ditions(); clearmode = true;">CLEAR</button>
+			<br><br><br>
+			VOID COLOR:<br>
+			<button onclick="html.style.background = 'black';">BLACK</button>
+			<button onclick="html.style.background = 'rgb(0, 0, 64)';">DARK BLUE</button>
+			<button onclick="html.style.background = 'pink';">PINK</button>
+			<button onclick="html.style.background = 'grey';">GREY</button>
+			<button onclick="html.style.background = 'white';">WHITE</button>
+			<br><br><br>
+			SHOW DEATH MENU:<br>
+			<button onclick="detmen = false;">OFF</button>
+			<button onclick="detmen = true;">ON</button>
+			<br><br><br>
+			FULL SCREEN:<br>
+			<button onclick="html.requestFullscreen();">ENTER</button>
+			<button onclick="document.exitFullscreen();">EXIT</button>
+			<br><br><br>
+			INVINCIBLE:<br>
+			<button onclick="invinc = true;">ACTIVATE</button>
+			<button onclick="invinc = false;">DEACTIVATE</button>
+			<br><br><br>
+			COORDINATES:<br>
+			<button onclick="coord.style.display = 'block';">SHOW</button>
+			<button onclick="coord.style.display = 'none';">HIDE</button>
+			<br><br><br>
+			SHOW DEATH MESSAGE:<br>
+			<button onclick="document.getElementById('how-you-died').style.display = 'block';">SHOW</button>
+			<button onclick="document.getElementById('how-you-died').style.display = 'none';">HIDE</button>
+		</div>
+
+		<div id="colcng">
+			<h1>EDIT DOT COLOUR</h1>
+			PRIMARY BUTTON: <input type="color" id="prm" value="#ff0000"><br><br>
+			SECONDARY BUTTON: <input type="color" id="sec" value="#00ffff"><br><br><br><br>
+			<button onclick="setAsColor(); colcng.style.display = 'none'; if (setgm === true) { area.requestPointerLock(); setgm = false; }">SET AND CLOSE</button>
+			<button onclick="colcng.style.display = 'none'; if (setgm === true) { area.requestPointerLock(); setgm = false; }">CANCEL</button>
+		</div>
+
+		<div id="help">
+			<h1>HELP</h1>
+			<button onclick="help.style.display = 'none';">CLOSE</button>
+			<br><br><br>
+			Welcome to The Random Puffy Thingy and the Big, Scary Void! Use W/A/S/D to move, and Q/E/Z/C or F/G/V/B to move diagonally. Hold SHIFT while moving to move faseter. Move your mouse to position your camera. Use Left-Click and Right-Click to draw a dot of a colour (or space, enter and insert). The crosshair is for looks but doesen't do anything, turn it off in settings if you don't like it. Press R to change the colours. You can go anywhere, but make sure you don't go into the void, or you will DIE!!! You will also die if you press F7, or push the scrollbar (which makes you die very annoyingly). When you've tried this thingy out, try experimenting with the settings. Press TAB to open settings and F1 to open help again. Enjoy!
+		</div>
+
+		<div id="terr">LOADING DIMENSION...</div>
+
+		<div id="load">
+			LOADING...
+		</div>
+
+	</body>
+	<script>
+		
+		var bdaymode = false;
+		var detmen = true;
+		var invinc = false;
+		var setgm = false;
+		var smode = false;
+		var bird = false;
+		var villmode = false;
+		var dimension = false;
+		var clearmode = false;
+
+		var x = 0;
+		var y = 0;
+
+		var area = document.getElementById("area");
+		var pause = document.getElementById("pause");
+		var puffyThing = document.getElementById("puffy-thing");
+		var plus = document.getElementsByClassName("plus");
+		var settings = document.getElementById("settings");
+		var colcng = document.getElementById("colcng");
+		var coord = document.getElementById("coord");
+		var help = document.getElementById("help");
+		var death = document.getElementById("death");
+		var howYouDied = document.getElementById("how-you-died");
+		var dth = document.getElementById("dth");
+		var terr = document.getElementById("terr");
+		var html = document.querySelector("html");
+
+		settings.style.display = "none";
+		colcng.style.display = "none";
+		help.style.display = "none";
+		death.style.display = "none";
+		terr.style.display = "none";
+		
+		var plft = 50;
+		var ptop = 50;
+		var prmb = "#ff0000";
+		var secb = "#0ff";
+
+		var clear_ditions = function() {
+			bdaymode = false;
+			smode = false;
+			bird = false;
+			villmode = false;
+			clearmode = false;
+		}
+
+		var change_dimension = function() {
+			terr.style.display = "block";
+			respawn();
+			document.exitPointerLock();
+			var trees = document.getElementsByClassName("trees");
+			for (var i = 0; i < trees.length; i++) {
+				if (dimension === true) {
+					trees[i].style.display = "block";
+				} else if (dimension === false) {
+					trees[i].style.display = "none";
+				}
+			}
+			if (dimension === false) {
+				area.style.backgroundImage = "url(https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL1NSVC1JbWFnZS0wNi5qcGc/bXRpbWU9MjAxODEwMTUxNDIwNTI=)";
+				area.style.borderColor = "skyblue";
+				dimension = true;
+			} else if (dimension === true) {
+				area.style.backgroundImage = "url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg?crop=0.68819xw:1xh;center,top&resize=400:*)";
+				area.style.borderColor = "brown";
+				dimension = false;
+			}
+			window.setTimeout(function(){
+				area.requestPointerLock();
+				terr.style.display = "none";
+				inLock = false;
+			}, 2000);
+		}
+
+		var you_died = function(way_of_death) {
+			if (invinc === false) {
+				if (detmen === true) {
+					if (bdaymode === true) {
+						howYouDied.textContent = "DON'T COMMIT SUICIDE ON YOUR BIRTHDAY!";
+						dth.innerHTML = "YOU DIED!";
+						youDIED.style.background = "rgba(255, 0, 0, 0.5)";
+					} else if (smode === true) {
+						howYouDied.textContent = "Looks like ye ran outta luck on that one, lad/las!";
+						dth.innerHTML = "YE DIED!";
+						youDIED.style.background = "rgba(0, 150, 10, 0.5)";
+					} else if (bird === true) {
+						howYouDied.textContent = "HOW COULD YOU HAVE GOOOFED THAT ONE UP?";
+						dth.textContent = "OOF";
+						youDIED.style.background = "rgba(150, 50, 50, 0.5)";
+					} else if (villmode === true) {
+						howYouDied.textContent = "Harrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr...";
+						dth.innerHTML = "Herr.";
+						youDIED.style.background = "rgba(120, 90, 0, 0.5)";
+					} else if (clearmode === true) {
+						howYouDied.textContent = way_of_death;
+						dth.innerHTML = "YOU DIED!";
+						youDIED.style.background = "rgba(0, 0, 0, 0.5)";
+					} else {
+						howYouDied.textContent = way_of_death;
+						dth.innerHTML = "YOU DIED!";
+						youDIED.style.background = "rgba(255, 0, 0, 0.5)";
+					}
+					youDIED.style.display = "block";
+					document.exitPointerLock();
+				} else if (detmen === false) {
+					death.style.display = "block";
+					respawn();
+					window.setTimeout(function(){
+						death.style.display = "none";
+					}, 2000)
+				}
+			}
+		}
+
+		var respawn = function() {
+			plft = 50;
+			ptop = 50;
+			x = 0;
+			y = 0;
+			puffyThing.style.top = ptop + "px";
+			puffyThing.style.left = plft + "px";
+			youDIED.style.display = "none";
+			resume();
+		}
+
+		var resume = function() {
+			pause.style.display = "none";
+			area.requestPointerLock();
+			window.setTimeout(function() {
+				inLock = true;
+			}, 100);
+		}
+
+		var pausegame = function() {
+			pause.style.display = "block";
+			document.exitPointerLock();
+		}
+
+		var build = function(type) {
+			var d = document.createElement("div");
+				d.classList.add("dot");
+				d.style.left = plft + "px";
+				d.style.top = ptop + "px";
+				if (type === 1) {
+					d.style.background = prmb;
+				} else if (type === 2) {
+					d.style.background = secb;
+				}
+			area.appendChild(d);
+		}
+
+		var edit_plus_settings = function(type) {
+			for (var i = 0; i < plus.length; i++) {
+				if (type === 1) {
+					plus[i].style.background = "white";
+					plus[i].style.backdropFilter = "none";
+				} else if (type === 2) {
+					plus[i].style.background = "transparent";
+					plus[i].style.backdropFilter = "invert(100%)";
+				} else if (type === 3) {
+					plus[i].style.background = "transparent";
+					plus[i].style.backdropFilter = "none";
+				}
+			}
+		}
+
+		var setAsColor = function() {
+			var prm = document.getElementById("prm").value;
+			var sec = document.getElementById("sec").value;
+			prmb = prm;
+			secb = sec;
+		}
+
+		var exitDi = function() {
+			if (dimension === true) {
+				change_dimension();
+			}
+		}
+
+		var command = function() {
+			var st = window.prompt("Enter a valid command below:");
+			if (st === "kill") {
+				var st1 = window.prompt(">KILL<\n\nEnter a message to display upon death:");
+				if (st1) {
+					you_died(st1);
+				}
+			} else if (st === "draw") {
+				var st1 = window.prompt(">DRAW<\n\nEnter a bolean (true/false):");
+				if (st1 === "true") {
+					build(1);
+				} else if (st1 === "false") {
+					build(2);
+				}
+				area.requestPointerLock();
+			} else if (st === "teleport" || st === "tp") {
+				var st1 = parseInt(window.prompt(">TELEPORT<\n\nEnter a coorinate for L:"));
+				if (st1) {
+					var st2 = parseInt(window.prompt(">TELEPORT<\n\nEnter a coorinate for T:"));
+					if (st2) {
+						plft = st1;
+						ptop = st2;
+					}
+				}
+				area.requestPointerLock();
+			} else if (st === "dimension" || st === "di") {
+				change_dimension();
+			} else {
+				area.requestPointerLock();
+			}
+		}
+
+		var inLock = false;
+
+		document.addEventListener("pointerlockchange", function() {
+			if (inLock === false) {
+				inLock = true;
+			} else if (inLock === true) {
+				inLock = false;
+			}
+		});
+
+		var youDIED = document.getElementById("you-died");
+
+		youDIED.style.display = "none";
+
+		area.onmousemove = function(e) {
+			if (inLock === true) {
+				x += e.movementX;
+				y += e.movementY;
+				area.style.left = x + "px";
+				area.style.top = y + "px";
+				if (y > 1330) {
+					y = -2030;
+				} else if (y < -2030) {
+					y = 1330;
+				} else if (x > 1450) {
+					x = -1850;
+				} else if (x < -1850) {
+					x = 1450;
+				}
+			}
+		}
+
+		var rx = 0;
+		var ry = 0;
+		window.setInterval(function(){
+			if (inLock === true) {
+				rx = parseInt(area.style.left);
+				ry = parseInt(area.style.top);
+			}
+		}, 100);
+
+		document.body.onkeydown = function(e) {
+			if (inLock === true) {
+				if (e.shiftKey === false) {
+					if (e.key === "w") {
+						ptop -= 10;
+						puffyThing.style.top = ptop + "px";
+					} else if (e.key === "s") {
+						ptop += 10;
+						puffyThing.style.top = ptop + "px";
+					} else if (e.key === "a") {
+						plft -= 10;
+						puffyThing.style.left = plft + "px";
+					} else if (e.key === "d") {
+						plft += 10;
+						puffyThing.style.left = plft + "px";
+					} else if (e.key === "q" || e.key === "f") {
+						ptop -= 10;
+						plft -= 10;
+						puffyThing.style.top = ptop + "px";
+						puffyThing.style.left = plft + "px";
+					} else if (e.key === "e" || e.key === "g") {
+						ptop -= 10;
+						plft += 10;
+						puffyThing.style.top = ptop + "px";
+						puffyThing.style.left = plft + "px";
+					} else if (e.key === "z" || e.key === "v") {
+						ptop += 10;
+						plft -= 10;
+						puffyThing.style.top = ptop + "px";
+						puffyThing.style.left = plft + "px";
+					} else if (e.key === "c" || e.key === "b") {
+						ptop += 10;
+						plft += 10;
+						puffyThing.style.top = ptop + "px";
+						puffyThing.style.left = plft + "px";
+					} else if (e.key === " " || e.key === "Enter") {
+						e.preventDefault();
+						build(2);
+					} else if (e.key === "Insert") {
+						e.preventDefault();
+						build(1);
+					}
+				} else if (e.shiftKey === true) {
+					if (e.key === "W") {
+						ptop -= 30;
+						puffyThing.style.top = ptop + "px";
+					} else if (e.key === "S") {
+						ptop += 30;
+						puffyThing.style.top = ptop + "px";
+					} else if (e.key === "A") {
+						plft -= 30;
+						puffyThing.style.left = plft + "px";
+					} else if (e.key === "D") {
+						plft += 30;
+						puffyThing.style.left = plft + "px";
+					} else if (e.key === "Q" || e.key === "f") {
+						ptop -= 30;
+						plft -= 30;
+						puffyThing.style.top = ptop + "px";
+						puffyThing.style.left = plft + "px";
+					} else if (e.key === "E" || e.key === "G") {
+						ptop -= 30;
+						plft += 30;
+						puffyThing.style.top = ptop + "px";
+						puffyThing.style.left = plft + "px";
+					} else if (e.key === "Z" || e.key === "V") {
+						ptop += 30;
+						plft -= 30;
+						puffyThing.style.top = ptop + "px";
+						puffyThing.style.left = plft + "px";
+					} else if (e.key === "C" || e.key === "B") {
+						ptop += 30;
+						plft += 30;
+						puffyThing.style.top = ptop + "px";
+						puffyThing.style.left = plft + "px";
+					} else if (e.key === " " || e.key === "Enter") {
+						e.preventDefault();
+						build(1);
+					} else if (e.key === "Insert") {
+						e.preventDefault();
+						build(2);
+					}
+				}
+				if (e.key === "F6") {
+					e.preventDefault();
+					window.alert("OOO COOL YOO PRESSED F6 YOU A COOL MAN OR IF YOU ARE NOT A MAN THEN YOU ARE A COOL WOMAN AND IF YOU ARE NOT A MAN OR A WOMAN THEN YOU ARE A COOL PERSON AND IF YOU ARE NOT A PERSON THEN YOU ARE A COOL THING AND IF YOU ARE NOT A THING THEN YOU HAVE STUMPED ME BUT YOU ARE COOL ANYWAYS FOR PRESSING F6!\n\nPress [ENTER] or [SPACE] to close this thing.!");
+				} else if (e.key === "F7") {
+					e.preventDefault();
+					you_died("Don't press F7!");
+				} else if (e.key === "`") {
+					pausegame();
+				} else if (e.key === "Tab") {
+					e.preventDefault();
+					settings.style.display = "block";
+					document.exitPointerLock();
+					setgm = true;
+				} else if (e.key === "r") {
+					colcng.style.display = "block";
+					document.exitPointerLock();
+					setgm = true;
+				} else if (e.key === "F1") {
+					e.preventDefault();
+					help.style.display = "block";
+					pausegame();
+				} else if (e.key === "F11") {
+					e.preventDefault();
+					html.requestFullscreen();
+				} else if (e.key === "/") {
+					e.preventDefault();
+					document.exitPointerLock();
+					command();
+				}
+			} else {
+				if (e.key === "Escape") {
+					pausegame();
+				} else if (e.key === "F1") {
+					e.preventDefault();
+					help.style.display = "block";
+				}
+			}
+		}
+
+		window.setInterval(function(){
+			if (plft < -90 || plft > 1540 || ptop < -90 || ptop > 1540) {
+				you_died("Don't go into the void!");
+			} else if (plft > 900 && plft < 1080 && ptop > 260 && ptop < 430) {
+				you_died("Don't go to the volcano!");
+			} else if (plft > 250 && plft < 400 && ptop > -30 && ptop < 90) {
+				plft = 330;
+				ptop = 130;
+				colcng.style.display = "block";
+				document.exitPointerLock();
+				setgm = true;
+			} else if (plft > 400 && plft < 550 && ptop > -50 && ptop < 100) {
+				plft = 480;
+				ptop = 130;
+				settings.style.display = "block";
+				document.exitPointerLock();
+				setgm = true;
+			} else if (plft > 450 && plft < 650 && ptop > 1150 && ptop < 1380) {
+				you_died("Don't go inside the storm!");
+			} else if (plft > 1300 && plft < 1450 && ptop > 950 && ptop < 1150) {
+				change_dimension();
+			}
+		}, 10);
+
+		window.setInterval(function(){
+			document.getElementById("lcoord").textContent = plft;
+			document.getElementById("tcoord").textContent = ptop;
+		}, 10);
+
+		area.onmousedown = function(e) {
+			if (e.button === 2) {
+				build(2);
+			} else if (e.button === 0) {
+				build(1);
+			} else if (e.button === 1) {
+				you_died("Don't push the scrollbar!");
+				area.requestPointerLock();
+			}
+		}
+
+		document.getElementById("load").style.display = "none";
+
+	</script>
+</html>
