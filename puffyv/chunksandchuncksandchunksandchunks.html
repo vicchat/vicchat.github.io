@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html oncontextmenu="return false;">
+	<head>
+		<meta charset="utf-8">
+		<title>The Random Puffy Thingy and the Big Scary Void | v1.0</title>
+	</head>
+	<style>
+		
+		html {
+			cursor: default;
+			user-select: none;
+			-webkit-user-select: none;
+			background: black;
+		}
+
+		#plus {
+			position: fixed;
+			width: 24px;
+			height: 24px;
+			left: 50%;
+			top: 50%;
+			margin-left: -12px;
+			margin-top: -12px;
+			z-index: 3;
+			box-sizing: border-box;
+			text-align: center;
+		}
+
+		#plus-x {
+			position: absolute;
+			width: 2px;
+			height: 24px;
+			top: 0px;
+			left: 11px;
+		}
+
+		#plus-y {
+			position: absolute;
+			width: 24px;
+			height: 2px;
+			top: 11px;
+			left: 0px
+		}
+
+		#plus-c {
+			position: absolute;
+			width: 2px;
+			height: 2px;
+			top: 11px;
+			left: 11px;
+		}
+
+		.plus {
+			background: white;
+			backdrop-filter: none;
+		}
+
+		#area {
+			position: fixed;
+			z-index: 1;
+			width: 3000px;
+			height: 3000px;
+			background: rgb(0, 175, 5);
+			outline: solid 50px grey;
+			top: 0px;
+			left: 0px;
+		}
+
+		#puffy-thingy {
+			position: absolute;
+			width: 50px;
+			top: 50px;
+			left: 50px;
+			z-index: 2;
+		}
+
+		.menu {
+			position: fixed;
+			background: darkslategrey;
+			border: solid 10px lightgrey;
+			border-radius: 10px;
+			width: 500px;
+			height: 300px;
+			font-family: "Silkscreen", fantasy;
+			color: white;
+			text-align: center;
+			box-sizing: border-box;
+			padding: 20px;
+			padding-top: 30px;
+			overflow: auto;
+			left: 50%;
+			top: 50%;
+			margin-left: -250px;
+			margin-top: -150px;
+		}
+
+		#pause-menu {
+			z-index: 5;
+		}
+
+		button, input, select {
+			font-family: "Silkscreen", fantasy;
+			color: white;
+			background: rgb(60, 60, 60);
+			border: solid 1px rgb(30, 30, 30);
+			font-size: 15px;
+			padding: 5px;
+			border-radius: 0px;
+			width: 200px;
+			height: 30px;
+		}
+
+		input[type = "color"] {
+			width: 50px;
+			height: 25px;
+		}
+
+		input[type = "text"] {
+			height: 25px;
+			padding: 1px;
+			font-size: 20px;
+			font-family: sans-serif;
+		}
+
+		button:hover, input:hover, select:hover {
+			background: rgb(90, 90, 90);
+		}
+
+		button:active, select:active {
+			background: rgb(120, 120, 120);
+			outline: none !important;
+		}
+
+		button:focus, input:focus-within, select:focus {
+			outline: solid 2px white;
+		}
+
+		#background {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 4;
+		}
+
+		.dot {
+			position: absolute;
+			width: 10px;
+			height: 10px;
+		}
+
+		#colcng {
+			z-index: 7;
+		}
+
+		#bar {
+			position: fixed;
+			z-index: 3;
+			height: 70px;
+			width: 325px;
+			bottom: 0px;
+			border: solid 5px lightgrey;
+			border-radius: 10px;
+			background: darkslategrey;
+			margin-left: -162.5px;
+			left: 50%;
+		}
+
+		.bar {
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			border: solid 5px white;
+			position: relative;
+			top: 5px;
+			left: 5px;
+		}
+
+		#coord {
+			position: fixed;
+			background: rgba(0, 0, 0, 0.5);
+			color: white;
+			font-family: "Silkscreen", fantasy;
+			left: 0px;
+			top: 15%;
+			z-index: 3;
+			padding: 10px;
+			width: 250px;
+			text-align: center;
+		}
+
+		#you-died {
+			position: fixed;
+			background: rgba(255, 0, 0, 0.5);
+			color: white;
+			font-family: "Silkscreen", fantasy;
+			left: 0px;
+			top: 0px;
+			z-index: 6;
+			padding-top: 45px;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			box-sizing: border-box;
+		}
+
+		#start {
+			position: fixed;
+			z-index: 100;
+			background: white;
+			color: black;
+			font-family: sans-serif;
+			left: 0px;
+			top: 0px;
+			box-sizing: border-box;
+			width: 100%;
+			height: 100%;
+			padding-top: 45px;
+			text-align: center;
+			overflow: auto;
+			display: block;
+		}
+
+		#start button {
+			font-family: sans-serif;
+		}
+		::-webkit-scrollbar {
+			width: 10px;
+			height: 10px;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: lightgrey;
+		}
+
+		::-webkit-scrollbar-track {
+			background: darkslategrey;
+		}
+
+		#help1 {
+			z-index: 101;
+		}
+
+		#help2 {
+			z-index: 10;
+		}
+
+		#chat {
+			position: fixed;
+			left: 0px;
+			bottom: 125px;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 3;
+			width: 250px;
+			height: 150px;
+			overflow: auto;
+			max-height: 500px;
+		}
+
+		.chat {
+			margin: 10px;
+			font-family: sans-serif;
+		}
+
+		.chat-system {
+			color: lightblue;
+		}
+
+		.chat-from {
+			color: orange;
+		}
+
+		.chat-error {
+			color: red;
+			font-weight: bold;
+		}
+
+		#chatmessage {
+			position: fixed;
+			font-family: sans-serif;
+			border: none;
+			border-radius: 0px;
+			background: rgba(0, 0, 0, 0.5);
+			bottom: 100px;
+			left: 0px;
+			width: 100%;
+			height: 24px;
+			z-index: 3;
+			outline: none !important;
+			font-weight: 100;
+			font-size: 15px;
+		}
+
+		#chatmessage::placeholder {
+			color: white;
+		}
+
+		#chatmessage::selection {
+			background: rgba(100, 100, 100, 0.5);
+			color: white;
+		}
+
+		#settings {
+			z-index: 9;
+		}
+
+		#onload {
+			position: fixed;
+			z-index: 200;
+			background: white;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			font-family: "Silkscreen", fantasy;
+		}
+
+	</style>
+	<body>
+
+		<div id="onload">
+			<h1>LOADING...</h1>
+			<h3>PLEASE WAIT...</h3>
+			If you see this screen for long enough to read through it twice, it probally means your browser isn't supportted.
+		</div>
+
+		<div id="start" style="display: block;">
+			WELCOME TO
+			<h1 style="font-family: 'Silkscreen', fantasy;">The Random Puffy Thingy and the Big Scary Void</h1>
+			<span style="font-family: 'Silkscreen', fantasy;">versoin 1.0.1</span>
+			<br><br><br><br>
+			<button onclick="play();">Play!</button>
+			<br><br><br><br>
+			<strong>Information for New Peeps:</strong><br>
+			Welcome to The Random Puffy Thingy And The Big Scary Void! We can't wait for you to try it!
+			Is it your first time playing? Click the help button below. You can return to this menu any time by pressing F1 or pausing and clicking "Help".
+			<br><br>
+			<button onclick="help1.style.display = 'block';">Help</button>
+			<br><br><br><br>
+			<strong>What's New in version 1.0.1:</strong><br>
+			<ul>
+				<li>New Commands! (Try <i>/kill</i> and <i>/clear chat</i>)</li>
+				<li>Move slower and faster with LShift and LAlt</li>
+				<li>New CSS (exiting if you know what that is, but even if you do, still not very exiting)</li>
+				<li>Stuff!</li>
+			</ul>
+			<br><br><br><br>
+		</div>
+
+		<div id="plus">
+			<div id="plus-x" class="plus"></div>
+			<div id="plus-y" class="plus"></div>
+			<div id="plus-c" class="plus"></div>
+		</div>
+
+		<div id="area">
+			<img src="https://webstockreview.net/images/pillow-clipart-puffy-3.png" id="puffy-thingy">
+		</div>
+
+		<div id="coord">POSITION; X: <span id="coordx">50</span> Y: <span id="coordy">50</span></div>
+
+		<div id="background"></div>
+
+		<div id="pause-menu" class="menu">
+			Game Menu<br><br><br>
+			<button onclick="resume();">Resume</button>
+			<br><br>
+			<button onclick="help2.style.display = 'block';">Help</button>
+			<br><br>
+			<button onclick="quit();">Quit</button>
+		</div>
+
+		<div id="colcng" class="menu">
+			<h1>Edit Colours</h1><br>
+			<input type="color" id="col0" value="#ff0000">
+			<input type="color" id="col1" value="#00af05">
+			<input type="color" id="col2" value="#0000ff">
+			<input type="color" id="col3" value="#ffff00">
+			<input type="color" id="col4" value="#000000">
+			<br><br><br><br><br>
+			<button onclick="setColours();">Set</button>
+		</div>
+
+		<div id="bar">
+			<div class="bar" id="coll0"></div>
+			<div class="bar" id="coll1"></div>
+			<div class="bar" id="coll2"></div>
+			<div class="bar" id="coll3"></div>
+			<div class="bar" id="coll4"></div>
+		</div>
+
+		<div id="you-died">
+			<h1>YOU DIED!</h1>
+			<span id="how-you-died"></span>
+			<br><br><br><br>
+			<button onclick="respawn();">Respawn</button>
+			<br><br>
+			<button onclick="quit();">Give Up</button>
+		</div>
+
+		<div id="help1" class="menu">
+			<h1>Help</h1>
+			Welcome to The Random Puffy Thingy and the Big Scary Void! I can't wait for you to get started!
+			<br><br>
+			Use W/A/S/D to move, and move your mouse to position the camera. Press the five mouse buttons (Left Click, Scrollbar (Middle Button), Right Click, Browser Back, and Browser Forward) or Z/X/C/V/B to draw dots accordingly on the platform. You can change the colour of the dots by pressing E or R.
+			<br><br>
+			When you move, make sure you don't go into the void or press F7, as doing so will result in your death (don't worry, you can respawn).
+			<br><br>
+			Press TAB or F5 to open settings, and press F1 to open help. Press ESCAPE to close any menus or pause and show your cursor (you can also use F9, which shows your cursor but doesen't pause. Press ESCAPE to exit this faze). You can also use T or ENTER to type in the chat.
+		</div>
+
+		<div id="help2" class="menu">
+			<h1>Help</h1>
+			Welcome to The Random Puffy Thingy and the Big Scary Void! I can't wait for you to get started!
+			<br><br>
+			Use W/A/S/D to move, and move your mouse to position the camera. Press the five mouse buttons (Left Click, Scrollbar (Middle Button), Right Click, Browser Back, and Browser Forward) or Z/X/C/V/B to draw dots accordingly on the platform. You can change the colour of the dots by pressing E or R.
+			<br><br>
+			When you move, make sure you don't go into the void or press F7, as doing so will result in your death (don't worry, you can respawn).
+			<br><br>
+			Press TAB or F5 to open settings, and press F1 to open help. Press ESCAPE to close any menus or pause and show your cursor (you can also use F9, which shows your cursor but doesen't pause. Press ESCAPE to exit this faze). You can also use T or ENTER to type in the chat.
+		</div>
+
+		<div id="chat">
+			<br>
+			<div class="chat chat-system">Press T or ENTER to open chat.</div>
+		</div>
+
+		<div class="menu" id="settings">
+			<h1>Settings</h1>
+			<h3>Crosshair:</h3>
+			<button onclick="editPlusSettings(1);">White</button><br>
+			<button onclick="editPlusSettings(2);">Inverted</button><br>
+			<button onclick="editPlusSettings(3);">None</button>
+			<br><br>
+			<h3>Void Colour:</h3>
+			<button onclick="html.style.background = 'black';">Black</button><br>
+			<button onclick="html.style.background = 'darkblue';">Dark Blue</button><br>
+			<button onclick="html.style.background = 'skyblue';">Light Blue</button><br>
+			<button onclick="html.style.background = 'grey';">Grey</button><br>
+			<button onclick="html.style.background = 'white';">White</button>
+			<br><br>
+			<h3>Fullscreen:</h3>
+			Press F11 to enter / exit fullscreen.<br>(you can also click the MORE button on your browser bar, then click the fullscreen icon)
+			<h3>INVINCIBLE!!!!:</h3>
+			<button onclick="INVINCIBLE = true">Enter</button><br>
+			<button onclick="INVINCIBLE = false">Exit</button>
+			<br><br>
+			<h3>Coordinates:</h3>
+			<button onclick="coord.style.display = 'block';">Show</button><br>
+			<button onclick="coord.style.display = 'none';">Hide</button><br>
+			NOTE: You can show and hide your coordinates by pressing F3.
+		</div>
+
+		<input type="text" id="chatmessage" placeholder=">">
+
+	</body>
+	<script>
+		
+		var inLock = false;
+		var INVINCIBLE = false;
+
+		document.addEventListener("pointerlockchange", function() {
+			if (inLock === false) {
+				inLock = true;
+				background.style.display = "none";
+			} else if (inLock === true) {
+				inLock = false;
+				background.style.display = "block";
+				pauseMenu.style.display = "block";
+			}
+		});
+
+		var col0 = "#ff0000";
+		var col1 = "#00af05";
+		var col2 = "#0000ff";
+		var col3 = "#ffff00";
+		var col4 = "#000000";
+
+		var html = document.querySelector("html");
+		var area = document.getElementById("area");
+		var puffyThingy = document.getElementById("puffy-thingy");
+		var pauseMenu = document.getElementById("pause-menu");
+		var background = document.getElementById("background");
+		var colcng = document.getElementById("colcng");
+		var youDied = document.getElementById("you-died");
+		var start = document.getElementById("start");
+		var help1 = document.getElementById("help1");
+		var help2 = document.getElementById("help2");
+		var chat = document.getElementById("chat");
+		var chatMessage = document.getElementById("chatmessage");
+		var settings = document.getElementById("settings");
+		var plus = document.getElementsByClassName("plus");
+		var coord = document.getElementById("coord");
+
+		colcng.style.display = "none";
+		youDied.style.display = "none";
+		background.style.display = "none";
+		pauseMenu.style.display = "none";
+		help1.style.display = "none";
+		help2.style.display = "none";
+		chatMessage.style.display = "none";
+		settings.style.display = "none";
+		coord.style.display = "none";
+
+		var play = function() {
+			start.innerHTML = "Please Wait...";
+			area.requestPointerLock();
+			window.setTimeout(function(){
+				start.style.display = "none";
+			}, 1000);
+		}
+
+		var resume = function() {
+			if (start.style.display === "none" && youDied.style.display === "none") {
+				pauseMenu.style.display = "none";
+				colcng.style.display = "none";
+				help1.style.display = "none";
+				help2.style.display = "none";
+				chatMessage.style.display = "none";
+				settings.style.display = "none";
+				chatMessage.value = "";
+				area.requestPointerLock();
+			} else {
+				help1.style.display = "none";
+			}
+		}
+
+		var you_died = function(how_you_died) {
+			if (INVINCIBLE === false) {
+				if (youDied.style.display === "none") {
+					logChatMessage("system", how_you_died);
+				}
+				document.exitPointerLock();
+				giveon2();
+				document.getElementById("how-you-died").textContent = how_you_died;
+				youDied.style.display = "block";
+			}
+		}
+
+		var respawn = function() {
+			ax = 50;
+			ay = 50;
+			px = 50;
+			py = 50;
+			area.style.left = ax + "px";
+			area.style.top = ay + "px";
+			puffyThingy.style.left = px + "px";
+			puffyThingy.style.top = py + "px";
+			youDied.style.display = "none";
+			area.requestPointerLock();
+		}
+
+		var giveon = function() {
+			window.setTimeout(function(){
+				pauseMenu.style.display = "none";
+			}, 10);
+		}
+
+		var giveon2 = function() {
+			window.setTimeout(function(){
+				pauseMenu.style.display = "none";
+				background.style.display = "none";
+			}, 10);
+		}
+
+		var setColours = function() {
+			col0 = document.getElementById("col0").value;
+			col1 = document.getElementById("col1").value;
+			col2 = document.getElementById("col2").value;
+			col3 = document.getElementById("col3").value;
+			col4 = document.getElementById("col4").value;
+		}
+
+		var editPlusSettings = function(numba) {
+			for (var i = 0; i < plus.length; i++) {
+				if (numba === 1) {
+					plus[i].style.background = "white";
+					plus[i].style.backdropFilter = "none";
+				} else if (numba === 2) {
+					plus[i].style.background = "rgba(0, 0, 0, 0)";
+					plus[i].style.backdropFilter = "invert(100%)";
+				} else if (numba === 3) {
+					plus[i].style.background = "rgba(0, 0, 0, 0)";
+					plus[i].style.backdropFilter = "none";
+				}
+			}
+		}
+
+		var draw = function(int) {
+			var newdot = document.createElement("div");
+				newdot.classList.add("dot");
+				newdot.style.left = px + "px";
+				newdot.style.top = py + "px";
+				if (int === 0) {
+					newdot.style.background = col0;
+				} else if (int === 1) {
+					newdot.style.background = col1;
+				} else if (int === 2) {
+					newdot.style.background = col2;
+				} else if (int === 3) {
+					newdot.style.background = col3;
+				} else if (int === 4) {
+					newdot.style.background = col4;
+				}
+			area.appendChild(newdot);
+		}
+
+		var logChatMessage = function(type, message, sender) {
+			var chatmessage = document.getElementById("chatmessage").value;
+			var n = document.createElement("div");
+				n.classList.add("chat");
+			if (type === "system") {
+				n.classList.add("chat-system");
+				n.innerHTML = message;
+			} else if (type === "from") {
+				n.classList.add("chat-from");
+				n.textContent = "YOU> " + chatmessage;
+			} else if (type === "error") {
+				n.classList.add("chat-error");
+				n.innerHTML = "&#10060;ERROR: " + message; 
+			}
+			chat.appendChild(n);
+			chat.scrollBy(0, 1000);
+		}
+
+		var quit = function() {
+			window.close();
+		}
+
+		var ax = 0;
+		var ay = 0;
+		area.onmousemove = function(e) {
+			if (inLock === true) {
+				ax += e.movementX;
+				ay += e.movementY;
+				area.style.left = ax + "px";
+				area.style.top = ay + "px";
+			}
+		}
+
+		var px = 50;
+		var py = 50;
+		document.body.onkeydown = function(e) {
+			if (inLock === true) {
+				if (e.shiftKey === false) {
+					if (e.code === "KeyW") {
+						py -= 10;
+						puffyThingy.style.top = py + "px";
+					} else if (e.code === "KeyS") {
+						py += 10;
+						puffyThingy.style.top = py + "px";
+					} else if (e.code === "KeyA") {
+						px -= 10;
+						puffyThingy.style.left = px + "px";
+					} else if (e.code === "KeyD") {
+						px += 10;
+						puffyThingy.style.left = px + "px";
+					} else if (e.code === "KeyE" || e.code === "KeyR") {
+						document.exitPointerLock();
+						giveon();
+						colcng.style.display = "block";
+					} else if (e.code === "F9") {
+						e.preventDefault();
+						document.exitPointerLock();
+						giveon2();
+						window.setTimeout(function(){
+							background.style.display = "none";
+						}, 10);
+					} else if (e.code === "F7") {
+						e.preventDefault();
+						you_died("I don't like F7!");
+					} else if (e.code === "F1") {
+						e.preventDefault();
+						document.exitPointerLock();
+						giveon();
+						help2.style.display = "block";
+					} else if (e.code === "KeyT" || e.code === "Enter") {
+						document.exitPointerLock();
+						giveon2();
+						chatMessage.style.display = "block";
+						window.setTimeout(function() {
+							chatMessage.focus();
+						}, 10);
+					} else if (e.code === "KeyZ" || e.code === "Digit1") {
+						draw(0);
+					} else if (e.code === "KeyX" || e.code === "Digit2") {
+						draw(1);
+					} else if (e.code === "KeyC" || e.code === "Digit3") {
+						draw(2);
+					} else if (e.code === "KeyV" || e.code === "Digit4") {
+						draw(3);
+					} else if (e.code === "KeyB" || e.code === "Digit5") {
+						draw(4);
+					} else if (e.code === "Slash") {
+						document.exitPointerLock();
+						giveon2();
+						chatMessage.style.display = "block";
+						chatMessage.focus();
+					} else if (e.code === "Tab" || e.code === "F5") {
+						e.preventDefault();
+						document.exitPointerLock();
+						giveon();
+						settings.style.display = "block";
+					} else if (e.code === "Escape") {
+						document.exitPointerLock();
+					} else if (e.code === "F6") {
+						e.preventDefault();
+						logChatMessage("system", "Thank you for remembering to do me a favour and going ahead and pressering F6!");
+					} else if (e.code === "F3") {
+						e.preventDefault();
+						if (coord.style.display === "none") {
+							coord.style.display = "block";
+						} else if (coord.style.display === "block") {
+							coord.style.display = "none";
+						}
+					}
+				}
+			} else if (inLock === false) {
+				if (e.code === "Escape") {
+					window.setTimeout(function() {
+						resume();
+					}, 300);
+				}
+			}
+		}
+
+		document.body.onmousedown = function(e) {
+			if (inLock === true) {
+				e.preventDefault();
+				if (e.button === 0) {
+					draw(0);
+				} else if (e.button === 1) {
+					draw(1);
+				} else if (e.button === 2) {
+					draw(2);
+				} else if (e.button === 3) {
+					draw(3);
+				} else if (e.button === 4) {
+					draw(4);
+				}
+			}
+		}
+
+		chatMessage.onkeydown = function(e) {
+			if (e.key === "Enter") {
+				var chatmessage = document.getElementById("chatmessage").value;
+				if (chatmessage.includes("/") === true) {
+					if (chatmessage === "/help") {
+						window.setTimeout(function() {
+							document.exitPointerLock();
+							giveon();
+							help2.style.display = "block";
+						}, 500);
+					} else if (chatmessage === "/quit") {
+						quit();
+					} else if (chatmessage === "/settings crosshair white") {
+						editPlusSettings(1);
+					} else if (chatmessage === "/settings crosshair invert") {
+						editPlusSettings(2);
+					} else if (chatmessage === "/settings crosshair none") {
+						editPlusSettings(3);
+					} else if (chatmessage === "/settings void black") {
+						html.style.background = "black";
+					} else if (chatmessage === "/settings void darkblue") {
+						html.style.background = "darkblue";
+					} else if (chatmessage === "/settings void lightblue") {
+						html.style.background = "skyblue";
+					} else if (chatmessage === "/settings void grey") {
+						html.style.background = "grey";
+					} else if (chatmessage === "/settings void white") {
+						html.style.background = "white";
+					} else if (chatmessage === "/nochat") {
+						chat.style.display = "none";
+					} else if (chatmessage === "/showchat") {
+						chat.style.display = "block";
+					} else if (chatmessage === "/settings invincible false") {
+						INVINCIBLE = false;
+					} else if (chatmessage === "/settings invincible ture") {
+						INVINCIBLE = true;
+					} else if (chatmessage === "/settings coordinates true") {
+						coord.style.display = "block";
+					} else if (chatmessage === "/settings coordinates false") {
+						coord.style.display = "none";
+					} else if (chatmessage === "/kill") {
+						you_died("YO IT IS GOOD!");
+						chatMessage.style.display = "none";
+					} else if (chatmessage === "/clear chat") {
+						chat.innerHTML = "<div class='chat chat-system'>Press T or ENTER to open chat.</div>";
+					} else {
+						logChatMessage("error", "I'm sorry, but the command you entered doesen't seem to match any of the commands that I know. Maybe you spelt something wrong, or you forgot an argument, or maybe it wasn't even supposed to be a command at all. Maybe you're just trying to get me to display this message so that you can make fun of me! Just don't use the \"/\" character in any chat messages and don't make me have to explain this all over again. With that said, you can return to what you were doing. Oh, and also, I'm supprised you actually read to the end of this message! You must actually like me! YAY!");
+					}
+					resume();
+				} else {
+					logChatMessage("from");
+				}
+				chatMessage.value = "";
+			}
+		}
+
+		window.setInterval(function(){
+			if (px < -90 || px > 3040 || py < -90 || py > 3040) {
+				you_died("The Random Puffy Thingy fell off the world.");
+			}
+		}, 10);
+
+		window.setInterval(function(){
+			document.getElementById("coll0").style.background = col0;
+			document.getElementById("coll1").style.background = col1;
+			document.getElementById("coll2").style.background = col2;
+			document.getElementById("coll3").style.background = col3;
+			document.getElementById("coll4").style.background = col4;
+			document.getElementById("coordx").textContent = px;
+			document.getElementById("coordy").textContent = py;
+		}, 10);
+
+		document.getElementById("onload").style.display = "none";
+
+	</script>
+</html>
