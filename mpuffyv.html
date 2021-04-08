@@ -57,7 +57,8 @@
 		<b>Welcome to The Random Puffy Thingy and the Big Scary Void! Please choose a version to play from below:</b>
 		<br><br><br><br>
 		<select id="version" aria-label="Choose a Version from Below:">
-			<option value="1.1">1.1 <b>(Latest Release)</b></option>
+			<option value="1.1">1.1.1 <b>(Latest Release)</b></option>
+			<option value="1.1">1.1</option>
 		</select> <button onclick="play();">Play!</button>
 
 	</body>
@@ -68,6 +69,8 @@
 			var ver = document.getElementById("version").value;
 			if (ver === "1.1") {
 				var openwin1_1 = window.open("https://vicchat.github.io/mpuffyv/v1-1", "openwin1_1", "top=300,left=300,width=500,height=500");
+			} else if (ver === "1.1.1") {
+				var openwin1_1_1 = window.open("https://vicchat.github.io/puffyv/v1-1-1", "openwin1_1_1", "top=300,left=300,width=500,height=500");
 			}
 		}
 
