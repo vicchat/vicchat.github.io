@@ -1,7 +1,7 @@
 enterMode = true;
 area.style.background = "grey";
 area.style.outlineColor = "red";
-frameCheck(function() {
+window.setInterval(function() {
 	if (playerX > 899 && playerX < 901 && playerY > 599 && playerY < 601) {
 		you_died("You went into the death zone!");
 	}
