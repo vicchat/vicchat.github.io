@@ -1,3 +1,4 @@
+enterMode = true;
 logChatMessage("for", "Hello! Press <i>W</i> to start!", "Host", "lightgreen");
 frameCheck(function(){
 	if (playerY === 40) {
