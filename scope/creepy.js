@@ -1,3 +1,4 @@
+enterMode = true;
 area.style.background = "grey";
 area.style.outlineColor = "red";
 frameCheck(function() {
