@@ -621,6 +621,7 @@
 		var drawmode = true;
 		var cheatmode = true;
 		var enterMode = false;
+		var lastMessage = null;
 
 		document.addEventListener("pointerlockchange", function() {
 			if (inLock === false) {
@@ -799,6 +800,7 @@
 			} else if (type === "from") {
 				n.classList.add("chat-from");
 				n.textContent = "YOU> " + chatmessage;
+				lastMessage = chatmessage;
 			} else if (type === "error") {
 				n.classList.add("chat-error");
 				n.innerHTML = "&#10060;ERROR: " + message; 
