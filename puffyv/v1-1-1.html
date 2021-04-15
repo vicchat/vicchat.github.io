@@ -827,6 +827,21 @@
 			codemenu.style.display = "block";
 			document.exitPointerLock();
 		}
+		
+		var dontSupport = function(less_tah_version) {
+			if (less_tah_version > version) {
+				window.setTimeout(function() {
+					enterMode = false;
+					window.setTimeout(function() {
+						libimport.innerHTML = "You need a newer version for this library to work.<br><br><br><br><br><br><br><br><br><button onclick='home();'>Okay</button>";
+						window.setInterval(function() {
+							background2.style.display = "block";
+							libimport.style.display = "block";
+						}, 10);
+					}, 10);
+				}, 999);
+			}
+		}
 
 		var ax = 0;
 		var ay = 0;
