@@ -1,8 +1,4 @@
-if (version > 1) {
-	enterMode = true;
-} else {
-	enterMode = false;
-}
+dontSupport(1.1);
 drawMode(false);
 cheatmode = false;
 window.setInterval(function(){
