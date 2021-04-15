@@ -725,7 +725,7 @@
 		help2.style.display = "none";
 		chatMessage.style.display = "none";
 		settings.style.display = "none";
-		//coord.style.display = "none";
+		coord.style.display = "none";
 		informat.style.display = "none";
 		libimport.style.display = "none";
 		titletitle.style.display = "none";
@@ -923,6 +923,21 @@
 		var openMenu = function(text) {
 			codemenu.innerHTML = text;
 			codemenu.style.display = "block";
+		}
+		
+		var dontSupport = function(less_tah_version) {
+			if (less_tah_version > version) {
+				window.setTimeout(function() {
+					enterMode = false;
+					window.setTimeout(function() {
+						libimport.innerHTML = "You need a newer version for this library to work.<br><br><br><br><br><br><br><br><br><button onclick='home();'>Okay</button>";
+						window.setInterval(function() {
+							background2.style.display = "block";
+							libimport.style.display = "block";
+						}, 10);
+					}, 10);
+				}, 999);
+			}
 		}
 
 		var ax = 0;
