@@ -1,3 +1,4 @@
+enterMode = true;
 dontSupport(1.1);
 drawMode(false);
 cheatmode = false;
