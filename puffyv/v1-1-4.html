@@ -131,11 +131,7 @@
 			outline: none !important;
 		}
 
-		button:focus, select:focus {
-			outline: none;
-		}
-
-		input:focus-within {
+		button:focus, input:focus-within, select:focus {
 			outline: solid 2px white;
 		}
 
@@ -153,7 +149,6 @@
 			position: absolute;
 			width: 10px;
 			height: 10px;
-			z-index: 50;
 		}
 
 		#colcng {
@@ -164,12 +159,12 @@
 			position: fixed;
 			z-index: 3;
 			height: 70px;
-			width: 390px;
+			width: 325px;
 			bottom: 0px;
 			border: solid 5px lightgrey;
 			border-radius: 10px;
 			background: darkslategrey;
-			margin-left: -195px;
+			margin-left: -162.5px;
 			left: 50%;
 		}
 
@@ -181,26 +176,6 @@
 			position: relative;
 			top: 5px;
 			left: 5px;
-			text-align: center;
-		}
-
-		#cngcol {
-			background: green;
-			color: white;
-			top: -18px;
-		}
-
-		#coord {
-			position: fixed;
-			background: rgba(0, 0, 0, 0.5);
-			color: white;
-			font-family: "Silkscreen", fantasy;
-			left: 0px;
-			top: 0px;
-			z-index: 3;
-			padding: 10px;
-			width: 250px;
-			text-align: center;
 		}
 
 		#you-died {
@@ -263,18 +238,18 @@
 		#chat {
 			position: fixed;
 			left: 0px;
-			top: 50px;
+			bottom: 25px;
 			background: rgba(0, 0, 0, 0.5);
 			z-index: 3;
 			width: 250px;
 			height: 150px;
 			overflow: auto;
+			max-height: 500px;
 		}
 
 		.chat {
 			margin: 10px;
 			font-family: sans-serif;
-			font-size: 25px;
 		}
 
 		.chat-system {
@@ -299,11 +274,11 @@
 			bottom: 0px;
 			left: 0px;
 			width: 100%;
-			height: 40px;
+			height: 24px;
 			z-index: 3;
 			outline: none !important;
 			font-weight: 100;
-			font-size: 30px;
+			font-size: 15px;
 		}
 
 		::placeholder {
@@ -398,78 +373,6 @@
 			z-index: 50;
 		}
 
-		.look-control {
-			z-index: 3;
-			position: fixed;
-			width: 50px;
-			height: 50px;
-			background: rgba(0, 0, 0, 0.5) !important;
-			font-size: 40px;
-			text-align: center;
-		}
-
-		#look-left {
-			top: 50%;
-			margin-top: -25px;
-			left: 0px;
-		}
-
-		#look-up {
-			top: 0px;
-			margin-left: -25px;
-			left: 50%;
-		}
-
-		#look-right {
-			top: 50%;
-			margin-top: -25px;
-			right: 0px;
-		}
-
-		#look-down {
-			bottom: 80px;
-			margin-left: -25px;
-			left: 50%;
-		}
-
-		.control {
-			width: 50px;
-			height: 50px;
-			background: rgba(0, 0, 0, 0.5) !important;
-			font-size: 40px;
-			text-align: center;
-		}
-
-		#controls {
-			position: fixed;
-			bottom: 10px;
-			left: 10px;
-			height: 150px;
-			width: 160px;
-			z-index: 3;
-			background: rgba(0, 0, 0, 0);
-			text-align: center;
-		}
-
-		#buttons4U {
-			position: fixed;
-			top: 5px;
-			right: 5px;
-			z-index: 3;
-			height: 25px;
-			width: 85pc;
-			text-align: right;
-		}
-
-		.mini {
-			width: 30px;
-			height: 30px;
-			background: rgba(0, 0, 0, 0.5) !important;
-			font-size: 40px;
-			text-align: center;
-			font-size: 20px;
-		}
-
 		#background2 {
 			position: fixed;
 			top: 0px;
@@ -480,25 +383,50 @@
 			z-index: 101;
 		}
 
-		#closeit {
-			position: sticky;
-			-webkit-position: sticky;
-			top: 10px;
+		.stat {
+			position: fixed;
+			background: rgba(0, 0, 0, 0.5);
+			color: white;
+			font-family: "Silkscreen", fantasy;
+			z-index: 3;
+			padding: 10px 20px 10px 20px;
+			text-align: center;
+			font-size: 15px;
+			height: 15px;
 		}
 
-		#secrols {
-			position: fixed;
-			bottom: 10px;
-			right: 10px;
-			height: 100px;
-			width: 60px;
-			z-index: 3;
-			background: rgba(0, 0, 0, 0);
-			text-align: center;
+		#coord {
+			top: 35px;
+			left: 0px;
+		}
+
+		#areacoord {
+			top: 0px;
+			left: 0px;
+		}
+
+		#ischeat {
+			top: 0px;
+			right: 0px;
+		}
+
+		#isdraw {
+			top: 35px;
+			right: 0px;
+		}
+
+		#islib {
+			top: 70px;
+			right: 0px;
+		}
+
+		#isver {
+			top: 70px;
+			left: 0px;
 		}
 
 	</style>
-	<body onblur="background.style.display = 'block'; pauseMenu12341.style.display = 'block';">
+	<body>
 
 		<div id="onload">
 			Loading...
@@ -509,7 +437,7 @@
 			<div id="innimg">
 				WELCOME TO
 				<h1 style="font-family: 'Silkscreen', fantasy;">The Random Puffy Thingy and the Big Scary Void</h1>
-				<span style="font-family: 'Silkscreen', fantasy;">Mobile Edition</span>
+				<span style="font-family: 'Silkscreen', fantasy;">Desktop Edition</span>
 				<br><br><br><br>
 				<button onclick="play();">Empty Platform</button>
 				<br><br>
@@ -523,7 +451,7 @@
 			</div>
 		</div>
 
-		<div id="plus">
+		<div id="plus" class="hud">
 			<div id="plus-x" class="plus"></div>
 			<div id="plus-y" class="plus"></div>
 			<div id="plus-c" class="plus"></div>
@@ -533,9 +461,31 @@
 			<img src="https://webstockreview.net/images/pillow-clipart-puffy-3.png" id="puffy-thingy">
 		</div>
 
-		<div id="coord">POSITION; X: <span id="coordx">50</span> Y: <span id="coordy">50</span></div>
+		<div id="coord" class="stat hud">
+			POSITION: X=<span id="coordx">50</span> Y=<span id="coordy">50</span>
+		</div>
+		
+		<div id="areacoord" class="stat hud">
+			PLATFORM POSITION: X=<span id="areacoordx">50</span> Y=<span id="areacoordy">50</span>
+		</div>
 
-		<div id="background" onclick="resume();"></div>
+		<div id="ischeat" class="stat hud">
+			Allow Cheats: <span id="ischeatv">...</span>
+		</div>
+
+		<div id="isdraw" class="stat hud">
+			Allow Drawing: <span id="isdrawv">...</span>
+		</div>
+
+		<div id="islib" class="stat hud">
+			Library: <span id="islibv">...</span>
+		</div>
+
+		<div id="isver" class="stat hud">
+			Version 1.1.4
+		</div>
+
+		<div id="background"></div>
 
 		<div id="pause-menu" class="menu">
 			Game Menu<br><br><br>
@@ -557,13 +507,12 @@
 			<button onclick="setColours();">Set</button>
 		</div>
 
-		<div id="bar">
-			<div class="bar" id="coll0" onclick="draw(0);"></div>
-			<div class="bar" id="coll1" onclick="draw(1);"></div>
-			<div class="bar" id="coll2" onclick="draw(2);"></div>
-			<div class="bar" id="coll3" onclick="draw(3);"></div>
-			<div class="bar" id="coll4" onclick="draw(4);"></div>
-			<div class="bar" id="cngcol" onclick="background.style.display = 'block'; colcng.style.display = 'block';"><br>•••</div>
+		<div id="bar" class="hud">
+			<div class="bar" id="coll0"></div>
+			<div class="bar" id="coll1"></div>
+			<div class="bar" id="coll2"></div>
+			<div class="bar" id="coll3"></div>
+			<div class="bar" id="coll4"></div>
 		</div>
 
 		<div id="you-died">
@@ -579,11 +528,11 @@
 			<h1>Help</h1>
 			Welcome to The Random Puffy Thingy and the Big Scary Void! I can't wait for you to get started!
 			<br><br>
-			Use the arrow buttons at the bottom left corner of your screen to move, and use the buttons on the sides of the screen to position the camera. Tap the five colour bar buttons to draw dots accordingly on the platform. You can change the colour of the dots by clicking the tripple dot button (•••).
+			Use W/A/S/D to move, and move your mouse to position the camera. Press the five mouse buttons (Left Click, Scrollbar (Middle Button), Right Click, Browser Back, and Browser Forward) or Z/X/C/V/B to draw dots accordingly on the platform. You can change the colour of the dots by pressing E or R.
 			<br><br>
-			When you move, make sure you don't go into the void or click the &times;, as doing so will result in your death (don't worry, you can respawn).
+			When you move, make sure you don't go into the void or press F7, as doing so will result in your death (don't worry, you can respawn).
 			<br><br>
-			Press ☼ to open settings, and press ? to open help. Click on the background, or press CLOSE for menus on the title screen, to close any menus. Press || to pause. You can also use tap on the chat to open it.
+			Press TAB or F5 to open settings, and press F1 to open help. Press ESCAPE to close any menus or pause and show your cursor (you can also use F9, which shows your cursor but doesen't pause. Press ESCAPE to exit this faze). You can also use T or ENTER to type in the chat.
 			<br><br>
 			For Library adresses, enter a javascript file's url. There is already some already on this server, try "/scope/creepy", "/scope/adventure", "/scope/glitchy", "/scope/cheats-off", "/scope/odd", "/scope/proto", or "/scope/lava".
 		</div>
@@ -592,11 +541,11 @@
 			<h1>Help</h1>
 			Welcome to The Random Puffy Thingy and the Big Scary Void! I can't wait for you to get started!
 			<br><br>
-			Use the arrow buttons at the bottom left corner of your screen to move, and use the buttons on the sides of the screen to position the camera. Tap the five colour bar buttons to draw dots accordingly on the platform. You can change the colour of the dots by clicking the tripple dot button (•••).
+			Use W/A/S/D to move, and move your mouse to position the camera. Press the five mouse buttons (Left Click, Scrollbar (Middle Button), Right Click, Browser Back, and Browser Forward) or Z/X/C/V/B to draw dots accordingly on the platform. You can change the colour of the dots by pressing E or R.
 			<br><br>
-			When you move, make sure you don't go into the void or click the &times;, as doing so will result in your death (don't worry, you can respawn).
+			When you move, make sure you don't go into the void or press F7, as doing so will result in your death (don't worry, you can respawn).
 			<br><br>
-			Press ☼ to open settings, and press ? to open help. Click on the background, or press CLOSE for menus on the title screen, to close any menus. Press || to pause. You can also use tap on the chat to open it.
+			Press TAB or F5 to open settings, and press F1 to open help. Press ESCAPE to close any menus or pause and show your cursor (you can also use F9, which shows your cursor but doesen't pause. Press ESCAPE to exit this faze). You can also use T or ENTER to type in the chat.
 			<br><br>
 			For Library adresses, enter a javascript file's url. There is already some already on this server, try "/scope/creepy", "/scope/adventure", "/scope/glitchy", "/scope/cheats-off", "/scope/odd", "/scope/proto", or "/scope/lava".
 		</div>
@@ -604,7 +553,7 @@
 		<div id="informat" class="menu">
 			<h1>Information for New Peeps:</h1><br>
 			Welcome to The Random Puffy Thingy And The Big Scary Void! We can't wait for you to try it!
-			Is it your first time playing? Click the help button below. You can return to this menu any time by pressing ? or pausing and clicking "Help".
+			Is it your first time playing? Click the help button below. You can return to this menu any time by pressing F1 or pausing and clicking "Help".
 			<br><br>
 			<button onclick="help1.style.display = 'block';">Help</button>
 			<br><br><br><br>
@@ -622,7 +571,12 @@
 			Title Screen Background Image: Pintrest<br><br>
 			NOTE: Libraries may use images from other sources.
 			<br><br><br>
-			<button onclick="background2.style.display = 'none'; informat.style.display = 'none';">Close</button>
+			Press ESCAPE to close.
+		</div>
+
+		<div id="chat" class="hud">
+			<br>
+			<div class="chat chat-system">Press T or ENTER to open chat.</div>
 		</div>
 
 		<div class="menu" id="settings">
@@ -641,23 +595,19 @@
 			<button onclick="html.style.background = 'white';">White</button>
 			<br><br>
 			<h3>Fullscreen:</h3>
-			<button onclick="document.body.requestFullscreen();">Enter</button><br>
-			<button onclick="document.exitFullscreen();">Exit</button>
+			Press F11 to enter / exit fullscreen.<br>(you can also click the MORE button on your browser bar, then click the fullscreen icon)
 			<h3>INVINCIBLE!!!!:</h3>
 			<button onclick="if (cheatmode === true) {invincible = true; } else if (cheatmode === false) { this.innerHTML = 'Cannot do this now'; }">Enter</button><br>
 			<button onclick="invincible = false">Exit</button>
-			<br><br>
-			<h3>Coordinates:</h3>
-			<button onclick="coord.style.display = 'block';">Show</button><br>
-			<button onclick="coord.style.display = 'none';">Hide</button>
 		</div>
+
+		<input type="text" id="chatmessage" placeholder=">">
 
 		<div id="libimport" class="menu">
 			<h1>Import from Library</h1>
 			<br><br>
 			<input type="text" id="library" placeholder="Library Adress" onautocomplete="return false;" spellcheck="false"><br><br><br>
-			<button onclick="background2.style.display = 'none'; prifli();">Play</button>
-			<button onclick="background2.style.display = 'none'; libimport.style.display = 'none';">Cancel</button>
+			<button onclick="prifli();">Play!</button>
 		</div>
 
 		<span id="titletitle" class="title"></span>
@@ -665,90 +615,17 @@
 
 		<div id="codemenu" class="menu"></div>
 
-		<button class="look-control" id="look-left" ontouchstart="loook(50, 0);">&#x21E6;</button>
-		<button class="look-control" id="look-up" ontouchstart="loook(0, 50);">&#x21E7;</button>
-		<button class="look-control" id="look-right" ontouchstart="loook(-50, 0);">&#x21E8;</button>
-		<button class="look-control" id="look-down" ontouchstart="loook(0, -50);">&#x21E9;</button>
-
-		<div id="controls">
-			<button class="control" ontouchstart='
-				if (spr === false && sne === false) {
-					playerY -= 10;
-				} else if (spr === true) {
-					playerY -= 30;
-				} else if (sne === true) {
-					playerY -= 1;
-				}
-				puffyThingy.style.top = playerY + "px";
-			'>&#x21E7;</button><br>
-			<button class="control" ontouchstart='
-				if (spr === false && sne === false) {
-					playerX -= 10;
-				} else if (spr === true) {
-					playerX -= 30;
-				} else if (sne === true) {
-					playerX -= 1;
-				}
-				puffyThingy.style.left = playerX + "px";
-			'>&#x21E6;</button>
-			<button class="control" ontouchstart="you_died('I didn\'t know what to put there!');">&times;</button>
-			<button class="control" ontouchstart='
-				if (spr === false && sne === false) {
-					playerX += 10;
-				} else if (spr === true) {
-					playerX += 30;
-				} else if (sne === true) {
-					playerX += 1;
-				}
-				puffyThingy.style.left = playerX + "px";
-			'>&#x21E8;</button>
-			<button class="control" ontouchstart='
-				if (spr === false && sne === false) {
-					playerY += 10;
-				} else if (spr === true) {
-					playerY += 30;
-				} else if (sne === true) {
-					playerY += 1;
-				}
-				puffyThingy.style.top = playerY + "px";
-			'>&#x21E9;</button>
-		</div>
-
-		<div id="secrols">
-			<button class="control" id="fast" ontouchstart="if (spr === false) { spr = true; } else if (spr === true) { spr = false; }">+</button><br>
-			<button class="control" id="slow" ontouchstart="if (sne === false) { sne = true; } else if (sne === true) { sne = false; }">-</button>
-		</div>
-
-		<div id="buttons4U">
-			<button class="mini" ontouchstart="background.style.display = 'block'; pauseMenu12341.style.display = 'block';">||</button>
-			<button class="mini" ontouchstart="background.style.display = 'block'; help2.style.display = 'block';">?</button>
-			<button class="mini" ontouchstart="background.style.display = 'block'; settings.style.display = 'block';">☼</button>
-		</div>
-
-		<div id="chat" ontouchstart="openChat();">
-			<br>
-			<button id="closeit" onclick="closeChat();">Close</button>
-			<div class="chat chat-system">Tap here to open chat.</div>
-		</div>
-
-		<input type="text" id="chatmessage" placeholder=">">
-
-		<div id="background2" onclick="resume();"></div>
+		<div id="background2"></div>
 
 	</body>
 	<script>
 		
-		var playerX = 50;
-		var playerY = 50;
-
 		var inLock = false;
 		var invincible = false;
 		var drawmode = true;
 		var cheatmode = true;
 		var enterMode = false;
 		var lastMessage = null;
-		var spr = false;
-		var sne = false;
 
 		document.addEventListener("pointerlockchange", function() {
 			if (inLock === false) {
@@ -790,7 +667,8 @@
 		var titleaction = document.getElementById("titleaction");
 		var codemenu = document.getElementById("codemenu");
 		var background2 = document.getElementById("background2");
-		var closeit = document.getElementById("closeit");
+		var areacoord = document.getElementById("areacoord");
+		var hud = document.getElementsByClassName("hud");
 
 		colcng.style.display = "none";
 		youDied.style.display = "none";
@@ -800,24 +678,22 @@
 		help2.style.display = "none";
 		chatMessage.style.display = "none";
 		settings.style.display = "none";
-		coord.style.display = "none";
 		informat.style.display = "none";
 		libimport.style.display = "none";
 		titletitle.style.display = "none";
 		titleaction.style.display = "none";
 		codemenu.style.display = "none";
 		background2.style.display = "none";
-		closeit.style.display = "none";
 
 		var play = function() {
 			document.getElementById("innimg").innerHTML = "Please Wait...";
+			area.requestPointerLock();
 			window.setTimeout(function(){
 				start.style.display = "none";
 			}, 1000);
 		}
 
 		var resume = function() {
-			background.style.display = "none";
 			if (start.style.display === "none" && youDied.style.display === "none") {
 				pauseMenu12341.style.display = "none";
 				colcng.style.display = "none";
@@ -826,7 +702,8 @@
 				chatMessage.style.display = "none";
 				settings.style.display = "none";
 				chatMessage.value = "";
-				codemenu.style.display = "none"
+				codemenu.style.display = "none";
+				area.requestPointerLock();
 			} else {
 				help1.style.display = "none";
 				informat.style.display = "none";
@@ -840,7 +717,7 @@
 				if (youDied.style.display === "none") {
 					logChatMessage("system", how_you_died);
 				}
-
+				document.exitPointerLock();
 				giveon2();
 				document.getElementById("how-you-died").textContent = how_you_died;
 				youDied.style.display = "block";
@@ -856,7 +733,8 @@
 			area.style.top = ay + "px";
 			puffyThingy.style.left = playerX + "px";
 			puffyThingy.style.top = playerY + "px";
-			youDied.style.display = "none"
+			youDied.style.display = "none";
+			area.requestPointerLock();
 		}
 
 		var giveon = function() {
@@ -952,6 +830,8 @@
 
 		var prifli = function() {
 			var library = document.getElementById("library").value;
+			libimport.innerHTML = "Validating...";
+			background2.style.display = "block";
 			window.setTimeout(function() {
 				library = library + ".js";
 				var lib_ry = document.createElement("script");
@@ -959,6 +839,7 @@
 				document.body.appendChild(lib_ry);
 				window.setTimeout(function() {
 					if (enterMode === true) {
+						background2.style.display = "none";
 						libimport.style.display = "none";
 						play();
 					} else {
@@ -968,7 +849,7 @@
 						}, 10);
 						libimport.innerHTML = "<h1>Invalid Library</h1>Please check the adress is correct and try again.<br><br><br><br><br><button onclick=\"home();\">Okay</button>";
 					}
-				}, 50);
+				}, 1000);
 			}, 10);
 		}
 
@@ -1012,24 +893,39 @@
 		var openMenu = function(text) {
 			codemenu.innerHTML = text;
 			codemenu.style.display = "block";
+			document.exitPointerLock();
 		}
 
-		var openChat = function() {
-			chat.style.top = "0px";
-			chat.style.left = "0px";
-			chat.style.width = "100%";
-			chat.style.height = "100%";
-			chatMessage.style.display = "block";
-			document.getElementById("closeit").style.display = "block";
+		var statsTog = function(showORhide) {
+			var stat = document.getElementsByClassName("stat");
+			for (var i = 0; i < stat.length; i++) {
+				if (showORhide === true) {
+					stat[i].style.display = "block";
+				} else if (showORhide === false) {
+					stat[i].style.display = "none";
+				}
+			}
 		}
 
-		var closeChat = function() {
-			chat.style.top = "50px";
-			chat.style.left = "0px";
-			chat.style.width = "250px";
-			chat.style.height = "150px";
-			chatMessage.style.display = "none";
-			document.getElementById("closeit").style.display = "none";
+		var getStatsTog = function() {
+			var stat = document.getElementsByClassName("stat");
+			for (var i = 0; i < stat.length; i++) {
+				if (stat[i].style.display === "block") {
+					return true;
+				} else if (stat[i].style.display === "none") {
+					return false;
+				}
+			}
+		}
+
+		var hudTog = function(showORhide) {
+			for (var i = 0; i < hud.length; i++) {
+				if (showORhide === true) {
+					hud[i].style.opacity = "100%";
+				} else if (showORhide === false) {
+					hud[i].style.opacity = "0%";
+				}
+			}
 		}
 
 		var teleport = function(x, y) {
@@ -1037,6 +933,10 @@
 			playerY = y;
 			puffyThingy.style.left = playerX + "px";
 			puffyThingy.style.top = playerY + "px";
+		}
+
+		var closeChat = function() {
+			return null;
 		}
 
 		var dontSupport = function(less_tah_version) {
@@ -1054,13 +954,154 @@
 			}
 		}
 
+		statsTog(false);
+
 		var ax = 0;
 		var ay = 0;
-		var loook = function(d, f) {
-			ax += d;
-			ay += f;
-			area.style.left = ax + "px";
-			area.style.top = ay + "px";
+		area.onmousemove = function(e) {
+			if (inLock === true) {
+				ax += e.movementX;
+				ay += e.movementY;
+				area.style.left = ax + "px";
+				area.style.top = ay + "px";
+			}
+		}
+
+		var playerX = 50;
+		var playerY = 50;
+		document.body.onkeydown = function(e) {
+			if (inLock === true) {
+				if (e.shiftKey === false && e.altKey === false) {
+					if (e.code === "KeyW") {
+						playerY -= 10;
+						puffyThingy.style.top = playerY + "px";
+					} else if (e.code === "KeyS") {
+						playerY += 10;
+						puffyThingy.style.top = playerY + "px";
+					} else if (e.code === "KeyA") {
+						playerX -= 10;
+						puffyThingy.style.left = playerX + "px";
+					} else if (e.code === "KeyD") {
+						playerX += 10;
+						puffyThingy.style.left = playerX + "px";
+					} else if (e.code === "KeyE" || e.code === "KeyR") {
+						document.exitPointerLock();
+						giveon();
+						colcng.style.display = "block";
+					} else if (e.code === "F9") {
+						e.preventDefault();
+						document.exitPointerLock();
+						giveon2();
+						window.setTimeout(function(){
+							background.style.display = "none";
+						}, 10);
+					} else if (e.code === "F7") {
+						e.preventDefault();
+						you_died("I don't like F7!");
+					} else if (e.code === "F1") {
+						e.preventDefault();
+						document.exitPointerLock();
+						giveon();
+						help2.style.display = "block";
+					} else if (e.code === "KeyT" || e.code === "Enter") {
+						document.exitPointerLock();
+						giveon2();
+						chatMessage.style.display = "block";
+						window.setTimeout(function() {
+							chatMessage.focus();
+						}, 10);
+					} else if (e.code === "KeyZ" || e.code === "Digit1") {
+						draw(0);
+					} else if (e.code === "KeyX" || e.code === "Digit2") {
+						draw(1);
+					} else if (e.code === "KeyC" || e.code === "Digit3") {
+						draw(2);
+					} else if (e.code === "KeyV" || e.code === "Digit4") {
+						draw(3);
+					} else if (e.code === "KeyB" || e.code === "Digit5") {
+						draw(4);
+					} else if (e.code === "Slash") {
+						document.exitPointerLock();
+						giveon2();
+						chatMessage.style.display = "block";
+						chatMessage.focus();
+					} else if (e.code === "Tab" || e.code === "F5") {
+						e.preventDefault();
+						document.exitPointerLock();
+						giveon();
+						settings.style.display = "block";
+					} else if (e.code === "Escape") {
+						document.exitPointerLock();
+					} else if (e.code === "F6") {
+						e.preventDefault();
+						logChatMessage("system", "Thank you for remembering to do me a favour and going ahead and pressering F6!");
+					} else if (e.code === "F3") {
+						e.preventDefault();
+						if (getStatsTog() === false) {
+							statsTog(true);
+						} else if (getStatsTog() === true) {
+							statsTog(false);
+						}
+					} else if (e.code === "F2") {
+						e.preventDefault();
+						hudTog(false);
+					} else if (e.code === "KeyH") {
+						hudTog(true);
+					}
+				} else if (e.shiftKey === true) {
+					if (e.code === "KeyW") {
+						playerY -= 30;
+						puffyThingy.style.top = playerY + "px";
+					} else if (e.code === "KeyS") {
+						playerY += 30;
+						puffyThingy.style.top = playerY + "px";
+					} else if (e.code === "KeyA") {
+						playerX -= 30;
+						puffyThingy.style.left = playerX + "px";
+					} else if (e.code === "KeyD") {
+						playerX += 30;
+						puffyThingy.style.left = playerX + "px";
+					}
+				} else if (e.altKey === true) {
+					e.preventDefault();
+					if (e.code === "KeyW") {
+						playerY -= 1;
+						puffyThingy.style.top = playerY + "px";
+					} else if (e.code === "KeyS") {
+						playerY += 1;
+						puffyThingy.style.top = playerY + "px";
+					} else if (e.code === "KeyA") {
+						playerX -= 1;
+						puffyThingy.style.left = playerX + "px";
+					} else if (e.code === "KeyD") {
+						playerX += 1;
+						puffyThingy.style.left = playerX + "px";
+					}
+				}
+			} else if (inLock === false) {
+				if (e.code === "Escape") {
+					window.setTimeout(function() {
+						resume();
+					}, 300);
+				}
+			}
+		}
+
+		document.body.onmousedown = function(e) {
+			if (inLock === true) {
+				e.preventDefault();
+				if (e.button === 0) {
+					draw(0);
+				} else if (e.button === 1) {
+					draw(1);
+				} else if (e.button === 2) {
+					draw(2);
+				} else if (e.button === 3) {
+					draw(3);
+				} else if (e.button === 4) {
+					draw(4);
+				}
+			}
 		}
 
 		chatMessage.onkeydown = function(e) {
@@ -1070,7 +1111,7 @@
 					if (cheatmode === true) {
 						if (chatmessage === "/help") {
 							window.setTimeout(function() {
-				
+								document.exitPointerLock();
 								giveon();
 								help2.style.display = "block";
 							}, 500);
@@ -1093,26 +1134,24 @@
 						} else if (chatmessage === "/settings void white") {
 							html.style.background = "white";
 						} else if (chatmessage === "/nochat") {
-							chat.style.opacity = "0%";
+							chat.style.display = "none";
 						} else if (chatmessage === "/showchat") {
-							chat.style.opacity = "100%";
+							chat.style.display = "block";
 						} else if (chatmessage === "/settings invincible false") {
 							invincible = false;
 						} else if (chatmessage === "/settings invincible true") {
 							invincible = true;
-						} else if (chatmessage === "/settings coordinates true") {
+						} else if (chatmessage === "/settings stats true") {
 							coord.style.display = "block";
-						} else if (chatmessage === "/settings coordinates false") {
+						} else if (chatmessage === "/settings stats false") {
 							coord.style.display = "none";
 						} else if (chatmessage === "/kill") {
 							you_died("Don't do whatever you just did!");
 							chatMessage.style.display = "none";
 						} else if (chatmessage === "/clear chat") {
-							chat.innerHTML = "<br><button id='closeit' onmousedown='closeChat();'>Close</button><div class='chat chat-system'>Tap here to open chat.</div>";
+							chat.innerHTML = "<br><div class='chat chat-system'>Press T or ENTER to open chat.</div>";
 						} else if (chatmessage === "/title") {
 							home();
-						} else if (chatmessage === "/dismiss" || chatmessage === "/d") {
-							closeChat();
 						} else if (chatmessage === "/settings crosshair black") {
 							editPlusSettings(4);
 						} else if (chatmessage === "/bug area") {
@@ -1133,7 +1172,6 @@
 					} else if (cheatmode === false) {
 						logChatMessage("error", "I'm sorry, but commands are truned off for now. The library creator must've not wanted you to CHEAT!");
 					}
-					closeChat();
 					resume();
 				} else {
 					logChatMessage("from");
@@ -1158,6 +1196,9 @@
 			} else if (ay < -2785) {
 				ay = -2780;
 			}
+			if (cheatmode === false) {
+				invincible = false;
+			}
 		}, 10);
 
 		window.setInterval(function(){
@@ -1168,6 +1209,11 @@
 			document.getElementById("coll4").style.background = col4;
 			document.getElementById("coordx").textContent = playerX;
 			document.getElementById("coordy").textContent = playerY;
+			document.getElementById("areacoordx").textContent = ax;
+			document.getElementById("areacoordy").textContent = ay;
+			document.getElementById("ischeatv").textContent = cheatmode;
+			document.getElementById("isdrawv").textContent = drawmode;
+			document.getElementById("islibv").textContent = enterMode;
 		}, 10);
 
 		document.getElementById("onload").style.display = "none";
