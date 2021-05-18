@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Getuploads | vicchat.github.io</title>
+	</head>
+	<style>
+		
+		html {
+			background: white;
+			font-family: sans-serif;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		header {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 30px;
+			background: darkred;
+			box-sizing: border-box;
+			padding-top: 5px;
+			text-align: center;
+			color: white;
+		}
+
+		#main {
+			width: 45%;
+			border: solid 5px black;
+			position: fixed;
+			right: 10px;
+		}
+
+		#stats {
+			position: fixed;
+			left: 10px;
+			border: solid 3px black;
+			width: 45%;
+			background: lightgrey;
+			padding: 15px;
+			box-sizing: border-box;
+		}
+
+		#download {
+			width: 100%;
+			height: 50px;
+			background: lime;
+			border: none;
+			outline: none !important;
+			border-radius: 100px;
+			font-size: 20px;
+			color: white;
+			cursor: pointer;
+		}
+
+		#download:hover {
+			border: ridge 10px green;
+		}
+
+		#scr {
+			position: fixed;
+			left: 0px;
+			bottom: 0px;
+			border: solid 3px black;
+			width: 100%;
+			background: lightgrey;
+			padding: 15px;
+			box-sizing: border-box;
+		}
+
+	</style>
+	<body>
+
+		<header>Getuploads</header>
+
+		<br><br>
+		<h1>The Random Puffy Thingy and the Big Scary Viod Launcher Update</h1>
+
+		<img src="https://github.com/vicchat/content/raw/main/puffylauncher.png" id="main">
+
+		<div id="stats">
+			<h3>Information:</h3>
+			Release: 1.0.0<br>
+			Platform: Windows<br>
+			Type: Aplication<br><br>
+			<button id="download" onclick="window.open('https://github.com/vicchat/PuffyLauncher/raw/master/out/make/squirrel.windows/x64/PuffyLauncher-1.0.0%20Setup.exe');">Update Now!</button>
+		</div>
+
+		<div id="scr">
+			<h3>More Screenshots:</h3>
+			<img src="https://github.com/vicchat/content/blob/main/puffyopf.png?raw=true" width="200">
+		</div>
+
+	</body>
+</html>
