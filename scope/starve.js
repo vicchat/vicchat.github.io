@@ -25,7 +25,7 @@ id("sta").onclick = function() {
 			food++;
 			window.setTimeout(function() {
 				openMenu("<h1>Yay!</h1>You just got food!<br><br>You have " + food + " food!<br><br><br><br><button onclick='resume();'>Goodbye</button>");
-			}, 550);
+			}, 600);
 		}
 	}
 }
