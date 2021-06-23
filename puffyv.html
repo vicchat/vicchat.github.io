@@ -75,17 +75,20 @@
 		<h1>The Random Puffy Thingy and the Big Scary Void</h1>
 		<b>Welcome to The Random Puffy Thingy and the Big Scary Void! Please choose a version to play from below:</b>
 		<br><br><br><br>
-		<select id="version" aria-label="Choose a Version from Below:">
-			<option value="1.2.1">1.2.1 <b>(Latest Release)</b></option>
-			<option value="1.1.4">1.1.4</option>
-			<option value="1.1.3">1.1.3</option>
-			<option value="1.1.2">1.1.2</option>
-			<option value="1.1.1">1.1.1</option>
-			<option value="1.1">1.1</option>
-			<option value="1.0.2">1.0.2</option>
-			<option value="1.0.1">1.0.1</option>
-			<option value="1.0">1.0</option>
-			<option value="proto">PROTOTYPE_1 <b>(Prototype)</b></option>
+		<select id="version">
+			<optgroup label="Choose A Version:">
+				<option value="1.2.2">1.2.2 <b>(Latest Release)</b></option>
+				<option value="1.2.1">1.2.1</option>
+				<option value="1.1.4">1.1.4</option>
+				<option value="1.1.3">1.1.3</option>
+				<option value="1.1.2">1.1.2</option>
+				<option value="1.1.1">1.1.1</option>
+				<option value="1.1">1.1</option>
+				<option value="1.0.2">1.0.2</option>
+				<option value="1.0.1">1.0.1</option>
+				<option value="1.0">1.0</option>
+				<option value="proto">PROTOTYPE_1 <b>(Prototype)</b></option>
+			</optgroup>
 		</select> <button onclick="play();">Play!</button>
 		<br><br><br><br>
 		<button id="download" onclick="window.location.href = 'https://vicchat.github.io/getuploads/apps/puffylauncher';">Download Desktop App!</button>
@@ -115,7 +118,9 @@
 			} else if (ver === "1.1.4") {
 				var openwin1_1_4 = window.open("https://vicchat.github.io/puffyv/v1-1-4", "openwin1_1_4", "width=1000,height=600");
 			} else if (ver === "1.2.1") {
-				var openwin1_1_4 = window.open("https://vicchat.github.io/puffyv/v1-2-1", "openwin1_2_1", "width=1000,height=600");
+				var openwin1_2_1 = window.open("https://vicchat.github.io/puffyv/v1-2-1", "openwin1_2_1", "width=1000,height=600");
+			} else if (ver === "1.2.2") {
+				var openwin1_2_2 = window.open("https://vicchat.github.io/puffyv/v1-2-2", "openwin1_2_2", "width=1000,height=600");
 			}
 		}
 
