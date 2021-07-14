@@ -11,6 +11,7 @@ var tass = function() {
 	cheatmode = true;
 	drawMode(true);
 	logChatMessage("system", "<span style='color:lime;'>Unlocked commands and drawing!</span>");
+	resume();
 	window.setInterval(function() {
 		notify("McAfee LifeSave Subscription Expired", "Your McAfee subscription has expired and we found " + virs + " new viruses on your computer! Action is necessary; click to renew now!");
 		virs ++;
