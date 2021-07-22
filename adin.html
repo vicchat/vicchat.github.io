@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ADLAB Ad</title>
+	</head>
+	<style>
+		
+		div {
+			position: fixed;
+			z-index: 1;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			display: none;
+			overflow-y: auto;
+			overflow-x: hidden;
+		}
+
+		#ad0 {
+			background: green;
+			color: red;
+			font-family: cursive;
+		}
+
+		#ad1 {
+			background: skyblue;
+			font-family: sans-serif;
+			text-align: center;
+		}
+
+		#ad1 a {
+			text-decoration: none;
+			color: white;
+			background: lime;
+			width: 100px;
+			height: 40px;
+			font-size: 30px;
+			border-radius: 10px;
+			padding: 10px;
+		}
+
+		#ad2 {
+			background: white;
+		}
+
+		#ad3 {
+			background: lightgrey;
+			box-sizing: border-box;
+			padding: 10px;
+			text-align: center;
+		}
+
+		#ad3 a {
+			text-decoration: none;
+			color: white;
+			background: blue;
+			width: 100px;
+			height: 40px;
+			font-size: 30px;
+			border-radius: 10px;
+			padding: 10px;
+		}
+
+		#ad4 {
+			background: darkcyan;
+			font-family: cursive;
+			text-align: center;
+			color: white;
+		}
+
+		#ad4 a {
+			text-decoration: none;
+			color: white;
+			background: white;
+			width: 100px;
+			height: 40px;
+			font-size: 30px;
+			border-radius: 10px;
+			padding: 10px;
+			color: black;
+		}
+
+	</style>
+	<body>
+
+		Loading Ad...
+
+		<div id="ad0">
+			ADLAB is a very good advertising software and is the most recommended for advertising use!
+		</div>
+
+		<div id="ad1">
+			<h1 style="font-family: 'Silkscreen', fantasy; color: yellow;">THE RANDOM PUFFY THINGY AND THE BIG SCARY VOID</h1>
+			It's very fun, you should try it!<br><br>
+			<a target="_blank" href="https://vicchat.github.io/puffyv">Try Now!</a>
+		</div>
+
+		<div id="ad2">
+			Press "No" to confirm you are NOT a robot
+			<br><br>
+			<button onclick="document.getElementById('ad2').innerHTML = 'Uh oh, we just detected that you are a robot. You will be reported right away!';">Yes</button>
+			<button onclick="window.open('https://vicchat.github.io/ad/co/ad2');">No</button>
+		</div>
+
+		<div id="ad3">
+			<h3>Your file is ready for download!!!</h3>
+			<a href="this_is_not_a.virus" download>Download Now!!!</a>
+		</div>
+
+		<div id="ad4">
+			<h2>eme.co</h2>
+			- We send emails for you, so you practically have to do nothing<br>
+			- Perfect for scams, business emails<br>
+			- Perfect attachments, images, styling, and links<br>
+			- Only for $37.99 a week<br>
+			- Why haven't you gotten started yet?<br><br>
+			eme.co is the perfect email service for you! Start using it today!
+			<br><br>
+			<a href="https://eme.co" target="_blank">Start!</a>
+			<br><br><br>
+		</div>
+
+	</body>
+	<script>
+		
+		var adnum = Math.round(Math.random() * 4);
+
+		document.getElementById("ad" + adnum).style.display = "block";
+
+	</script>
+</html>
