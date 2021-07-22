@@ -1,3 +1,153 @@
-<script>
-  window.location.href = "https://vicchat.github.io/getuploads/mcm";
-</script>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ADLAB - The #1 ad service in the world!</title>
+	</head>
+	<style>
+		
+		html {
+			font-family: sans-serif;
+			user-select: none;
+		}
+
+		#ids {
+			position: fixed;
+			z-index: all;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: blue;
+			color: white;
+			box-sizing: border-box;
+			padding: 100px;
+		}
+
+		#ad {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 10;
+			background: white;
+			box-sizing: border-box;
+			padding: 8px;
+		}
+
+		#thead {
+			width: 650px;
+			height: 300px;
+			border: solid 3px black;
+		}
+
+		.title {
+			color: red;
+			text-shadow: 10px 10px lime;
+			font-family: "Silkscreen", cursive;
+		}
+
+		.onpage {
+			background: lime;
+			border: none;
+			color: white;
+			outline: none !important;
+			cursor: pointer;
+			padding: 10px;
+		}
+
+		.onpage:active {
+			background: red;
+		}
+
+		.bores {
+			outline: none !important;
+			background: none;
+			border: none;
+			float: right;
+		}
+
+		.nos {
+			float: right;
+			background: red !important;
+			color: yellow;
+			border: solid 1px black !important;
+			outline: none !important;
+			width: 100px;
+			height: 50px;
+			border-radius: 20px;
+			cursor: pointer;
+		}
+
+	</style>
+	<body>
+
+		<h1 class="title">ADLAB</h1>
+
+		<h3 style="text-align: center;">Welcome to ADLAB!</h3>
+		<div style="text-align: center;">ADLAB is a superb piece of software that proves to be the #1 ad service in the world.</div>
+		<br><br>
+
+		Why are you seeing this page?<br><br>
+
+		You have clicked a link (possibly a download link from Getuploads) that requires an ad to be displayed before you go through. It's okay though; this does not mean anything bad. All you have to do is watch an ad for 5 seconds and you're through! Click &#147;Watch Ad&#148; below to continue:<br><br>
+
+		<button class="onpage" id="Go!">Watch Ad</button>
+
+		<noscript id="ids">
+			<h1 class="title">ADLAB</h1>
+			Please enable javascript to continue.
+		</noscript>
+
+		<div id="ad">
+			<h1 class="title">ADLAB</h1>
+			<span id="pretime">Look at the webpage for <span id="time">_</span> seconds and then skip it!</span><br><br>
+			<iframe id="thead" src="https://vicchat.github.io/adin.html"></iframe>
+			<br><br>
+			<button id="skip" class="bores">Please Wait...</button>
+		</div>
+
+	</body>
+	<script>
+		
+		var tostart = false;
+		var toskip = false;
+		var sacs = 6;
+
+		var gob = document.getElementById("Go!");
+		var ad = document.getElementById("ad");
+		var skip = document.getElementById("skip");
+
+		ad.style.display = "none";
+
+		gob.onclick = function() {
+			ad.style.display = "block";
+			tostart = true;
+		}
+
+		skip.onclick = function() {
+			if (toskip === true) {
+				window.location.href = "https://vicchat.github.io/getuploads/mcm";
+			}
+		}
+
+		window.setInterval(function() {
+			if (tostart) {
+				sacs --;
+				document.getElementById("time").textContent = sacs;
+				skip.innerHTML = "You can skip 5 seconds prior to displaying ad.";
+				if (sacs === 0) {
+					tostart = false;
+					toskip = true;
+				}
+			}
+			if (toskip) {
+				document.getElementById("pretime").innerHTML = "Now you can skip!";
+				skip.innerHTML = "Skip Ad!";
+				skip.classList.add("nos");
+			}
+		}, 1000);
+
+	</script>
+</html>
