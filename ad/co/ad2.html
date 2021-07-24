@@ -1,1 +1,54 @@
-comming soon
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Press F11 to continue &mdash; I am not a robot</title>
+	</head>
+	<style>
+		
+		#onhack {
+			background: black;
+			color: white;
+			box-sizing: border-box;
+			font-family: monospace;
+			padding: 8px;
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			z-index: all;
+			width: 100%;
+			height: 100%;
+			user-select: none;
+			display: none;
+		}
+
+	</style>
+	<body>
+
+		<span id="tog">Click continue then WHATEVER YOU DO DON'T PRESS ESCAPE to confirm that you are NOT a robot!</span>
+		<br><br>
+		<button onclick="document.body.requestFullscreen(); document.getElementById('tog').innerHTML = 'Uh oh, we just detected that you are a robot. You will be reported immediately.'; this.innerHTML = 'Oops!';">Continue</button>
+
+		<div id="onhack">
+			You have been hacked by Hacking & Co., your go-to service for hacking. Your entire system has been stolen and if you don't pay us in the next 24 hours, it will be deleted. Please go to www.hackingand.co on your phone to pay for your system. Thank you for choosing Hacking & Co. and we are sorry for the inconvenience.
+			<br><br>
+			Are you a hacker looking for an easy way to hack people? Go to www.hackingandco.com!
+		</div>
+
+	</body>
+	<script>
+		
+		var f11pr = false;
+
+		document.body.onfullscreenchange = function() {
+			if (f11pr === false) {
+				document.getElementById("onhack").style.display = "block";
+				f11pr = true;
+			} else if (f11pr === true) {
+				document.getElementById("onhack").style.display = "none";
+				f11pr = false;
+			}
+		}
+
+	</script>
+</html>
