@@ -136,7 +136,7 @@
 			if (tostart) {
 				sacs --;
 				document.getElementById("time").textContent = sacs;
-				skip.innerHTML = "You can skip 5 seconds prior to displaying ad.";
+				skip.innerHTML = "You can skip " + sacs + " seconds prior to displaying ad.";
 				if (sacs === 0) {
 					tostart = false;
 					toskip = true;
