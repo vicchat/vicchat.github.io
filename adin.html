@@ -13,9 +13,14 @@
 			left: 0px;
 			width: 100%;
 			height: 100%;
-			display: none;
+			/*display: none;*/
 			overflow-y: auto;
 			overflow-x: hidden;
+			box-sizing: border-box;
+		}
+
+		a {
+			color: blue;
 		}
 
 		#ad0 {
@@ -82,6 +87,34 @@
 			color: black;
 		}
 
+		#ad5 {
+			background: black;
+			background-image: url(https://www.computerminds.co.uk/sites/default/files/styles/background_image/public/2018-04/canola-fields-1911392_1920.jpg?itok=YcVu3wcf);
+			background-size: 100%;
+			color: darkred;
+			text-align: center;
+			font-family: "Blackadder ITC", fantasy;
+			font-size: 20px;
+			text-shadow: 2px 2px black;
+		}
+		
+		#ad6 {
+			background: white;
+			padding: 10px;
+		}
+
+		#ad7 {
+			background: black;
+			padding: 20px;
+			font-family: cursive;
+			color: white;
+		}
+
+		#ad8 {
+			background: white;
+			padding: 8px;
+		}
+
 	</style>
 	<body>
 
@@ -122,10 +155,38 @@
 			<br><br><br>
 		</div>
 
+		<div id="ad5">
+			<h1>Redwood Landscaping</h1>
+			- We do your landscaping<br>
+			- Varieties of different selections to choose from<br>
+			- Prices range from $3.99/meter&sup2; to $47.99/meter&sup2;<br>
+			- We do the work for you<br><br>
+			Might as well join now!<br><br>
+			<a target="_blank" href="https://www23redwood.redwoodlandscaping.inc/secure">https://www23redwood.redwoodlandscaping.inc/secure</a>
+		</div>
+
+		<div id="ad6">
+			Hello!<br><br>
+			<button onclick="window.alert('HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello')">Hello!</button>
+		</div>
+
+		<div id="ad7">
+			<h3 style="text-align: center;">Lalalulu's Lipstick</h3>
+			<img src="https://media1.popsugar-assets.com/files/thumbor/bqW0ad_lUPnBhhFoI6UceMScLS0/fit-in/1200x630/filters:format_auto-!!-:strip_icc-!!-:watermark-!popsugar-watermark.png,-5,-5,0!-:fill-!white!-/2016/06/22/743/n/1922153/5d4e07c06a3046ae_Lip_Lust_Creme_Lipstick_group_shot2/i/Lip-Lust-Cr%C3%A8me-Lipstick.jpg" width="100" style="float: right;">
+			Why do you want it?<br><br>
+			It is and looks so good that you cannot pass it up! You simply can't!<br><br>
+			To eesilly get it go to<br>
+			the phone and call 2-323-459-254-793-041-9825!
+		</div>
+
+		<div id="ad8">
+			&#147;Hey, you. Yes, you. What do you think you are doing with your life if you are reading this right now? Instead of reading this, you should be out at a casino betting all your money away. Some think it is not a very good idea to bet because you end up loosing your money (and they are correct, up to a point), but betting is so f***ing fun, so that is why you should bet and bet and loose all your money, because at least you lost it by having fun!&#148;<br><br>&mdash; <i>Siir</i> Issac Newton
+		</div>
+
 	</body>
 	<script>
 		
-		var adnum = Math.round(Math.random() * 4);
+		var adnum = Math.round(Math.random() * 8);
 
 		document.getElementById("ad" + adnum).style.display = "block";
 
