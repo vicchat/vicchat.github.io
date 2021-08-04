@@ -13,7 +13,7 @@
 			left: 0px;
 			width: 100%;
 			height: 100%;
-			display: none;
+			/*display: none;*/
 			overflow-y: auto;
 			overflow-x: hidden;
 			box-sizing: border-box;
@@ -115,6 +115,19 @@
 			padding: 8px;
 		}
 
+		#ad9 {
+			background: white;
+			background-image: url(https://www.municipalworld.com/wp-content/uploads/2015/10/flag.jpg);
+			background-size: 100%;
+			padding: 8px;
+			font-family: sans-serif;
+			color: red;
+		}
+
+		#ad10 {
+			background: white;
+		}
+
 	</style>
 	<body>
 
@@ -183,10 +196,21 @@
 			&#147;Hey, you. Yes, you. What do you think you are doing with your life if you are reading this right now? Instead of reading this, you should be out at a casino betting all your money away. Some think it is not a very good idea to bet because you end up loosing your money (and they are correct, up to a point), but betting is so f***ing fun, so that is why you should bet and bet and loose all your money, because at least you lost it by having fun!&#148;<br><br>&mdash; <i>Siir</i> Issac Newton
 		</div>
 
+		<div id="ad9">
+			&#147;Pay you're taxes, -The govermet&#148;<br><br>We all pay for canada.
+		</div>
+
+		<div id="ad10">
+			<img src="https://github.com/vicchat/content/raw/main/mm.png">
+			<h1>MayanMan</h1>
+			We sell you the best cars and we have a windows app so if you are on windows which you <input placeholder="(Type &quot;are&quot; or &quot;are not&quot;)"> then you should download it!!!
+			<button onclick="window.open('https://vicchat.github.io/getuploads/apps/mm.html');">Download Now!</button>
+		</div>
+
 	</body>
 	<script>
 		
-		var adnum = Math.round(Math.random() * 8);
+		var adnum = Math.round(Math.random() * 10);
 
 		document.getElementById("ad" + adnum).style.display = "block";
 
