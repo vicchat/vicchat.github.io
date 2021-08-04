@@ -16,7 +16,7 @@ All the way down here I feel kinda interesting!
 ~~You are very stupid~~  
 - [X] You are cool for reading this far down!<br><br>
 
-![Something you shouldn't fall for](https://user-images.githubusercontent.com/67198218/128108496-7cee3f20-4abb-4915-a920-f9504b27814a.png)<br><br>
+![Something you shouldn't fall for](https://github.com/vicchat/content/raw/main/mm.png)<br><br>
 
 If this image is farmilliar, don't fall for it, unless you want to wait a whole hour (actually, I'm not kidding) for this:<br><br>
 ![What you would've fallen for](https://user-images.githubusercontent.com/67198218/128108609-6c639459-4123-4ee6-bb41-fcf55f66a090.png)
