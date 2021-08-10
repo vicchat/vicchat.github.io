@@ -128,6 +128,25 @@
 			background: white;
 		}
 
+		#ad11 {
+			background: white;
+			color: black;
+			font-family: monospace;
+		}
+
+		#ad13 {
+			background: white;
+			padding: 8px;
+			font-family: sans-serif;
+		}
+
+		#ad14 {
+			background: indianred;
+			color: white;
+			font-family: sans-serif;
+			padding: 8px;
+		}
+
 	</style>
 	<body>
 
@@ -197,7 +216,7 @@
 		</div>
 
 		<div id="ad9">
-			&#147;Pay you're taxes, -The govermet&#148;<br><br>We all pay for canada.
+			&#147;Pay you're taxes, -The goverment&#148;<br><br>We all pay for canada.
 		</div>
 
 		<div id="ad10">
@@ -207,10 +226,28 @@
 			<button onclick="window.open('https://vicchat.github.io/getuploads/apps/mm.html');">Download Now!</button>
 		</div>
 
+		<div id="ad11">
+			Everybody Eats Pie...<br>
+			It is so nummy!
+		</div>
+
+		<div id="ad12">
+			<iframe src="https://github.com/vicchat/vicchat.github.io/blob/master/ad.md" style="top: 0px; left: 0px; position: absolute; width: 100%; height: 100%; border: none;"></iframe>
+		</div>
+
+		<div id="ad13" contenteditable>
+			I am sorry for the inconvenience but this could be a better ad.<br><br>
+			Try to transform this into a good ad!
+		</div>
+
+		<div id="ad14">
+			
+		</div>
+
 	</body>
 	<script>
 		
-		var adnum = Math.round(Math.random() * 10);
+		var adnum = Math.round(Math.random() * 14);
 
 		document.getElementById("ad" + adnum).style.display = "block";
 
