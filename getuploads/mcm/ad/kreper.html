@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ADLAB - The #1 ad service in the world!</title>
+	</head>
+	<style>
+		
+		html {
+			font-family: sans-serif;
+			user-select: none;
+		}
+
+		#ids {
+			position: fixed;
+			z-index: 9999999999999999999999999999999999999999999999999999999999999999999999;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: blue;
+			color: white;
+			box-sizing: border-box;
+			padding: 100px;
+		}
+
+		#ad {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 10;
+			background: white;
+			box-sizing: border-box;
+			padding: 8px;
+		}
+
+		.thead {
+			width: 650px;
+			height: 300px;
+			border: solid 3px black;
+		}
+
+		.title {
+			color: red;
+			text-shadow: 10px 10px lime;
+			font-family: "Silkscreen", cursive;
+		}
+
+		.onpage {
+			background: lime;
+			border: none;
+			color: white;
+			outline: none !important;
+			cursor: pointer;
+			padding: 10px;
+		}
+
+		.onpage:active {
+			background: red;
+		}
+
+		.bores {
+			outline: none !important;
+			background: none;
+			border: none;
+			float: right;
+		}
+
+		.nos {
+			float: right;
+			background: red !important;
+			color: yellow;
+			border: solid 1px black !important;
+			outline: none !important;
+			width: 100px;
+			height: 50px;
+			border-radius: 20px;
+			cursor: pointer;
+		}
+
+		.dis {
+			background: darkgreen;
+			cursor: default;
+		}
+
+		.dis:active {
+			background: darkgreen;
+		}
+
+		#cons {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: white;
+			box-sizing: border-box;
+			padding: 8px;
+			z-index: 11;
+			display: none;
+		}
+
+	</style>
+	<body>
+
+		<h1 class="title">ADLAB</h1>
+
+		<h3 style="text-align: center;">Welcome to ADLAB!</h3>
+		<div style="text-align: center;">ADLAB is a superb piece of software that proves to be the #1 ad service in the world.</div>
+		<br><br>
+
+		Why are you seeing this page?<br><br>
+
+		You have clicked a link (possibly a download link from Getuploads) that requires an ad to be displayed before you go through. It's okay though; this does not mean anything bad. All you have to do is complete the following steps to continue:<br><br>
+
+		<button class="onpage" id="Go!">Watch Ad</button>
+		<label for="Go!"> &mdash; View an advertiser's advertisement for at least 5 seconds.</label><br><br>
+		<button class="onpage" id="Co!" onclick="cons.style.display = 'block';">Discover Content</button>
+		<label for="Co!"> &mdash; See vicchat.github.io for interesting content listed there!</label><br><br>
+		<button class="nos" onclick="contop();">Continue</button>
+
+		<noscript id="ids">
+			<h1 class="title">ADLAB</h1>
+			Please enable javascript to continue.
+		</noscript>
+
+		<div id="ad">
+			<h1 class="title">ADLAB</h1>
+			<span id="pretime">Look at the webpage for <span id="time">_</span> seconds and then skip it!</span><br><br>
+			<iframe class="thead" src="https://vicchat/github.io/adin.html"></iframe>
+			<br><br>
+			<button id="skip" class="bores">Please Wait...</button>
+		</div>
+
+		<div id="cons">
+			<h1 class="title">ADLAB</h1>
+			See vicchat.github.io for interesting content:<br><br>
+			<iframe src="https://vicchat.github.io" class="thead" style="resize: both;" id="contentd"></iframe>
+			<br><br>
+			<button id="doned" class="bores">Please discover interesting content to continue...</button>
+		</div>
+
+	</body>
+	<script>
+
+		var tostart = false;
+		var toskip = false;
+		var sacs = 6;
+		var condis = false;
+		var tocondis = false;
+		var chad = false;
+		var chco = false;
+
+		var gob = document.getElementById("Go!");
+		var cob = document.getElementById("Co!");
+		var ad = document.getElementById("ad");
+		var skip = document.getElementById("skip");
+		var doned = document.getElementById("doned");
+		var contentd = document.getElementById("contentd");
+		var cons = document.getElementById("cons");
+
+		ad.style.display = "none";
+
+		gob.onclick = function() {
+			ad.style.display = "block";
+			tostart = true;
+		}
+
+		skip.onclick = function() {
+			if (toskip === true) {
+				chad = true;
+				gob.setAttribute("disabled", "");
+				gob.innerHTML = "&check; Watch Ad";
+				gob.classList.add("dis");
+				ad.style.display = "none";
+			}
+		}
+
+		doned.onclick = function() {
+			if (tocondis === true) {
+				chco = true;
+				cob.setAttribute("disabled", "");
+				cob.innerHTML = "&check; Discover Content";
+				cob.classList.add("dis");
+				cons.style.display = "none";
+			}
+		}
+
+		var contop = function() {
+			if (chad === true && chco === true) {
+				window.location.href = "https://vicchat.github.io/getuploads/mcm/oncomplete/kreper.html";
+			} else {
+				window.alert("Please complete the steps shown before continuing.");
+			}
+		}
+
+		var discon = function() {
+			window.setTimeout(function() {
+				tocondis = true;
+				doned.innerHTML = "Exit";
+				doned.classList.add("nos");
+			}, 3000);
+		}
+
+		window.setInterval(function() {
+			if (cons.style.display === "block") {
+				if (condis === false) {
+					// if (contentd.contentWindow.location.href !== "https://vicchat.github.io") {
+						condis = true;
+						discon();
+					// }
+				}
+			}
+		}, 10);
+
+		window.setInterval(function() {
+			if (tostart) {
+				sacs --;
+				document.getElementById("time").textContent = sacs;
+				skip.innerHTML = "You can skip " + sacs + " seconds prior to displaying ad.";
+				if (sacs === 0) {
+					tostart = false;
+					toskip = true;
+				}
+			}
+			if (toskip) {
+				document.getElementById("pretime").innerHTML = "Now you can skip!";
+				skip.innerHTML = "Skip Ad!";
+				skip.classList.add("nos");
+			}
+		}, 1000);
+
+	</script>
+</html>
