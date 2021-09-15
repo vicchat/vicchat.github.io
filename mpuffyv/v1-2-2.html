@@ -353,6 +353,7 @@
 			z-index: 0;
 			text-align: center;
 			width: 100%;
+			height: 100%;
 			overflow: auto;
 		}
 
@@ -566,6 +567,7 @@
 				<button onclick="quit();">Quit</button>
 				<br><br><br><br>
 				<span style="font-family: 'Silkscreen', fantasy;">version 1.2.2 | Chunk Edition</span>
+				<br><br><br><br><br>
 			</div>
 		</div>
 
@@ -1267,6 +1269,10 @@
 				}
 				chatMessage.value = "";
 			}
+		}
+
+		var clearChat = function() {
+			chat.innerHTML = "<br><button id='closeit' onmousedown='closeChat();'>Close</button><div class='chat chat-system'>Tap here to open chat.</div>";
 		}
 
 		window.setInterval(function() {
