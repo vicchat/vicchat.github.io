@@ -1,259 +1,317 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>vicchat.github.io</title>
-        <style>
-            
-            body {
-                font-family: sans-serif;
-                background-color: black;
-            }
-            
-            h1 {
-                color: white;
-                text-align: center;
-                margin: 5px;
-                font-family: "Blackadder Itc", fantasy;
-                font-size: 50px;
-            }
-            
-            #h1 {
-                position: fixed;
-                text-align: center;
-                width: 100%;
-                left: 0px;
-                top: 0px;
-                background-color: darkRed;
-                padding: 0px;
-                height: 100px;
-            }
-            
-            a {
-                color: red;
-                text-decoration: none;
-                background-color: black;
-            }
-            
-            a:hover, a:focus {
-                outline: solid 1px red;
-                background-color: #111111;
-            }
-            
-            #notify {
-                position: fixed;
-                background-color: rgb(255, 132, 0);
-                left: 0px;
-                bottom: 0px;
-                padding-left: 3px;
-                padding-top: 3px;
-                display: none;
-                width: 100%;
-            }
-            
-            .alert-link {
-                color: white;
-                text-decoration: none;
-                background: none;
-            }
-            
-            .alert-link:hover, .alert-link:active, .alert-link:focus {
-                text-decoration: Underline;
-                color: white;
-                background: none;
-                outline: none;
-            }
-            
-            .bar {
-                position: fixed;
-                width: 1000px;
-                height: 80px;
-                transform: rotate(45deg);
-                z-index: -100;
-            }
-            
-            #bar1 {
-                background-color: #666666;
-                right: -495px;
-                height: 300px;
-            }
-            
-            #bar2 {
-                background-color: #FF0000;
-                right: -390px;
-            }
-            
-            #bar3 {
-                background-color: #666666;
-                right: -280px;
-            }
-            
-            #bar4 {
-                background-color: #FF0000;
-                right: -330px;
-                top: 160px;
-            }
-            
-            #link-body {
-                margin: 15px;
-                font-size: 30px;
-            }
-            
-            #x {
-                position: fixed;
-                right: 7px;
-                bottom: 3px;
-                background: none;
-                border: none;
-                font-size: 23px;
-                color: #333333;
-                outline: none;
-                cursor: pointer;
-            }
-            
-            #x:active {
-                color: green;
-            }
-            
-            ::-webkit-scrollbar {
-                width: 17px;
-                height: 17px;
-                background: black;
-            }
-            
-            ::-webkit-scrollbar-track {
-                background: black;
-                border: solid 1px red;
-                border-radius: 100px;
-                box-shadow: inset 0 0 6px red;
-            }
-            
-            ::-webkit-scrollbar-thumb {
-                background: darkred;
-                border: solid 1px red;
-                border-radius: 100px;
-            }
-            
-            ::-webkit-scrollbar-corner {
-                background: black;
-            }
-            
-            ::-webkit-scrollbar-button {
-                background: black;
-                border: solid 1px red;
-                border-radius: 100px;
-                box-shadow: inset 0 0 6px red;
-            }
-            
-            #foot {
-                position: relative;
-                color: red;
-                top: -10px;
-                left: 0px;
-                transform: rotate(0deg);
-                font-weight: bold;
-            }
-            
-            #foot a {
-                background: none;
-                text-decoration: Underline;
-                font-style: Italic;
-            }
-            
-        </style> 
-    </head>
-    <body>
-        <div id="notify">Internet Explorer Doesen't support many features. <a href='https://vicchat.github.io/db' class='alert-link'>Click Here</a> to download<br>a new one.<button id='x' onclick='closeit();'>X</button></div>
-        
-        <div class="bar" id="bar1"></div>
-        <div class="bar" id="bar2"></div>
-        <div class="bar" id="bar3"></div>
-        <div class="bar" id="bar4"></div>
-        
-        <div id="h1">
-            <h1>Welcome to vicchat.github.io!</h1>
-            <div id="foot">Turn JavaScript back on!</div>
-        </div>
-        
-        <br><br><br><br><br>
-        
-        <div id="link-body">
-            <a href="/tmc" title="Too many colours">Too many colours </a><br>
-            <a href="/party" title="Party Invotation"> Party Invotation </a><br>
-            <a href="/smalltravel" title="Tiny travel place"> Tiny travel place </a><br>
-            <a href="/boxermodel" title="The Boxermodel"> Are Boxers Beautifful? </a><br>
-            <a href="/search" title="Search The Web"> Search the Web </a><br>
-            <a  targrt="_blank" href="mailto:?Subject=New Message&Body=New body" title="Wrote an email"> Write an email </a><br>
-            <a href="/pie" title="How to eat pie">How to eat pie</a><br>
-            <a href="vicchat.github.io" title="Error">Error</a><br>
-            <a href="/box" title="Boxes">Boxes</a><br>
-            <a href = "/winston" title="Draw a beard">Draw a beard</a><br>
-            <a href= "https://vicchat.github.io/symbols" title="Type Symbols">Type Symbols </a><br>
-            <a href= "https://vicchat.github.io/table" title="Type Symbols"> Table </a><br>
-            <a href="https://vicchat.github.io/acsent" title="Acsents"> Acsents </a><br>
-            <a href="https://vicchat.github.io/pressakey" title="OK SIR"> OK SIR </a><br>
-            <a href="https://vicchat.github.io/youself" title="Owl about Youself!!😁!!??"> <em>Owl</em> about Youself!!😁!!?? </a><br>
-            <a href="javascript:void(0)" onclick="pop();" title="Hide browser bar"> Hide borwser bar </a><br>
-            <a href="/cs" title="Computer Simulator"> Computer Simulator </a><br>
-            <a href="/pin" title="Pin"> Pin </a><br>
-            <a href="/wrwf" title="Rabbits And Foods"> Rabbits And Food </a><br>
-            <a href="/totomia" title="The Building of Totomia"> The Building of Totomia </a><br>
-            <a href="/impossible" title="The Impossiple Quiz"> The Impossible Quiz </a><br>
-            <a href="/scorekeeper" title="Scorekeeper (2 Teams)"> Scorekeeper (2 Teams) </a><br>
-            <a href="/dots" title="Dots"> Dots </a><br>
-            <a href="/console=log&me&" title="STUCK@!!!!!"> STUCK@!!!!! </a><br>
-            <a href="/pb" title="BeaverPos"> BeaverPos </a><br>
-            <a href="/keyprt" title="Key Pressing Thing"> Key Pressing Thing </a><br>
-            <a href="/obig" title="OBigShark"> OBigShark </a><br>
-            <a href="/laee" title="L+A+E+E"> L+A+E+E </a><br>
-            <a href="/lchat" title="lChat"> lChat </a><br>
-            <a href="/bib" title="Browser Within Browser" onclick="bib()"> Browser Within Browser </a><br>
-            <a href="/face" title="MyFace"> MyFace </a><br>
-            <a href="/invertedpineapple" title="INVERTED PINEAPPLE"> INVERTED PINEAPPLE </a><br>
-            <a href="/digdia" title="Digging For Diamonds" > Digging For Diamonds </a><br>
-            <a href="/digdiabeta" title="Digging For Diamonds BETA Edition"> Digging For Diamonds BETA Edition </a><br>
-            <a href="/quiz2u" title="Quiz2U"> Quiz2U </a><br>
-            <a href="/aka/vicc-git-io" title="Get a Portable Version of vicchat.github.io" download> Get a Portable Version of vicchat.github.io </a><br>
-            <a href="/puffyv" title="The Random Puffy Thingy and the Big Scary Void"> The Random Puffy Thingy and the Big Scary Void </a><br>
-        </div>
-        
-    </body>
-    <script>
-        
-        var pop = function() {
-            document.body.requestFullscreen();
-        }
-        
-        var notify = document.getElementById("notify");
-        
-         if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; McAfee; rv:11.0) like Gecko") {
-            notify.style.display = "block";
-        }
-        
-        var closeit = function() {
-            notify.style.display = "none";
-        }
-        
-        document.body.addEventListener("keydown", function(e){
-            if (e.key === " ") {
-                window.location.href = "https://lh3.googleusercontent.com/YGJ77qN9KiwctZgfqV8Bf3hNo0rZvcFaPKDTkvtS6kVbtwyCS80Pm6dpXzJCCLZE1Q";
-            } else if (e.key === "y" && e.metaKey === true) {
-                window.alert("GOOD");
-            }
-        });
-        
-        var bib = function() {
-            window.alert("Warning:\n\nBrowser Within Browser will not work unless you install a web extension that blocks X-Frame Headers.\nTo get this type of extension, go to your browser's webstore and search \"Ignore X-Frame Headers\"");
-        }
-        
-    </script>
-    <script>
-        
-        var foot = document.getElementById("foot");
-        var num = Math.round(Math.random() * 52);
-        var text = ["Welcome!", "Fellow Earthlings!", "Download the New Microsoft Edge!", "Woooooo!", "Your Favourite Random Website", "Where's the Wine?", "Got Pie?", "Press [SPACE] to go to Space!", "Oinky Pigs!", "Hoo Arr Yuu?", "1 + 1 = 2!", "vicchat.github.io, Scince 2020", "Made During COVID-19!",  "YEAH!", "Just Kidding. Or Not.", "I'm Running Out of Ideas!", "What!?", "Stay a While!", "Is U Confused?", "<i>\"L, a sacred letter\"</i> -No one in Particular", "Good to See You Again!", "Smile! You're on Camera! Except You're Not!", "Oof.", "YEET!", "Merp.", "I'm Tired.", "Frequent Head-Bonkers", "Ya, Welcome", "How Much do you Know About Doorknobs?", "Check Out <a href='https://vicchat.github.io/vicchat.github.io/vicchat.github.io'>https://vicchat.github.io/vicchat.github.io/vicchat.github.io</a>!", "Your Banana is <i>Watching</i> You!", "Sup", "<img src='nosrc'> &lt;- Like the pic?", "undefined", "UFO!!! AHH!!!", "Turn OFF Cookies!", "NO MORE MOUSE POINTERS!!!", "Bloody Red Text!", "F6 is the best key in the world!", "<span style=\"color: cyan;\">Red text is boring!</span>", "Semicolons!", "Stacy!", "Who!?", "What's <i>vicchat.github.io</i>?", "The Answer to Life, the Universe, and Everything is 42.", "Press CMD+Y or WINDOWS+Y!", "Do you like the number Eleventeen?", "AOACADO!", "If 1×1 is 1, then 86×86 must be 86.", "Yeah, FRED!", "Welcome to our 50th second anniversary", "NOOOO!", "about:blank", "My Favourite Browser: SafariFirefoxInternetexplorerChromeEdgeOperaYandexVivaldiTorBraveMaxthonKmeleonSleipnirLunascapePalemoonDeepnetSlimAvantUcUrTorchMidoriEpicprivacyWaterfox Browser."];
-        
-        foot.innerHTML = text[num];
-        
-    </script>
+	<head>
+		<meta charset="utf-8">
+		<title>vicchat.github.io</title>
+		<style>
+			
+			body {
+				font-family: sans-serif;
+				background-color: black;
+			}
+			
+			h1 {
+				color: white;
+				text-align: center;
+				margin: 5px;
+				font-family: "Blackadder Itc", fantasy;
+				font-size: 50px;
+			}
+			
+			#h1 {
+				position: fixed;
+				text-align: center;
+				width: 100%;
+				left: 0px;
+				top: 0px;
+				background-color: darkRed;
+				padding: 0px;
+				height: 100px;
+			}
+			
+			a {
+				color: red;
+				text-decoration: none;
+				background-color: black;
+			}
+			
+			a:hover, a:focus {
+				outline: solid 1px red;
+				background-color: #111111;
+			}
+			
+			#notify {
+				position: fixed;
+				background-color: rgb(255, 132, 0);
+				left: 0px;
+				bottom: 0px;
+				padding-left: 3px;
+				padding-top: 3px;
+				display: none;
+				width: 100%;
+			}
+			
+			.alert-link {
+				color: white;
+				text-decoration: none;
+				background: none;
+			}
+			
+			.alert-link:hover, .alert-link:active, .alert-link:focus {
+				text-decoration: Underline;
+				color: white;
+				background: none;
+				outline: none;
+			}
+			
+			.bar {
+				position: fixed;
+				width: 1000px;
+				height: 80px;
+				transform: rotate(45deg);
+				z-index: -100;
+			}
+			
+			#bar1 {
+				background-color: #666666;
+				right: -495px;
+				height: 300px;
+			}
+			
+			#bar2 {
+				background-color: #FF0000;
+				right: -390px;
+			}
+			
+			#bar3 {
+				background-color: #666666;
+				right: -280px;
+			}
+			
+			#bar4 {
+				background-color: #FF0000;
+				right: -330px;
+				top: 160px;
+			}
+			
+			#link-body {
+				margin: 15px;
+				font-size: 30px;
+			}
+			
+			#x {
+				position: fixed;
+				right: 7px;
+				bottom: 3px;
+				background: none;
+				border: none;
+				font-size: 23px;
+				color: #333333;
+				outline: none;
+				cursor: pointer;
+			}
+			
+			#x:active {
+				color: green;
+			}
+			
+			::-webkit-scrollbar {
+				width: 17px;
+				height: 17px;
+				background: black;
+			}
+			
+			::-webkit-scrollbar-track {
+				background: black;
+				border: solid 1px red;
+				border-radius: 100px;
+				box-shadow: inset 0 0 6px red;
+			}
+			
+			::-webkit-scrollbar-thumb {
+				background: darkred;
+				border: solid 1px red;
+				border-radius: 100px;
+			}
+			
+			::-webkit-scrollbar-corner {
+				background: black;
+			}
+			
+			::-webkit-scrollbar-button {
+				background: black;
+				border: solid 1px red;
+				border-radius: 100px;
+				box-shadow: inset 0 0 6px red;
+			}
+			
+			#foot {
+				position: relative;
+				color: red;
+				top: -10px;
+				left: 0px;
+				transform: rotate(0deg);
+				font-weight: bold;
+			}
+			
+			#foot a {
+				background: none;
+				text-decoration: Underline;
+				font-style: Italic;
+			}
+
+			#popup {
+			position: fixed;
+			z-index: 5;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			font-family: sans-serif;
+			display: none;
+		}
+
+		#popup-background {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.5);
+		}
+
+		#popup-box {
+			position: absolute;
+			width: 600px;
+			height: 300px;
+			left: 50%;
+			top: 50%;
+			margin-left: -300px;
+			margin-top: -150px;
+			background: white;
+			border-radius: 30px;
+			box-sizing: border-box;
+			padding: 20px;
+		}
+
+		#popup-box h1 {
+			font-family: sans-serif;
+			color: black;
+			font-size: 2em;
+			text-align: left;
+		}
+			
+		</style>
+	</head>
+	<body>
+		<div id="notify">Internet Explorer Doesen't support many features. <a href='https://vicchat.github.io/db' class='alert-link'>Click Here</a> to download<br>a new one.<button id='x' onclick='closeit();'>X</button></div>
+		
+		<div class="bar" id="bar1"></div>
+		<div class="bar" id="bar2"></div>
+		<div class="bar" id="bar3"></div>
+		<div class="bar" id="bar4"></div>
+		
+		<div id="h1">
+			<h1>Welcome to vicchat.github.io!</h1>
+			<div id="foot">Turn JavaScript back on!</div>
+		</div>
+		
+		<br><br><br><br><br>
+		
+		<div id="link-body">
+			<a href="/tmc" title="Too many colours">Too many colours </a><br>
+			<a href="/party" title="Party Invotation"> Party Invotation </a><br>
+			<a href="/smalltravel" title="Tiny travel place"> Tiny travel place </a><br>
+			<a href="/boxermodel" title="The Boxermodel"> Are Boxers Beautifful? </a><br>
+			<a href="/search" title="Search The Web"> Search the Web </a><br>
+			<a  targrt="_blank" href="mailto:?Subject=New Message&Body=New body" title="Wrote an email"> Write an email </a><br>
+			<a href="/pie" title="How to eat pie">How to eat pie</a><br>
+			<a href="vicchat.github.io" title="Error">Error</a><br>
+			<a href="/box" title="Boxes">Boxes</a><br>
+			<a href = "/winston" title="Draw a beard">Draw a beard</a><br>
+			<a href= "https://vicchat.github.io/symbols" title="Type Symbols">Type Symbols </a><br>
+			<a href= "https://vicchat.github.io/table" title="Type Symbols"> Table </a><br>
+			<a href="https://vicchat.github.io/acsent" title="Acsents"> Acsents </a><br>
+			<a href="https://vicchat.github.io/pressakey" title="OK SIR"> OK SIR </a><br>
+			<a href="https://vicchat.github.io/youself" title="Owl about Youself!!😁!!??"> <em>Owl</em> about Youself!!😁!!?? </a><br>
+			<a href="javascript:void(0)" onclick="pop();" title="Hide browser bar"> Hide borwser bar </a><br>
+			<a href="/cs" title="Computer Simulator"> Computer Simulator </a><br>
+			<a href="/pin" title="Pin"> Pin </a><br>
+			<a href="/wrwf" title="Rabbits And Foods"> Rabbits And Food </a><br>
+			<a href="/totomia" title="The Building of Totomia"> The Building of Totomia </a><br>
+			<a href="/impossible" title="The Impossiple Quiz"> The Impossible Quiz </a><br>
+			<a href="/scorekeeper" title="Scorekeeper (2 Teams)"> Scorekeeper (2 Teams) </a><br>
+			<a href="/dots" title="Dots"> Dots </a><br>
+			<a href="/console=log&me&" title="STUCK@!!!!!"> STUCK@!!!!! </a><br>
+			<a href="/pb" title="BeaverPos"> BeaverPos </a><br>
+			<a href="/keyprt" title="Key Pressing Thing"> Key Pressing Thing </a><br>
+			<a href="/obig" title="OBigShark"> OBigShark </a><br>
+			<a href="/laee" title="L+A+E+E"> L+A+E+E </a><br>
+			<a href="/lchat" title="lChat"> lChat </a><br>
+			<a href="/bib" title="Browser Within Browser" onclick="bib()"> Browser Within Browser </a><br>
+			<a href="/face" title="MyFace"> MyFace </a><br>
+			<a href="/invertedpineapple" title="INVERTED PINEAPPLE"> INVERTED PINEAPPLE </a><br>
+			<a href="/digdia" title="Digging For Diamonds" > Digging For Diamonds </a><br>
+			<a href="/digdiabeta" title="Digging For Diamonds BETA Edition"> Digging For Diamonds BETA Edition </a><br>
+			<a href="/quiz2u" title="Quiz2U"> Quiz2U </a><br>
+			<a href="/aka/vicc-git-io" title="Get a Portable Version of vicchat.github.io" download> Get a Portable Version of vicchat.github.io </a><br>
+			<a href="/puffyv" title="The Random Puffy Thingy and the Big Scary Void"> The Random Puffy Thingy and the Big Scary Void </a><br>
+		</div>
+
+		<div id="onscan" tabindex="-1" style="position: fixed; top: -999999999999999999999999999em; bottom: -999999999999999999999999999999999em;" onfocus="openpopup();"></div>
+
+		<div id="popup">
+			<div id="popup-background"></div>
+			<div id="popup-box">
+				<h1>Thank you for scanning!</h1>
+				Have a good day!<br><br>
+				<button onclick="window.location.href = 'https://vicchat.github.io';">Okay!</button>
+			</div>
+		</div>
+		
+	</body>
+	<script>
+		
+		var pop = function() {
+			document.body.requestFullscreen();
+		}
+		
+		var notify = document.getElementById("notify");
+		
+		 if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; McAfee; rv:11.0) like Gecko") {
+			notify.style.display = "block";
+		}
+		
+		var closeit = function() {
+			notify.style.display = "none";
+		}
+		
+		document.body.addEventListener("keydown", function(e){
+			if (e.key === " ") {
+				window.location.href = "https://lh3.googleusercontent.com/YGJ77qN9KiwctZgfqV8Bf3hNo0rZvcFaPKDTkvtS6kVbtwyCS80Pm6dpXzJCCLZE1Q";
+			} else if (e.key === "y" && e.metaKey === true) {
+				window.alert("GOOD");
+			}
+		});
+		
+		var bib = function() {
+			window.alert("Warning:\n\nBrowser Within Browser will not work unless you install a web extension that blocks X-Frame Headers.\nTo get this type of extension, go to your browser's webstore and search \"Ignore X-Frame Headers\"");
+		}
+
+		var popup = document.getElementById("popup");
+
+		var openpopup = function() {
+			popup.style.display = "block";
+		}
+		
+	</script>
+	<script>
+		
+		var foot = document.getElementById("foot");
+		var num = Math.round(Math.random() * 52);
+		var text = ["Welcome!", "Fellow Earthlings!", "Download the New Microsoft Edge!", "Woooooo!", "Your Favourite Random Website", "Where's the Wine?", "Got Pie?", "Press [SPACE] to go to Space!", "Oinky Pigs!", "Hoo Arr Yuu?", "1 + 1 = 2!", "vicchat.github.io, Scince 2020", "Made During COVID-19!",  "YEAH!", "Just Kidding. Or Not.", "I'm Running Out of Ideas!", "What!?", "Stay a While!", "Is U Confused?", "<i>\"L, a sacred letter\"</i> -No one in Particular", "Good to See You Again!", "Smile! You're on Camera! Except You're Not!", "Oof.", "YEET!", "Merp.", "I'm Tired.", "Frequent Head-Bonkers", "Ya, Welcome", "How Much do you Know About Doorknobs?", "Check Out <a href='https://vicchat.github.io/vicchat.github.io/vicchat.github.io'>https://vicchat.github.io/vicchat.github.io/vicchat.github.io</a>!", "Your Banana is <i>Watching</i> You!", "Sup", "<img src='nosrc'> &lt;- Like the pic?", "undefined", "UFO!!! AHH!!!", "Turn OFF Cookies!", "NO MORE MOUSE POINTERS!!!", "Bloody Red Text!", "F6 is the best key in the world!", "<span style=\"color: cyan;\">Red text is boring!</span>", "Semicolons!", "Stacy!", "Who!?", "What's <i>vicchat.github.io</i>?", "The Answer to Life, the Universe, and Everything is 42.", "Press CMD+Y or WINDOWS+Y!", "Do you like the number Eleventeen?", "AOACADO!", "If 1×1 is 1, then 86×86 must be 86.", "Yeah, FRED!", "Welcome to our 50th second anniversary", "NOOOO!", "about:blank", "My Favourite Browser: SafariFirefoxInternetexplorerChromeEdgeOperaYandexVivaldiTorBraveMaxthonKmeleonSleipnirLunascapePalemoonDeepnetSlimAvantUcUrTorchMidoriEpicprivacyWaterfox Browser."];
+		
+		foot.innerHTML = text[num];
+		
+	</script>
 </html>
