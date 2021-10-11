@@ -17,13 +17,11 @@ var cftd = document.createElement("div");
 			<button onclick="window.location.href = 'https://vicchat.github.io/terms';">Review Terms</button>
 		</div>
 	`;
+	if (window.localStorage.getItem("cftd") === true) {
+		cftd.style.display = "none";
+	}
+	
 document.body.appendChild(cftd);
-
-if (window.localStorage.getItem("cftd") === null) {
-	console.log("terms need to be accepted i guess...");
-} else if (window.localStorage.getItem("cftd") === true) {
-	document.getElementById("cftd").style.display = "none";
-}
 
 var cftdac = function() {
 	window.localStorage.setItem("cftd", true);
