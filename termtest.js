@@ -21,8 +21,6 @@ if (window.localStorage.getItem("cftd") !== true) {
 	document.body.appendChild(cftd);
 }
 
-document.body.appendChild(cftd);
-
 var cftdac = function() {
 	window.localStorage.setItem("cftd", true);
 	window.history.back();
