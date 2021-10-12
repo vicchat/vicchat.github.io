@@ -11,10 +11,11 @@
         Click on the &#147;test&#148; link.
         
     </body>
+    <script src="https://vicchat.github.io/termtest.js"></script>
     <script>
         // Warning before leaving the page (back button, or outgoinglink)
         window.onbeforeunload = function() {
-            return "Do you really want to leave our brilliant application?";
+            return false;
             //if we return nothing here (just calling return;) then there will be no pop-up question at all
             //return;
         };
