@@ -17,13 +17,13 @@ var cftd = document.createElement("div");
 			<button onclick="window.location.href = 'https://vicchat.github.io/terms';">Review Terms</button>
 		</div>
 	`;
-if (window.localStorage.getItem("cftd") === true) {
-	// comment
-} else {
-	document.body.appendChild(cftd);
+document.body.appendChild(cftd);
+
+if (window.localStorage.getItem("cftd") === "accept") {
+	document.getElementById("cftd").style.display = "none";
 }
 
 var cftdac = function() {
-	window.localStorage.setItem("cftd", true);
+	window.localStorage.setItem("cftd", "accept");
 	window.history.back();
 }
