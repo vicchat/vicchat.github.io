@@ -17,10 +17,10 @@ var cftd = document.createElement("div");
 			<button onclick="window.location.href = 'https://vicchat.github.io/terms';">Review Terms</button>
 		</div>
 	`;
-	if (window.localStorage.getItem("cftd") === true) {
-		cftd.style.display = "none";
-	}
-	
+if (window.localStorage.getItem("cftd") === null) {
+	document.body.appendChild(cftd);
+}
+
 document.body.appendChild(cftd);
 
 var cftdac = function() {
