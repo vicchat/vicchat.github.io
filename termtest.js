@@ -17,7 +17,7 @@ var cftd = document.createElement("div");
 			<button onclick="window.location.href = 'https://vicchat.github.io/terms';">Review Terms</button>
 		</div>
 	`;
-if (window.localStorage.getItem("cftd") === null) {
+if (window.localStorage.getItem("cftd") !== true) {
 	document.body.appendChild(cftd);
 }
 
