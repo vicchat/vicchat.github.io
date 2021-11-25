@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Getuploads | vicchat.github.io</title>
+	</head>
+	<style>
+		
+		html {
+			background: white;
+			font-family: sans-serif;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		header {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 30px;
+			background: darkred;
+			box-sizing: border-box;
+			padding-top: 5px;
+			text-align: center;
+			color: white;
+			z-index: 99999;
+		}
+
+		#main {
+			width: 45%;
+			border: solid 5px black;
+			position: fixed;
+			right: 10px;
+		}
+
+		#stats {
+			position: fixed;
+			left: 10px;
+			border: solid 3px black;
+			width: 45%;
+			background: lightgrey;
+			padding: 15px;
+			box-sizing: border-box;
+		}
+
+		#download {
+			width: 100%;
+			height: 50px;
+			background: lime;
+			border: none;
+			outline: none !important;
+			border-radius: 100px;
+			font-size: 20px;
+			color: white;
+			cursor: pointer;
+		}
+
+		#download:hover {
+			border: ridge 10px green;
+		}
+
+		#scr {
+			position: fixed;
+			left: 0px;
+			bottom: 0px;
+			border: solid 3px black;
+			width: 100%;
+			background: lightgrey;
+			padding: 15px;
+			box-sizing: border-box;
+		}
+
+		a {
+			color: blue;
+			text-decoration: none;
+		}
+
+		#thingy {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.5);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			animation-name: slide-up;
+			animation-duration: 0.5s;
+			box-sizing: border-box;
+			padding: 10px;
+		}
+
+		th {
+			outline: solid 3px black;
+			padding: 6px;
+		}
+
+		td {
+			outline: solid 1px black;
+			padding: 10px;
+		}
+
+		@keyframes slide-up {
+			to {
+				top: 0px;
+			} from {
+				top: 100px;
+			}
+		}
+
+	</style>
+	<body>
+
+		<header>Getuploads</header>
+
+		<br><br>
+		<h1>The Random Puffy Thingy and the Big Scary Void - Chunk Edition Source</h1>
+
+		<img src="https://github.com/vicchat/content/raw/main/trpt.png" id="main">
+
+		<div id="stats">
+			<h3>Information:</h3>
+			<b>Release:</b> 1.2.2 / 1.2.2.5<br>
+			<b>Platform/Edition:</b> Windows, Linux, MacOS, ChromeOS, Android, iOS<br>
+			<b>Type:</b> HTML(Webpage file) / ZIP file<br>
+			<b>Required for Use</b>: HTML/JS Opener (Usually Browser), ZIP extractor, Code Editor (optional; for customization)<br><br>
+			<button id="download" onclick="thingy.style.display = 'block';">Download Now!</button>
+		</div>
+		
+		<div id="scr">
+			About: The source code for The Random Puffy Thingy and the Big Scary Void, customizable (with knowledge) and works offline (some images may not load), and can run in any desktop browser and some mobile browsers. For Android and iOS, some additional apps may need to be installed for customizing to work.
+		</div>
+
+		<div id="thingy">
+			<br><br>
+			<a href="javascript:void(0)" onclick="thingy.style.display = 'none';">Close</a>
+			<h1>Download The Random Puffy Thingy and the Big Scary Void Source</h1>
+			<h3>Chunk Mobile</h3>
+			<table>
+				<thead>
+					<th>puffySource Version</th>
+					<th>Download</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1.2.2.5</td>
+						<td><a href="https://github.com/vicchat/bin/raw/main/puffySource/m/puffySource1225.zip">puffySource1225.zip</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Chunk Desktop</h3>
+			<table>
+				<thead>
+					<th>puffySource Version</th>
+					<th>Download</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1.2.2</td>
+						<td><a href="https://github.com/vicchat/bin/raw/main/puffySource/d/puffySource122.zip">puffySource122.zip</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</body>
+	<script>
+		
+		var thingy = document.getElementById("thingy");
+
+		thingy.style.display = "none";
+
+	</script>
+</html>
