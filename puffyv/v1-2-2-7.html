@@ -1,0 +1,1506 @@
+<!-- UNCOMMENT TERMTEST COMMENT -->
+<!DOCTYPE html>
+<html oncontextmenu="return false;" ondragstart="return false;">
+	<head>
+		<meta charset="utf-8">
+		<title>The Random Puffy Thingy and the Big Scary Void | v1.2.2.7</title>
+	</head>
+	<style>
+		
+		html {
+			cursor: default;
+			user-select: none;
+			-webkit-user-select: none;
+			background: black;
+		}
+
+		#plus {
+			position: fixed;
+			width: 24px;
+			height: 24px;
+			left: 50%;
+			top: 50%;
+			margin-left: -12px;
+			margin-top: -12px;
+			z-index: 3;
+			box-sizing: border-box;
+			text-align: center;
+		}
+
+		#plus-x {
+			position: absolute;
+			width: 2px;
+			height: 24px;
+			top: 0px;
+			left: 11px;
+		}
+
+		#plus-y {
+			position: absolute;
+			width: 24px;
+			height: 2px;
+			top: 11px;
+			left: 0px;
+		}
+
+		#plus-c {
+			position: absolute;
+			width: 2px;
+			height: 2px;
+			top: 11px;
+			left: 11px;
+		}
+
+		.plus {
+			background: white;
+			backdrop-filter: none;
+		}
+
+		#area {
+			position: fixed;
+			z-index: 1;
+			width: 3000px;
+			height: 3000px;
+			background: rgb(0, 175, 5);
+			outline: solid 50px grey;
+			top: 0px;
+			left: 0px;
+		}
+
+		#puffy-thingy {
+			position: absolute;
+			width: 50px;
+			top: 50px;
+			left: 50px;
+			z-index: 2;
+		}
+
+		.menu {
+			position: fixed;
+			background: darkslategrey;
+			border: solid 10px lightgrey;
+			border-radius: 10px;
+			width: 500px;
+			height: 300px;
+			font-family: "Silkscreen", fantasy;
+			color: white;
+			text-align: center;
+			box-sizing: border-box;
+			padding: 20px;
+			padding-top: 30px;
+			overflow: auto;
+			left: 50%;
+			top: 50%;
+			margin-left: -250px;
+			margin-top: -150px;
+		}
+
+		#pause-menu {
+			z-index: 5;
+		}
+
+		button, input, select {
+			font-family: "Silkscreen", fantasy;
+			color: white;
+			background: rgb(60, 60, 60);
+			border: solid 1px rgb(30, 30, 30);
+			font-size: 15px;
+			padding: 5px;
+			border-radius: 0px;
+			width: 200px;
+			height: 30px;
+		}
+
+		input[type = "color"] {
+			width: 50px;
+			height: 25px;
+		}
+
+		input[type = "text"] {
+			height: 25px;
+			padding: 1px;
+			font-size: 20px;
+			font-family: sans-serif;
+		}
+
+		button:hover, input[type = "color"]:hover, select:hover {
+			background: rgb(90, 90, 90);
+		}
+
+		button:active, select:active {
+			background: rgb(120, 120, 120);
+			outline: none !important;
+		}
+
+		button:focus, input:focus-within, select:focus {
+			outline: solid 2px white;
+		}
+
+		#background {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 4;
+		}
+
+		.dot {
+			position: absolute;
+			width: 10px;
+			height: 10px;
+		}
+
+		#colcng {
+			z-index: 7;
+		}
+
+		#bar {
+			position: fixed;
+			z-index: 3;
+			height: 70px;
+			width: 325px;
+			bottom: 0px;
+			border: solid 5px lightgrey;
+			border-radius: 10px;
+			background: darkslategrey;
+			margin-left: -162.5px;
+			left: 50%;
+		}
+
+		.bar {
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			border: solid 5px white;
+			position: relative;
+			top: 5px;
+			left: 5px;
+		}
+
+		#you-died {
+			position: fixed;
+			background: rgba(255, 0, 0, 0.5);
+			color: white;
+			font-family: "Silkscreen", fantasy;
+			left: 0px;
+			top: 0px;
+			z-index: 6;
+			padding-top: 45px;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			box-sizing: border-box;
+		}
+
+		#start {
+			position: fixed;
+			z-index: 100;
+			background: white;
+			color: white;
+			font-family: sans-serif;
+			left: 0px;
+			top: 0px;
+			box-sizing: border-box;
+			width: 100%;
+			height: 100%;
+			padding-top: 45px;
+			text-align: center;
+			overflow: auto;
+			display: block;
+			background: black;
+		}
+
+		#start button {
+			font-family: sans-serif;
+		}
+		::-webkit-scrollbar {
+			width: 10px;
+			height: 10px;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: lightgrey;
+		}
+
+		::-webkit-scrollbar-track {
+			background: darkslategrey;
+		}
+
+		#help1 {
+			z-index: 175;
+		}
+
+		#help2 {
+			z-index: 10;
+		}
+
+		#chat {
+			position: fixed;
+			left: 0px;
+			bottom: 25px;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 3;
+			width: 250px;
+			height: 150px;
+			overflow: auto;
+			max-height: 500px;
+		}
+
+		.chat {
+			margin: 10px;
+			font-family: sans-serif;
+		}
+
+		.chat-system {
+			color: lightblue;
+		}
+
+		.chat-from {
+			color: orange;
+		}
+
+		.chat-error {
+			color: red;
+			font-weight: bold;
+		}
+
+		#chatmessage {
+			position: fixed;
+			font-family: sans-serif;
+			border: none;
+			border-radius: 0px;
+			background: rgba(0, 0, 0, 0.5);
+			bottom: 0px;
+			left: 0px;
+			width: 100%;
+			height: 24px;
+			z-index: 3;
+			outline: none !important;
+			font-weight: 100;
+			font-size: 15px;
+		}
+
+		::placeholder {
+			color: white;
+		}
+
+		#chatmessage::selection {
+			background: white;
+			color: blue;
+		}
+
+		::selection {
+			background: rgba(0, 0, 0, 0.5);
+			color: white;
+		}
+
+		#settings {
+			z-index: 9;
+		}
+
+		#onload {
+			position: fixed;
+			z-index: 2000;
+			background: white;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			font-family: sans-serif;
+			padding-top: 50px;
+		}
+
+		#bkimg {
+			position: fixed;
+			z-index: -1;
+			top: 0%;
+			left: 0%;
+			width: 100%;
+			height: 100%;
+			filter: blur(5px) brightness(75%);
+		}
+
+		#innimg {
+			position: fixed;
+			z-index: 0;
+			text-align: center;
+			width: 100%;
+			overflow: auto;
+		}
+
+		#informat {
+			position: fixed;
+			z-index: 102;
+		}
+
+		#libimport {
+			z-index: 103;
+		}
+
+		.title {
+			position: fixed;
+			z-index: 3;
+			color: white;
+			font-family: "Silkscreen", sans-serif;
+		}
+
+		#titletitle {
+			font-size: 60px;
+			width: 100%;
+			text-align: center;
+			height: 70px;
+			top: 50%;
+			margin-top: -25px; 
+		}
+
+		#titleaction {
+			font-size: 20px;
+			width: 400px;
+			height: 30px;
+			background: rgba(0, 0, 0, 0.5);
+			border-radius: 10px;
+			color: white;
+			font-family: "Silkscreen", sans-serif;
+			bottom: 100px;
+			left: 50%;
+			margin-left: -200px;
+			text-align: center;
+		}
+
+		#codemenu {
+			z-index: 50;
+		}
+
+		#background2 {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 101;
+		}
+
+		.stat {
+			position: fixed;
+			background: rgba(0, 0, 0, 0.5);
+			color: white;
+			font-family: "Silkscreen", fantasy;
+			z-index: 3;
+			padding: 10px 20px 10px 20px;
+			text-align: center;
+			font-size: 15px;
+			height: 15px;
+		}
+
+		#coord {
+			top: 70px;
+			left: 0px;
+		}
+
+		#areacoord {
+			top: 35px;
+			left: 0px;
+		}
+
+		#ischeat {
+			top: 0px;
+			right: 0px;
+		}
+
+		#isdraw {
+			top: 35px;
+			right: 0px;
+		}
+
+		#islib {
+			top: 70px;
+			right: 0px;
+		}
+
+		#isver {
+			top: 0px;
+			left: 0px;
+		}
+
+		#notification {
+			position: fixed;
+			background: darkslategrey;
+			border: solid 10px lightgrey;
+			border-radius: 10px;
+			width: 400px;
+			height: 150px;
+			font-family: "Silkscreen", fantasy;
+			color: white;
+			overflow: auto;
+			right: 10px;
+			top: 10px;
+			z-index: 500;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+
+		#blendinen {
+			position: fixed;
+			background: darkslategrey;
+			left: 50px;
+			bottom: 200px;
+			width: 400px;
+			height: 150px;
+			border: solid 10px lightgrey;
+			border-radius: 10px;
+			font-family: sans-serif;
+			color: white;
+			box-sizing: border-box;
+			padding: 10px;
+			z-index: 3;
+			overflow: auto;
+		}
+
+		#modes {
+			z-index: 8;
+		}
+
+		ins {
+			cursor: pointer;
+		}
+
+		ins:hover {
+			color: darkslategrey;
+		}
+
+		#cotosa {
+			z-index: 11;
+		}
+
+		textarea {
+			text-align: left;
+			background: white;
+			color: black;
+			font-family: monospace;
+			padding: 0px;
+			width: 400px;
+			height: 150px;
+			border: solid 1px black;
+			outline: none !important;
+		}
+
+	</style>
+	<body>
+
+		<div id="onload">
+			Loading...
+		</div>
+
+		<div id="start" style="display: block;">
+			<img src="https://raw.githubusercontent.com/vicchat/content/main/background.jpg" id="bkimg">
+			<div id="innimg">
+				<span style="font-family: 'Blackadder ITC', fantasy; color: darkred; font-size: 30px; text-shadow: 0.2px 0.2px white;">vicchat.github.io</span>
+				<h1 style="font-family: 'Silkscreen', fantasy; color: yellow;">The Random Puffy Thingy and the Big Scary Void</h1>
+				<span style="font-family: 'Silkscreen', fantasy;">Desktop Edition</span>
+				<br><br><br><br>
+				<button onclick="play();">Empty Platform</button>
+				<br><br>
+				<button onclick="background2.style.display = 'block'; libimport.style.display = 'block';">Import from Library</button>
+				<br><br>
+				<button onclick="background2.style.display = 'block'; informat.style.display = 'block';">Information</button>
+				<br><br>
+				<button onclick="quit();">Quit</button>
+				<br><br><br><br>
+				<span style="font-family: 'Silkscreen', fantasy;">version 1.2.2.7 | Chunk Edition</span>
+			</div>
+		</div>
+
+		<div id="plus" class="hud">
+			<div id="plus-x" class="plus"></div>
+			<div id="plus-y" class="plus"></div>
+			<div id="plus-c" class="plus"></div>
+		</div>
+
+		<div id="area">
+			<img src="https://raw.githubusercontent.com/vicchat/content/main/puffy.png" id="puffy-thingy">
+		</div>
+
+		<div id="coord" class="stat hud">
+			POSITION: X=<span id="coordx">50</span> Y=<span id="coordy">50</span>
+		</div>
+		
+		<div id="areacoord" class="stat hud">
+			PLATFORM POSITION: X=<span id="areacoordx">50</span> Y=<span id="areacoordy">50</span>
+		</div>
+
+		<div id="ischeat" class="stat hud">
+			Allow Cheats: <span id="ischeatv">...</span>
+		</div>
+
+		<div id="isdraw" class="stat hud">
+			Allow Drawing: <span id="isdrawv">...</span>
+		</div>
+
+		<div id="islib" class="stat hud">
+			Library: <span id="islibv">...</span>
+		</div>
+
+		<div id="isver" class="stat hud">
+			Version 1.2.2.7 / Chunck / Classic
+		</div>
+
+		<div id="background"></div>
+
+		<div id="pause-menu" class="menu">
+			Game Menu<br><br><br>
+			<button onclick="resume();">Resume</button>
+			<br><br>
+			<button onclick="help2.style.display = 'block';">Help</button>
+			<br><br>
+			<button onclick="home();">Title Screen</button>
+		</div>
+
+		<div id="colcng" class="menu">
+			<h1>Edit Colours</h1><br>
+			<input type="color" id="col0" value="#ff0000">
+			<input type="color" id="col1" value="#00af05">
+			<input type="color" id="col2" value="#0000ff">
+			<input type="color" id="col3" value="#ffff00">
+			<input type="color" id="col4" value="#000000">
+			<br><br><br><br><br>
+			<button onclick="setColours();">Set</button>
+		</div>
+
+		<div id="bar" class="hud">
+			<div class="bar" id="coll0"></div>
+			<div class="bar" id="coll1"></div>
+			<div class="bar" id="coll2"></div>
+			<div class="bar" id="coll3"></div>
+			<div class="bar" id="coll4"></div>
+		</div>
+
+		<div id="you-died">
+			<h1>YOU DIED!</h1>
+			<span id="how-you-died"></span>
+			<br><br><br><br>
+			<button onclick="respawn();">Respawn</button>
+			<br><br>
+			<button onclick="home();">Title Screen</button>
+		</div>
+
+		<div id="help1" class="menu">
+			<h1>Help</h1>
+			Welcome to The Random Puffy Thingy and the Big Scary Void! I can't wait for you to get started!
+			<br><br>
+			Use W/A/S/D to move, and move your mouse to position the camera. Press the five mouse buttons (Left Click, Scrollbar (Middle Button), Right Click, Browser Back, and Browser Forward) or Z/X/C/V/B to draw dots accordingly on the platform. You can change the colour of the dots by pressing E or R.
+			<br><br>
+			When you move, make sure you don't go into the void or press F7, as doing so will result in your death (don't worry, you can respawn).
+			<br><br>
+			Press TAB or F5 to open settings, and press F1 to open help. Press ESCAPE to close any menus or pause and show your cursor (you can also use F9, which shows your cursor but doesen't pause. Press ESCAPE to exit this faze). You can also use T or ENTER to type in the chat.
+			<br><br>
+			For Library adresses, enter a javascript file's url. There is already some already on this server, try "/scope/creepy", "/scope/adventure", "/scope/glitchy", "/scope/cheats-off", "/scope/odd", "/scope/proto", or "/scope/lava".
+		</div>
+
+		<div id="help2" class="menu">
+			<h1>Help</h1>
+			Welcome to The Random Puffy Thingy and the Big Scary Void! I can't wait for you to get started!
+			<br><br>
+			Use W/A/S/D to move, and move your mouse to position the camera. Press the five mouse buttons (Left Click, Scrollbar (Middle Button), Right Click, Browser Back, and Browser Forward) or Z/X/C/V/B to draw dots accordingly on the platform. You can change the colour of the dots by pressing E or R.
+			<br><br>
+			When you move, make sure you don't go into the void or press F7, as doing so will result in your death (don't worry, you can respawn).
+			<br><br>
+			Press TAB or F5 to open settings, and press F1 to open help. Press ESCAPE to close any menus or pause and show your cursor (you can also use F9, which shows your cursor but doesen't pause. Press ESCAPE to exit this faze). You can also use T or ENTER to type in the chat.
+			<br><br>
+			For Library adresses, enter a javascript file's url. There is already some already on this server, try "/scope/creepy", "/scope/adventure", "/scope/glitchy", "/scope/cheats-off", "/scope/odd", "/scope/proto", or "/scope/lava".
+		</div>
+
+		<div id="informat" class="menu">
+			<h1>Information for New Peeps:</h1><br>
+			Welcome to The Random Puffy Thingy And The Big Scary Void! We can't wait for you to try it!
+			Is it your first time playing? Click the help button below. You can return to this menu any time by pressing F1 or pausing and clicking "Help".
+			<br><br>
+			<button onclick="help1.style.display = 'block';">Help</button>
+			<br><br><br><br>
+			<strong>What's New in version 1.2.2.7:</strong><br>
+			<ul>
+				<li>Remove <i>NEW!!!</i> text from crosshair black setting (Mobile)</li>
+				<li>Removed automatic chat message box focus (Mobile)</li>
+				<li>Import from a library by pressing enter</li>
+				<li>Removed platform restriction and added command to reset - /l or /r (Mobile)</li>
+				<li>Moved command suggestions so you can see them when typing (Mobile)</li>
+				<li>Stuff!</li>
+			</ul>
+			<br><br><br>
+			<strong>Credits:</strong><br>
+			Creator: vicchat.github.io<br>
+			Puffy Thingy Image: Webstockreveiw<br>
+			Title Screen Background Image: Microsoft<br><br>
+			NOTE: Libraries may use images from other sources.
+			<br><br><br>
+			Press ESCAPE to close.
+		</div>
+
+		<div id="chat" class="hud">
+			<br>
+			<div class="chat chat-system">Press T or ENTER to open chat.</div>
+		</div>
+
+		<div class="menu" id="settings">
+			<h1>Settings</h1>
+			<h3>Crosshair:</h3>
+			<button onclick="editPlusSettings(1);">White</button><br>
+			<button onclick="editPlusSettings(4);">Black</button><br>
+			<button onclick="editPlusSettings(2);">Inverted</button><br>
+			<button onclick="editPlusSettings(3);">None</button>
+			<br><br>
+			<h3>Void Colour:</h3>
+			<button onclick="html.style.background = 'black';">Black</button><br>
+			<button onclick="html.style.background = 'darkblue';">Dark Blue</button><br>
+			<button onclick="html.style.background = 'skyblue';">Light Blue</button><br>
+			<button onclick="html.style.background = 'grey';">Grey</button><br>
+			<button onclick="html.style.background = 'white';">White</button>
+			<br><br>
+			<h3>Fullscreen:</h3>
+			Press F11 to enter / exit fullscreen.<br>(you can also click the MORE button on your browser bar, then click the fullscreen icon)
+			<h3>INVINCIBLE!!!!:</h3>
+			<button onclick="if (cheatmode === true) {invincible = true; } else if (cheatmode === false) { this.innerHTML = 'Cannot do this now'; }">Enter</button><br>
+			<button onclick="invincible = false">Exit</button>
+		</div>
+
+		<input type="text" id="chatmessage" placeholder=">">
+
+		<div id="libimport" class="menu">
+			<h1>Import from Library</h1>
+			<br><br>
+			<input type="text" id="library" placeholder="Library Adress" onautocomplete="return false;" spellcheck="false"><br><br><br>
+			<button onclick="prifli();">Play!</button>
+		</div>
+
+		<span id="titletitle" class="title"></span>
+		<span id="titleaction" class="title"></span>
+
+		<div id="codemenu" class="menu"></div>
+
+		<div id="background2"></div>
+
+		<div id="notification" onclick="this.style.display = 'none';">
+			<h2 id="not-tit"></h2>
+			<span id="not-bod"></span>
+		</div>
+
+		<div id="blendinen"></div>
+
+		<div id="modes" class="menu">
+			<h1>Modes</h1>
+			<button onclick="despectate(); invincible = false;">Default</button>
+			<br><br>
+			<button onclick="despectate(); if (cheatmode === true) {invincible = true; } else if (cheatmode === false) { this.innerHTML = 'Cheats are Disabled'; }">Invincible</button>
+			<br><br>
+			<button onclick="spectate(); if (cheatmode === true) {invincible = true; } else if (cheatmode === false) { this.innerHTML = 'Cheats are Disabled'; }">Spectator</button>
+		</div>
+
+		<div id="cotosa" class="menu">
+			<h1>Save platform as HTML</h1>
+			<textarea id="cotosat"></textarea>
+			<br><br><button onclick="cotosacopy();">Copy</button>
+		</div>
+
+		<div id="cotolo" class="menu" style="z-index: 104;">
+			<h1>Load platfrom from clipboard</h1>
+			<textarea id="cotolot" placeholder="Paste code here"></textarea>
+			<br><br><button onclick="cotololilo();">Load</button>
+		</div>
+
+	</body>
+	<script>
+		
+		var inLock = false;
+		var invincible = false;
+		var drawmode = true;
+		var cheatmode = true;
+		var enterMode = false;
+		var lastMessage = null;
+		var spp = [50, 50];
+		var spectator = false;
+
+		document.addEventListener("pointerlockchange", function() {
+			if (inLock === false) {
+				inLock = true;
+				background.style.display = "none";
+			} else if (inLock === true) {
+				inLock = false;
+				background.style.display = "block";
+				pauseMenu12341.style.display = "block";
+			}
+		});
+
+		var col0 = "#ff0000";
+		var col1 = "#00af05";
+		var col2 = "#0000ff";
+		var col3 = "#ffff00";
+		var col4 = "#000000";
+
+		var version = "1.2.2.7";
+
+		var html = document.querySelector("html");
+		var area = document.getElementById("area");
+		var puffyThingy = document.getElementById("puffy-thingy");
+		var pauseMenu12341 = document.getElementById("pause-menu");
+		var background = document.getElementById("background");
+		var colcng = document.getElementById("colcng");
+		var youDied = document.getElementById("you-died");
+		var start = document.getElementById("start");
+		var help1 = document.getElementById("help1");
+		var help2 = document.getElementById("help2");
+		var chat = document.getElementById("chat");
+		var chatMessage = document.getElementById("chatmessage");
+		var settings = document.getElementById("settings");
+		var plus = document.getElementsByClassName("plus");
+		var coord = document.getElementById("coord");
+		var informat = document.getElementById("informat");
+		var libimport = document.getElementById("libimport");
+		var titletitle = document.getElementById("titletitle");
+		var titleaction = document.getElementById("titleaction");
+		var codemenu = document.getElementById("codemenu");
+		var background2 = document.getElementById("background2");
+		var areacoord = document.getElementById("areacoord");
+		var hud = document.getElementsByClassName("hud");
+		var notification = document.getElementById("notification");
+		var modes = document.getElementById("modes");
+		var blendinen = document.getElementById("blendinen");
+		var cotosa = document.getElementById("cotosa");
+		var cotolo = document.getElementById("cotolo");
+
+		colcng.style.display = "none";
+		youDied.style.display = "none";
+		background.style.display = "none";
+		pauseMenu12341.style.display = "none";
+		help1.style.display = "none";
+		help2.style.display = "none";
+		chatMessage.style.display = "none";
+		settings.style.display = "none";
+		informat.style.display = "none";
+		libimport.style.display = "none";
+		titletitle.style.display = "none";
+		titleaction.style.display = "none";
+		codemenu.style.display = "none";
+		background2.style.display = "none";
+		notification.style.display = "none";
+		modes.style.display = "none";
+		blendinen.style.display = "none";
+		cotosa.style.display = "none";
+		cotolo.style.display = "none";
+
+		var play = function() {
+			document.getElementById("innimg").innerHTML = "Please Wait...";
+			area.requestPointerLock();
+			window.setTimeout(function(){
+				start.style.display = "none";
+			}, 1000);
+		}
+
+		var resume = function() {
+			if (start.style.display === "none" && youDied.style.display === "none") {
+				pauseMenu12341.style.display = "none";
+				colcng.style.display = "none";
+				help1.style.display = "none";
+				help2.style.display = "none";
+				chatMessage.style.display = "none";
+				settings.style.display = "none";
+				chatMessage.value = "";
+				codemenu.style.display = "none";
+				modes.style.display = "none";
+				cotosa.style.display = "none";
+				area.requestPointerLock();
+			} else {
+				help1.style.display = "none";
+				informat.style.display = "none";
+				libimport.style.display = "none";
+				background2.style.display = "none";
+				cotolo.style.display = "none";
+			}
+		}
+
+		var you_died = function(how_you_died) {
+			if (invincible === false) {
+				if (youDied.style.display === "none") {
+					logChatMessage("system", how_you_died);
+				}
+				document.exitPointerLock();
+				giveon2();
+				document.getElementById("how-you-died").textContent = how_you_died;
+				youDied.style.display = "block";
+			}
+		}
+
+		var respawn = function() {
+			ax = 50;
+			ay = 50;
+			playerX = 50;
+			playerY = 50;
+			area.style.left = ax + "px";
+			area.style.top = ay + "px";
+			puffyThingy.style.left = playerX + "px";
+			puffyThingy.style.top = playerY + "px";
+			youDied.style.display = "none";
+			area.requestPointerLock();
+		}
+
+		var giveon = function() {
+			window.setTimeout(function(){
+				pauseMenu12341.style.display = "none";
+			}, 10);
+		}
+
+		var giveon2 = function() {
+			window.setTimeout(function(){
+				pauseMenu12341.style.display = "none";
+				background.style.display = "none";
+			}, 10);
+		}
+
+		var setColours = function() {
+			col0 = document.getElementById("col0").value;
+			col1 = document.getElementById("col1").value;
+			col2 = document.getElementById("col2").value;
+			col3 = document.getElementById("col3").value;
+			col4 = document.getElementById("col4").value;
+		}
+
+		var editPlusSettings = function(numba) {
+			for (var i = 0; i < plus.length; i++) {
+				if (numba === 1) {
+					plus[i].style.background = "white";
+					plus[i].style.backdropFilter = "none";
+				} else if (numba === 2) {
+					plus[i].style.background = "rgba(0, 0, 0, 0)";
+					plus[i].style.backdropFilter = "invert(100%)";
+				} else if (numba === 3) {
+					plus[i].style.background = "rgba(0, 0, 0, 0)";
+					plus[i].style.backdropFilter = "none";
+				} else if (numba === 4) {
+					plus[i].style.background = "black";
+					plus[i].style.backdropFilter = "none";
+				}
+			}
+		}
+
+		var draw = function(int) {
+			if (drawmode === true) {
+				var newdot = document.createElement("div");
+					newdot.classList.add("dot");
+					newdot.style.left = playerX + "px";
+					newdot.style.top = playerY + "px";
+					if (int === 0) {
+						newdot.style.background = col0;
+					} else if (int === 1) {
+						newdot.style.background = col1;
+					} else if (int === 2) {
+						newdot.style.background = col2;
+					} else if (int === 3) {
+						newdot.style.background = col3;
+					} else if (int === 4) {
+						newdot.style.background = col4;
+					}
+				area.appendChild(newdot);
+			}
+		}
+
+		var logChatMessage = function(type, message, sender, colour) {
+			var chatmessage = document.getElementById("chatmessage").value;
+			var n = document.createElement("div");
+				n.classList.add("chat");
+			if (type === "system") {
+				n.classList.add("chat-system");
+				n.innerHTML = message;
+			} else if (type === "from") {
+				n.classList.add("chat-from");
+				n.textContent = "YOU> " + chatmessage;
+				lastMessage = chatmessage;
+			} else if (type === "error") {
+				n.classList.add("chat-error");
+				n.innerHTML = "&#10060;ERROR: " + message; 
+			} else if (type === "for") {
+				n.style.color = colour;
+				n.innerHTML = sender + "> " + message;
+			}
+			chat.appendChild(n);
+			chat.scrollBy(0, 1000);
+		}
+
+		var quit = function() {
+			window.close();
+		}
+
+		var home = function() {
+			document.getElementById("onload").style.display = "block";
+			window.location.reload();
+		}
+
+		var prifli = function() {
+			var library = document.getElementById("library").value;
+			libimport.innerHTML = "Validating...";
+			background2.style.display = "block";
+			if (library === "/load@12341,opt") {
+				cotolo.style.display = "block";
+				libimport.style.display = "none";
+				libimport.innerHTML = `<h1>Import from Library</h1>
+			<br><br>
+			<input type="text" id="library" placeholder="Library Adress" onautocomplete="return false;" spellcheck="false"><br><br><br>
+			<button onclick="prifli();">Play!</button>`;
+			} else {
+			window.setTimeout(function() {
+				library = library + ".js";
+				var lib_ry = document.createElement("script");
+					lib_ry.setAttribute("src", library);
+				document.body.appendChild(lib_ry);
+				window.setTimeout(function() {
+					if (enterMode === true) {
+						background2.style.display = "none";
+						libimport.style.display = "none";
+						play();
+					} else {
+						window.setInterval(function(){
+							libimport.style.display = "block";
+							background2.style.display = "block";
+						}, 10);
+						libimport.innerHTML = "<h1>Invalid Library</h1>Please check the adress is correct and try again.<br><br><br><br><br><button onclick=\"home();\">Okay</button>";
+					}
+				}, 1000);
+			}, 10);}
+		}
+
+		var cotololilo = function() {
+			var cotolot = document.getElementById("cotolot").value;
+			area.innerHTML = cotolot;
+			puffyThingy = document.getElementById("puffy-thingy");
+			resume();
+			respawn();
+			play();
+			document.exitPointerLock();
+			inLock = false;
+			window.setTimeout(function() {
+				area.requestPointerLock();
+				pauseMenu12341.style.display = "none";
+				background.style.display = "none";
+			}, 500);
+		}
+
+		var title = function(type, text, colour) {
+			if (type === "main") {
+				titletitle.textContent = text;
+				titletitle.style.color = colour;
+				titletitle.style.display = "block";
+				window.setTimeout(function() {
+					titletitle.style.display = "none";
+				}, 2000);
+			} else if (type === "action") {
+				titleaction.textContent = text;
+				titleaction.style.color = colour;
+				titleaction.style.display = "block";
+				window.setTimeout(function() {
+					titleaction.style.display = "none";
+				}, 2000);
+			}
+		}
+
+		var dot = function(colour, xpos, ypos) {
+			var newdot = document.createElement("div");
+				newdot.classList.add("dot");
+				newdot.style.left = xpos + "px";
+				newdot.style.top = ypos + "px";
+				newdot.style.background = colour;
+			area.appendChild(newdot);
+		}
+
+		var drawMode = function(trueorfalse) {
+			if (trueorfalse === true) {
+				drawmode = true;
+				document.getElementById("bar").style.display = "block";
+				colcng.innerHTML = '<h1>Edit Colours</h1><br><input type="color" id="col0" value="#ff0000"><input type="color" id="col1" value="#00af05"><input type="color" id="col2" value="#0000ff"><input type="color" id="col3" value="#ffff00"><input type="color" id="col4" value="#000000"><br><br><br><br><br><button onclick="setColours();">Set</button>';
+			} else if (trueorfalse === false) {
+				drawmode = false;
+				document.getElementById("bar").style.display = "none";
+				colcng.innerHTML = "<h1>Edit Colours</h1><br><br><br><br><br>Sorry, but drawing is turned off right now.";
+			}
+		}
+
+		var openMenu = function(text) {
+			codemenu.innerHTML = text;
+			codemenu.style.display = "block";
+			document.exitPointerLock();
+		}
+
+		var statsTog = function(showORhide) {
+			var stat = document.getElementsByClassName("stat");
+			for (var i = 0; i < stat.length; i++) {
+				if (showORhide === true) {
+					stat[i].style.display = "block";
+				} else if (showORhide === false) {
+					stat[i].style.display = "none";
+				}
+			}
+		}
+
+		var getStatsTog = function() {
+			var stat = document.getElementsByClassName("stat");
+			for (var i = 0; i < stat.length; i++) {
+				if (stat[i].style.display === "block") {
+					return true;
+				} else if (stat[i].style.display === "none") {
+					return false;
+				}
+			}
+		}
+
+		var hudTog = function(showORhide) {
+			for (var i = 0; i < hud.length; i++) {
+				if (showORhide === true) {
+					hud[i].style.opacity = "100%";
+				} else if (showORhide === false) {
+					hud[i].style.opacity = "0%";
+				}
+			}
+		}
+
+		var teleport = function(x, y) {
+			playerX = x;
+			playerY = y;
+			puffyThingy.style.left = playerX + "px";
+			puffyThingy.style.top = playerY + "px";
+		}
+
+		var closeChat = function() {
+			return null;
+		}
+
+		var clearChat = function() {
+			chat.innerHTML = "<br><div class='chat chat-system'>Press T or ENTER to open chat.</div>";
+		}
+
+		var dontSupport = function(less_tah_version) {
+			if (less_tah_version > version) {
+				window.setTimeout(function() {
+					enterMode = false;
+					window.setTimeout(function() {
+						libimport.innerHTML = "You need a newer version for this library to work.<br><br><br><br><br><br><br><br><br><button onclick='home();'>Okay</button>";
+						window.setInterval(function() {
+							background2.style.display = "block";
+							libimport.style.display = "block";
+						}, 10);
+					}, 10);
+				}, 999);
+			}
+		}
+
+		var notify = function(mai, bod) {
+			document.getElementById("not-tit").textContent = mai;
+			document.getElementById("not-bod").textContent = bod;
+			notification.style.display = "block";
+		}
+
+		var spectate = function() {
+			if (cheatmode === true) {
+				drawMode(false);
+				puffyThingy.style.display = "none";
+				invincible = true;
+				spp = [playerX, playerY];
+				spectator = true;
+			}
+		}
+
+		var despectate = function() {
+			if (spectator === true) {
+				drawMode(true);
+				playerX = spp[0];
+				playerY = spp[1];
+				puffyThingy.style.top = playerY + "px";
+				puffyThingy.style.left = playerX + "px";
+				puffyThingy.style.display = "block";
+				spectator = false;
+			} else if (spectator === false) {
+				return null;
+			}
+		}
+
+		var id = function(idee) {
+			var tore = document.getElementById(idee);
+			return tore;
+		}
+
+		var cotosacopy = function() {
+			document.getElementById("cotosat").focus();
+			document.getElementById("cotosat").select();
+			document.execCommand("copy");
+			document.getElementById("cotosat").blur();
+			notify("Platfrom Save", "Code coppied to clipboard!");
+		}
+
+		statsTog(false);
+
+		var ax = 0;
+		var ay = 0;
+		area.onmousemove = function(e) {
+			if (inLock === true) {
+				ax += e.movementX;
+				ay += e.movementY;
+				area.style.left = ax + "px";
+				area.style.top = ay + "px";
+			}
+		}
+
+		var playerX = 50;
+		var playerY = 50;
+		document.body.onkeydown = function(e) {
+			if (e.key === "Alt") {
+				e.preventDefault();
+			}
+			if (inLock === true) {
+				if (e.shiftKey === false && e.altKey === false) {
+					if (e.code === "KeyW") {
+						playerY -= 10;
+						puffyThingy.style.top = playerY + "px";
+					} else if (e.code === "KeyS") {
+						playerY += 10;
+						puffyThingy.style.top = playerY + "px";
+					} else if (e.code === "KeyA") {
+						playerX -= 10;
+						puffyThingy.style.left = playerX + "px";
+					} else if (e.code === "KeyD") {
+						playerX += 10;
+						puffyThingy.style.left = playerX + "px";
+					} else if (e.code === "KeyE" || e.code === "KeyR") {
+						document.exitPointerLock();
+						giveon();
+						colcng.style.display = "block";
+					} else if (e.code === "F9") {
+						e.preventDefault();
+						document.exitPointerLock();
+						giveon2();
+						window.setTimeout(function(){
+							background.style.display = "none";
+						}, 10);
+					} else if (e.code === "F7") {
+						e.preventDefault();
+						you_died("I don't like F7!");
+					} else if (e.code === "F1") {
+						e.preventDefault();
+						document.exitPointerLock();
+						giveon();
+						help2.style.display = "block";
+					} else if (e.code === "KeyT" || e.code === "Enter") {
+						document.exitPointerLock();
+						giveon2();
+						chatMessage.style.display = "block";
+						window.setTimeout(function() {
+							chatMessage.focus();
+						}, 10);
+					} else if (e.code === "KeyZ" || e.code === "Digit1") {
+						draw(0);
+					} else if (e.code === "KeyX" || e.code === "Digit2") {
+						draw(1);
+					} else if (e.code === "KeyC" || e.code === "Digit3") {
+						draw(2);
+					} else if (e.code === "KeyV" || e.code === "Digit4") {
+						draw(3);
+					} else if (e.code === "KeyB" || e.code === "Digit5") {
+						draw(4);
+					} else if (e.code === "Slash") {
+						document.exitPointerLock();
+						giveon2();
+						chatMessage.style.display = "block";
+						chatMessage.focus();
+					} else if (e.code === "Tab" || e.code === "F5") {
+						e.preventDefault();
+						document.exitPointerLock();
+						giveon();
+						settings.style.display = "block";
+					} else if (e.code === "Escape") {
+						document.exitPointerLock();
+					} else if (e.code === "F6") {
+						e.preventDefault();
+						logChatMessage("system", "Thank you for remembering to do me a favour and going ahead and pressering F6!");
+					} else if (e.code === "F3") {
+						e.preventDefault();
+						if (getStatsTog() === false) {
+							statsTog(true);
+						} else if (getStatsTog() === true) {
+							statsTog(false);
+						}
+					} else if (e.code === "F2") {
+						e.preventDefault();
+						hudTog(false);
+					} else if (e.code === "KeyH") {
+						hudTog(true);
+					} else if (e.code === "KeyF" || e.code === "F4") {
+						document.exitPointerLock();
+						giveon();
+						modes.style.display = "block";
+					} else if (e.code === "KeyL") {
+						ax = 50;
+						ay = 50;
+						area.style.left = ax + "px";
+						area.style.top = ay + "px";
+						teleport(50, 50);
+					}
+				} else if (e.shiftKey === true) {
+					if (e.code === "KeyW") {
+						playerY -= 30;
+						puffyThingy.style.top = playerY + "px";
+					} else if (e.code === "KeyS") {
+						playerY += 30;
+						puffyThingy.style.top = playerY + "px";
+					} else if (e.code === "KeyA") {
+						playerX -= 30;
+						puffyThingy.style.left = playerX + "px";
+					} else if (e.code === "KeyD") {
+						playerX += 30;
+						puffyThingy.style.left = playerX + "px";
+					}
+				} else if (e.altKey === true) {
+					e.preventDefault();
+					if (e.code === "KeyW") {
+						playerY -= 1;
+						puffyThingy.style.top = playerY + "px";
+					} else if (e.code === "KeyS") {
+						playerY += 1;
+						puffyThingy.style.top = playerY + "px";
+					} else if (e.code === "KeyA") {
+						playerX -= 1;
+						puffyThingy.style.left = playerX + "px";
+					} else if (e.code === "KeyD") {
+						playerX += 1;
+						puffyThingy.style.left = playerX + "px";
+					}
+				}
+			} else if (inLock === false) {
+				if (e.code === "Escape") {
+					window.setTimeout(function() {
+						resume();
+					}, 300);
+				}
+			}
+		}
+
+		document.body.onmousedown = function(e) {
+			if (inLock === true) {
+				e.preventDefault();
+				if (e.button === 0) {
+					draw(0);
+				} else if (e.button === 1) {
+					draw(1);
+				} else if (e.button === 2) {
+					draw(2);
+				} else if (e.button === 3) {
+					draw(3);
+				} else if (e.button === 4) {
+					draw(4);
+				}
+			}
+		}
+
+		document.getElementById("library").onkeydown = function(e) {
+			if (e.key === "Enter") {
+				prifli();
+			}
+		}
+
+		document.getElementById("cotolot").onkeydown = function(e) {
+			if (e.key === "Enter") {
+				cotololilo();
+			}
+		}
+
+		chatMessage.onkeydown = function(e) {
+			if (e.key === "Enter") {
+				var chatmessage = document.getElementById("chatmessage").value;
+				if (chatmessage.includes("/") === true) {
+					if (cheatmode === true) {
+						if (chatmessage === "/help") {
+							window.setTimeout(function() {
+								document.exitPointerLock();
+								giveon();
+								help2.style.display = "block";
+							}, 500);
+						} else if (chatmessage === "/quit") {
+							quit();
+						} else if (chatmessage === "/settings crosshair white") {
+							editPlusSettings(1);
+						} else if (chatmessage === "/settings crosshair invert") {
+							editPlusSettings(2);
+						} else if (chatmessage === "/settings crosshair none") {
+							editPlusSettings(3);
+						} else if (chatmessage === "/settings void black") {
+							html.style.background = "black";
+						} else if (chatmessage === "/settings void darkblue") {
+							html.style.background = "darkblue";
+						} else if (chatmessage === "/settings void lightblue") {
+							html.style.background = "skyblue";
+						} else if (chatmessage === "/settings void grey") {
+							html.style.background = "grey";
+						} else if (chatmessage === "/settings void white") {
+							html.style.background = "white";
+						} else if (chatmessage === "/nochat") {
+							chat.style.display = "none";
+						} else if (chatmessage === "/showchat") {
+							chat.style.display = "block";
+						} else if (chatmessage === "/settings invincible false") {
+							invincible = false;
+						} else if (chatmessage === "/settings invincible true") {
+							invincible = true;
+						} else if (chatmessage === "/settings stats true") {
+							coord.style.display = "block";
+						} else if (chatmessage === "/settings stats false") {
+							coord.style.display = "none";
+						} else if (chatmessage === "/kill") {
+							you_died("Don't do whatever you just did!");
+							chatMessage.style.display = "none";
+						} else if (chatmessage === "/clear chat") {
+							chat.innerHTML = "<br><div class='chat chat-system'>Press T or ENTER to open chat.</div>";
+						} else if (chatmessage === "/title") {
+							home();
+						} else if (chatmessage === "/settings crosshair black") {
+							editPlusSettings(4);
+						} else if (chatmessage === "/bug area") {
+							area.style.display = "none";
+						} else if (chatmessage === "/debug area") {
+							area.style.display = "block";
+						} else if (chatmessage === "/bug puffyThingy") {
+							puffyThingy.src = "huj,huj,huj,huj";
+						} else if (chatmessage === "/debug puffyThingy") {
+							puffyThingy.src = "https://webstockreview.net/images/pillow-clipart-puffy-3.png";
+						} else if (chatmessage === "/bug chat") {
+							window.setInterval(function() {
+								logChatMessage("for", "BUG", "BUG", "lightblue");
+							}, 10);
+						} else if (chatmessage === "/mode default" || chatmessage === "/mode d") {
+							despectate();
+							invincible = false;
+						} else if (chatmessage === "/mode invincible" || chatmessage === "/mode i") {
+							despectate();
+							invincible = true;
+						} else if (chatmessage === "/mode spectator" || chatmessage === "/mode s") {
+							spectate();
+						} else if (chatmessage === "/save@12341,opt") {
+							title("action", "Please Wait...");
+							window.setTimeout(function() {
+								document.exitPointerLock();
+								var cotosat = document.getElementById("cotosat");
+								cotosat.innerHTML = area.innerHTML;
+								cotosa.style.display = "block";
+							}, 1500);
+						} else {
+							logChatMessage("error", "I'm sorry, but the command you entered doesen't seem to match any of the commands that I know. Maybe you spelt something wrong, or you forgot an argument, or maybe it wasn't even supposed to be a command at all. Maybe you're just trying to get me to display this message so that you can make fun of me! Just don't use the \"/\" character in any chat messages and don't make me have to explain this all over again. With that said, you can return to what you were doing. Oh, and also, I'm supprised you actually read to the end of this message! You must actually like me! YAY!");
+						}
+					} else if (cheatmode === false) {
+						logChatMessage("error", "I'm sorry, but commands are truned off for now. The library creator must've not wanted you to CHEAT!");
+					}
+					resume();
+				} else {
+					logChatMessage("from");
+				}
+				chatMessage.value = "";
+			}
+		}
+
+		window.setInterval(function() {
+			var chval = document.getElementById("chatmessage").value;
+			if (cheatmode === true) {
+				var shcom = chval.includes("/");
+				var cbug = chval.includes("/bug ");
+				var cdebug = chval.includes("/debug ");
+				var chelp = chval.includes("/help");
+				var ckill = chval.includes("/kill");
+				var cclear = chval.includes("/clear ");
+				var cnochat = chval.includes("/nochat ");
+				var ctitle = chval.includes("/title");
+				var cquit = chval.includes("/quit");
+				var cset = chval.includes("/settings ");
+				var cscros = chval.includes("/settings crosshair ");
+				var csvoid = chval.includes("/settings void ");
+				var csinvinc = chval.includes("/settings invincible ");
+				var csstat = chval.includes("/settings stats ");
+				var cmode = chval.includes("/mode ");
+
+				if (shcom === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Where COMMAND is one of:<br><br>/help - Display the help menu<br>/settings - Change a setting<br>/kill - Kill yourself<br>/clear - Clear from something<br>/nochat - Hide or show the chat<br>/bug - Bug something<br>/debug - Debug something<br>/mode - change the mode<br>/title - Return to title screen<br>/quit - Quit the game";
+				}
+
+				if (cbug === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /bug<br><br>puffyThingy - Bug the puffy thingy<br>area - Bug the platform<br>chat - Bug the chat";
+				} else if (cdebug === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /debug<br><br>puffyThingy - Debug the puffy thingy<br>area - Debug the platform";
+				} else if (chelp === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /help<br><br>Command will succsessfully display the help menu<br><br>Press ENTER to exicute the command";
+				} else if (ckill === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /kill<br><br>Command will succsessfully kill you<br><br>Press ENTER to exicute the command";
+				} else if (cclear === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /clear<br><br>chat - Clears the chat";
+				} else if (cnochat === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /nochat<br><br>h - Hide the chat<br>s - Show the chat";
+				} else if (ctitle === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /title<br><br>Command will succsessfully return to the title screen<br><br>Press ENTER to exicute the command";
+				} else if (cquit === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /quit<br><br>Command will quit the game<br><br>Press ENTER to exicute the command";
+				} else if (cset === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /settings<br><br>crosshair - Change the crosshair style<br>void - Change the void colour<br>invincible - Enter or exit invincible mode<br>stats - Show or hide the stats";
+				} else if (cmode === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /mode<br><br>default<br>d<br>invincible<br>i<br>spectator<br>s";
+				}
+
+				if (cscros === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /settings crosshair<br><br>white<br>black<br>invert<br>none";
+				} else if (csvoid === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /settings void<br><br>black<br>darkblue<br>lightblue<br>grey<br>white";
+				} else if (csinvinc === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /settings invincible<br><br>true<br>false";
+				} else if (csstat === true) {
+					blendinen.style.display = "block";
+					blendinen.innerHTML = "Command: /settings stats<br><br>true<br>false";
+				}
+
+				if (shcom !== true) {
+					blendinen.style.display = "none";
+				}
+			}
+		}, 10);
+
+		window.setInterval(function(){
+			if (playerX < -90 || playerX > 3040 || playerY < -90 || playerY > 3040) {
+				you_died("The Random Puffy Thingy fell off the world.");
+			}
+		}, 10);
+
+		window.setInterval(function(){
+			document.getElementById("coll0").style.background = col0;
+			document.getElementById("coll1").style.background = col1;
+			document.getElementById("coll2").style.background = col2;
+			document.getElementById("coll3").style.background = col3;
+			document.getElementById("coll4").style.background = col4;
+			document.getElementById("coordx").textContent = playerX;
+			document.getElementById("coordy").textContent = playerY;
+			document.getElementById("areacoordx").textContent = ax;
+			document.getElementById("areacoordy").textContent = ay;
+			document.getElementById("ischeatv").textContent = cheatmode;
+			document.getElementById("isdrawv").textContent = drawmode;
+			document.getElementById("islibv").textContent = enterMode;
+		}, 10);
+
+		document.getElementById("onload").style.display = "none";
+
+	</script>
+	<!-- <script src="https://vicchat.github.io/termtest.js"></script> -->
+</html>
