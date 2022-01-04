@@ -213,7 +213,6 @@
 		
 	</style>
 	<body>
-		<div id="notify">Internet Explorer Doesen't support many features. <a href='https://vicchat.github.io/db' class='alert-link'>Click Here</a> to download<br>a new one.<button id='x' onclick='closeit();'>X</button></div>
 		
 		<div class="bar" id="bar1"></div>
 		<div class="bar" id="bar2"></div>
@@ -265,7 +264,7 @@
 			<a href="/quiz2u" title="Quiz2U"> Quiz2U </a><br>
 			<a href="/aka/vicc-git-io" title="Get a Portable Version of vicchat.github.io" download> Get a Portable Version of vicchat.github.io </a><br>
 			<a href="/puffyv" title="The Random Puffy Thingy and the Big Scary Void"> The Random Puffy Thingy and the Big Scary Void </a><br>
-			<a href="/blog" title="My Blog">My Blog</a><br><br>
+			<a href="/blog" title="My Blog">My Blog</a><br>
 		</div>
 
 		</div>
@@ -290,10 +289,6 @@
 		}
 		
 		var notify = document.getElementById("notify");
-		
-		 if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; McAfee; rv:11.0) like Gecko") {
-			notify.style.display = "block";
-		}
 		
 		var closeit = function() {
 			notify.style.display = "none";
