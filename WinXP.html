@@ -25,6 +25,8 @@
 		<a target="_blank" href="https://web.archive.org/web/20011102130055/http://microsoft.com/windowsxp/default.asp">Windows XP November 2001</a>
 		<a href="javascript:downloadWinXP()">Download Windows XP</a><br><br>
 
+		<button onclick="onwinxp();">I'm using Windows XP!</button><br><br>
+
 		And that's about all this page has to offer...
 
 	</body>
@@ -32,6 +34,10 @@
 		
 		var downloadWinXP = function() {
 			document.body.innerHTML = `<h1>Windows XP Downloads</h1>We're seriously sorry, but no downloads for this item are available. Again, sorry. Are you actually still reading this?`;
+		}
+
+		var onwinxp = function() {
+			document.getElementById("winxpvid").src = "https://github.com/vicchat/content/raw/main/WinXP.wmv";
 		}
 
 	</script>
