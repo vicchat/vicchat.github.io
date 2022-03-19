@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>VGI Resources</title>
+	</head>
+	<style>
+		
+		html {
+			background: black;
+		}
+
+		#background {
+			position: fixed;
+			z-index: 1;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			filter: brightness(0.5);
+			user-select: none;
+			-webkit-user-select: none;
+		}
+
+		#content {
+			position: fixed;
+			z-index: 2;
+			background: transparent;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			padding: 8px;
+			color: white;
+			font-family: sans-serif;
+			text-align: center;
+		}
+
+		::selection {
+			color: white;
+			background: rgba(0, 0, 0, 0.7);
+		}
+
+		.download-button {
+			border: solid 6px darkred;
+			background: red;
+			padding: 10px;
+			width: 50%;
+			min-width: 300px;
+			font-size: 18px;
+			border-radius: 100px;
+		}
+
+		.download-button:focus {
+			outline: solid 2px dodgerblue;
+		}
+
+		#direct-download-button {
+			background: lime;
+			border-color: green;
+		}
+
+		#github-download-button {
+			background: blue;
+			border-color: darkblue;
+		}
+
+		#downloads {
+			position: fixed;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 3;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+		}
+
+		#downloads-content {
+			position: absolute;
+			background: white;
+			width: 500px;
+			height: 300px;
+			border-radius: 20px;
+			box-sizing: border-box;
+			padding: 10px;
+			left: 50%;
+			top: 50%;
+			margin-left: -250px;
+			margin-top: -150px;
+			font-family: sans-serif;
+			white-space: nowrap;
+			overflow: auto;
+		}
+
+		#downloads-title {
+			font-weight: bold;
+			font-size: 26px;
+		}
+
+		a {
+			color: blue !important;
+		}
+
+		.download-link {
+			color: red !important;
+			cursor: default;
+			background: black;
+			border-radius: 100px;
+			padding: 4px;
+			border: solid 3px darkred;
+			text-decoration: none;
+		}
+
+		#cc {
+			position: absolute;
+			top: 0px;
+			right: 14px;
+			font-size: 50px;
+			color: white;
+			cursor: default;
+		}
+
+		#badengine {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: white;
+			z-index: 4;
+			box-sizing: border-box;
+			padding: 8px;
+		}
+
+	</style>
+	<body>
+
+		<img src="https://github.com/vicchat/content/raw/main/VGIres.png" id="background">
+
+		<div id="content">
+			<h1>VGI Resources</h1>
+			A texture pack made by me, <font color="lightblue">Apersonthingy21</font>!
+			<br><br>
+			This texture pack was built to work primarily on <font color="lime">Minecraft Bedrock Edition</font>, but eventually I hope to create a Java Edition version, so it can be used on both editions.
+			<br><br><br>
+			<button id="direct-download-button" class="download-button" title="Display a set of download links to automatically download VGI Resources.">Direct Download</button><br><br>
+			<button id="github-download-button" class="download-button" title="Sends you to Github to choose a download." onclick="window.open('https://github.com/vicchat/bin/blob/main/VGI%20Resources');">Github Download</button>
+		</div>
+
+		<div id="downloads">
+			<div id="cc" title="Close">&times;</div>
+			<div id="downloads-content">
+				<span id="downloads-title">VGI Resources Downloads</span>
+				<br><br>
+				[NEWEST] v1.0.0 for Bedrock Edition 1.18.0.
+				<a target="_blank" class="download-link" href="https://github.com/vicchat/bin/raw/main/VGI%20Resources/VGI%20Resources%201.0.0.mcpack">Download</a>
+			</div>
+		</div>
+
+		<div id="badengine">
+			Please go to github to download VGI Resources:<br>
+			<a  href="https://github.com/vicchat/bin/blob/main/VGI%20Resources">https://github.com/vicchat/bin/blob/main/VGI%20Resources/</a>
+		</div>
+
+	</body>
+	<script>
+		
+		document.getElementById("badengine").style.display = "none";
+
+		var overlay = document.getElementById("downloads");
+		var dd = document.getElementById("direct-download-button");
+		var cc = document.getElementById("cc");
+
+		overlay.style.display = "none";
+
+		dd.onclick = function() {
+			overlay.style.display = "block";
+		}
+
+		cc.onclick = function() {
+			overlay.style.display = "none";
+		}
+
+		document.body.onkeydown = function(e) {
+			if (e.key === "Escape") {
+				overlay.style.display = "none";
+			}
+		}
+
+	</script>
+</html>
