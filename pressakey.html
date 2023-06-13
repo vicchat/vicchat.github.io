@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charaset="uft-8">
+        <title>OK SIR</title>
+    </head>
+    <body>
+    
+    <h1>OKSIRTYPEINTHEBOGXFORSOMOKSIRNESSZ</h1>
+    <input id="inpoot">
+    <button id="booton">Click me or press enter!</button>
+    <span id="texas"></span>
+        
+    </body>
+    <script>
+        
+        var texas = document.getElementById("texas");
+        var booton = document.getElementById("booton");
+        var inpoot = document.getElementById("inpoot");
+        
+        booton.onclick = function() {
+        	texas.textContent = "OK SIR";
+        }
+        
+        inpoot.onclick = function() {
+        	texas.textContent = "";
+        }
+        
+        inpoot.onkeydown = function(e) {
+    		if (e.keyCode === 13) {
+    			texas.textContent = "OK SIR";
+    		} else {
+    			texas.textContent = "";
+    		}
+        }
+        
+    </script>
+</html>
