@@ -5,6 +5,7 @@ var cftdstyle = document.createElement("link");
 	cftdstyle.setAttribute("href", "https://vicchat.github.io/td.css");
 document.querySelector("head").appendChild(cftdstyle);
 
+/*
 var cftd = document.createElement("div");
 	cftd.setAttribute("id", "cftd");
 	cftd.innerHTML = `
@@ -27,3 +28,4 @@ var cftdac = function() {
 	window.localStorage.setItem("cftd", "accept");
 	window.history.back();
 }
+*/
