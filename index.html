@@ -8,11 +8,12 @@
 		
 		body {
 			font-family: sans-serif;
-			background-color: rgb(30, 30, 30);
+			background-color: rgb(15, 15, 15);
 		}
 		
 		h1 {
-			color: white;
+			color: red;
+			text-shadow: 2px 2px white;
 			text-align: center;
 			margin: 5px;
 			font-family: "Blackadder Itc", fantasy;
@@ -22,27 +23,35 @@
 		#h1 {
 			position: fixed;
 			text-align: center;
-			left: 10px;
-			right: 27px;
+			left: 50%;
 			top: 10px;
 			border-radius: 15px;
-			background-color: darkRed;
+			background-color: rgba(30, 30, 30, 0.5);
 			padding: 0px;
-			height: 100px;
+			height: 128px;
 			overflow: auto;
 			z-index: 5;
+			width: 512px;
+			margin-left: -265px;
 		}
 		
 		a {
 			color: red;
 			text-decoration: none;
-			background-color: rgb(30, 30, 30);
+			background: transparent;
+			padding-left: 8px;
+			padding-right: 8px;
 		}
 		
-		a:hover, a:focus {
-			outline: solid 1px red;
-			background-color: rgb(60, 60, 60);
+		a:hover {
+			border-bottom: solid 1px darkred;
 			border-radius: 10px;
+			background: linear-gradient(rgb(15, 15, 15), rgb(141, 0, 0));
+			color: white;
+		}
+
+		a:focus {
+			outline: dashed 1px red;
 		}
 		
 		#notify {
@@ -78,7 +87,7 @@
 		}
 		
 		#bar1 {
-			background-color: #666666;
+			background-color: rgb(75, 75, 75);
 			right: -495px;
 			height: 300px;
 		}
@@ -89,7 +98,7 @@
 		}
 		
 		#bar3 {
-			background-color: #666666;
+			background-color: rgb(75, 75, 75);
 			right: -280px;
 		}
 		
@@ -121,28 +130,24 @@
 		#x:active {
 			color: green;
 		}
-		
+
 		::-webkit-scrollbar {
-			width: 17px;
-			height: 17px;
-			background: black;
+			width: 5px;
+			height: 5px;
+			background: transparent;
 		}
 		
 		::-webkit-scrollbar-track {
-			background: black;
-			border: solid 1px red;
-			border-radius: 100px;
-			box-shadow: inset 0 0 6px red;
+			background: transparent;
 		}
 		
 		::-webkit-scrollbar-thumb {
-			background: darkred;
-			border: solid 1px red;
+			background: rgb(150, 150, 150);
 			border-radius: 100px;
 		}
 		
 		::-webkit-scrollbar-corner {
-			background: black;
+			background: transparent;
 		}
 		
 		#foot {
@@ -222,7 +227,7 @@
 		<div id="body-body">
 		
 		<div id="h1">
-			<h1>Welcome to vicchat.github.io!</h1>
+			<h1>vicchat.github.io</h1><br>
 			<div id="foot">Turn JavaScript back on!</div>
 		</div>
 		
@@ -232,7 +237,7 @@
 			<a href="/smalltravel" title="Tiny travel place"> Tiny travel place </a><br>
 			<a href="/boxermodel" title="The Boxermodel"> Are Boxers Beautifful? </a><br>
 			<a href="/search" title="Search The Web"> Search the Web </a><br>
-			<a  targrt="_blank" href="mailto:?Subject=New Message&Body=New body" title="Wrote an email"> Write an email </a><br>
+			<a target="_blank" href="mailto:?Subject=New Message&Body=New body" title="Wrote an email"> Write an email </a><br>
 			<a href="/pie" title="How to eat pie">How to eat pie</a><br>
 			<a href="vicchat.github.io" title="Error">Error</a><br>
 			<a href="/box" title="Boxes">Boxes</a><br>
@@ -266,6 +271,7 @@
 			<a href="/puffyv" title="The Random Puffy Thingy and the Big Scary Void"> The Random Puffy Thingy and the Big Scary Void </a><br>
 			<a href="/blog" title="My Blog">My Blog</a><br>
 			<a href="/WinXP" title="Windows XP">Windows XP</a><br>
+			<a href="./avalotto" title="Avalotto? Avolotto?">Avalotto</a><br>
 		</div>
 
 		</div>

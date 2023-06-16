@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Avalotto</title>
+	</head>
+	<style>
+		
+		html {
+			zoom: 300%;
+			background: #1E111E;
+			text-align: center;
+			color: #FFFFFF;
+			user-select: none !important;
+			-webkit-user-select: none !important;
+			font-family: sans-serif;
+		}
+		
+		button {
+			background: transparent;
+			color: #FFFFFF;
+			border: solid 1px #FFFFFF;
+			position: absolute;
+			width: 80%;
+			left: 50%;
+			margin-left: -40%;
+			top: 64px;
+			font-size: xx-large;
+			font-weight: bolder;
+			box-sizing: border-box;
+			padding: 16px;
+		}
+		
+		button:hover {
+			background: rgba(51, 51, 69, 0.5);
+		}
+
+		button:active {
+			background: #333345;
+		}
+
+		#t {
+			font-size: xx-large;
+		}
+
+		#bankaccount {
+			border: solid 1px white;
+			padding: 16px;
+			margin: 32px;
+			border-radius: 16px;
+			background: rgba(255, 255, 255, 0.3)
+		}
+		
+	</style>
+	<body>
+		
+		<span id="t">Buy a ticket to begin!</span>
+		<br><br>
+		<button onclick="r();" oncontextmenu="e = 1;">Purchase an Avalotto ticket! ($5)</button>
+		<br><br><br>
+		<div id="bankaccount">
+			<h2>Your bank account:</h2>
+			<span id="bank">$5</span>
+			<span id="avo">🥑0</span><br>
+			You are
+			<span id="bank1">RICH</span> and
+			<span id="avo1">HUNGRY</span>
+		</div>
+		<a href="javascript:void(0);" onclick="about();">About</a>
+		
+	</body>
+	<script>
+		
+		var t = document.getElementById("t");
+		var e = 0;
+		var m = "";
+		var $ = 5;
+		var b = document.getElementById("bank");
+		var a = document.getElementById("avo");
+		var b1 = document.getElementById("bank1");
+		var a1 = document.getElementById("avo1");
+		var w = 0;
+		
+		var r = function() {
+			var n = Math.round(Math.random()*36+1);
+			if (e === 1) {
+				m = " [" + n + "]";
+			}
+
+			t.innerHTML = "<i>Entering Draw...</i>" + m;
+
+			window.setTimeout(function(){
+				if (n <= 2) {
+					t.innerHTML = "YOU WIN!" + m;
+					w++;
+					a.innerHTML = "🥑" + w;
+					a1.innerHTML = "STILL HUNGRY"
+				} else {
+					t.innerHTML = "Not today, keep trying!" + m;
+				}
+			}, 200);
+
+			$ -= 5;
+			if ($ === 0) {
+				b.innerHTML = "$0";
+				b1.innerHTML = "BROKE"
+			} else if ($ < 0) {
+				b.innerHTML = "-$" + $*-1;
+				b1.innerHTML = "IN DEBT"
+			} else {
+				window.alert("ERROR: TOO RICH!");
+				window.location.reload();
+			}
+		}
+
+		var about = function() {
+			window.alert(`About Avalotto:
+The Avalotto is a lottery, but only instead of winning money, you win free avocados!
+The ticket price is $5, and you have a 2/37 chance of winning!
+However, the more tickets you buy, the more in debt you become, and debt is bad, so try to avoid it.
+Also: please note that this only exists because of a stupid idea I had one day. And for those of you dumb enough to think this, no, you're not spending real money.
+Enjoy the whatever this is!`);
+		}
+		
+	</script>
+</html>
