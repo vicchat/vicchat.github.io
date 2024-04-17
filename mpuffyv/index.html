@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html ondragstart="return false;" lang="en">
+	<head>
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>The Random Puffy Thingy and the Big Scary Void</title>
+		<link rel="stylesheet" href="stylesheet.css">
+	</head>
+	<body onblur="background.style.display = 'block'; pauseMenu12341.style.display = 'block';">
+
+		<div id="onload">
+			Please Wait...
+		</div>
+
+		<div id="start" style="display: block;">
+			<img src="assets/background.jpg" id="bkimg">
+			<div id="innimg">
+				<span style="font-family: 'Blackadder ITC', 'Times New Roman', monospace; color: white; text-shadow: 2px 2px darkred;"><b>vicchat.github.io</b></span>
+				<h1 style="font-family: 'Silkscreen', 'Consolas', monospace; color: lime;">The Random Puffy Thingy and the Big Scary Void</h1>
+				<button onclick="play();">Empty Platform</button>
+				<br><br>
+				<button onclick="background2.style.display = 'block'; libimport.style.display = 'block';">Import from Library</button>
+				<br><br>
+				<button onclick="background2.style.display = 'block'; informat.style.display = 'block';">Information</button>
+				<br><br>
+				<button onclick="quit();">Quit</button>
+				<br><br><br>
+				<span style="font-family: 'Silkscreen', fantasy;">version <span class="v" onclick="document.getElementById('super_secret_settings').style.display = 'inline-block';"></span> | Chunk Edition — Mobile</span>
+			</div>
+		</div>
+
+		<div id="html">
+			<div id="area">
+				<img src="assets/puffy.png" id="puffy-thingy">
+				<div id="plus">
+					<div id="plus-c" class="plus"></div>
+				</div>
+				<div id="dotconst"></div>
+			</div>
+		</div>
+
+		<div id="coord" class="hud">POSITION: <span id="coordx">-</span>, <span id="coordy">-</span><br>VIEWPORT: <span id="arx">-</span>, <span id="ary">-</span></div>
+
+		<div id="background" onclick="mayberesume();">
+			<div class="close" onclick="resume();">&times;</div>
+		</div>
+		
+		<div id="pause-menu" class="menu">
+			<span style="font-family: 'Blackadder ITC', 'Times New Roman', monospace; color: white; text-shadow: 2px 2px darkred;" class="bh"><b>vicchat.github.io</b></span>
+			<h1 style="font-family: 'Silkscreen', 'Consolas', monospace; color: lime;" class="bh">The Random Puffy Thingy and the Big Scary Void</h1>
+			<h1 id="showlab">Menu</h1>
+			<button onclick="resume();">Resume</button>
+			<br><br>
+			<button onclick="help2.style.display = 'block';">Help</button>
+			<br><br>
+			<button onclick="home();">Title Screen</button>
+		</div>
+
+		<div id="colcng" class="menu">
+			<h1>Edit Colours</h1><br>
+			<input type="color" id="col0" value="#ff0000">
+			<input type="color" id="col1" value="#00af05">
+			<input type="color" id="col2" value="#0000ff">
+			<input type="color" id="col3" value="#ffff00">
+			<input type="color" id="col4" value="#000000">
+			<br><br><br><br><br>
+			<button onclick="setColours();">Set</button>
+		</div>
+
+		<div id="bar" class="hud">
+			<div class="bar" id="coll0" onclick="draw(0);"><br><br></div>
+			<div class="bar" id="coll1" onclick="draw(1);"><br><br></div>
+			<div class="bar" id="coll2" onclick="draw(2);"><br><br></div>
+			<div class="bar" id="coll3" onclick="draw(3);"><br><br></div>
+			<div class="bar" id="coll4" onclick="draw(4);"><br><br></div>
+			<div class="bar" id="cngcol" onclick="background.style.display = 'block'; colcng.style.display = 'block';"><br>•••</div>
+		</div>
+
+		<div id="you-died">
+			<h1>YOU DIED!</h1>
+			<span id="how-you-died"></span>
+			<br><br><br><br>
+			<button onclick="respawn();">Respawn</button>
+			<br><br>
+			<button onclick="home();">Title Screen</button>
+		</div>
+
+		<div id="help1" class="menu">
+			<h1 style="text-align: center;">Help</h1>
+			<span class="helpme"></span>
+		</div>
+
+		<div id="help2" class="menu">
+			<h1 style="text-align: center;">Help</h1>
+			<span class="helpme"></span>
+		</div>
+
+		<div id="informat" class="menu">
+			<h1>Information</h1>
+			<span id="warn" style="color: red;"><b>WARNING: EXPERIMENTAL MENUS ENABLED</b><br>
+			PROBLEMS MAY OCCUR IDK
+			<br><br></span>
+			Welcome to The Random Puffy Thingy And The Big Scary Void! Is it your first time playing? Click the help button below. You can return to this menu any time by pressing pause [||] and clicking "Help".
+			<br><br>
+			<button onclick="help1.style.display = 'block';">Help</button>
+			<br><br>
+			<button onclick="cnglog.style.display = 'block';">Changelog</button>
+			<br><br><br>
+			<strong>Credits:</strong><br>
+			Creator: vicchat.github.io<br>
+			Puffy Thingy Image: Webstockreveiw<br>
+			Title Screen Background Image: unknown<br><br>
+			NOTE: Libraries may use images from other sources.
+			<br><br><br>
+			The Random Puffy Thingy and the Big Scary Void <span class="v"></span>
+			<br><br>
+			Tap anywhere outside this box to close.
+		</div>
+		
+		<div class="menu" id="changelog">
+			<h1>Changelog</h1>
+			<strong>What's New in version <span class="v"></span>:</strong><br>
+			<ul>
+				<li>Revamped camera & speed controls so they are easier to use</li>
+				<li>Multiple on-screen controls are now properly aligned.</li>
+				<li>Fixed a bug where the command suggestions would not dissappear after closing the chat.</li>
+				<li>Changed Background Image</li>
+				<li>Made crosshair useful!</li>
+				<li>Enabling fast & slow modes at the same time causes movement to be half the normal speed</li>
+				<li>Moving the camera now animates</li>
+				<li>Fixed a bug where menus couldn't be dismissed when dead</li>
+				<li>Abolished Crosshair, Fullscren, and Invisibile options from the settings menu</li>
+				<li>Replaced help button on hud with modes button</li>
+				<li>Temporarily removed kill (&times;) buton. Maybe it will come back who knows</li>
+				<li>Optimized movement & speed code</li>
+				<li>Rotation & Fullscren request screens are now inverted as to not blind anybody when they appear.</li>
+				<li>Coordinates no longer appear under the open chat button and now take up less screen space than before</li>
+				<li>Coordinates now show both player & camera position</li>
+				<li>Removed quit button because it only works if the browser feels like it.</li>
+				<li>Fixed a bug where library popup menus wouldn't have a background</li>
+				<li>Custom Void Colours (finally)</li>
+				<li>Made notification toasts last longer</li>
+				<li>Fixed a bug where notifications would dissappear before they were supposed to</li>
+				<li>Removed funny close buttons from Import Library and Information menus</li>
+				<li>HUD can now be hidden on mobile</li>
+				<li>Made HUD button positions more consistent</li>
+				<li>Removed /bug, /debug, /dismiss, and /nochat</li>
+				<li>Deprecated /quit (may come back)</li>
+				<li>Replaced /settings with /set and removed deprecated arguments</li>
+				<li>Command suggestions are now less stupid</li>
+				<li>Added a setting that totally does something</li>
+				<li>Added /tp to teleport, with hopes to fix NaN bug soon</li>
+				<li>nvm already fixed it</li>
+				<li>Added close buttons and new pause menu (disabled by default)</li>
+				<li>Made help more helpful</li>
+				<li>Moved changelog to new changelog menu because this changelog has too many changes</li>
+				<li>Changed changelog from previous changelog</li>
+				<li>Removed colon after "Information" in information menu</li>
+				<li>Fullscren works differently now I decided</li>
+				<li>Stuff!</li>
+			</ul>
+		</div>
+
+		<div class="menu" id="settings">
+			<h1>Settings</h1>
+			<h3>Void Colour:</h3>
+			<input id="voidcolour" type="color" value="#000000" style="position: relative; top: 5px;"><button onclick="html.style.background = document.getElementById('voidcolour').value;" style="width: 150px;">Set</button>
+			<br><br>
+			<h3>Coordinates:</h3>
+			<button onclick="coord.style.display = 'block';">Show</button><br>
+			<button onclick="coord.style.display = 'none';">Hide</button>
+			<br><br>
+			<h3>HUD:</h3>
+			<button onclick="togglehud();" id="hudhide">Hide</button><br>
+			<button id="super_secret_settings" style="display:  none;" onclick="svchytchten();">shh...</button>
+		</div>
+
+		<div id="libimport" class="menu">
+			<h1>Import from Library</h1>
+			<br><br>
+			<input type="text" id="library" placeholder="Library Adress" onautocomplete="return false;" spellcheck="false"><br><br><br>
+			<button onclick="background2.style.display = 'none'; prifli();">Play</button>
+		</div>
+
+		<span id="titletitle" class="title"></span>
+		<span id="titleaction" class="title"></span>
+
+		<div id="codemenu" class="menu"></div>
+
+		<button class="mini hud" id="chatbutton" onclick="openChat(); this.style.background = 'rgba(0, 0, 0, 0.5)';">&#128488;</button>
+
+		<button class="look-control hud" id="look-left" ontouchstart="loook(50, 0);">&#x21E6;</button>
+		<button class="look-control hud" id="look-up" ontouchstart="loook(0, 50);">&#x21E7;</button>
+		<button class="look-control hud" id="look-right" ontouchstart="loook(-50, 0);">&#x21E8;</button>
+		<button class="look-control hud" id="look-down" ontouchstart="loook(0, -50);">&#x21E9;</button>
+
+		<button class="control hud" id="fast" onclick="speed.togglespr();">+</button><br>
+		<button class="control hud" id="slow" onclick="speed.togglesne();">-</button>
+
+		<div id="buttons4U" class="hud">
+			<button class="mini" onclick="background.style.display = 'block'; pauseMenu12341.style.display = 'block';" style="right: 75px">||</button>
+			<button class="mini" onclick="background.style.display = 'block'; modes.style.display = 'block';" style="right: 40px">=</button>
+			<button class="mini" onclick="background.style.display = 'block'; settings.style.display = 'block';" style="right: 5px;">☼</button>
+		</div>
+
+		<button class="control hud" id="mu" ontouchstart="mooove(0,-1);">&#x21E7;</button><br>
+		<button class="control hud" id="ml" ontouchstart="mooove(-1,0);">&#x21E6;</button>
+		<button class="control hud" id="mr" ontouchstart="mooove(1,0);">&#x21E8;</button>
+		<button class="control hud" id="md" ontouchstart="mooove(0,1);">&#x21E9;</button>
+
+		<div id="chat">
+			<span id="append-chat">
+				<br>
+				<button id="closeit" onclick="closeChat();">Close</button>
+			</span>
+			<br><br>
+		</div>
+
+		<input type="text" id="chatmessage" placeholder=">">
+
+		<div id="background2" onclick="mayberesume();">
+			<div class="close" onclick="resume();">&times;</div>
+		</div>
+
+		<div id="notification" onclick="this.style.display = 'none';">
+			<h2 id="not-tit"></h2>
+			<span id="not-bod"></span>
+		</div>
+
+		<div id="blendinen"></div>
+
+		<div id="modes" class="menu">
+			<h1>Modes</h1>
+			<button onclick="despectate(); invincible = false;">Default</button>
+			<br><br>
+			<button onclick="despectate(); if (cheatmode === true) {invincible = true; } else if (cheatmode === false) { this.innerHTML = 'Invincible Disabled'; }">Invincible</button>
+			<br><br>
+			<button onclick="spectate(); if (cheatmode === true) {invincible = true; } else if (cheatmode === false) { this.innerHTML = 'Spectator Disabled'; }">Spectator</button>
+		</div>
+
+		<div id="cotosa" class="menu">
+			<h1>Save platform as HTML</h1>
+			<textarea id="cotosat" oncontextmenu="return true;"></textarea>
+			<br><br><button onclick="cotosacopy();">Copy</button>
+		</div>
+
+		<div id="cotolo" class="menu" style="z-index: 104;">
+			<h1>Load platfrom from clipboard</h1>
+			<textarea id="cotolot" placeholder="Paste code here"></textarea>
+			<br><br><button onclick="cotololilo();">Load</button>
+		</div>
+
+		<div id="roto">
+			Please Rotate Your Device
+		</div>
+
+	</body>
+	<script type="text/javascript" src="app.js"></script>
+</html>
